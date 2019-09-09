@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Greg Vissing - UCF Giving Form</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Open+Sans&display=swap" rel="stylesheet">
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/webdev/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Giving Form -->
+	<link rel="stylesheet" href="https://rawgit.com/lykmapipo/themify-icons/master/css/themify-icons.css">
+	<link rel="stylesheet" href="https://unpkg.com/vue-form-generator/dist/vfg.css">
+
+	<link rel="stylesheet" href="https://rawgit.com/cristijora/vue-form-wizard/master/dist/vue-form-wizard.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/vue-simple-suggest/dist/styles.css">
+	<!-- Website styles -->
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/css/normalize.css" rel="stylesheet">
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/css/skeleton.min.css" rel="stylesheet">
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/css/styles.css" rel="stylesheet">
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script src="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/js/scripts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+
+<body>
+	<div id="app" ref="appHeight">
+		<div class="container">
+			<div class="row" ref="rowWidth">
+				<transition name="slide" mode="out-in">
+					<div class="one-half column text-container" v-if="show">
+						<div class="hero">
+							<div class="text-container" ref="headingContainer">
+								<div>
+									<h1 class="heading" style="text-align: center;">
+										Make Your Impact
+									</h1>
+									<h2 class="subheading" style="text-align: center;">
+										Your Support of UC and UC Health Changes
+										Lives.
+									</h2>
+									<p class="campaignText">
+										This is some text regarding the campaign
+										that you need to know about.
+									</p>
+									<a href="#" class="btn btn-primary">
+										READ MORE
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</transition>
+
+				<div class="one-half column form-container" ref="formHeight" :style="{'height': ` ${matchHeight}px)`}">
+					<form-wizard @on-complete="onComplete" ref="wizard" color="#000" error-color="#a94442">
+						<wizard-step slot-scope="props" slot="step" :tab="props.tab" :transition="props.transition"
+							:index="props.index"></wizard-step>
+
+						<tab-content title="Areas to Support" subtitle="Step 1" icon="ti-settings"
+							:before-change="validateAreasSupportTab" class="row">
+							<vue-form-generator :model="model" :schema="areasSupportTabSchema" :options="formOptions"
+								ref="areasSupportTabForm" class="container areasSupport"></vue-form-generator>
+
+
+						</tab-content>
+
+						<tab-content title="Donation Amount" subtitle="Step 2" icon="ti-money"
+							:before-change="validateDonationTab" class="row">
+							<vue-form-generator :model="model" :schema="donationTabSchema" :options="formOptions"
+								ref="donationTabForm" class="donationSelect"></vue-form-generator>
+						</tab-content>
+
+						<tab-content title="Impact Fund" subtitle="Step 3" icon="ti-list"
+							:before-change="validateFundTab" class="row">
+							<vue-form-generator :model="model" :schema="fundTabSchema" :options="formOptions"
+								ref="fundTabForm" class="container fundSelect"></vue-form-generator>
+
+
+						</tab-content>
+
+						<tab-content title="Personal Details" subtitle="Step 4" icon="ti-user"
+							:before-change="validatePersonalTab" class="row">
+							<vue-form-generator :model="model" :schema="personalTabSchema" :options="formOptions"
+								ref="personalTabForm" class="container"></vue-form-generator>
+						</tab-content>
+
+						<!--<tab-content title="Memorial or Tribute" subtitle="Test" icon="ti-heart"
+						:before-change="validateTributeTab" class="row">
+						<vue-form-generator :model="model" :schema="tributeTabSchema" :options="formOptions"
+							ref="tributeTabForm" class="container tribute"></vue-form-generator>
+					</tab-content>-->
+
+						<tab-content title="Address" subtitle="Step 4" icon="ti-location-pin"
+							:before-change="validateAddressTab" class="row">
+							<vue-form-generator :model="model" :schema="addressTabSchema" :options="formOptions"
+								ref="addressTabForm" class="container"></vue-form-generator>
+						</tab-content>
+
+						<tab-content title="DONATE!" icon="ti-check" class="row">
+							<h4>Your json is ready!</h4>
+							<div class="panel-body">
+								<pre v-if="model" v-html="prettyJSON(model)"></pre>
+							</div>
+						</tab-content>
+
+						<template slot="footer" slot-scope="props">
+							<div class="container">
+								<div class="row">
+									<div class="wizard-footer-left one-third column">
+										<wizard-button v-if="props.activeTabIndex > 0 && !props.isLastStep"
+											:style="props.fillButtonStyle" class="wizard-footer-right"
+											@click.native="props.prevTab()">
+											Previous
+										</wizard-button>
+									</div>
+									<div class="wizard-footer-right one-third column">
+										<wizard-button v-if="!props.isLastStep" @click.native="props.nextTab()"
+											class="wizard-footer-right" :style="props.fillButtonStyle">
+											Next
+										</wizard-button>
+										<wizard-button v-else @click.native="alert('Done')"
+											class="wizard-footer-right finish-button" :style="props.fillButtonStyle">
+											{{ props.isLastStep ? "Done" : "Next" }}
+										</wizard-button>
+									</div>
+								</div>
+							</div>
+						</template>
+					</form-wizard>
+				</div>
+
+				<div class="one-third column giftCart">
+					<h3 class="text-center">Gift Cart Details</h3>
+					<hr />
+					<p class="text-center">Your gifts for this transaction:</p>
+					<ul></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://rawgit.com/cristijora/vue-form-wizard/master/dist/vue-form-wizard.js"></script>
+	<script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+
+	<script src="https://rawgit.com/icebob/vue-form-generator/master/dist/vfg.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/vue-simple-suggest"></script>
+	<script type="text/javascript" src="https://unpkg.com/vue-simple-suggest/dist/iife.js"></script>
+
+</body>
+
+</html>
