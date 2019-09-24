@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Greg Vissing - UCF Giving Form</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic|Open+Sans&display=swap" rel="stylesheet">
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/webdev/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Giving Form -->
+	<link rel="stylesheet" href="https://rawgit.com/lykmapipo/themify-icons/master/css/themify-icons.css">
+	<link rel="stylesheet" href="https://unpkg.com/vue-form-generator/dist/vfg.css">
+
+	<link rel="stylesheet" href="https://rawgit.com/cristijora/vue-form-wizard/master/dist/vue-form-wizard.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/vue-simple-suggest/dist/styles.css">
+	<!-- Website styles -->
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/css/normalize.css" rel="stylesheet">
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/css/skeleton.min.css" rel="stylesheet">
+	<link href="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/css/styles.css" rel="stylesheet">
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script src="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/js/scripts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <style>
+	.clearfix {
+		clear: both;
+	}
+
+	input,
+	select,
+	button {
+		border-radius: 0 !important;
+	}
+
+	.radio-list {
+		display: flex;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		flex-direction: row;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	.radio-list label {
+		display: inline-block;
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border: 1px solid transparent;
+		padding: 10px 5px;
+		font-size: 1em;
+		line-height: 1.5;
+		border-radius: 0;
+		transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		background-color: #fff;
+		border-color: #000;
+		flex-grow: 1;
+		margin-left: 5px;
+		margin-right: 5px;
+		color: #000;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+		transition: all 0.4s ease;
+	}
+
+	.radio-list label.is-checked,
+	.radio-list label:hover {
+		background-color: #000;
+		color: #fff;
+	}
+
+	.radio-list label input {
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+		pointer-events: none;
+	}
+
+	header {
+		background-color: #000;
+		padding: 5px 0;
+	}
+
+	header img {
+		width: 300px;
+		display: inline-block;
+	}
+
+	header p {
+		color: #fff;
+		display: inline-block;
+		float: right;
+		vertical-align: middle;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		line-height: 58px;
+		font-size: 1.25em;
+	}
+
+	#giveToUCapp .vue-form-wizard {
+		width: 1024px !important;
+		margin: 0 auto !important;
+		padding: 1.5em 0;
+	}
+
+	#giveToUCapp .vue-form-generator {
+		padding: 0 1.5em;
+	}
+
+	#giveToUCapp .one-half.column {
+		margin-left: 0 !important;
+	}
+
+	#giveToUCapp .column,
+	#giveToUCapp .columns {
+		margin-left: 0 !important;
+	}
+
+	#giveToUCapp .field-checkbox label,
+	#giveToUCapp .field-checkbox .field-wrap {
+		display: inline-block;
+		margin: 0;
+	}
+
+	#giveToUCapp .field-checkbox .field-wrap {
+		float: left;
+		margin-right: 1em;
+	}
+
+	.float-right {
+		float: right;
+	}
+
+	.pl-1 {
+		padding-left: 1em !important;
+	}
+
+	#giveToUCapp {
+		padding: 1em 0;
+	}
+
+	#giveToUCapp .wizard-nav.wizard-nav-pills {
+		padding-bottom: 0;
+	}
+
+	#giveToUCapp .wizard-tab-content {
+		padding: 10px 0;
+	}
+
+	.modal-mask {
+		position: fixed;
+		z-index: 9998;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, .5);
+		display: table;
+		transition: opacity .3s ease;
+	}
+
+	.modal-wrapper {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.modal-container {
+		width: 80%;
+		height: 75%;
+		margin: 0px auto;
+		padding: 0px;
+		background-color: #fff;
+		border-radius: 2px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+		transition: all .3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.modal-header h3 {
+		margin-top: 0;
+		color: #000000;
+		padding-bottom: 0 !important;
+		left: 1em;
+		margin: 10px auto 0;
+		position: absolute;
+	}
+
+	.modal-header .filter {
+		position: absolute;
+		top: 1em;
+		left: 50%;
+		margin: auto;
+	}
+
+	.modal-body {
+		margin: 20px 0;
+	}
+
+	.modal-default-button {
+		float: right;
+		background-color: #000000;
+		color: #ffffff;
+		z-index: 9999;
+		position: relative;
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out;
+	}
+
+	.modal-default-button:hover {
+		background-color: #ffffff;
+		color: #000000;
+	}
+
+	.modal-header .modal-default-button {
+		height: 60px;
+		width: 60px;
+		margin: auto;
+		padding: 0 !important;
+	}
+
+	.modal-footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		text-align: center;
+	}
+
+	.modal-footer .modal-default-button {
+		float: none !important;
+		margin: 0;
+	}
+
+	/*
+	* The following styles are auto-applied to elements with
+	* transition="modal" when their visibility is toggled
+	* by Vue.js.
+	*
+	* You can easily play with the modal transition by editing
+	* these styles.
+	*/
+
+	.modal-enter {
+		opacity: 0;
+	}
+
+	.modal-leave-active {
+		opacity: 0;
+	}
+
+	.modal-enter .modal-container,
+	.modal-leave-active .modal-container {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+
+	hr {
+		margin: 0;
+	}
+
+	@media (max-width: 1024px) {
+		#givingForm .vue-form-wizard, .modal-container {
+			width: 100% !important;
+		}
+	}
+
+	.button-primary {
+		background-color: #e00122 !important;
+		border-color: #e00122 !important;
+	}
+
+	.ti-close {
+		position: absolute;
+		right: 4%;
+		top: 15px;
+		margin: 0;
+		font-size: 1.5em;
+		cursor: pointer;
+	}
+
+	label.placeholder {
+		position: absolute;
+		top: 0;
+		left: 2rem;
+		font-size: 32px;
+		font-weight: 300;
+		color: gray;
+		transition: all 0.3s;
+		margin: 0;		
+	}
+
+	label.placeholder.move-up {
+		top: -20px;
+		color: #000000;
+		font-size: 1em;
+	}
+
+	.SearchInput {
+		display: inline-block;
+		width: 100% !important;
+		padding: 1.5em 1em !important;
+		font-size: 1em !important;
+		outline: 0 !important;
+		border: 5px solid #e00122 !important;
+		color: #000;
+		border-radius: 0;
+		border: none;
+		/* width: 75%; */
+		display: inline-block;
+		vertical-align: top;
+		height: 44px;
+		padding-top: 8px;
+		font-size: 2rem;
+		margin: 0;
+	}
+	.typeahead-button {
+		width: 24%;
+		display: inline-block;
+		height: 44px;
+		border: none;
+		font-size: 1.25rem;
+		/* font-family: "proxima-nova-b",sans-serif; */
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		color: #fff;
+		background-color: #000000;
+	}
+	.Results {
+		width: 100%;
+		margin: 0 auto;
+		padding: 0;
+		text-align: left;
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		height: 80vh;
+		overflow: auto;
+	}
+	.Results li {
+		/* background: rgba(53, 73, 94, 0.5); */
+		background-color: #eee;
+		margin: 0;
+		padding: 0.5em 1em;
+		list-style: none;
+		width: 100%;
+		border-bottom: 1px solid #394e62;
+		transition: ease-in-out 0.5s;
+		position: relative;
+	}
+	.Results li span {
+		width: 79%;
+		display: inline-block;
+		vertical-align: top;
+		padding-left: 4em;
+	}
+
+	.Results li span h5 {
+		margin: 0;
+		padding: 0;
+	}
+	.Results li .btn-container {
+		width: 20%;
+		display: inline-block;
+		text-align: right;
+	}
+	.Results li .btn-container button {
+		vertical-align: top;
+	}
+	.Results li .btn-container button:after {
+		content: "";
+		clear: both;
+	}
+	.search-results {
+		position: relative;
+	}
+	.search-results .typeahead-container > div {
+		position: relative;
+	}
+	.search-results .typeahead-container > div .ti-close {
+		right: 2%;
+		top: 23%;
+	}
+	.search-results .typeahead-container > div .Results {
+		position: relative !important;
+		height: auto;
+	}
+	.clearfix:after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity 0.3s;
+	}
+	.fade-enter,
+	.fade-leave-to {
+		opacity: 0;
+	}
+	/* .home {
+		input {
+			padding: 0.5em 1em !important;
+		}
+	} */
+	.expand-description {
+		position: absolute;
+		left: 1em;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		width: 40px;
+		height: 40px;
+		font-size: 1.25em;
+		border: 1px solid black;
+		text-align: center;
+		line-height: 40px;
+	}
+
+	button {
+		font-family: "Open Sans" !important;
+	}
+</style>
+</head>
+
+<body>
+<script type="text/x-template" id="modal-template">
+	<transition name="modal">
+		<div class="modal-mask">
+			<div class="modal-wrapper">
+				<div class="modal-container">
+					<div class="modal-header">
+						<button type="button" class="modal-default-button" @click="close">X</button>
+						<slot name="header">
+						default header
+						</slot>
+						<hr />
+					</div>
+
+					<div class="modal-body">
+						<slot name="body">
+						default body
+						</slot>
+					</div>
+
+					<div class="modal-footer">
+						<slot name="footer">
+							<button type="button" class="modal-default-button" @click="$emit('close')">CLOSE</button>
+						</slot>
+          			</div>
+        		</div>
+      		</div>
+    	</div>
+  	</transition>
+</script>
+
+<div id="giveToUCapp">
+	<div>
+		<form-wizard @on-complete="onComplete" color="#000" error-color="#a94442">
+			<modal v-if="model.showModal" @close="model.showModal = false">
+				<div slot="header">
+					<h3 class="mb-0">Advanced Search</h3>
+					<button class="button-primary filter">Filters <i class="ti-filter"></i></button>
+				</div>
+				
+				<div slot="body">
+					<div class="typeahead-container">
+						<Typeahead filter-key="titledesc" :start-at="2"></Typeahead>
+					</div>
+				</div>
+			</modal>
+
+			<tab-content title="Gift details" icon="ti-gift" :before-change="validateGiftTab">
+				<vue-form-generator :model="model" :schema="giftTabSchema" :options="formOptions" ref="giftTabForm">
+				</vue-form-generator>
+			</tab-content>
+
+			<tab-content title="Donation details" icon="ti-money" :before-change="validateDonationTab">
+				<vue-form-generator :model="model" :schema="donationTabSchema" :options="formOptions"
+					ref="donationTabForm">
+				</vue-form-generator>
+			</tab-content>
+
+			<tab-content title="Personal details" icon="ti-user" :before-change="validatePersonalTab">
+				<vue-form-generator :model="model" :schema="personalTabSchema" :options="formOptions"
+					ref="personalTabForm">
+
+				</vue-form-generator>
+			</tab-content>
+
+			<tab-content title="Address Details" icon="ti-location-pin" :before-change="validateAddressTab">
+				<vue-form-generator :model="model" :schema="addressTabSchema" :options="formOptions"
+					ref="addressTabForm">
+				</vue-form-generator>
+
+			</tab-content>
+
+			<tab-content title="Donate Now" icon="ti-check">
+				<h4>Your json is ready!</h4>
+				<div class="panel-body">
+					<pre v-if="model" v-html="prettyJSON(model)"></pre>
+				</div>
+			</tab-content>
+		</form-wizard>
+	</div>
+</div>
+
+<script type="text/javascript" src="/file/config/headroom.min.js"></script>
+<script type="text/javascript" src="/file/config/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/file/config/cinci.namespace.js"></script>
+
+<script src="https://rawgit.com/cristijora/vue-form-wizard/master/dist/vue-form-wizard.js"></script>
+<script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+
+<script src="https://rawgit.com/icebob/vue-form-generator/master/dist/vfg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/vue-simple-suggest"></script>
+<script type="text/javascript" src="https://unpkg.com/vue-simple-suggest/dist/iife.js"></script>
+
+<script>
+	Vue.component('modal', {
+		template: '#modal-template',
+		methods: {
+			close: function () {
+				this.$emit('close');
+			}
+		}
+	});
+
+	Vue.component('Typeahead', {
+		template: `<div class="search-results">
+			<label
+				class="placeholder"
+				@click="placeholderMove"
+				for="search-field"
+			>Start typing the fund you are looking for</label>
+			<input
+				v-model="query"
+				@click="placeholderMove"
+				type="text"
+				class="SearchInput"
+				:placeholder="placeholder"
+			>
+			<i class="ti-close" v-show="showClear" @click="clearSearch"></i>
+			<div id="results-container"></div>
+			<transition-group name="fade" tag="ul" class="Results">
+				<li v-for="(item, index) in filtered" :key="index+1">
+					<i class="expand-description ti-plus"></i>
+					<span>
+						<h5>{{ item.title }}</h5>
+						<small v-show="item.desc">
+							<strong>Purpose:</strong>
+							{{ item.desc }}
+						</small>
+					</span>
+					<div class="btn-container clearfix">
+						<button class="button-primary button">Select Fund </button>
+					</div>
+				</li>
+			</transition-group>
+			<p v-show="isEmpty">Sorry, but we can't find any match for given term :(</p>
+		</div>`,
+		props: {
+			filterKey: {
+				type: String,
+				required: true
+			},
+			startAt: {
+				type: Number,
+				default: 2
+			},
+			placeholder: {
+				type: String,
+				default: ""
+			}
+		},
+		data() {
+			return {
+				items: [],
+				query: "",
+				areas: [],
+				showClear: false
+			};
+		},
+		mounted() {
+			this.fetchItems();
+		},
+		computed: {
+			filtered() {
+				if (this.query.length >= 1) {
+					this.showClear = true;
+				} else {
+					this.showClear = false;
+				}
+				if (this.query.length >= this.startAt) {
+					return this.items.filter(item => {
+						if (item.hasOwnProperty(this.filterKey)) {
+							return (
+								item[this.filterKey]
+									.toLowerCase()
+									.indexOf(this.query.toLowerCase()) > -1
+							);
+						} else {
+							console.error(
+								`Seems like property you passed down ${
+									this.filterKey
+								} doesn't exist on object ! `
+							);
+						}
+					});
+				}
+			},
+			isEmpty() {
+				if (typeof this.filtered === "undefined") {
+					return false;
+				} else {
+					return this.filtered.length < 1;
+				}
+			}
+		},
+		methods: {
+			placeholderMove() {
+				var $placeHolder = $(".placeholder");
+				$placeHolder.addClass("move-up");
+			},
+			fetchItems() {
+				//this.items = this.$store.state.funds;
+				var vm = this;
+				axios
+					.get(
+						// "https://foundation.uc.edu/WebApi/Query/40664e66-2729-4b1a-8cea-964b987c0833"
+						"https://foundation.uc.edu/WebApi/Query/d968555d-dea8-4c1a-9b5c-4e3be2d750be"
+					)
+					.then(response => {
+						this.rows = [...Object.values(response.data.Rows)];
+						// console.log(this.rows);
+						// var topLevelAll = [];
+						var fundMaster = [];
+						var areaMaster = [];
+						$.each(this.rows, function() {
+							// define values
+							var values = this.Values;
+							var target = values[1]; // Fund names
+							var splitter = target.split("\\");
+							if (splitter.length > 1) {
+								splitter.shift();
+							}
+							splitter.push(values[4]); // Descriptions
+							splitter.push(values[6]); // GUID
+							splitter.push(values[8]); // College
+							var area = values[8];
+							areaMaster.push(area);
+							// topLevelAll.push(splitter[0]);
+							fundMaster.push(splitter);
+						});
+						function onlyUnique(value, index, self) {
+							return self.indexOf(value) === index;
+						}
+						var topLevelUnique = areaMaster.filter(onlyUnique);
+						// console.log(topLevelUnique);
+						vm.areas = topLevelUnique;
+						function multiDimensionalUnique(arr) {
+							var uniques = [];
+							var itemsFound = {};
+							for (var i = 0, l = arr.length; i < l; i++) {
+								var stringified = JSON.stringify(arr[i]);
+								if (itemsFound[stringified]) {
+									continue;
+								}
+								if (arr[i][0].length != 0) {
+									uniques.push(arr[i]);
+								}
+								itemsFound[stringified] = true;
+							}
+							return uniques;
+						}
+						var uniqueFunds = multiDimensionalUnique(fundMaster);
+						var fundArr = [];
+						$.each(uniqueFunds, function(x, subFund) {
+							var fundRowData = {
+								title: subFund[0],
+								desc: subFund[1],
+								titledesc: subFund[0] + " " + subFund[1],
+								guid: subFund[2],
+								college: subFund[3]
+							};
+							fundArr.push(fundRowData);
+						}); 
+						const collegeArr = [...new Set(fundArr.map(x => x.college))];
+						const result = [...new Map(fundArr.map(item => [item.title, item])).values()]
+						
+						console.log(collegeArr);
+						
+						//console.log(JSON.stringify(UniqueNames));
+						this.items = result;
+					});
+			},
+			reset() {
+				this.query = "";
+				this.showClear = false;
+			},
+			clearSearch() {
+				this.showClear = false;
+				this.query = "";
+				var $placeHolder = $(".placeholder");
+				$placeHolder.removeClass("move-up");
+			}
+		}
+	});
+	Vue.use(VueFormWizard);
+	Vue.use(VueFormGenerator);
+	new Vue({
+		el: "#giveToUCapp",
+		props: {
+			subtitle: {
+				type: String,
+				default: "Split a complicated flow in multiple steps"
+			},
+			backButtonText: {
+				type: String,
+				default: "Previous"
+			}
+		},
+		components: {
+			//Typeahead
+		},
+		data() {
+			let titles = [{
+					id: "Miss",
+					name: "Miss"
+				},
+				{
+					id: "Mr",
+					name: "Mr."
+				},
+				{
+					id: "Mrs",
+					name: "Mrs."
+				},
+				{
+					id: "Ms",
+					name: "Ms."
+				},
+				{
+					id: "1st Lieutenant",
+					name: "1st Lieutenant"
+				},
+				{
+					id: "2nd Lieutenant",
+					name: "2nd Lieutenant"
+				},
+				{
+					id: "ADM",
+					name: "ADM"
+				},
+				{
+					id: "BG",
+					name: "BG"
+				},
+				{
+					id: "Bishop",
+					name: "Bishop"
+				},
+				{
+					id: "Brigadier General",
+					name: "Brigadier General"
+				},
+				{
+					id: "Brother",
+					name: "Brother"
+				},
+				{
+					id: "Captain",
+					name: "Captain"
+				},
+				{
+					id: "CDR",
+					name: "CDR"
+				},
+				{
+					id: "Chaplain",
+					name: "Chaplain"
+				},
+				{
+					id: "Colonel",
+					name: "Colonel"
+				},
+				{
+					id: "Commander",
+					name: "Commander"
+				},
+				{
+					id: "CPT",
+					name: "CPT"
+				},
+				{
+					id: "Dean",
+					name: "Dean"
+				},
+				{
+					id: "Dean Emeritus",
+					name: "Dean Emeritus"
+				},
+				{
+					id: "Dr.",
+					name: "Dr."
+				},
+				{
+					id: "Ensign",
+					name: "Ensign"
+				},
+				{
+					id: "Dean",
+					name: "Dean"
+				},
+				{
+					id: "Dean Emeritus",
+					name: "Dean Emeritus"
+				},
+				{
+					id: "Dr.",
+					name: "Dr."
+				},
+				{
+					id: "Ensign",
+					name: "Ensign"
+				},
+				{
+					id: "Father",
+					name: "Father"
+				},
+				{
+					id: "Field Svc Instructor-Geo",
+					name: "Field Svc Instructor-Geo"
+				},
+				{
+					id: "General",
+					name: "General"
+				},
+				{
+					id: "Governor",
+					name: "Governor"
+				},
+				{
+					id: "The Honorable",
+					name: "The Honorable"
+				},
+				{
+					id: "Judge",
+					name: "Judge"
+				},
+				{
+					id: "LCDR",
+					name: "LCDR"
+				},
+				{
+					id: "Lt Col",
+					name: "Lt Col"
+				},
+				{
+					id: "LtCol",
+					name: "LtCol"
+				},
+				{
+					id: "Lt Gen",
+					name: "Lt Gen"
+				},
+				{
+					id: "LTC",
+					name: "LTC"
+				},
+				{
+					id: "LTG",
+					name: "LTG"
+				},
+				{
+					id: "Lt.",
+					name: "Lt."
+				},
+				{
+					id: "Lt. Colonel",
+					name: "Lt. Colonel"
+				},
+				{
+					id: "Lt. Commander",
+					name: "Lt. Commander"
+				},
+				{
+					id: "Lt. Corporal",
+					name: "Lt. Corporal"
+				},
+				{
+					id: "Lt. General",
+					name: "Lt. General"
+				},
+				{
+					id: "Lt. Governor",
+					name: "Lt. Governor"
+				},
+				{
+					id: "Lt. Junior Grade",
+					name: "Lt. Junior Grade"
+				},
+				{
+					id: "Magistrate",
+					name: "Magistrate"
+				},
+				{
+					id: "Major",
+					name: "Major"
+				},
+				{
+					id: "Major General",
+					name: "Major General"
+				},
+				{
+					id: "Master Sergeant",
+					name: "Master Sergeant"
+				},
+				{
+					id: "Mayor",
+					name: "Mayor"
+				},
+				{
+					id: "Monsignor",
+					name: "Monsignor"
+				},
+				{
+					id: "Most Reverend",
+					name: "Most Reverend"
+				},
+				{
+					id: "Pastor",
+					name: "Pastor"
+				},
+				{
+					id: "Professor",
+					name: "Professor"
+				},
+				{
+					id: "Rabbi",
+					name: "Rabbi"
+				},
+				{
+					id: "Rear Admiral",
+					name: "Rear Admiral"
+				},
+				{
+					id: "Rep.",
+					name: "Rep."
+				},
+				{
+					id: "The Reverend",
+					name: "The Reverend"
+				},
+				{
+					id: "The Reverend Dr.",
+					name: "The Reverend Dr."
+				},
+				{
+					id: "Senator",
+					name: "Senator"
+				},
+				{
+					id: "Sergeant",
+					name: "Sergeant"
+				},
+				{
+					id: "Sir",
+					name: "Sir"
+				},
+				{
+					id: "Sister",
+					name: "Sister"
+				},
+				{
+					id: "Staff Sergeant",
+					name: "Staff Sergeant"
+				},
+				{
+					id: "SSgt",
+					name: "SSgt"
+				},
+				{
+					id: "VADM",
+					name: "VADM"
+				}
+			];
+			return {
+				chosen: "",
+				publicNames: [],
+				autoCompleteStyle: {
+					vueSimpleSuggest: "position-relative",
+					inputWrapper: "",
+					defaultInput: "form-control",
+					suggestions: "position-absolute list-group z-1000",
+					suggestItem: "list-group-item"
+				},
+
+
+				model: {
+					showModal: false,
+
+					Donor: {
+						Title: "",
+						FirstName: "",
+						LastName: "",
+						EmailAddress: "",
+						Phone: "",
+						Address: {
+							City: "",
+							Country: "",
+							PostalCode: "",
+							State: "",
+							StreetAddress: ""
+						}
+					},
+					Gift: {
+						IsAnonymous: "",
+						Attributes: [{
+							"AttributeId": "000",
+							"Value": "placeholder"
+						}],
+						DesignationAmount: "",
+						DesignationDesignationId: "",
+						Designations: [{
+							Amount: "0",
+							DesignationId: "placeholder fund"
+						}],
+						Tribute: {
+							Acknowledgee: {
+								AddressLines: "",
+								City: "",
+								Country: "",
+								Email: "",
+								FirstName: "",
+								LastName: "",
+								Phone: "",
+								PostalCode: "",
+								State: ""
+							},
+							TributeDefinition: {
+								Description: "New tribute",
+								FirstName: "John",
+								LastName: "Hancock",
+								Type: "Tribute"
+							},
+							"TributeId": null
+						}
+					},
+
+					tributeType: "",
+					honoreeFirstName: "",
+					honoreeLastName: "",
+
+					amount: "10",
+
+					giftType: "Monthly Gift",
+					searchType: "Areas to Support",
+					areaType: "The UC Fund"
+				},
+				formOptions: {
+					validationErrorClass: "has-error",
+					validationSuccessClass: "has-success",
+					validateAfterChanged: true
+				},
+
+				giftTabSchema: {
+					fields: [{
+							type: "radios",
+							model: "giftType",
+							label: "Select A Gift Type",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							values: ["One-Time Gift", "Monthly Gift", "Pledge Payment"],
+							onChanged: function (model, newVal, oldVal, field) {
+								switch (newVal) {
+									case "One-Time Gift":
+										return model.amount = "100";
+									case "Monthly Gift":
+										return model.amount = "10";
+									case "Pledge Payment":
+										return model.amount = "100";
+								}
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Pledge ID",
+							model: "pledgeID",
+							placeholder: "Pledge ID",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column",
+							visible: function (model) {
+								return model && model.giftType == "Pledge Payment";
+							}
+						},
+						{
+							type: "radios",
+							model: "searchType",
+							label: "Search Type",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							values: ["Areas to Support", "Advanced Search"],
+							visible: function (model) {
+								return model && model.giftType != "Pledge Payment";
+							},
+							onChanged: function (model, newVal, oldVal, field) {
+								// console.log(newVal + ' ' + oldVal);
+								if (newVal == "Advanced Search") {
+									model.showModal = true;
+								} else {
+									model.showModal = false;
+									model.searchType = "Areas to Support";
+								}
+							}
+						},
+						{
+							type: "radios",
+							model: "areaType",
+							required: true,
+							label: "Select an Area to Support",
+							validator: VueFormGenerator.validators.string,
+							values: function () {
+								return ["The UC Fund", "Scholarships", "Colleges/Units"];
+							},
+							default: "The UC Funds",
+							visible: function (model) {
+								return model && model.giftType != "Pledge Payment" && model.searchType !=
+									"Advanced Search";
+							}
+						},
+						{
+							type: "select",
+							model: "ucFund",
+							values: [
+								"UC Fund (A10001)",
+								"UC Fund for Allied Health (F101310)",
+								"UC Fund for Arts & Sciences (F101321)",
+								"UC Fund for Business (F101333)",
+								"UC Fund for CCM (F101328)",
+								"UC Fund for Engineering & Applied Science (F101340)",
+								"UC Fund for CECH (F101330)",
+								"UC Fund for DAAP (F101337)",
+								"UC Fund for Law (F101345)",
+								"UC Fund for Medicine (F100862)",
+								"UC Fund for Nursing (F101348)",
+								"UC Fund for Pharmacy (F101349)",
+								"UC Fund for the Libraries (F101347)",
+								"UC Fund for Blue Ash (F101354)",
+								"UC Fund for Clermont College (F101331)",
+								"UC Fund for Scholarships (F102183)",
+								"UC Fund for Research (F101393)",
+								"UC Fund for the Alumni Association (4080300)"
+							],
+							validator: VueFormGenerator.validators.string,
+							selectOptions: {
+								noneSelectedText: "Select a UC Fund"
+							},
+							visible: function (model) {
+								return model && model.areaType == "The UC Fund" && model.giftType !=
+									"Pledge Payment" && model.searchType != "Advanced Search";
+							}
+						},
+						{
+							type: "select",
+							model: "scholarship",
+							validator: VueFormGenerator.validators.string,
+							values: [
+								"UC Fund for Scholarships(F102183)",
+								"Cincinnatus Scholarship Fund(F100819)",
+								"Gen-1 Theme House",
+								"Turner Scholars"
+							],
+							selectOptions: {
+								noneSelectedText: "Select a Scholarship"
+							},
+							default: "Select a Scholarship",
+							visible: function (model) {
+								return model && model.areaType == "Scholarships" && model.giftType !=
+									"Pledge Payment" && model.searchType != "Advanced Search";
+							}
+						},
+						{
+							type: "select",
+							model: "college",
+							styleClasses: "one-half column",
+							selectOptions: {
+								noneSelectedText: "Select a College"
+							},
+							values: [
+								"College of Allied Health",
+								"College of Arts & Sciences",
+								"Lindner College of Business",
+								"College-Conservatory of Music"
+							],
+							default: "Select a College",
+							visible: function (model) {
+								return model && model.areaType == "Colleges/Units" && model.giftType !=
+									"Pledge Payment" && model.searchType != "Advanced Search";
+							}
+						},
+						{
+							type: "select",
+							model: "unit",
+							styleClasses: "one-half column float-right",
+							selectOptions: {
+								noneSelectedText: "Select a Unit"
+							},
+							default: "Select a Unit",
+							values: function (model, schema) {
+								switch (model.college) {
+									case "College of Allied Health":
+										return [{
+											id: "UC Fund for Allied Health (F101310)",
+											name: "UC Fund for Allied Health(F101310)"
+										}];
+									case "College of Arts & Sciences":
+										return [{
+												id: "UC Fund for A&S (F101321)",
+												name: "UC Fund for A&S (F101321)"
+											},
+											{
+												id: "A&S Scholarship Fund",
+												name: "A&S Scholarship Fund"
+											},
+											{
+												id: "3-5 total options per college",
+												name: "3-5 total options per college"
+											}
+										];
+								}
+
+								return [];
+							},
+							visible: function (model) {
+								return model && model.areaType == "Colleges/Units" && model.giftType !=
+									"Pledge Payment" && model.searchType != "Advanced Search";
+							}
+						}
+					]
+				},
+
+				donationTabSchema: {
+					fields: [{
+							type: "radios",
+							model: "amount",
+							label: "Select A Gift Amount",
+							required: true,
+							default: "10",
+							validator: VueFormGenerator.validators.string,
+							values: function (model, schema) {
+								switch (model.giftType) {
+									case "One-Time Gift":
+										return ["50", "100", "250", "500", "1000"];
+									case "Monthly Gift":
+										return ["10", "20", "30", "50", "84"];
+									case "Pledge Payment":
+										return ["100", "250", "500", "1000"];
+								}
+
+								return [];
+							},
+						},
+						{
+							type: "checkbox",
+							label: "Make my gift anonymous.",
+							model: "isAnonymous",
+							styleClasses: "column",
+							required: false,
+							default: false,
+							validator: VueFormGenerator.validators.boolean
+						},
+						{
+							type: "checkbox",
+							label: "This is a tribute or memorium gift.",
+							model: "tributeType",
+							styleClasses: "column",
+							required: false,
+							default: false,
+							validator: VueFormGenerator.validators.boolean,
+							onChanged: function (model, newVal, oldVal, field) {
+								//console.log(newVal);
+								switch (newVal) {
+									case true:
+										return;
+									case false:
+										return model.mailLetter = false;
+								}
+							}
+						},
+						{
+							type: "select",
+							inputType: "select",
+							label: "Tribute Information",
+							model: "tributeTypeSelected",
+							values: ["In Honor Of", "In Memorium"],
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column",
+							selectOptions: {
+								noneSelectedText: "Select Tribute Type"
+							},
+							visible: function (model) {
+								return model && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Honoree First name",
+							model: "honoreeFirstName",
+							placeholder: "Honoree First Name",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column clearfix",
+							visible: function (model) {
+								return model && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Honoree Last name",
+							model: "honoreeLastName",
+							placeholder: "Honoree Last Name",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column float-right",
+							visible: function (model) {
+								return model && model.tributeType == true;
+							}
+						},
+						{
+							type: "checkbox",
+							label: "Mail a letter on my behalf to:",
+							model: "mailLetter",
+							styleClasses: "column",
+							required: false,
+							default: false,
+							validator: VueFormGenerator.validators.boolean,
+							visible: function (model) {
+								return model && model.tributeType == true;
+							}
+						},
+						{
+							type: "label",
+							label: "Send gift notification to:",
+							model: "sendGiftNotificationTo",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "select",
+							inputType: "select",
+							label: "Title",
+							model: "acknowledgeeTitle",
+							values: titles,
+							required: true,
+							id: "titles",
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column",
+							selectOptions: {
+								noneSelectedText: "Select Title"
+							},
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "First name",
+							model: "acknowledgeeFirstName",
+							placeholder: "First Name",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column clearfix",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Last name",
+							model: "acknowledgeeLastName",
+							placeholder: "Last Name",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column float-right",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Street Address",
+							model: "acknowledgeeStreetAddress",
+							placeholder: "Street Address",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "column",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "City",
+							model: "acknowledgeeCity",
+							placeholder: "City",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "State",
+							model: "acknowledgeeState",
+							placeholder: "State",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column float-right",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Zip Code",
+							model: "acknowledgeePostalCode",
+							placeholder: "Zip Code",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Country",
+							model: "acknowledgeeCountry",
+							placeholder: "Country",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column float-right",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Phone #",
+							model: "acknowledgeePhone",
+							placeholder: "123-456-7890",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Email",
+							model: "acknowledgeeEmail",
+							placeholder: "example@email.com",
+							required: true,
+							validator: VueFormGenerator.validators.email,
+							styleClasses: "one-half column float-right",
+							visible: function (model) {
+								return model && model.mailLetter == true && model.tributeType == true;
+							}
+						},
+						{
+							type: "checkbox",
+							label: "Make a matching gift.",
+							model: "matchingGift",
+							styleClasses: "column clearfix",
+							required: false,
+							default: false,
+							validator: VueFormGenerator.validators.boolean
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Company Name",
+							model: "matchingGiftCompany",
+							placeholder: "Company Name",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "column",
+							visible: function (model) {
+								return model && model.matchingGift == true;
+							}
+						}
+					]
+				},
+
+				personalTabSchema: {
+					fields: [{
+							type: "select",
+							inputType: "select",
+							label: "Title",
+							model: "Donor.Title",
+							values: titles,
+							required: true,
+							id: "titles",
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column",
+							selectOptions: {
+								noneSelectedText: "Select Title"
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "First name",
+							model: "Donor.FirstName",
+							placeholder: "First Name",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column clearfix"
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Last name",
+							model: "Donor.LastName",
+							placeholder: "Last Name",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column float-right"
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Phone #",
+							model: "Donor.Phone",
+							placeholder: "123-456-7890",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column"
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Email",
+							model: "Donor.EmailAddress",
+							placeholder: "example@email.com",
+							required: true,
+							validator: VueFormGenerator.validators.email,
+							styleClasses: "one-half column float-right"
+						}
+					]
+				},
+
+				addressTabSchema: {
+					fields: [
+						/*{
+						type: "input",
+						inputType: "text",
+						label: "Zip Code",
+						model: "postalCode",
+						placeholder: "",
+						required: true,
+						validator: VueFormGenerator.validators.string,
+						styleClasses: "one-half column offset-by-four"
+
+						},*/
+						{
+							type: "input",
+							inputType: "text",
+							label: "Start by Entering your Zip Code.",
+							model: "Donor.Address.PostalCode",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "four columns text-center mb-0 offset-by-four",
+							zipcode(value) {
+								let re = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+								if (!re.test(value)) {
+									return ["Invalid Zip Code."];
+								} else {
+									return [];
+								}
+							},
+							onChanged(model, schema, event) {
+								if (schema.length === 5) {
+									let self = this;
+									$.getJSON(
+										"https://ZiptasticAPI.com/" + schema,
+										function (result) {
+											if (result.error) {
+												self.error =
+													"zip code not found";
+												self.city = "";
+												$(".cityState").slideUp();
+												$(".zip-error").slideDown();
+												$(".error").addClass("no");
+											} else {
+												//self.city = result.city;
+												//self.stateCode = result.state;
+												//self.country = result.country;
+
+												model.Donor.Address.City = result.city;
+												model.Donor.Address.State = result.state;
+												model.Donor.Address.Country = result.country;
+												$(".cityState").slideDown();
+												$(".zip-error").slideUp();
+												$(".display").addClass(
+													"animated fadeInDown"
+												);
+											}
+											//console.log(result);
+										}
+									);
+									// console.log(schema.length);
+								}
+							}
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "City",
+							model: "Donor.Address.City",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "one-half column clearfix cityState"
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "State",
+							model: "Donor.Address.State",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "three columns pl-1 cityState"
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Country",
+							model: "Donor.Address.Country",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "three columns float-right cityState"
+						},
+						{
+							type: "input",
+							inputType: "text",
+							label: "Street Address",
+							model: "Donor.Address.StreetAddress",
+							placeholder: "",
+							required: true,
+							validator: VueFormGenerator.validators.string,
+							styleClasses: "column clearfix cityState"
+						}
+					]
+				}
+			}
+		},
+
+		watch: {
+			publicNames: function () {
+				return this.simpleSuggestionList();
+			},
+		},
+
+		methods: {
+			simpleSuggestionList() {
+				var vm = this;
+				var queryService = new BLACKBAUD.api.QueryService();
+				queryService.getResults(
+					"d54d11f0-3f9c-4d63-91a8-fecf1f06944c",
+					function (data) {
+						var allFunds = data.Rows;
+						var topLevelAll = [];
+						var allColleges = [];
+
+						// console.log(JSON.stringify(allFunds));
+						$.each(allFunds, function () {
+							// define values
+							var values = this.Values;
+							var target = values[2]; // Public Name
+							var splitter = target.split("\\");
+
+							// remove first item in array
+							if (splitter.length > 1) {
+								splitter.shift();
+								//centersSplitter.shift();
+							}
+
+							splitter.push(values[5]);
+							allColleges.push(splitter);
+
+							topLevelAll.push(splitter[0]);
+						});
+
+						//console.log(allColleges);
+
+						function onlyUnique(value, index, self) {
+							return self.indexOf(value) === index;
+						}
+						var topLevelUnique = topLevelAll.filter(onlyUnique);
+
+						var uniqueCollegeValues = allColleges.filter(
+							onlyUnique
+						);
+
+						//console.log(uniqueCollegeValues);
+						vm.publicNames = topLevelUnique;
+					}
+				);
+
+				return vm.topLevelAll;
+			},
+
+			onComplete: function () {
+				console.log(this.model.Donor);
+			},
+			validateGiftTab: function () {
+				return this.$refs.giftTabForm.validate();
+			},
+			validateDonationTab: function () {
+				return this.$refs.donationTabForm.validate();
+			},
+			validatePersonalTab: function () {
+				return this.$refs.personalTabForm.validate();
+			},
+			validateAddressTab: function () {
+				return this.$refs.addressTabForm.validate();
+			},
+
+			prettyJSON: function (json) {
+				if (json) {
+					json = JSON.stringify(json, undefined, 4);
+					json = json
+						.replace(/&/g, "&")
+						.replace(/</g, "<").replace(/>/g, ">");
+					return json.replace(
+						/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
+						function (match) {
+							var cls = "number";
+							if (/^"/.test(match)) {
+								if (/:$/.test(match)) {
+									cls = "key";
+								} else {
+									cls = "string";
+								}
+							} else if (/true|false/.test(match)) {
+								cls = "boolean";
+							} else if (/null/.test(match)) {
+								cls = "null";
+							}
+							return '<span class="' + cls + '">' + match + "</span>";
+						}
+					);
+				}
+			}
+		},
+
+		created: function () {
+			/* GET FUND DATA */
+			var vm = this;
+			//var ucgniCascadingFundsQueryId = "40664e66-2729-4b1a-8cea-964b987c0833";
+			// d54d11f0-3f9c-4d63-91a8-fecf1f06944c
+			var queryService = new BLACKBAUD.api.QueryService();
+			queryService.getResults(
+				"d54d11f0-3f9c-4d63-91a8-fecf1f06944c",
+				function (data) {
+					var allFunds = data.Rows;
+					var fundMaster = [];
+					var topLevelAll = [];
+					// console.log(JSON.stringify(allFunds));
+					$.each(allFunds, function () {
+						// define values
+						var values = this.Values;
+						var target = values[3];
+						var splitter = target.split("\\");
+
+						// remove first item in array
+						if (splitter.length > 1) {
+							splitter.shift();
+						}
+
+						// push values to array
+						splitter.push(values[5]); // update key to match designation GUID
+						splitter.push(values[2]);
+						fundMaster.push(splitter);
+						topLevelAll.push(splitter[8]);
+						// console.log(fundMaster);
+					});
+					//console.log("topLevelAll");
+					//console.log(topLevelAll);
+
+					function onlyUnique(value, index, self) {
+						return self.indexOf(value) === index;
+					}
+					var topLevelUnique = topLevelAll.filter(onlyUnique);
+					vm.publicNames = topLevelUnique;
+
+					//console.log(topLevelUnique);
+				}
+			);
+		}
+	});
+</script>
+
+</body>
+
+</html>
