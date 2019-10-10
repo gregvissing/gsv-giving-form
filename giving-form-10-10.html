@@ -262,7 +262,7 @@
 			// Multiselect: window.VueMultiselect.default
 		},
 
-		data() {
+		data: function() {
 			return {
 				// Shopping Cart
 				showCart: false,
@@ -931,7 +931,9 @@
 							}
 						},
 						{
-							type: "dateTimePicker",
+							type: "input",
+							inputType: "text",
+							// type: "dateTimePicker",
 							label: "Start Date",
 							model: "startDate",
 							id: "datepicker",
@@ -942,10 +944,10 @@
 								);
 							},
 							styleClasses: "one-half column float-right",
-							dateTimePickerOptions: {
+							// dateTimePickerOptions: {
 								//format: "dd/mm/yyyy"
-							},
-							validator: VueFormGenerator.validators.date
+							// },
+							validator: VueFormGenerator.validators.string
 						},
 						/*{
 							type: "input",
@@ -1551,7 +1553,7 @@
 				//console.log("selectedFund updated");
 				// return myTitles;
 			},
-			"model.giftType"() {
+			"model.giftType": function() {
 				// console.log("giftType!");
 				if (this.model.giftType == "Pledge Payment") {
 					return (this.nbtnDisable = false);
@@ -1559,19 +1561,19 @@
 					return (this.nextBtnDisable = true);
 				}
 			},
-			"model.amount"() {
+			"model.amount": function() {
 				// console.log('amount!');
 				this.btnStatus();
 			},
-			"model.fund"() {
+			"model.fund": function() {
 				// console.log('amount!');
 				this.btnStatus();
 			},
-			"model.areaTypeSelected"() {
+			"model.areaTypeSelected": function() {
 				//console.log(this.model.areaTypeSelected[name]);
 				this.btnStatus();
 			},
-			"model.unit"() {
+			"model.unit": function() {
 				// console.log('unit!');
 				this.btnStatus();
 			}
@@ -1581,10 +1583,10 @@
 			selectTitles: function() {
 				return this.myTitles;
 			},
-			donations() {
+			donations: function() {
 				return this.model.Gift.Designations;
 			},
-			total() {
+			total: function() {
 				var total = 0;
 				total = parseFloat(total);
 
@@ -1596,7 +1598,7 @@
 		},
 
 		methods: {
-			simpleSuggestionList() {
+			simpleSuggestionList: function() {
 				var vm = this;
 				//var ucgniCascadingFundsQueryId = "40664e66-2729-4b1a-8cea-964b987c0833";
 				// d54d11f0-3f9c-4d63-91a8-fecf1f06944c
@@ -1640,7 +1642,7 @@
 				);
 			},
 
-			searchClick(value) {
+			searchClick: function(value) {
 				// values from Typeahead component
 
 				console.log(value); // someValue
@@ -1686,7 +1688,7 @@
 				}
 			},
 
-			remove(index) {
+			remove: function(index) {
 				this.model.Gift.Designations.splice(index, 1);
 				if (this.model.Gift.Designations.length > 0) {
 					this.nextBtnDisable = false;
@@ -1699,7 +1701,7 @@
 			},
 
 			// Button enable/disable
-			btnStatus() {
+			btnStatus: function() {
 				if (this.model.amount != "" && this.model.areaTypeSelected) {
 					this.fundValue = this.model.areaTypeSelected;
 					this.amountValue = this.model.amount;
@@ -1799,9 +1801,9 @@
 						// console.log(JSON.stringify(vm.collegesUnitsValues));
 					}
 				);
-			},
+			}
 
-			fetchAllFunds() {
+			/*fetchAllFunds: function () {
 				//this.items = this.$store.state.funds;
 				var vm = this;
 				axios
@@ -1882,7 +1884,7 @@
 						//console.log(JSON.stringify(UniqueNames));
 						//this.items = result;
 					});
-			}
+			} */
 		},
 
 		created: function() {
