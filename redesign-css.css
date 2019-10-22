@@ -32,6 +32,7 @@ Table of Contents
 19. INTERNAL styles
 20. ACCORDION styles
 21. VIDEO styles
+22. TAB styles
 
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -3440,6 +3441,63 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	-webkit-transform: scale(1.15);
 	-ms-transform: scale(1.15);
 	transform-origin: center;
+}
+
+/* TAB styles 
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#mockup .tabs {
+	margin: 0 auto;
+	max-width: 100%;
+	background: #fff;
+	box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
+}
+
+#mockup .tabs__list {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	height: 50px;
+	border-bottom: solid 1px #e9e9e9;
+}
+
+#mockup .tabs__tab {
+	padding: 0 14px;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 2em;
+	width: 50%;
+	text-align: center;
+	/* text-transform: uppercase; */
+	cursor: pointer;
+}
+
+#mockup .tabs__tab_active {
+	color: #fff;
+	background-color: #e00122;
+}
+
+#mockup .tabs__container {
+	position: relative;
+	overflow: hidden;
+	will-change: height;
+	transition: height 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+#mockup .tabs__wrapper {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	will-change: transform;
+	transition: -webkit-transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+	transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+	transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+#mockup .tabs__content {
+	flex: 1 0 100%;
+	width: 100%;
+	padding: 10px;
 }
 
 /* ADMIN VIEW styles 
