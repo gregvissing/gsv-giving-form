@@ -1,0 +1,1353 @@
+<style>
+	#mockup .twitter-typeahead {
+		display: block !important;
+	}
+
+	#mockup .radio-list {
+		position: relative;
+	}
+
+	#mockup .radio-list>input {
+		position: absolute;
+		opacity: 0;
+	}
+
+	#mockup #giftTypeRadioGroup .giftTypes .radio-list>input {
+		width: 33%;
+	}
+
+	#mockup #donationRadioGroup .radio-list>input {
+		width: 16%;
+	}
+
+	#mockup #areasToSuppportRadioGroup .radio-list>input {
+		width: 25%;
+	}
+
+	#mockup .radio-list label {
+		cursor: pointer;
+		padding: 10px 5px;
+	}
+
+	#mockup input[type="radio"]:checked+label,
+	#mockup .radio-list label:hover {
+		background-color: #e00122;
+		color: #fff;
+	}
+
+	#mockup .btn-donate,
+	#mockup button {
+		font-size: 1em;
+		line-height: 1em;
+	}
+
+	#mockup .select {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 0;
+		width: 100%;
+		margin-left: -2px;
+	}
+
+	#mockup .select select {
+		display: inline-block;
+		width: 100%;
+		cursor: pointer;
+		padding: 0 15px;
+		border: 0;
+		background: #f4f4f4;
+		color: #e00122;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		font-size: 1em;
+		border-radius: 4px;
+	}
+
+	#mockup .select select:hover,
+	#mockup .select select:focus {
+		color: #464646;
+		background: #f4f4f4;
+	}
+
+	#mockup .select select:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	#mockup .select select:hover~.select__arrow,
+	#mockup .select select:focus~.select__arrow {
+		border-top-color: #464646;
+	}
+
+	#mockup .select select:disabled~.select__arrow {
+		border-top-color: #f4f4f4;
+	}
+
+	#mockup .select__arrow {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+		border-style: solid;
+		border-width: 10px 8px 0;
+		border-color: #e00122 transparent transparent;
+	}
+
+	#mockup .button-disabled,
+	#mockup button[disabled],
+	#mockup :disabled {
+		background-color: #888b8d;
+		border: 3px solid #888b8d;
+		pointer-events: none;
+	}
+
+	#mockup #collegeUnits .select {
+		width: 48%;
+		display: inline-block;
+	}
+
+	#mockup #collegeUnits .select:last-child {
+		float: right;
+	}
+
+	#mockup .required:after {
+		content: "*";
+		font-weight: 400;
+		color: #e00122;
+		padding-left: .2em;
+		font-size: 1em;
+	}
+
+	#mockup #advancedDonationForm {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	#mockup #advancedDonationForm p.button a {
+		padding: .5em 1em;
+		font-size: 1em;
+		font-weight: normal !important;
+	}
+
+	#mockup #addToCart a.not-active {
+		cursor: not-allowed;
+		background-color: #888b8d;
+		border: none;
+		pointer-events: none;
+		opacity: .65;
+	}
+
+	#mockup #addToCart {
+		border: 0;
+	}
+
+	#mockup fieldset {
+		margin-bottom: .5em;
+		padding: 1.75rem 1.5rem;
+		border: 2px solid #f4f4f4;
+		border-radius: 4px;
+	}
+
+	#mockup [type='checkbox'],
+	#mockup [type='radio'] {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		/* 1 */
+		padding: 0;
+		/* 2 */
+	}
+
+	#mockup .checkbox-container.checkbox.row>label {
+		width: 33%;
+	}
+
+	#mockup .checkbox.row label {
+		display: block;
+		float: left;
+		padding-bottom: 0.5em;
+		margin-bottom: 0;
+		clear: none;
+	}
+
+	#mockup .checkbox.column {
+		margin-top: -1.5em;
+		padding: 0 1em 1em;
+	}
+
+	#mockup .checkbox.column label {
+		display: block;
+	}
+
+	#mockup .checkbox input[type='checkbox'] {
+		opacity: 0;
+		position: absolute;
+	}
+
+	#mockup .checkbox label {
+		position: relative;
+		padding: 0 3em 0 2em;
+	}
+
+	#mockup .checkbox label::before,
+	#mockup .checkbox label::after {
+		position: absolute;
+		content: '';
+		display: inline-block;
+	}
+
+	#mockup .checkbox label::before {
+		height: 22px;
+		width: 22px;
+		left: 0;
+		top: 1px;
+		background: #f4f4f4;
+		border: 1px solid #bbbbbb;
+	}
+
+	#mockup .checkbox label::after {
+		left: 7px;
+		top: 3px;
+		width: 8px;
+		height: 14px;
+		border: solid #ffffff;
+		border-width: 0 2px 2px 0;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+	#mockup .checkbox input[type='checkbox']+label::after {
+		content: none;
+	}
+
+	#mockup .checkbox input[type='checkbox']:checked+label::after {
+		content: '';
+	}
+
+	#mockup .checkbox input[type='checkbox']:checked+label::before {
+		background: #e00000;
+	}
+
+	#mockup .checkbox input[type='checkbox']:focus+label::before {
+		outline: auto 2px Highlight;
+		outline: auto 5px -webkit-focus-ring-color;
+	}
+
+	#mockup .amountButton a,
+	#mockup #adfOtherLabel {
+		border-color: #ccc;
+	}
+
+	#mockup .tt-menu {
+		width: 100%;
+		margin: 12px 0;
+		padding: 0;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		/* -webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		border-radius: 8px; */
+		-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+		-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+		box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	}
+
+	#mockup .tt-menu,
+	#mockup .gist {
+		text-align: left;
+	}
+
+	#mockup .table-of-contents li {
+		display: inline-block;
+		*display: inline;
+		zoom: 1;
+	}
+
+	#mockup .table-of-contents li a {
+		font-size: 16px;
+		color: #999;
+	}
+
+	#mockup .tt-suggestion {
+		padding: 3px 20px;
+		font-size: 18px;
+		line-height: 24px;
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out;
+	}
+
+	#mockup .tt-suggestion:hover {
+		background-color: #ccc;
+	}
+
+	#scrollable-dropdown-menu .tt-menu {
+		max-height: 250px;
+		overflow-y: auto;
+	}
+
+	#mockup #newAdvancedDonationForm label {
+		border-radius: 4px !important;
+	}
+
+	#mockup legend {
+		background-color: #fff;
+		padding: 0 10px;
+	}
+
+	#mockup #newAdvancedDonationForm .form {
+		overflow-x: hidden !important;
+	}
+
+	#mockup #otherAmount {
+		top: 0;
+		left: 0;
+	}
+
+	#mockup .otherAmount {
+		position: relative;
+	}
+</style>
+<ul class="form-nav">
+	<li class="active u-text-center parallelogram">
+		<div class="skew-fix">
+			<p class="mb-0 u-text-center">Gift Details</p>
+			<i class="ti-gift"></i>
+		</div>
+	</li>
+	<li class="u-text-center parallelogram">
+		<div class="skew-fix">
+			<p class="mb-0 u-text-center">Payment Details</p>
+			<i class="ti-money"></i>
+		</div>
+	</li>
+</ul>
+
+<div id="newAdvancedDonationForm">
+	<div class="form">
+		<!-- Gift Type / Donation Amount -->
+		<div id="giftTypeRadioGroup">
+			<fieldset class="field-wrap giftTypes">
+				<legend class="required">Select a Gift Type</legend>
+				<div class="radio-list toggleGroup">
+					<input type="radio" name="giftType" id="OneTime" value="OneTime" checked="checked" />
+					<label for="OneTime">One-Time Gift</label>
+					<input type="radio" name="giftType" id="Monthly" value="Monthly" />
+					<label for="Monthly">Monthly Gift</label>
+					<input type="radio" name="giftType" id="Pledge" value="Pledge" />
+					<label for="Pledge">Pledge Payment</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="field-wrap amounts">
+				<legend class="required">Select Donation Amount</legend>
+
+				<div class="radio-list toggle" id="Monthly">
+					<input type="radio" name="amountMonthly" id="ten" value="10" checked="checked" />
+					<label for="ten" class="Monthly">$10</label>
+					<input type="radio" name="amountMonthly" id="twenty" value="20" />
+					<label for="twenty" class="Monthly">$20 </label>
+					<input type="radio" name="amountMonthly" id="thirty" value="30" />
+					<label for="thirty" class="Monthly">$30 </label>
+					<input type="radio" name="amountMonthly" id="forty" value="40" />
+					<label for="forty" class="Monthly">$50 </label>
+					<input type="radio" name="amountMonthly" id="eightyFour" value="84" />
+					<label for="eightyFour" class="Monthly">$84 </label>
+					<label for="otherAmount" class="otherAmount">Other Amount <input type="text" name="amountMonthly"
+							id="otherAmount" value="" /></label>
+				</div>
+
+				<div class="radio-list toggle" id="OneTime">
+					<input type="radio" name="amountOneTime" id="fifty" value="50" />
+					<label for="fifty">$50</label>
+					<input type="radio" name="amountOneTime" id="hundred" value="100" checked="checked" />
+					<label for="hundred">$100</label>
+					<input type="radio" name="amountOneTime" id="twoFifty" value="250" />
+					<label for="twoFifty">$250</label>
+					<input type="radio" name="amountOneTime" id="fiveHundred" value="500" />
+					<label for="fiveHundred">$500</label>
+					<input type="radio" name="amountOneTime" id="thousand" value="1000" />
+					<label for="thousand">$1000</label>
+					<label for="otherAmount" class="otherAmount">Other Amount <input type="text" name="amountOneTime"
+							id="otherAmount" value="" /></label>
+				</div>
+
+				<div class="radio-list toggle" id="Pledge">
+					<input type="radio" name="amountPledge" id="hundred" value="100" checked="checked" />
+					<label for="hundred">$100</label>
+					<input type="radio" name="amountPledge" id="twoFifty" value="250" />
+					<label for="twoFifty">$250</label>
+					<input type="radio" name="amountPledge" id="fiveHundred" value="500" />
+					<label for="fiveHundred">$500</label>
+					<input type="radio" name="amountPledge" id="thousand" value="1000" />
+					<label for="thousand">$1000</label>
+					<label for="otherAmount" class="otherAmount">Other Amount <input type="text" name="amountPledge"
+							id="otherAmount" value="" /></label>
+				</div>
+
+				<input type="hidden" id="fundDonationAmount">
+			</fieldset>
+		</div>
+
+		<!-- Areas to Support / Fund Select -->
+		<div id="areasToSuppportRadioGroup">
+			<fieldset class="field-wrap">
+				<legend class="required">Select Area to Support</legend>
+				<div class="radio-list areaToggleGroup mb-4">
+					<input type="radio" name="area" id="scholarships" value="scholarships" />
+					<label for="scholarships">Scholarships</label>
+					<input type="radio" name="area" id="ucFund" value="ucFund" checked="checked" />
+					<label for="ucFund">The UC Fund</label>
+					<input type="radio" name="area" id="collegeUnits" value="collegeUnits" />
+					<label for="collegeUnits">College/Units</label>
+					<input type="radio" name="area" id="advancedFundSearch" value="advancedFundSearch" />
+					<label for="advancedFundSearch">Search All Funds</label>
+				</div>
+
+				<div id="scholarships" class="toggle">
+					<div class="select-section">
+						<div class="select">
+							<select id="Scholarships" name="Scholarships">
+								<option value="First select" disabled selected>Select Scholarship Fund</option>
+								<option value="4cb74827-5c1e-48e7-8ac0-581f29d5be49">
+									Cincinnatus Scholarship Fund
+								</option>
+								<option value="b33a7103-abb1-4b77-8fa2-d0dbd1cd0331">
+									Darwin T. Turner Scholars Program
+								</option>
+								<option value="ec6b69cc-018f-4326-9d06-6d0bb1ce283d">
+									First Financial Bank Annual Scholarship Fund
+								</option>
+								<option value="0218e8c1-bdc5-4899-be9c-7acd266d884a">
+									Non-Traditional Student Scholarship Fund
+								</option>
+								<option value="c81c090c-92f2-4eaa-87aa-77be34ae0c6c">
+									Student Need Scholarship Fund
+								</option>
+							</select>
+							<div class="select__arrow"></div>
+						</div>
+					</div>
+				</div>
+				<div id="ucFund" class="toggle">
+					<div class="select-section">
+						<div class="select">
+							<!-- <label for="section1" class="visuallyhidden">Label for section 1</label> -->
+							<select id="ucFundSelect" name="ucFundSelect">
+								<option value="First select" disabled selected>Select UC Fund</option>
+								<option value="208caf44-d50e-422f-900f-ddfbee07d463">
+									Allied Health Sciences Annual Fund
+								</option>
+								<option value="5a8eea5f-4e6a-4d97-bd49-25599b5f42a7">
+									Annual Fund for CCM
+								</option>
+								<option value="f57c8188-f992-4f24-b5be-b960c700f166">
+									CECH Annual Fund
+								</option>
+								<option value="ae134acc-1baf-4c6d-8d74-0c7c58659232">
+									Clermont College Annual Fund
+								</option>
+								<option value="0642e045-c868-41dd-b742-4ef17d7d4c55">
+									College of Arts and Sciences Annual Fund
+								</option>
+								<option value="a4990316-aede-49d3-b1c8-b47c011e8b57">
+									College of Design, Architecture, Art, and Planning Annual
+									Fund
+								</option>
+								<option value="569f8fd4-cc9d-41d3-a445-cec6fc362abe">
+									College of Engineering and Applied Science Annual Fund
+								</option>
+								<option value="71e03a66-97c9-4b41-82df-12786f46077c">
+									College of Law Annual Fund
+								</option>
+								<option value="307b7ab6-c464-40b1-a70f-f31802f71c82">
+									College of Nursing Annual Fund
+								</option>
+								<option value="ce816f03-2c7b-4c66-bd29-693edea61aa8">
+									James L. Winkle College of Pharmacy Annual Fund
+								</option>
+								<option value="dacae2b5-34bf-4be0-aa87-7ad148250d5b">
+									Lindner College of Business Annual Fund
+								</option>
+								<option value="764e49b8-0365-472b-adb9-0c10bc1117e9">
+									Loyal Bearcat Society
+								</option>
+								<option value="596d8c68-7878-4b06-9f8c-9524d0394d24">
+									Office of Research Discretionary Fund
+								</option>
+								<option value="7318410e-17bd-4d1f-8437-d5742754a93a">
+									President's Transformation Fund
+								</option>
+								<option value="c81c090c-92f2-4eaa-87aa-77be34ae0c6c">
+									Student Need Scholarship Fund
+								</option>
+								<option value="45030779-0042-44e1-a9ab-3b41a525d78d">
+									UC Blue Ash College Annual Fund
+								</option>
+								<option value="ee7e1952-bb3b-44d4-9510-c3923cecb44f">
+									University of Cincinnati Libraries Annual Fund
+								</option>
+								<option value="7e834c3d-50d7-443c-9589-97eb82f3f8c8">
+									University of Cincinnati's College of Medicine
+								</option>
+							</select>
+							<div class="select__arrow"></div>
+						</div>
+					</div>
+				</div>
+				<div id="collegeUnits" class="toggle">
+					<div class="select-section">
+						<div class="select">
+							<!-- <label for="section1" class="visuallyhidden">Label for section 1</label> -->
+							<select id="collegeUnits" name="collegeUnits">
+								<option value="First select" disabled selected>Select College/Unit</option>
+								<option value="Arts & Sciences">
+									Arts & Sciences
+								</option>
+								<option value="Business">
+									Business
+								</option>
+								<option value="CECH">
+									CECH
+								</option>
+								<option value="College Conservatory of Music">
+									College Conservatory of Music
+								</option>
+								<option value="College of Allied Health Sciences">
+									College of Allied Health Sciences
+								</option>
+								<option value="Design, Architecture, Art & Planning">
+									Design, Architecture, Art & Planning
+								</option>
+								<option value="Engineering/Applied Science">
+									Engineering/Applied Science
+								</option>
+								<option value="Law">
+									Law
+								</option>
+								<option value="Medicine">
+									Medicine
+								</option>
+								<option value="Pharmacy">
+									Pharmacy
+								</option>
+								<option value="UC Libraries">
+									UC Libraries
+								</option>
+							</select>
+							<div class="select__arrow"></div>
+						</div>
+						<div class="select">
+							<!-- <label for="section1" class="visuallyhidden">Label for section 1</label> -->
+							<select id="collegUnitsFund" name="collegUnitsFund">
+								<option value="First select" disabled selected>Select College/Unit Fund</option>
+								<option value="4cb74827-5c1e-48e7-8ac0-581f29d5be49">
+									Cincinnatus Scholarship Fund
+								</option>
+								<option value="c81c090c-92f2-4eaa-87aa-77be34ae0c6c">
+									Student Need Scholarship Fund
+								</option>
+							</select>
+							<div class="select__arrow"></div>
+						</div>
+					</div>
+				</div>
+				<div id="advancedFundSearch" class="toggle">
+					<!-- <div>
+						<input id="advanced-search-fund" class="customSearch" type="text"
+							placeholder="Other Fund: Please Specify" />
+					</div> -->
+					<div id="scrollable-dropdown-menu">
+						<input id="advanced-search-fund" class="typeahead u-full-width" type="text"
+							placeholder="Type the name of the fund">
+					</div>
+				</div>
+				<div class="otherArea">
+					<span class="adfPlacholderLabel">
+						<legend>Other Fund: Please specify.</legend>
+						<!--<span for="amtOther">Other Fund: Please specify.</span>-->
+						<input class="adfInputWithPlaceholder" type="text" id="otherArea">
+					</span>
+				</div>
+
+				<input type="hidden" id="fundName">
+				<input type="hidden" id="fundGuid">
+			</fieldset>
+		</div>
+
+		<div class="row mt-4 mb-4">
+			<div class="column">
+				<div class="active u-text-center">
+					<div id="addToCart">
+						<button class="btn-add-gift button-primary mb-0" disabled>Add this gift to your giving
+							list</button>
+						<!-- <p class="button red mt-0 mb-0">
+												<a class="button-primary not-active mb-0" href="#">Add this gift to your giving list</a>
+											</p> -->
+					</div>
+					<!-- <a class="u-text-left"><a class="button-primary" href="#">Add To Cart</a></p> -->
+				</div>
+			</div>
+		</div>
+
+		<!-- Recurrence -->
+		<div class="toggle" id="monthlyDetails">
+			<fieldset class="field-wrap giftTypes">
+				<legend class="required">Monthly Gift Details</legend>
+				<div class="row">
+					<div class="one-half column">
+						<div class="select-section">
+							<label class="required">Frequency</label>
+							<div class="select">
+
+								<!-- <label for="section1" class="visuallyhidden">Label for section 1</label> -->
+								<select id="frequency" name="frequency">
+									<option value="2">Monthly</option>
+									<option value="3">Quarterly</option>
+								</select>
+								<div class="select__arrow"></div>
+							</div>
+						</div>
+					</div>
+					<div class="one-half column">
+						<label class="required">Start Date</label>
+						<div><input id="start-date" type="text" /></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<div class="toggle" id="pledgeDetails">
+			<fieldset class="field-wrap giftTypes">
+				<legend>Pledge Information</legend>
+				<div class="row">
+					<div class="one-half column">
+						<label for="pledgeID">Pledge ID</label>
+						<div>
+							<input type="text" id="pledgeID" placeholder="Pledge ID" />
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<!-- Checkboxes -->
+		<div id="additionalInformationCheckboxes">
+			<fieldset class="field-wrap giftTypes">
+				<legend>Additional Information</legend>
+				<div role="group" id="checkboxContainer" aria-labelledby="checkboxGroup" class="pl-1 pr-1">
+					<div class="checkbox-container checkbox row">
+						<input id="matchingGift" type="checkbox" name="matchingGift" value="matchingGift" />
+						<label for="matchingGift" class="pb-0">Make a matching gift.</label>
+						<input id="anonymous" type="checkbox" name="anonymous" value="anonymous" />
+						<label for="anonymous" class="pb-0">Make my gift anonymous.</label>
+						<input id="tribute" type="checkbox" name="tribute" value="tribute" />
+						<label for="tribute">This is a tribute or memorium gift.</label>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<!-- Matching Gift -->
+		<div class="toggle" id="matchingGiftDetails">
+			<fieldset class="field-wrap giftTypes">
+				<legend>Matching Gift Information</legend>
+				<div class="row">
+					<div class="one-half column">
+						<label for="company">Company Name</label>
+						<div>
+							<input type="text" id="company" placeholder="Company" />
+						</div>
+						<p>Visit the <a href="http://foundation.uc.edu/matching-gifts">matching gift directory</a> to
+							find out if your or your spouse's company has a matching gift policy.</p>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<!-- Tribute -->
+		<div class="toggle" id="tributeDetails">
+			<!-- Tribute Information -->
+			<div class="field-wrap">
+				<fieldset class="field-wrap giftTypes">
+					<legend class="mb-0 pb-0">Tribute Information</legend>
+					<div class="select-section">
+						<div class="select">
+							<select id="tributeType" name="tributeType">
+								<option value="honor">
+									In Honor Of
+								</option>
+								<option value="memoriam">
+									In Memoriam
+								</option>
+							</select>
+							<div class="select__arrow"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="one-half column">
+							<label for="honoreeFirstName">First Name</label>
+							<div>
+								<input type="text" id="honoreeFirstName" placeholder="First Name" />
+							</div>
+						</div>
+						<div class="one-half column">
+							<label for="honoreeLastName">Last Name</label>
+							<div>
+								<input id="honoreeLastName" type="text" placeholder="Last Name" />
+							</div>
+						</div>
+					</div>
+					<div role="group" aria-labelledby="checkboxGroup" class="pl-1 pr-1">
+						<div class="checkbox row">
+							<input id="ackCheck" type="checkbox" name="ackCheck" />
+							<label for="ackCheck" class="pb-0">Mail a letter on my behalf to:</label>
+						</div>
+					</div>
+
+					<div class="toggle" id="ackCheckDetails">
+						<fieldset class="field-wrap giftTypes">
+							<legend class="mb-0 pb-0">Acknowledgee Information</legend>
+							<div class="row">
+								<div class="column">
+									<div class="select-section">
+										<label>Title</label>
+										<div class="select">
+											<select id="ackTitle" name="ackTitle">
+												<option value="-1">Select Title</option>
+												<option value="1a0f578e-9ec0-43cd-9666-4cd3949e41fc">Miss</option>
+												<option value="5d107975-636e-4aee-bacf-13384bb07598">Mr.</option>
+												<option value="8c550d19-8855-419c-a64b-e5e5e6a5d25c">Mrs.</option>
+												<option value="5a465010-1f99-4974-8e16-ab0bb11aba06">Ms.</option>
+												<option value="7b7cac88-795e-4381-a134-e17426e13b34">1st Lieutenant
+												</option>
+												<option value="f95de08f-86c3-4fda-92a8-23c2ff3c1d15">2nd Lieutenant
+												</option>
+												<option value="9deba6e1-ef45-4096-9ee9-ea4192ca019d">ADM</option>
+												<option value="20925b89-e3d4-4f33-b4cb-2e7b55d098c1">BG</option>
+												<option value="e521f16c-1d12-4bea-a06b-62185549603a">Bishop</option>
+												<option value="3e866fe3-9db7-4908-867d-50bd7e088396">Brigadier General
+												</option>
+												<option value="15436c51-f7f0-446d-976a-99f75c64cd7a">Brother</option>
+												<option value="21078c47-31ce-4486-9d55-31697d38a5fe">Captain</option>
+												<option value="327cdf4f-16ae-47f7-83a4-8bc5384501e2">CDR</option>
+												<option value="c0bc3a58-b969-4139-af04-2f8ffc243e78">Chaplain</option>
+												<option value="d9cb3598-ae67-4cda-984f-b9ef4daefb6c">Colonel</option>
+												<option value="912d283a-9779-4858-baae-a78b415d15f3">Commander</option>
+												<option value="65bd0981-c4f8-47a4-8c85-bbf4be4d2a49">CPT</option>
+												<option value="11798873-b372-4e70-985b-af713c5cf781">Dean</option>
+												<option value="3aa6e236-d848-4f45-9968-2104ff91b9d3">Dean Emeritus
+												</option>
+												<option value="b0045f1f-e07c-4a59-b21e-7cd342592080">Dr.</option>
+												<option value="b562fae8-434a-4695-9279-e7c689e00f44">Ensign</option>
+												<option value="4df1e38a-01ce-4030-be48-1c9e94b68f10">Father</option>
+												<option value="16d171f8-65d8-4239-a815-e25fb0c9237e">Field Svc
+													Instructor-Geo
+												</option>
+												<option value="0266b4dd-285d-4dd2-87f6-183584b7b0d2">General</option>
+												<option value="fbb26f00-1e1b-4877-b4e2-ab1a51a2c5ed">Governor</option>
+												<option value="58b94d05-bf77-4a0f-80cf-1892a4dcd230">The Honorable
+												</option>
+												<option value="9c59ab92-e7bb-4785-b195-37d8568f80bc">Judge</option>
+												<option value="aae7ed4e-a2d4-4f81-b261-3a6361d09388">LCDR</option>
+												<option value="d6c4c213-ce6b-44b1-a2f2-6a8694c93678">Lt Col</option>
+												<option value="c69dd0b5-2a29-47d1-94e7-c9dd793edf84">LtCol</option>
+												<option value="85995b70-c896-4bc3-bfe5-c2e619eb2621">Lt Gen</option>
+												<option value="f7d6a2ce-15be-4e5c-9040-e3b1bfffa61e">LTC</option>
+												<option value="b0e9da71-5e9d-4d0b-848d-efa708d6537b">LTG</option>
+												<option value="be964122-cd80-4391-97f8-b12225578376">Lt.</option>
+												<option value="8891d712-4170-4d8f-bfbb-c1a207fc756d">Lt. Colonel
+												</option>
+												<option value="1403a70a-a160-4e15-ba59-a78cce77616d">Lt. Commander
+												</option>
+												<option value="645f5bf6-52ae-426a-9411-6600c9137e96">Lt. Corporal
+												</option>
+												<option value="096993eb-716d-4655-8c02-194eabefcfac">Lt. General
+												</option>
+												<option value="0e359422-8d09-482e-ad22-01d9d73accec">Lt. Governor
+												</option>
+												<option value="1e9720fc-e7a2-4678-8e9d-07bab5bf733c">Lt. Junior Grade
+												</option>
+												<option value="88b48010-eaea-464f-8976-f21c6a41588c">Magistrate</option>
+												<option value="8cc056c7-6566-4d09-b3df-9eba3318f7d9">Major</option>
+												<option value="74e38217-7ff6-4917-91f9-057f0303cc59">Major General
+												</option>
+												<option value="d3aadc5b-3528-4a93-b1ba-873ada096170">Master Sergeant
+												</option>
+												<option value="506d6ca3-65b1-4111-87d7-4bac31736a0c">Mayor</option>
+												<option value="16374236-bce7-4087-88db-ee192cc06eb3">Monsignor</option>
+												<option value="13fcaec7-2cea-465a-b9fc-2fc22aa3949e">Most Reverend
+												</option>
+												<option value="6e331f18-5b5d-47e8-91d1-54a2f77bcac0">Pastor</option>
+												<option value="57d03cdc-b013-404a-99d8-28a36695ab33">Professor</option>
+												<option value="932ebd36-db12-46fb-a33b-d8af00ddbc9b">Rabbi</option>
+												<option value="db8351b7-76fc-4cf6-9726-452bb4d08a08">Rear Admiral
+												</option>
+												<option value="63c1d4a0-e9ba-461a-a672-5dcf12bed3d3">Rep.</option>
+												<option value="b04a3c49-da06-4b1d-b6ab-acc5a2a4e282">The Reverend
+												</option>
+												<option value="22acae98-fe99-4df0-bf74-f5d7d5852481">The Reverend Dr.
+												</option>
+												<option value="3b9cd196-569b-4459-8cad-3359c70012a4">Senator</option>
+												<option value="1bbb9024-78d3-4dbd-8fcf-997c5840da65">Sergeant</option>
+												<option value="7383d1c1-b1d0-4d67-b418-b9912eb47a39">Sir</option>
+												<option value="34fbcbd8-7e74-4283-9857-430a09b6a8fd">Sister</option>
+												<option value="e60c0c91-0cf0-49d5-880e-61332682cd8c">Staff Sergeant
+												</option>
+												<option value="8f24a166-dc26-485b-aebb-5d7374454cc8">SSgt</option>
+												<option value="590f5c2f-4e26-4370-baa4-f67aed6cbb2a">VADM</option>
+												<option value="110e9423-de81-4aee-a717-5c527a12147a">SGT</option>
+												<option value="68179a4a-b97f-448e-b3f8-14e9077eb0c1">SSG</option>
+												<option value="2ac3aa4b-b0b7-41f8-9731-76df4e1b2008">SFC</option>
+												<option value="168cf471-bcaa-409b-8bce-8d8ab7e83efc">MSG</option>
+												<option value="ac041916-e422-4cf9-bf6c-70dd3f778a07">MSgt</option>
+												<option value="10c4d4c5-b5ce-4a89-abff-9c3841952e9e">SGM</option>
+												<option value="343913cf-c74f-42d0-9a93-d37c021b9a9f">CSM</option>
+												<option value="32c01434-1404-4f32-89d2-6a536baed161">SgtMaj</option>
+												<option value="5e0d4ca7-3fc6-4147-a887-8867f152b366">MGySgt</option>
+												<option value="bd9d68d6-8679-4283-8980-95bbc5fa950e">SMA</option>
+												<option value="f85f1f90-ee54-48a2-8cad-5704b167b861">CMSgt</option>
+												<option value="8313e972-6a57-4df6-a9ee-1e0ee4d3af3a">MCPON</option>
+												<option value="860a4439-afaf-4958-9219-c0379e8cdef2">2LT</option>
+												<option value="33048662-1221-46da-872e-12b59f291578">2ndLt</option>
+												<option value="721c26d2-f99d-4d8d-a82e-5cf876bd5d46">ENS</option>
+												<option value="1ccc3fe4-cc29-40d3-8f10-cac0daff997a">2d Lt</option>
+												<option value="ff2860c2-4701-4263-94fb-eace8c41abce">1LT</option>
+												<option value="a52cad5d-6991-4718-b253-02ceef081f7d">1stLt</option>
+												<option value="a6c6f676-262b-4a24-b49c-9cde2cdc81fa">Capt</option>
+												<option value="fe652794-e2f9-41c7-a0a5-d7ca0aa9ab76">MAJ</option>
+												<option value="22cca50a-e112-4c00-8c07-c32fe3915bdf">LTJG</option>
+												<option value="5ab51d4b-ca03-495f-98cf-678ae13773e9">LT</option>
+												<option value="a16dff29-3f95-4bb1-8a33-0767faf17b5c">1st Lt</option>
+												<option value="b9bff5b8-4991-490d-b37a-c540f53ece10">COL</option>
+												<option value="d83430ae-6db3-4517-9880-07d7a7b5b4b7">BGen</option>
+												<option value="ae9a4e4a-701f-40b3-8447-d8fb56cc135d">RDML</option>
+												<option value="f6e385bd-23c7-4fcd-939c-223327e1237e">Brig Gen</option>
+												<option value="724651ca-b217-4933-b49b-f8f5d0ffe192">MG</option>
+												<option value="e3eb5c21-cdf7-42c1-bc51-bbabd9831ce6">MajGen</option>
+												<option value="8dd385fe-c471-4097-b0d3-26690e3c1ab4">LtGen</option>
+												<option value="cfceb1f9-47f9-4548-8bca-8e84f80eecf4">RADM</option>
+												<option value="81e38d38-59e2-40d9-9033-a924a471379f">Maj Gen</option>
+												<option value="4e39f9ce-635e-4ce3-90c7-7a25ef9ec1a6">CPL</option>
+												<option value="9363eefb-575b-4a39-97f0-345caa6ce22e">1SG</option>
+												<option value="b5ada12f-f23c-4e17-8ca2-f406c3cc34c5">SMSgt</option>
+												<option value="c97e7d8f-9ad7-4134-b1ca-6e56338851d6">SCPO</option>
+											</select>
+											<div class="select__arrow"></div>
+										</div>
+									</div>
+								</div>
+								<div class="one-half column">
+									<label for="ackFirstName">First Name</label>
+									<div>
+										<input type="text" id="ackFirstName" placeholder="First Name" />
+									</div>
+								</div>
+								<div class="one-half column">
+									<label for="ackLastName">Last Name</label>
+									<div>
+										<input id="ackLastName" type="text" placeholder="Last Name" />
+									</div>
+								</div>
+								<div class="one-half column">
+									<label for="ackEmail">Email</label>
+									<div>
+										<input type="text" id="ackEmail" placeholder="Email" />
+									</div>
+								</div>
+								<div class="one-half column">
+									<label for="ackPhone">Phone</label>
+									<div>
+										<input type="text" id="ackPhone" placeholder="999-999-9999" />
+									</div>
+								</div>
+								<div class="one-half column">
+									<label for="ackPostalCode">Zip</label>
+									<div>
+										<input type="text" id="ackPostalCode" placeholder="Zip" />
+									</div>
+								</div>
+								<div class="one-half column ack-city-state">
+									<label for="ackAddressLines">Address</label>
+									<div>
+										<input id="ackAddressLines" type="text" placeholder="Address" />
+									</div>
+								</div>
+								<div class="one-half column ack-city-state">
+									<label for="ackCity">City</label>
+									<div>
+										<input type="text" id="ackCity" placeholder="City" />
+									</div>
+								</div>
+								<div class="one-half column ack-city-state">
+									<label for="ackState">State</label>
+									<div>
+										<input id="ackState" type="text" placeholder="State" />
+									</div>
+								</div>
+
+								<div class="one-half column city-state">
+									<label for="ackCountry">Country</label>
+									<div>
+										<input id="ackCountry" type="text" placeholder="Country" />
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<!-- Add/Donate buttons -->
+		<div class="row mt-4 mb-4 donate-container hide">
+			<div class="column">
+				<div class="u-text-center">
+					<button class="btn-donate button-primary mb-0" disabled>Donate</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="giftDetails">
+			<fieldset class="field-wrap giftTypes">
+				<legend>Your Giving List for this Transacation:</legend>
+				<div class="shopping-cart">
+					<!-- <h5 class="mb-0 u-text-center">
+							
+						</h5> -->
+					<div class="column-labels"><label class="fund-name">Fund</label> <label
+							class="fund-amount u-text-center">
+							Amount
+						</label> <label class="fund-removal u-text-center">
+							Remove
+						</label></div>
+					<div id="giftListEmpty"><em>Your gift cart is empty</em></div>
+					<div class="fundList"></div>
+					<div class="totals">
+						<div class="totals-item totals-item-total"><label>Total</label>
+							<div id="cart-total" class="totals-value">
+								0
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<input type="hidden" id="designationId" value="" />
+	</div>
+</div>
+
+<script type="text/javascript" src="/file/config/headroom.min.js"></script>
+<script type="text/javascript" src="/file/config/cinci.namespace.js"></script>
+<script src="https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/examples/radio/js/radio.js"></script>
+<script src="https://ucfoun-stg-bbis.concoursehost.com/file/redesign/js/typeahead.bundle.js"></script>
+<script>
+	// Let's be good developers and not pollute the global namespace
+	(function ($) {
+		// Let's make sure the DOM is ready
+		$(function () {
+			$(document).ready(function () {
+				$(document).on("click", ".remove-fund", function () {
+					console.log("remove this");
+					$(this).parents(".fund").remove();
+					checkCartItems();
+				});
+
+				$(".otherAmount").click(function () {
+					$(this).addClass("addAmount");
+				});
+
+				/* Get Gift Type default value */
+				var giftTypeSelected = $(".giftTypes input:checked").val();
+				setDonationDefault(giftTypeSelected);
+
+				// console.log(giftTypeSelected);
+				/* Get Gift Type value when changed */
+				$("#giftTypeRadioGroup .giftTypes .radio-list input").change(function () {
+					var giftChanged = $(this).val()
+					// console.log(giftChanged);
+					setDonationDefault(giftChanged);
+				});
+
+				// Set default of Gift Type upon load/change
+				function setDonationDefault(myGiftType) {
+					switch (myGiftType) {
+						case "OneTime":
+							$("#pledgeDetails").slideUp();
+							$("#areasToSuppportRadioGroup, #checkboxDetails").slideDown();
+							$("#OneTime .radio[value=100]").prop('checked', true);
+							$("#fundDonationAmount").val("100");
+							break
+						case "Monthly":
+							$("#pledgeDetails").slideUp();
+							$("#areasToSuppportRadioGroup, #checkboxDetails").slideDown();
+							$("#Monthly .radio[value=10]").prop('checked', true);
+							$("#fundDonationAmount").val("10");
+							break
+						case "Pledge":
+							$(".btn-donate").attr("disabled", false);
+							$("#pledgeDetails").slideDown();
+							$("#areasToSuppportRadioGroup, #checkboxDetails").slideUp();
+							$("#Pledge .radio[value=100]").prop('checked', true);
+							$("#fundDonationAmount").val("100");
+					}
+				}
+
+				// Hide Gift Cart
+				$(".giftDetails").hide();
+				// Get Fund details when clicked
+				$("#areasToSuppportRadioGroup select").change(function () {
+					var strFund = "",
+						strFundGuid = "";
+					$("#areasToSuppportRadioGroup select:visible option:selected").each(
+						function () {
+							strFund += $(this).text();
+							strFundGuid += $(this).val();
+						});
+					$("input#fundName").val(strFund);
+					$("input#fundGuid").val(strFundGuid);
+
+					checkForValues();
+				});
+
+				var amountVal = $("#giftTypeRadioGroup .amounts .radio-list:visible input:checked")
+					.val();
+				// console.log(amountVal);
+
+				$("input.amountValue").val(amountVal);
+				$("#giftTypeRadioGroup .amounts .radio-list:visible input").change(function () {
+					var strAmount = "";
+					strAmount += $(this).val();
+					$("input.amountValue").val(strAmount);
+
+					checkForValues();
+				});
+				// Toggle hide/show Checkbox details
+				$(".checkbox input[type='checkbox']").change(function () {
+					// console.log(this.id);
+					if (this.id == this.id && this.checked) {
+						$("#" + this.id + "Details").slideDown();
+					} else if (this.id == this.id) {
+						$("#" + this.id + "Details").slideUp();
+					} else {
+
+					}
+				});
+
+				// Toggle enabled/disable of button
+				function checkForValues() {
+					// console.log("here we are");
+					var valid = true;
+					if ($("#fundName").val() !== "" && $("#fundGuid").val() !== "" && $(
+							"#fundDonationAmount").val() !== "") {
+						$("#addToCart .btn-add-gift").attr("disabled", false);
+					} else {
+						$("#addToCart .btn-add-gift").attr("disabled", true);
+					}
+				}
+
+				function toggleDonateButton() {
+					if ($("#giftListEmpty:visible")) {
+						$(".btn-donate").attr("disabled", false);
+					} else {
+						$(".btn-donate").attr("disabled", true);
+					}
+					return;
+				}
+
+				$(".typeahead").bind("typeahead:select", function (ev, suggestion) {
+					$("#fundName").val(suggestion);
+					checkForValues();
+				});
+
+				// Add fund to cart
+				$("#addToCart .btn-add-gift").click(function (e) {
+					e.preventDefault();
+					var cartGuid = "",
+						cartFund = "",
+						cartAmount = "";
+					cartFund += $("input#fundName").val();
+					cartGuid += $("input#fundGuid").val();
+					cartAmount += $("#fundDonationAmount").val();
+
+					$(".giftDetails").slideDown();
+					$("#giftListEmpty").slideUp();
+
+					$(".fundList").append(
+						'<div class="fund mb-0 pb-0"><div class="fund-designation">' +
+						cartGuid + '</div><div class="fund-name">' + cartFund +
+						'</div><div class="fund-amount u-text-center">' + cartAmount +
+						'</div><div class="fund-removal"><button type="button" class="remove-fund button-primary mb-1 mt-1"><span class="ti-trash"></span></button></div></div>'
+					);
+					// console.log(cartFund);
+					calculateTotal();
+					checkForValues();
+
+					$('select').each(function (i, item) {
+						var $item = $(item);
+						$item.val($item.find('option:first').val());
+					});
+
+					$("#addToCart .btn-add-gift").addClass("not-active");
+
+					$(".donate-container").removeClass("hide");
+
+					checkCartItems();
+
+					toggleDonateButton();
+				})
+
+				$("button.remove-fund").click(function (e) {
+					e.preventDefault();
+					console.log("remove this");
+				});
+
+				function checkCartItems() {
+					var cartCount = 0;
+					$(".fundList .fund").each(function () {
+						cartCount += 1;
+					});
+					console.log(cartCount);
+					if (cartCount == 0) {
+						$("#cart-total").text("0");
+						$("#giftListEmpty").fadeIn();
+					}
+					$(".gift-count.ti-gift span").text(cartCount);
+
+					toggleDonateButton();
+				}
+
+				// Calculate total in gift cart
+				function calculateTotal() {
+					var total = 0,
+						fundRowAmount = 0;
+					total = parseFloat(total);
+					$(".fundList .fund").each(function () {
+						var fundRowAmount = ($(this).find(".fund-amount").html());
+						total += parseFloat(fundRowAmount);
+					});
+					$("#cart-total, #giftTotalHeader").text(total);
+				}
+
+				$("div.toggle").hide();
+				var giftTypeId = $("input[name$='giftType']:checked").val(),
+					amountId = $("input[name$='amount']:checked").val(),
+					areaId = $("input[name*='area']:checked").val();
+
+				$("div#" + giftTypeId).show();
+				$("div#" + amountId).show();
+				$("div#" + areaId).show();
+				$("div#monthlyDetails").show();
+
+				// console.log(giftTypeSelected);
+				$(".toggleGroup input").click(function () {
+					var test = $(this).val();
+					console.log(test);
+					if ($("div.toggle#" + test).is(":visible")) {
+						// do nothing since this element is already visible
+					} else {
+						if (test == "Monthly") {
+							$("div.toggle#monthlyDetails").slideDown();
+						} else if (test == "OneTime" || test == "Pledge") {
+							$("div.toggle#monthlyDetails").slideUp();
+						} else {
+
+						}
+						$(this).parent().parent().next().find("div.toggle").slideUp();
+						$("div.toggle#" + test).slideDown();
+					}
+				});
+
+				$(".areaToggleGroup input").click(function () {
+					var test = $(this).val();
+					console.log(test);
+					if ($("div.toggle#" + test).is(":visible")) {
+						// do nothing since this element is already visible
+					} else {
+						if (test == "Monthly") {
+							$("div.toggle#monthlyDetails").slideDown();
+						} else if (test == "OneTime" || test == "Pledge") {
+							$("div.toggle#monthlyDetails").slideUp();
+						} else {
+
+						}
+						$(this).parents("fieldset").find("div.toggle").slideUp();
+						$("div.toggle#" + test).slideDown();
+					}
+				});
+			});
+
+			// Attach our event listener to the donate button
+			$(".btn-donate").click(function (e) {
+				// Stop the button from submitting the form
+				e.preventDefault();
+				console.log("ready!!");
+				BBI.Methods.submitNewADF();
+
+			});
+
+			function is_int(value) {
+				if (parseFloat(value) == parseInt(value) && !isNaN(value)) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			$(".city-state, .ack-city-state").hide();
+
+			$("#zip").keyup(function () {
+				// Cache
+				var el = $(this);
+
+				// Did they type five integers?
+				if (el.val().length == 5 && is_int(el.val())) {
+					// Call Ziptastic for information
+					$.ajax({
+						url: "https://zip.getziptastic.com/v2/US/" + el.val(),
+						cache: false,
+						dataType: "json",
+						type: "GET",
+						success: function (result, success) {
+							// $(".zip-error, .instructions").slideUp(200);
+							// console.log(el.val)
+							$("#city").val(result.city);
+							$("#state").val(result.state);
+							$("#country").val(result.country);
+
+							$(".city-state").slideDown();
+							$("#zip").blur();
+							$("#address").show().focus();
+						},
+						error: function (result, success) {
+							$(".zip-error").slideDown(300);
+						}
+					});
+				} else if (el.val().length < 5) {
+					$(".zip-error").slideUp(200);
+				}
+			});
+
+			$("#ackPostalCode").keyup(function () {
+				// Cache
+				var el = $(this);
+
+				// Did they type five integers?
+				if (el.val().length == 5 && is_int(el.val())) {
+					// Call Ziptastic for information
+					$.ajax({
+						url: "https://zip.getziptastic.com/v2/US/" + el.val(),
+						cache: false,
+						dataType: "json",
+						type: "GET",
+						success: function (result, success) {
+							// $(".zip-error, .instructions").slideUp(200);
+							// console.log(el.val)
+							$("#ackCity").val(result.city);
+							$("#ackState").val(result.state);
+							$("#ackCountry").val(result.country);
+
+							$(".ack-city-state").slideDown();
+							$("#ackPostalCode").blur();
+							$("#ackAddressLines").show().focus();
+						},
+						error: function (result, success) {
+							$(".zip-error").slideDown(300);
+						}
+					});
+				} else if (el.val().length < 5) {
+					$(".zip-error").slideUp(200);
+				}
+			});
+
+			$("#start-date").datepicker({
+				minDate: new Date(),
+				beforeShowDay: function (date) {
+					//getDate() returns the day (0-31)
+					if (date.getDate() == 15 || date.getDate() == 1) {
+						return [true, ""];
+					}
+					return [false, ""];
+				}
+			});
+
+			var queryService = new BLACKBAUD.api.QueryService();
+			queryService.getResults("d54d11f0-3f9c-4d63-91a8-fecf1f06944c",
+				function (data) {
+					// fund data
+					var allFunds = data.Rows;
+					var fundMaster = [];
+					var topLevelAll = [];
+
+					// console.log(allFunds);
+					// get drop-down hierarchy and clean arrays
+					$.each(allFunds, function () {
+						// define values
+						var values = this.Values;
+						var target = values[2];
+						// console.log(target);
+						var splitter = target.split("\\");
+						fundMaster.push(target);
+					});
+					// console.log(fundMaster);
+
+					// filter unique values
+					function onlyUnique(value, index, self) {
+						return self.indexOf(value) === index;
+					}
+
+					var topLevelUnique = topLevelAll.filter(onlyUnique);
+
+					$.each(topLevelUnique, function (key, value) {
+						//$(mainDesignation).append(
+						//	$("<option></option>")
+						//	.val(value)
+						//	.text(value)
+						//);
+					});
+
+					var substringMatcher = function (strs) {
+						return function findMatches(q, cb) {
+							var matches, substringRegex;
+
+							// an array that will be populated with substring matches
+							matches = [];
+
+							// regex used to determine if a string contains the substring `q`
+							substrRegex = new RegExp(q, 'i');
+
+							// iterate through the pool of strings and for any string that
+							// contains the substring `q`, add it to the `matches` array
+							$.each(strs, function (i, str) {
+								if (substrRegex.test(str)) {
+									matches.push(str);
+								}
+							});
+
+							cb(matches);
+						};
+					};
+
+					$('#scrollable-dropdown-menu .typeahead').typeahead({
+						hint: true,
+						highlight: true,
+						minLength: 1
+					}, {
+						name: 'fundMaster',
+						limit: 10,
+						source: substringMatcher(fundMaster)
+					});
+
+				}
+			);
+
+
+		});
+	})(jQuery);
+</script>
