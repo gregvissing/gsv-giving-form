@@ -33,6 +33,7 @@ Table of Contents
 20. ACCORDION styles
 21. VIDEO styles
 22. TAB styles
+23. Give To UC - Donation Form
 
 */
 
@@ -63,6 +64,10 @@ Table of Contents
 #mockup h5,
 #mockup h6 {
 	font-family: rift, sans-serif !important;
+}
+
+#mockup section {
+	overflow-x: hidden;
 }
 
 #mockup .lt-gray-bg {
@@ -118,12 +123,21 @@ body,
 	font-family: "Open Sans", sans-serif !important;
 }
 
+#mockup span.skew-fix {
+	font-family: "Open Sans", sans-serif !important;
+}
+
 #mockup a {
 	text-decoration: underline;
 }
 
 #mockup section:not(#givingForm) a {
 	color: #e00122;
+}
+
+body.no-scroll {
+	overflow: hidden;
+	height: 100%;
 }
 
 #mockup a,
@@ -145,13 +159,18 @@ body,
 #mockup .navbar-nav>li,
 #mockup .navbar-nav>li>a,
 #mockup .navbar-nav>li.button-primary>a,
+#mockup .nav.navbar-nav.navbar-right li a,
+#mockup header .nav>li>ul li a,
 #mockup .nav.navbar-nav.navbar-right,
 #mockup header .nav .nccUlMenuSub1,
 #mockup .icon-container-hero .ti-arrow-circle-down:before,
 #mockup .thumbnail,
 #mockup .thumbnail h3,
 #mockup .tabs__tab,
-#mockup .radio label {
+#mockup .radio label,
+
+#mockup #areasToSuppportRadioGroup .radio-list>label,
+#mockup .tt-suggestion {
 	border-radius: 0;
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
@@ -330,11 +349,11 @@ pre .key {
 	z-index: 15;
 	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-	-webkit-transition: all 0.4s ease-in-out;
+	/* -webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out; */
 	display: none;
 }
 
@@ -522,6 +541,26 @@ pre .key {
 	float: left;
 }
 
+#mockup .p-1 {
+	padding: 1em;
+}
+
+#mockup .p-2 {
+	padding: 2em;
+}
+
+#mockup .p-3 {
+	padding: 3em;
+}
+
+#mockup .p-4 {
+	padding: 4em;
+}
+
+#mockup .p-5 {
+	padding: 5em;
+}
+
 #mockup .u-cf {
 	content: "";
 	display: table;
@@ -652,14 +691,6 @@ pre .key {
 	display: block;
 }
 
-#mockup .vue-form-wizard .one-fourth.column {
-	width: 25% !important;
-}
-
-#mockup .vue-form-wizard .one-half.column {
-	width: 50% !important;
-}
-
 /* NAVIGATION styles */
 
 #mockup header {
@@ -669,11 +700,6 @@ pre .key {
 	right: 0;
 	left: 0;
 	z-index: 1030;
-	-webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
 }
 
 #mockup header .container>div {
@@ -805,21 +831,40 @@ pre .key {
 	/* border-bottom: 1px solid #000; */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1030px) {
+	#mockup header.reduced {
+		padding: 0.5em 0 !important;
+	}
+
 	#mockup header .nav>li:hover ul li {
 		height: 40px;
 		border-bottom: 1px solid #000;
+	}
+
+	#mockup .navbar-nav>li.fa-home:before {
+		z-index: 5;
+		color: #000;
+		font-size: 2em;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+
+	#mockup .navbar-nav>li.fa-home a {
+		color: #fff !important;
 	}
 }
 
 #mockup header .nav>li>ul li a:hover {
 	background-color: #000;
 	color: #fff !important;
-	-webkit-transition: all 0.4s ease-in-out;
+	/* -webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out; */
 }
 
 #mockup .parent.selected,
@@ -868,19 +913,62 @@ pre .key {
 }
 
 /* SEARCH styles */
+#mockup {
+	position: relative;
+}
+
+#mockup .search-container {
+	height: 100%;
+	padding-top: 0;
+	padding-bottom: 5px;
+	background-color: #000;
+	border-bottom: 2px solid #e00122;
+}
+
+#mockup .search-container:after {
+	clear: both;
+	content: ' ';
+	display: block;
+}
+
+#mockup .QuickSearchFormTable:after {
+	clear: both;
+	content: ' ';
+	display: block;
+}
 
 #mockup .QuickSearchFormTable {
-	position: absolute;
-	right: 8.5em;
-	top: -50px;
+	position: relative;
+	/* right: 8.5em; */
+	right: 0;
+	left: 0;
+	top: 0;
 	/* -150px; */
 	bottom: 0;
 	padding: 0;
-	height: auto;
-	position: relative;
-	margin: auto 0 auto auto;
+	height: 55px;
+	/* position: relative; */
+	margin: 0 auto;
 	width: 60%;
-	display: none;
+	display: block;
+	margin-bottom: 0 !important;
+	/* display: none; */
+}
+
+#mockup label[id*="_lblQuickSearch"] {
+	display: block !important;
+	visibility: visible !important;
+	position: absolute;
+	z-index: 1000;
+	width: 90% !important;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0;
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	z-index: 1000;
+	font-weight: normal;
 }
 
 #mockup .QuickSearchFormTable tbody {
@@ -889,13 +977,31 @@ pre .key {
 	height: 100%;
 }
 
+#mockup .QuickSearchFormTable tr {
+	width: 100%;
+}
+
 #mockup .QuickSearchFormTable td:first-child {
 	display: none;
 }
 
 #mockup .QuickSearchFormTable td:nth-child(2) {
 	position: relative;
-	left: 20px;
+	left: 30px;
+	width: 80%;
+}
+
+#mockup .QuickSearchFormTable td:nth-child(2):before {
+	content: "";
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -30px;
+	margin: auto;
+	background-color: #fff;
+	transform: skew(-30deg);
 }
 
 #mockup .QuickSearchFormTable td:last-child {
@@ -911,13 +1017,13 @@ pre .key {
 #mockup .QuickSearchFormTable .BBFormSubmitButton.QuickSearchButton {
 	display: inline-block !important;
 	position: relative;
-	color: #ffffff;
+	color: #e00122;
 	background-color: #e00122;
-	-webkit-transition: all 0.4s ease-in-out;
+	/* -webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out; */
 	transform: skew(-30deg);
 }
 
@@ -939,7 +1045,7 @@ pre .key {
 	box-sizing: border-box;
 }
 
-#mockup #PC15115_lblQuickSearch {
+#mockup [id*="_lblQuickSearch"] {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -964,13 +1070,13 @@ pre .key {
 /* HERO */
 
 #mockup section.hero {
-	background-image: url("https://ucfoun-stg-bbis.concoursehost.com/image/_2019-redesign/hero-bg.jpg");
+	background-image: url("https://ucfoun-stg-bbis.concoursehost.com/image/_2019-redesign/hero-1024x500-group.png");
 	background-position: top;
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: relative;
 	overflow: hidden;
-	height: 75vh;
+	height: 500px;
 }
 
 #mockup section.hero .trianglePattern {
@@ -1060,6 +1166,13 @@ pre .key {
 
 #mockup section.section-content-container {
 	padding: 4em 0;
+}
+
+#mockup section.section-content-container {
+	background-image: url(https://ucfoun-stg-bbis.concoursehost.com/image/_2019-redesign/minifesto-bg.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
 }
 
 #mockup section .italic {
@@ -1183,20 +1296,20 @@ pre .key {
 
 #mockup .section-container button span {
 	font-size: 1.25em;
-	-webkit-transition: all 0.4s ease-in-out;
+	/* -webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out; */
 }
 
 #mockup .section-container button {
 	border: 1px solid #e00122 !important;
-	-webkit-transition: all 0.4s ease-in-out;
+	/* -webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out; */
 }
 
 #mockup .section-container button:hover {
@@ -1242,6 +1355,35 @@ pre .key {
 #mockup section#nextNowSection .mobile-bg {
 	display: none;
 }
+
+#mockup section#nextNowSection {
+	position: relative;
+}
+
+#mockup .absolute {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+#mockup .relative {
+	position: relative;
+}
+
+/* #mockup section#nextNowSection:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.25);
+	z-index: 1;
+} */
 
 @media screen and (max-width: 1000px) {
 	#mockup section#nextNowSection .mobile-bg {
@@ -1672,10 +1814,6 @@ form {
 	margin: 0 auto;
 }
 
-#mockup .vue-form-wizard .one-half.colum {
-	width: 50%;
-}
-
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active,
@@ -1702,21 +1840,6 @@ a.ui-button:active,
 
 #mockup #givingForm>.container>.row {
 	max-width: 100% !important;
-}
-
-#mockup .vue-form-wizard {
-	width: 100% !important;
-	margin: 0 auto !important;
-	padding: .5em 0;
-}
-
-#mockup .vue-form-generator {
-	padding: 0 1.5em;
-}
-
-#mockup .vue-form-generator fieldset,
-#mockup .vue-form-generator fieldset>.form-group:last-child {
-	margin: 0;
 }
 
 #mockup .one-half.column:not(.offset-by-three) {
@@ -1797,30 +1920,6 @@ a.ui-button:active,
 	bottom: 0;
 	margin: auto;
 	font-size: 1em;
-}
-
-#mockup .wizard-footer ul {
-	text-align: center;
-	list-style-type: none;
-	margin: 0 !important;
-}
-
-#mockup .wizard-footer ul li {
-	width: 49%;
-	display: inline-block;
-	vertical-align: top;
-}
-
-#mockup .wizard-footer ul li .wizard-footer-right:not(.finish-button) {
-	background-color: #000 !important;
-}
-
-#mockup .wizard-footer ul li:first-child {
-	text-align: left;
-}
-
-#mockup .wizard-footer ul li:first-child>button:not(.add-gift) {
-	background-color: #000 !important;
 }
 
 #mockup .errors.help-block {
@@ -2073,13 +2172,13 @@ left: 5px;  */
 }
 
 @media screen and (max-width: 1000px) {
-	#mockup .wizard-nav.wizard-nav-pills {
+	/* #mockup .wizard-nav.wizard-nav-pills {
 		padding-bottom: 0;
 		margin-left: 0%;
 		width: 90%;
 		margin: 0 auto;
 		padding-left: 3%;
-	}
+	} */
 
 	#mockup .fund-name {
 		width: 66%;
@@ -2208,211 +2307,11 @@ left: 5px;  */
 	display: none !important;
 }
 
-#mockup .vue-form-wizard {
-	box-shadow: none !important;
-}
 
-#mockup .wizard-progress-with-circle {
-	display: none !important;
-}
-
-#mockup ul.wizard-nav.wizard-nav-pills li {
-	margin: 0;
-}
-
-#mockup ul.wizard-nav.wizard-nav-pills li a div.wizard-icon-circle {
-	border: none;
-	width: 50px;
-	height: 50px;
-}
-
-#mockup ul.wizard-nav.wizard-nav-pills li a div.wizard-icon-circle.checked .wizard-icon-container {
-	background-color: #ffffff;
-}
-
-#mockup .vue-form-wizard .wizard-nav-pills>li.active>a .wizard-icon,
-#mockup .vue-form-wizard .wizard-nav-pills>li.active>a:focus .wizard-icon,
-#mockup .vue-form-wizard .wizard-nav-pills>li.active>a:hover .wizard-icon {
-	color: #000;
-}
-
-#mockup .stepTitle.active {
-	color: rgb(0, 0, 0) !important;
-}
-
-#mockup ul.wizard-nav.wizard-nav-pills li>a {
-	transform: skew(-30deg);
-	border-right: 2px solid #e00122;
-	text-decoration: none;
-}
-
-#mockup ul.wizard-nav.wizard-nav-pills li:last-child>a {
-	border-right: none;
-}
-
-#mockup ul.wizard-nav.wizard-nav-pills li>a>div,
-#mockup ul.wizard-nav.wizard-nav-pills li>a>span {
-	transform: skew(30deg);
-}
-
-#mockup .vue-form-wizard .wizard-icon-circle,
-#mockup .vue-form-wizard .wizard-icon-circle .wizard-icon-container {
-	justify-content: left;
-}
 
 #mockup>div>h3 {
 	width: 1024px !important;
 	margin: 0 auto;
-}
-
-#mockup .wizard-card-footer {
-	width: 94%;
-	margin: 10px auto;
-	padding: 0;
-}
-
-#mockup .wizard-card-footer .container {
-	text-align: center;
-}
-
-#mockup .vue-form-wizard .wizard-tab-content {
-	margin-top: 10px;
-	border-top: 2px solid #e00122;
-	padding: 10px 0 !important;
-}
-
-/* #mockup .advancedDonationForm {
-	background-color: rgba(0, 0, 0, 0.25);
-	padding-bottom: 4em;
-}
-
-#mockup .vue-form-wizard {
-	background-color: rgba(255, 255, 255, 0.95);
-	box-shadow: 3px 3px 9px #888888;
-	position: relative;
-	padding-bottom: 15px;
-}
-
-#mockup .vue-form-wizard .wizard-tab-content {
-	padding: 0px;
-}
-
-#mockup .field-checkbox {
-	padding-top: 0;
-}
-
-#mockup .field-checkbox label,
-#mockup .field-checkbox .field-wrap {
-	display: inline-block !important;
-}
-
-#mockup .vue-form-generator .field-checkbox input {
-	margin-left: 0;
-}
-
-#mockup .vue-form-generator [class*="column"]+[class*="column"]:not(.matching):last-child {
-	float: none;
-}
-
-#mockup ul.tab-nav {
-	list-style: none;
-	border-bottom: 1px solid #bbb;
-	padding-left: 5px;
-}
-
-#mockup ul.tab-nav li {
-	display: inline;
-}
-
-#mockup ul.tab-nav li a.button {
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-	margin-bottom: -1px;
-	border-bottom: none;
-}
-
-#mockup ul.tab-nav li a.active.button {
-	border-bottom: 0.175em solid #fff;
-}
-
-#mockup .tab-content .tab-pane {
-	display: none;
-}
-
-#mockup .tab-content .tab-pane.active {
-	display: block;
-}
-
-#mockup .wizard-btn.finish-button {
-	background-color: #e00122 !important;
-	border-color: #e00122 !important;
-} */
-
-
-/*Vue simple suggest component */
-.vue-simple-suggest>ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.vue-simple-suggest.designed {
-	position: relative;
-}
-
-.vue-simple-suggest.designed,
-.vue-simple-suggest.designed * {
-	box-sizing: border-box;
-}
-
-.vue-simple-suggest.designed .input-wrapper input {
-	display: block;
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #cde;
-	border-radius: 3px;
-	color: black;
-	background: white;
-	outline: none;
-	transition: all .1s;
-	transition-delay: .05s
-}
-
-.vue-simple-suggest.designed.focus .input-wrapper input {
-	border: 1px solid #aaa;
-}
-
-.vue-simple-suggest.designed .suggestions {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 100%;
-	top: calc(100% + 5px);
-	border-radius: 3px;
-	border: 1px solid #aaa;
-	background-color: #fff;
-	opacity: 1;
-	z-index: 1000;
-}
-
-.vue-simple-suggest.designed .suggestions .suggest-item {
-	cursor: pointer;
-	user-select: none;
-}
-
-.vue-simple-suggest.designed .suggestions .suggest-item,
-.vue-simple-suggest.designed .suggestions .misc-item {
-	padding: 5px 10px;
-}
-
-.vue-simple-suggest.designed .suggestions .suggest-item.hover {
-	background-color: #2874D5 !important;
-	color: #fff !important;
-}
-
-.vue-simple-suggest.designed .suggestions .suggest-item.selected {
-	background-color: #2832D5;
-	color: #fff;
 }
 
 /* MODAL styles */
@@ -2564,11 +2463,11 @@ left: 5px;  */
 	z-index: 9999;
 	border: 1px solid #000;
 	position: relative;
-	-webkit-transition: all 0.4s ease-in-out;
+	/* -webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out; */
 }
 
 #mockup .modal-default-button:hover {
@@ -2624,28 +2523,30 @@ left: 5px;  */
 /* MOBILE MENU styles */
 
 #mockup .hide.mobile-nav {
-	background-color: #e00122;
+	background-color: transparent;
 }
 
 #mockup .hide.mobile-nav li a {
 	color: #fff;
 	text-decoration: none;
 	font-size: 1.25em;
-	padding: 0.5em 0.25em 0.5em 1em !important;
+	padding: 0.5em 0.25em !important;
 	display: block;
 	font-weight: bold;
-	width: 100%;
+	width: 300px;
+	/* width: 100%; */
 	font-family: "rift", sans-serif !important;
+	background-color: #e00122;
 }
 
-#mockup .hide.mobile-nav li:before {
+/* #mockup .hide.mobile-nav li:before {
 	color: #fff;
-	font-size: 1.5em;
+	font-size: 1.25em;
 	position: absolute;
 	z-index: 1;
-	left: 38%;
-	top: 18%;
-}
+	left: 52%;
+	top: 20%;
+} */
 
 #mockup .hide.mobile-nav li {
 	margin: 0;
@@ -2806,11 +2707,11 @@ left: 5px;  */
 		float: left;
 		margin-bottom: 0;
 		border-left: 2px solid #e00122;
-		-webkit-transition: all 0.4s ease-in-out;
+		/* -webkit-transition: all 0.4s ease-in-out;
 		-moz-transition: all 0.4s ease-in-out;
 		-ms-transition: all 0.4s ease-in-out;
 		-o-transition: all 0.4s ease-in-out;
-		transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out; */
 	}
 
 	#mockup .navbar-nav>li>a {
@@ -2826,11 +2727,11 @@ left: 5px;  */
 		text-decoration: none;
 		font-family: "Open Sans", sans-serif !important;
 		/* margin-left: 0.25em; */
-		-webkit-transition: all 0.4s ease-in-out;
+		/* -webkit-transition: all 0.4s ease-in-out;
 		-moz-transition: all 0.4s ease-in-out;
 		-ms-transition: all 0.4s ease-in-out;
 		-o-transition: all 0.4s ease-in-out;
-		transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out; */
 		transform: skew(30deg);
 	}
 
@@ -2850,11 +2751,11 @@ left: 5px;  */
 	#mockup .navbar-nav>li.button-primary>a {
 		padding: 15px 35px;
 		color: #ffffff !important;
-		-webkit-transition: all 0.4s ease-in-out;
+		/* -webkit-transition: all 0.4s ease-in-out;
 		-moz-transition: all 0.4s ease-in-out;
 		-ms-transition: all 0.4s ease-in-out;
 		-o-transition: all 0.4s ease-in-out;
-		transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out; */
 	}
 
 	#mockup .navbar-nav>li.button-primary>a:hover {
@@ -2911,15 +2812,6 @@ left: 5px;  */
 		float: left;
 	}
 
-	#mockup .parallelogram {
-		transform: skew(-30deg);
-	}
-
-	#mockup .skew-fix {
-		display: inline-block;
-		transform: skew(30deg);
-	}
-
 	#mockup .container>.navbar-header,
 	#mockup .container-fluid>.navbar-header,
 	#mockup .container>.navbar-collapse,
@@ -2931,6 +2823,15 @@ left: 5px;  */
 	#mockup .pull-left {
 		float: left !important;
 	}
+}
+
+#mockup .parallelogram {
+	transform: skew(-30deg);
+}
+
+#mockup .skew-fix {
+	display: inline-block;
+	transform: skew(30deg);
 }
 
 @media (min-width: 1024px) {
@@ -2945,7 +2846,60 @@ left: 5px;  */
 	transform: rotate(180deg);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1031px) {
+	ul.nav>li:hover ul li {
+		height: 36px !important;
+		border-bottom: 1px solid #000;
+	}
+
+	ul.nav>li:hover ul li:last-child {
+		border-bottom: 1px solid #000;
+	}
+
+	.nav>li>ul {
+		position: absolute;
+		left: 0;
+		top: 36px;
+		z-index: 1;
+	}
+
+	.nav li>ul>li {
+		overflow: hidden;
+		height: 0;
+		-webkit-transition: height 200ms ease-in;
+		-moz-transition: height 200ms ease-in;
+		-o-transition: height 200ms ease-in;
+		transition: height 200ms ease-in;
+	}
+}
+
+@media (max-width: 1030px) {
+	#mockup.internal header {
+		padding: 2em 0 0.5em !important;
+	}
+
+	/* #mockup.internal>section#pageTitle .page-title */
+	#mockup.give-to-uc>section#pageTitle .page-title {
+		padding-top: 65px !important;
+	}
+
+	#mockup.internal>section#pageTitle .page-title {
+		padding-top: 0.5em !important;
+	}
+
+	#mockup .hamburger {
+		display: block !important;
+		top: 2.5em;
+	}
+
+	#mockup .hamburger.reduced {
+		top: 1em;
+	}
+
+	#mockup.internal header.reduced {
+		padding: 0.5em 0 !important;
+	}
+
 	#mockup .container.navContainer {
 		width: 100%;
 		max-width: 100%;
@@ -2962,11 +2916,14 @@ left: 5px;  */
 	}
 
 	#mockup header .container>div {
-		margin-left: 5%;
+		margin-left: 20px;
 	}
 
-	#mockup .hide.mobile-nav {
+	#mockup .mobile-nav.hide {
 		display: block !important;
+		margin-top: 0.5em;
+		position: absolute;
+		width: 100%;
 	}
 
 	#mockup header {
@@ -2985,14 +2942,15 @@ left: 5px;  */
 		margin-right: 0 !important;
 		z-index: 999;
 		left: 120%;
-		-webkit-transition: all 0.4s ease-in-out;
+		/* -webkit-transition: all 0.4s ease-in-out;
 		-moz-transition: all 0.4s ease-in-out;
 		-ms-transition: all 0.4s ease-in-out;
 		-o-transition: all 0.4s ease-in-out;
-		transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out; */
 	}
 
 	#mockup .nav.navbar-nav.navbar-right.slideOut {
+		border-top: 1px solid #000;
 		left: 0;
 		right: 0;
 	}
@@ -3008,6 +2966,10 @@ left: 5px;  */
 		text-align: center;
 		transform: skew(0deg);
 		background-color: #fff;
+	}
+
+	#mockup .nav.navbar-nav.navbar-right li a:hover {
+		background-color: #000;
 	}
 
 	#mockup .nav.navbar-nav.navbar-right li.selected {
@@ -3029,7 +2991,7 @@ left: 5px;  */
 
 	#mockup .nav.navbar-nav.navbar-right li a {
 		/* color: #dddddd; */
-		color: #000 !important;
+		color: #000;
 		display: block;
 		padding: 15px;
 		text-decoration: none;
@@ -3054,7 +3016,7 @@ left: 5px;  */
 
 	#mockup .fa-chevron-up:before {
 		font-family: "FontAwesome";
-		color: #000;
+		color: #fff;
 	}
 
 	#mockup span>i.fa.fa-chevron-up {
@@ -3105,7 +3067,7 @@ left: 5px;  */
 	}
 
 	#mockup header {
-		padding: 0.5em 0 0;
+		padding: 0.5em 0;
 	}
 
 	#mockup .parent:before {
@@ -3133,18 +3095,9 @@ left: 5px;  */
 		margin-bottom: 0.5em;
 	}
 
-	#mockup .hero .btn-container a {
-		width: 90%;
-		margin: 10px auto;
-	}
-
-	#mockup section.hero .btn-container:after {
-		background-color: transparent !important;
-	}
-
-	#mockup .nav.navbar-nav.navbar-right {
+	/* #mockup .nav.navbar-nav.navbar-right {
 		height: 91vh;
-	}
+	} */
 
 	#mockup section.manifesto {
 		padding: 2em 0;
@@ -3171,6 +3124,27 @@ left: 5px;  */
 }
 
 @media (max-width: 400px) {
+	#mockup header .container>div {
+		margin-left: 0;
+	}
+
+	#mockup .hide.mobile-nav li a {
+		padding: 0.25em !important;
+	}
+
+	#mockup .hamburger {
+		top: .5em;
+	}
+
+	#mockup .hamburger.is-closed .hamb-top,
+	#mockup .hamburger.is-closed .hamb-middle,
+	#mockup .hamburger.is-closed .hamb-bottom,
+	#mockup .hamburger.is-open .hamb-top,
+	#mockup .hamburger.is-open .hamb-middle,
+	#mockup .hamburger.is-open .hamb-bottom {
+		width: 70%;
+	}
+
 	#mockup header a>img {
 		max-width: 190px !important;
 	}
@@ -3202,6 +3176,19 @@ left: 5px;  */
 }
 
 @media (max-width: 768px) {
+	#mockup.internal header {
+		padding: 0.5em 0 !important;
+	}
+
+	#mockup .hero .btn-container a {
+		width: 60%;
+		margin: 10px auto;
+	}
+
+	#mockup section.hero .btn-container:after {
+		background-color: transparent !important;
+	}
+
 	#mockup a.scrollToTop {
 		height: 40px !important;
 		width: 40px !important;
@@ -3213,6 +3200,10 @@ left: 5px;  */
 		border-left: 15px solid transparent;
 		border-right: 15px solid transparent;
 		border-bottom: 25px solid #fff;
+	}
+
+	#mockup section.section-content-container {
+		padding: 2em 0;
 	}
 
 	#mockup footer {
@@ -3259,19 +3250,6 @@ left: 5px;  */
 }
 
 @media (max-width: 768px) {
-	#mockup .hamburger {
-		display: block !important;
-		-webkit-transition: all 0.4s ease-in-out;
-		-moz-transition: all 0.4s ease-in-out;
-		-ms-transition: all 0.4s ease-in-out;
-		-o-transition: all 0.4s ease-in-out;
-		transition: all 0.4s ease-in-out;
-	}
-
-	#mockup .hamburger.reduced {
-		top: 10px;
-	}
-
 	#mockup section>.container {
 		width: 100%;
 	}
@@ -3284,11 +3262,20 @@ left: 5px;  */
 	#mockup .section-container .container {
 		padding: 0;
 	}
+
+	#mockup section#nextNowSection .next-now-logo {
+		width: 65%;
+		display: block;
+		margin: 0 auto;
+	}
+
+	#mockup section#nextNowSection .absolute-center {
+		width: 100%;
+		height: auto;
+	}
 }
 
 @media (max-width: 1024px) {
-
-	#mockup #givingForm .vue-form-wizard,
 	#mockup .modal-container {
 		width: 100% !important;
 	}
@@ -3402,11 +3389,17 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 #mockup.internal h1.pageTitle:before,
 #mockup.give-to-uc h1.pageTitle:before {
 	position: absolute;
+	-ms-transform: translate(-50%, 0);
+	/* IE 9 */
+	-webkit-transform: translate(-50%, 0);
+	/* Safari prior 9.0 */
+	transform: translate(-50%, 0);
+	/* Standard syntax */
 	left: -135%;
 	right: 100%;
 	bottom: 0;
 	height: 100%;
-	width: 150%;
+	width: 300%;
 	z-index: 0;
 	content: '';
 	background-color: #e00122;
@@ -3418,6 +3411,10 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 #mockup.give-to-uc>section#pageTitle .page-title {
 	padding-top: 80px;
+}
+
+#mockup.internal>section#pageTitle .page-title {
+	padding-top: 0px;
 }
 
 #mockup.internal section .container,
@@ -3435,7 +3432,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 #mockup.internal header {
 	background-color: #fff;
-	padding: 2em 0 0.5em;
+	padding: 1em 0;
 }
 
 #mockup.give-to-uc header {
@@ -3508,6 +3505,58 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	border-left: solid 1px #e9e9e9;
 	border-right: solid 1px #e9e9e9;
 }
+
+#mockup .accordion {
+	font-family: sans-serif;
+	padding-bottom: 20px;
+}
+
+#mockup .accordion__panel {
+	padding-bottom: 10px;
+}
+
+#mockup .accordion__panel-title {
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+	padding: 10px 10px 10px 50px;
+	margin: 0;
+	border-radius: 0;
+	color: #ffffff;
+	background: #000;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+#mockup .accordion__panel-title:hover,
+#mockup .accordion__panel-title.open {
+	background: #e00122;
+}
+
+#mockup .accordion__panel-content {
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+	padding: 1em;
+	border: 1px solid #000;
+}
+
+#mockup .accordion__panel-status-icon {
+	transition: all 0.3s ease-in-out;
+	position: absolute;
+	left: 20px;
+}
+
+#mockup .accordion__panel-status-icon--active {
+	transform: rotate(45deg);
+}
+
+#mockup .accordion__panel-content>p {
+	margin-bottom: 1em !important;
+}
+
 
 /* VIDEO styles  */
 
@@ -3638,7 +3687,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	align-items: center;
 	color: rgba(0, 0, 0, 0.7);
 	font-size: 2em;
-	width: 33.34%;
+	width: 50%;
 	text-align: center;
 	/* text-transform: uppercase; */
 	cursor: pointer;
@@ -3965,6 +4014,761 @@ a.not-active {
 	position: absolute;
 	height: 20px;
 	margin: 0;
+}
+
+/* GIVE TO UC - DONATION FORM */
+#mockup i[class*="fa-times"] {
+	color: #dc3545;
+}
+
+#mockup i[class*="fa-check"] {
+	color: #28a745;
+}
+
+#mockup #ackCheckDetails .one-third {
+	width: 33.33% !important;
+}
+
+#mockup .text-container {
+	background-color: #F5F5F5;
+	padding: 0.5em 1em;
+}
+
+#mockup .text-container a {
+	color: #e00122;
+}
+
+#mockup .adfItemWrapperInner {
+	margin: .5em 0 0;
+}
+
+#mockup input.otherAmount {
+	width: auto;
+	position: absolute !important;
+	opacity: 1 !important;
+	right: 5px;
+	margin: 0;
+	height: 44px;
+	border-radius: 5px !important;
+	display: none;
+}
+
+#mockup .twitter-typeahead {
+	display: block !important;
+}
+
+#mockup .radio-list {
+	position: relative;
+}
+
+#mockup .radio-list>input {
+	position: absolute;
+	opacity: 0;
+}
+
+#mockup #giftTypeRadioGroup .giftTypes .radio-list>input {
+	width: 33%;
+}
+
+#mockup #donationRadioGroup .radio-list>input {
+	width: 16%;
+}
+
+#mockup #areasToSuppportRadioGroup .radio-list {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	text-align: center;
+}
+
+/* #mockup #areasToSuppportRadioGroup .radio-list>label {
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+} */
+
+#mockup #areasToSuppportRadioGroup .radio-list>input,
+#mockup #areasToSuppportRadioGroup .radio-list>label {
+	width: 24%;
+}
+
+#mockup .radio-list label {
+	cursor: pointer;
+	padding: 10px 5px;
+	font-weight: normal !important;
+	border: 1px solid #ccc;
+}
+
+#mockup input[type="radio"]:checked+label:not(.otherAmountLabel),
+#mockup .radio-list label:hover {
+	background-color: #e00122;
+	color: #fff;
+}
+
+#mockup .btn-donate,
+#mockup button {
+	font-size: 1em;
+	line-height: 38px;
+}
+
+#mockup .select {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 0;
+	width: 100%;
+	margin-left: -2px;
+}
+
+#mockup .select select {
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+	padding: 0 15px;
+	border: 0;
+	background: #f4f4f4;
+	color: #e00122;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font-size: 1em;
+	border-radius: 4px;
+}
+
+#mockup .select select:hover,
+#mockup .select select:focus {
+	color: #464646;
+	background: #f4f4f4;
+}
+
+#mockup .select select:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+#mockup .select select:hover~.select__arrow,
+#mockup .select select:focus~.select__arrow {
+	border-top-color: #464646;
+}
+
+#mockup .select select:disabled~.select__arrow {
+	border-top-color: #f4f4f4;
+}
+
+#mockup .select__arrow {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	border-style: solid;
+	border-width: 10px 8px 0;
+	border-color: #e00122 transparent transparent;
+}
+
+#mockup .button-disabled,
+#mockup button[disabled],
+#mockup :disabled {
+	background-color: #888b8d;
+	border: none;
+	pointer-events: none;
+}
+
+#mockup #collegeUnitsSelect .select {
+	width: 48%;
+	display: inline-block;
+}
+
+#mockup #collegeUnitsSelect .select:last-child {
+	float: right;
+}
+
+#mockup .required:after {
+	content: "*";
+	font-weight: 400;
+	color: #e00122;
+	padding-left: .2em;
+	font-size: 1em;
+}
+
+#mockup #advancedDonationForm {
+	width: 100%;
+	max-width: 100%;
+}
+
+#mockup #advancedDonationForm p.button a {
+	padding: .5em 1em;
+	font-size: 1em;
+	font-weight: normal !important;
+}
+
+#mockup #addToCart a.not-active {
+	cursor: not-allowed;
+	background-color: #888b8d;
+	border: none;
+	pointer-events: none;
+	opacity: .65;
+}
+
+#mockup #adfTabsMenu.giftTypeSet li,
+#mockup #adfTabsMenu.giftTypeSet li a {
+	pointer-events: none;
+	cursor: default;
+}
+
+#mockup #addToCart {
+	border: 0;
+}
+
+#mockup fieldset {
+	margin-bottom: .5em;
+	padding: 1.75rem 1.5rem;
+	border: 2px solid #f4f4f4;
+	border-radius: 4px;
+}
+
+#mockup [type='checkbox'],
+#mockup [type='radio'] {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	/* 1 */
+	padding: 0;
+	/* 2 */
+}
+
+#mockup .checkbox-container.checkbox.row>label {
+	width: 33%;
+}
+
+#mockup .checkbox.row label {
+	display: block;
+	float: left;
+	padding-bottom: 0.5em;
+	margin-bottom: 0;
+	clear: none;
+}
+
+#mockup .checkbox.column {
+	margin-top: -1.5em;
+	padding: 0 1em 1em;
+}
+
+#mockup .checkbox.column label {
+	display: block;
+}
+
+#mockup .checkbox input[type='checkbox'] {
+	opacity: 0;
+	position: absolute;
+	width: 30%
+}
+
+#mockup .checkbox label {
+	position: relative;
+	padding: 0 0.1em 0 2em;
+}
+
+#mockup .checkbox label::before,
+#mockup .checkbox label::after {
+	position: absolute;
+	content: '';
+	display: inline-block;
+}
+
+#mockup .checkbox label::before {
+	height: 22px;
+	width: 22px;
+	left: 0;
+	top: 1px;
+	background: #f4f4f4;
+	border: 1px solid #bbbbbb;
+}
+
+#mockup .checkbox label::after {
+	left: 7px;
+	top: 3px;
+	width: 8px;
+	height: 14px;
+	border: solid #ffffff;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#mockup .checkbox input[type='checkbox']+label::after {
+	content: none;
+}
+
+#mockup .checkbox input[type='checkbox']:checked+label::after {
+	content: '';
+}
+
+#mockup .checkbox input[type='checkbox']:checked+label::before {
+	background: #e00000;
+}
+
+#mockup .checkbox input[type='checkbox']:focus+label::before {
+	outline: auto 2px Highlight;
+	outline: auto 5px -webkit-focus-ring-color;
+}
+
+#mockup .amountButton {
+	width: 40%;
+}
+
+#mockup .amountButton a,
+#mockup .amountButton input {
+	width: 90%;
+	margin: 0 auto;
+	float: none;
+}
+
+#mockup .amountButton a,
+#mockup #adfOtherLabel {
+	border-color: #ccc;
+}
+
+#mockup .amounts ul,
+#mockup #adfTabsMenu .menu {
+	text-align: center;
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	height: 100%;
+}
+
+#mockup .tt-menu {
+	width: 100%;
+	margin: 12px 0;
+	padding: 0;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	/* -webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		border-radius: 8px; */
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+#mockup .tt-menu,
+#mockup .gist {
+	text-align: left;
+}
+
+#mockup .table-of-contents li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+#mockup .table-of-contents li a {
+	font-size: 16px;
+	color: #999;
+}
+
+#mockup .tt-suggestion {
+	padding: 3px 20px;
+	font-size: 18px;
+	line-height: 24px;
+	/* -webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out; */
+}
+
+#mockup .tt-suggestion:hover {
+	background-color: #ccc;
+}
+
+#scrollable-dropdown-menu .tt-menu {
+	max-height: 250px;
+	overflow-y: auto;
+}
+
+#mockup #advancedDonationFormRedesign label {
+	border-radius: 4px !important;
+}
+
+#mockup legend {
+	background-color: #fff;
+	padding: 0 10px;
+}
+
+#mockup legend span {
+	color: #fff;
+	background-color: #e00122;
+	padding: 5px 10px;
+}
+
+#mockup #advancedDonationFormRedesign .form {
+	overflow-x: hidden !important;
+}
+
+#mockup #otherAmount {
+	top: 0;
+	left: 0;
+}
+
+#mockup .otherAmount {
+	position: relative;
+}
+
+#mockup .otherAmount>i {
+	position: absolute;
+	top: 10px;
+	left: 5%;
+	display: none;
+	/* transform: translate(10%, -50%); */
+	/* top: 50%; */
+	pointer-events: none;
+	width: 25px;
+	text-align: center;
+	font-style: normal;
+}
+
+#mockup .otherAmount.currency>input {
+	padding-left: 25px !important;
+	padding-right: 0 !important;
+}
+
+#mockup div>input {
+	width: 100%;
+	max-width: 100%;
+}
+
+#mockup #advancedDonationFormRedesign a {
+	color: #e00122;
+}
+
+#mockup .row .one-half.column:not(.offset-by-three):nth-child(even) {
+	float: right;
+}
+
+#mockup .giftDetails legend {
+	width: 100%;
+	transform: skew(-30deg);
+	color: #fff;
+	background-color: #e00122;
+}
+
+#mockup hr {
+	margin-bottom: 0.5em;
+}
+
+#mockup #adfTabsMenu,
+#mockup #adfTabsMenu .menu {
+	width: 100%;
+	text-align: center;
+}
+
+#mockup #adfTabsMenu legend {
+	text-align: left;
+}
+
+#mockup #adfTabsMenu .menu li {
+	width: 33.33%;
+	margin: 0;
+	display: inline-block;
+	float: none;
+}
+
+#mockup #adfTabsMenu .menu li.selected {
+	background-image: none;
+}
+
+#mockup #adfTabsMenu .menu li.selected a {
+	background-color: #e00122;
+	color: #fff;
+}
+
+#mockup #shoppingCart {
+	max-width: 100%;
+	border-color: #666;
+}
+
+#mockup #adfTabsMenu .menu a {
+	width: auto;
+	display: block;
+	text-decoration: none !important;
+	background-color: #fff;
+	font-size: 1em;
+	line-height: 3.5em;
+	font-weight: normal;
+	text-transform: none;
+
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: 10px 5px;
+	font-size: 1em;
+	line-height: 1.5;
+	border-radius: 0;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	background-color: #fff;
+	border-color: #ccc;
+	flex-grow: 1;
+	margin-left: 5px;
+	margin-right: 5px;
+	color: #666;
+	font-family: 'Open Sans';
+	border-radius: 4px !important;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+#mockup .adfButtonList {
+	text-align: center;
+}
+
+#mockup .adfButtonList a {
+	color: #666 !important;
+	font-family: 'Open Sans';
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.5;
+	min-height: auto;
+	border-radius: 4px !important;
+}
+
+#mockup .container table {
+	margin-bottom: 0;
+}
+
+/* #mockup .form #oneTimeAmount ul {
+		display: inline-block;
+		float: left;
+	}
+
+	#mockup .form #oneTimeAmount ul li,
+	#mockup .form #adfOtherLabel {
+		width: 19%;
+		display: inline-block;
+		margin-bottom: 0;
+		min-height: auto;
+	} */
+
+#mockup .form #adfOtherLabel {
+	width: 19%;
+	display: inline-block;
+	margin-bottom: 0;
+	min-height: auto;
+}
+
+#mockup div#adfOtherLabel {
+	font-size: 1em;
+	cursor: pointer;
+	margin-bottom: .65em;
+	padding: .75em;
+	float: none;
+}
+
+#mockup span.adfCurrenyText {
+	font-size: 1em;
+	font-weight: normal;
+	width: 100%;
+	line-height: 1.5;
+	text-align: center;
+}
+
+#mockup .adfButtonList a.selected,
+#mockup .adfButtonList a:hover {
+	color: #fff !important;
+}
+
+#mockup .adfButtonList input.miniInputText {
+	min-height: auto !important;
+	padding: 1.1em 0.25em;
+	font-weight: normal;
+}
+
+#mockup .adfButtonList input.miniInputText.currency {
+	padding: 0 0 0 25px;
+	text-align: left;
+}
+
+#mockup #adfSubmitButton {
+	font-size: 1em;
+	line-height: 38px;
+	padding: 1em;
+	height: 38px;
+	padding: 0 30px;
+	display: inline-block;
+}
+
+#mockup .slide {
+	position: relative;
+}
+
+#mockup .otherAmount input.miniInputText {
+	width: 100%;
+	font-size: 1em;
+	line-height: 1.5;
+	height: 46.5px;
+	border: 1px solid #ccc;
+	border-radius: 4px !important;
+}
+
+#mockup .u-full-width fieldset {
+	margin: 0 0 0.5em 0
+}
+
+#mockup .validation-icon-container {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+}
+
+#mockup .validation-icon-container>div {
+	width: 40%;
+	padding: 0;
+}
+
+#mockup .validation-icon-container .validation-icon {
+	width: 15px;
+	display: inline-block;
+	text-align: center;
+}
+
+@media (min-width: 769px) {
+	#mockup .amountButton input {
+		width: 90% !important;
+	}
+}
+
+@media (max-width: 768px) {
+	#mockup.give-to-uc header {
+		padding: 0.5em 0;
+	}
+
+	#mockup.give-to-uc div#adfOtherLabel {
+		min-width: 123px;
+		margin: 0;
+	}
+
+	#mockup .adfButtonList a {
+		margin: 0 0.4em 0 0;
+	}
+
+	#mockup .adfButtonList li:last-child a {
+		margin: 0 0.1em 0 0;
+	}
+
+	#mockup #advancedDonationFormRedesign .radio-list label {
+		display: inline-block;
+		width: 24.5%;
+		text-align: center;
+		border: 1px solid #ccc;
+	}
+
+	#mockup .checkbox-container.checkbox.row>label {
+		width: 33%;
+	}
+
+	#mockup .amountButton a,
+	#mockup .amountButton input {
+		width: 95% !important;
+	}
+}
+
+@media (max-width: 450px) {
+	#mockup fieldset {
+		padding: 1rem 1.5rem;
+	}
+
+	#mockup input,
+	#mockup textarea,
+	#mockup select,
+	#mockup fieldset {
+		margin-bottom: .5rem;
+	}
+
+	#mockup .button,
+	#mockup button,
+	#mockup input[type="submit"],
+	#mockup input[type="reset"],
+	#mockup input[type="button"] {
+		padding: 0 15px;
+	}
+
+	#mockup .amounts ul,
+	#mockup #adfTabsMenu .menu {
+		flex-wrap: wrap;
+	}
+
+	#mockup .text-container {
+		padding: 0.5em;
+	}
+
+	#mockup #adfTabsMenu .menu li {
+		width: 100%;
+		margin: 0 0 5px 0;
+		display: block;
+	}
+
+	#mockup #adfTabsMenu .menu li:last-child {
+		margin: 0;
+	}
+
+	#mockup #adfTabsMenu .menu li a {
+		margin: 0;
+	}
+
+	#mockup .amountButton {
+		width: 50%;
+	}
+
+	#mockup .amounts ul li:nth-child(even) * {
+		float: right;
+		margin-right: 0;
+	}
+
+	#mockup .adfButtonList {
+		margin: 0;
+	}
+
+	#mockup .amountButton a,
+	#mockup .amountButton input {
+		width: 95% !important;
+	}
+
+	#mockup #advancedDonationFormRedesign .radio-list label {
+		display: block;
+		width: 100%;
+	}
+
+	#mockup .checkbox-container.checkbox.row>label {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+
+	#mockup .checkbox input[type='checkbox'] {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+	}
+
+	#mockup #ackCheckDetails .one-third {
+		width: 100% !important;
+	}
+
+	#mockup .validation-icon-container .one-third {
+		text-align: center !important;
+	}
 }
 
 /* ADMIN VIEW styles 
