@@ -182,7 +182,10 @@ body.no-scroll {
 #mockup button,
 #mockup .button,
 #mockup .button-primary,
-#mockup .button-secondary {
+#mockup .button-secondary,
+#mockup [class*="Button"],
+#mockup [class*="button"],
+#mockup .PaymentPart_CartItemRemoveText {
 	border-radius: 4px !important;
 }
 
@@ -194,12 +197,26 @@ body.no-scroll {
 	border-color: #e00122 !important;
 }
 
+#mockup .wrapButtons {
+    right: 0px !important;
+}
+
 #mockup .PaymentPart_RemoveAllLink {
 	display: inline-block;
 	font-size: 1em;
 	height: 38px;
 	line-height: 38px;
 	padding: 0 30px;
+}
+
+#mockup .PaymentPart_Controls {
+	text-align: center;
+}
+
+#mockup .PaymentPart_Controls input {
+	display: inline-block;
+	width: auto;
+	max-width: auto;
 }
 
 #mockup a:hover {
@@ -297,7 +314,7 @@ pre .key {
 #mockup button,
 #mockup .button,
 #mockup input {
-	border-radius: 0 !important;
+	font-size: 1em !important;
 }
 
 #mockup .button-secondary {
@@ -751,7 +768,7 @@ pre .key {
 	font-family: "Open Sans", sans-serif !important;
 	font-weight: bold;
 	font-size: 1.25em !important;
-	padding: 15px 25px 15px 30px;
+    padding: 15px 20px 15px 25px;
 }
 
 #mockup header {
@@ -1070,7 +1087,7 @@ pre .key {
 /* HERO */
 
 #mockup section.hero {
-	background-image: url("https://ucfoun-stg-bbis.concoursehost.com/image/_2019-redesign/hero-1024x500-group.png");
+	background-image: url("/image/_2019-redesign/hero-1024x500-group.png");
 	background-position: top;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1169,7 +1186,7 @@ pre .key {
 }
 
 #mockup section.section-content-container {
-	background-image: url(https://ucfoun-stg-bbis.concoursehost.com/image/_2019-redesign/minifesto-bg.png);
+	background-image: url(/image/_2019-redesign/minifesto-bg.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -1366,6 +1383,7 @@ pre .key {
 	right: 0;
 	top: 0;
 	bottom: 0;
+	height: 100%;
 }
 
 #mockup .relative {
@@ -1446,7 +1464,7 @@ pre .key {
 	/* background-color: #000000; */
 	border-top: 5px solid var(--color-brand-red);
 	/* padding-bottom: 10px; */
-	background-image: url('https://ucfoun-stg-bbis.concoursehost.com/image/_2019-redesign/sketch.png');
+	background-image: url('/image/_2019-redesign/sketch.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
@@ -1761,7 +1779,12 @@ TYPEAHEAD styles */
 	float: left !important;
 	text-align: center;
 	max-width: 100%;
-	margin: 20px auto;
+	margin: 0px auto;
+}
+
+#mockup .PaymentPart_CartHeaderCell.PaymentPart_CartHeaderQuantityCell,
+#mockup td[id*="tdCartQuantityCell"] {
+	color: transparent;
 }
 
 /* END: Payment Page styles */
@@ -1922,7 +1945,8 @@ a.ui-button:active,
 	font-size: 1em;
 }
 
-#mockup .errors.help-block {
+#mockup .errors.help-block,
+#mockup .error-message {
 	color: #a94442 !important;
 }
 
@@ -2112,7 +2136,7 @@ left: 5px;  */
 #mockup .fund {
 	margin-bottom: 0;
 	padding-bottom: 0;
-	border-bottom: 1px solid #eee;
+/* border-bottom: 1px solid #eee; */
 }
 
 #mockup .fund .fund-name {
@@ -2749,7 +2773,7 @@ left: 5px;  */
 	}
 
 	#mockup .navbar-nav>li.button-primary>a {
-		padding: 15px 35px;
+		padding: 15px 25px;
 		color: #ffffff !important;
 		/* -webkit-transition: all 0.4s ease-in-out;
 		-moz-transition: all 0.4s ease-in-out;
@@ -2775,7 +2799,7 @@ left: 5px;  */
 		bottom: 0;
 		margin: auto;
 		line-height: 50px;
-		left: 20px;
+		left: 15px;
 		text-align: center;
 	}
 
@@ -3288,6 +3312,11 @@ left: 5px;  */
 
 /* ADMIN styles */
 
+
+#mockup.admin-mode header {
+	position: relative;
+}
+
 #mockup .BBUpdatePanelDoNotBlock header {
 	position: relative;
 }
@@ -3452,7 +3481,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	height: 100px;
 	background-position: bottom center;
 	background-size: 100%;
-	background-image: url(https://ucfoun-stg-bbis.concoursehost.com/image/_2019-redesign/triangle-pattern-page-title-bg.png);
+	background-image: url(/image/_2019-redesign/triangle-pattern-page-title-bg.png);
 	background-repeat: no-repeat;
 }
 
@@ -4446,9 +4475,9 @@ a.not-active {
 	color: #e00122;
 }
 
-#mockup .row .one-half.column:not(.offset-by-three):nth-child(even) {
+/*#mockup .row .one-half.column:not(.offset-by-three):nth-child(even) {
 	float: right;
-}
+}*/
 
 #mockup .giftDetails legend {
 	width: 100%;
@@ -4776,4 +4805,8 @@ a.not-active {
 
 #pagecntnt_tmpltcntnt_DesignerFrame header {
 	position: relative;
+}
+
+.bb_menu {
+	z-index: 5000 !important;
 }
