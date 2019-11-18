@@ -63,7 +63,7 @@ Table of Contents
 #mockup h4,
 #mockup h5,
 #mockup h6 {
-	font-family: rift, sans-serif !important;
+	font-family: 'Saira Condensed', sans-serif !important;
 }
 
 #mockup section {
@@ -104,12 +104,67 @@ Table of Contents
 	;
 }
 
-#mockup .container table tr:nth-child(even) {
+#mockup .container table tbody:not(.donationInfo) tr:nth-child(even) {
 	background-color: #E8E8E8;
 }
 
-#mockup .container table tr:nth-child(even) {
-	background-color: #E8E8E8;
+#mockup .container table.SearchTable tbody:not(.donationInfo) tr:nth-child(even) {
+    background-color: #fff !important;
+}
+
+#mockup .container table .donationInfo tr:nth-child(even) {
+	background-color: #fff !important;
+}
+
+#mockup .BBFormTable.SearchFormTable tbody tr:nth-child(2) {
+	background-color: #fff !important;
+}
+
+#mockup .BBFormTable.SearchFormTable tbody tr.BBListEvenRowStyle.SearchEvenRowStyle {
+	background-color: #E8E8E8 !important;
+}
+
+#mockup .BBFormTable.SearchFormTable tbody tr.BBListOddRowStyle.SearchEvenRowStyle {
+	background-color: #fff !important;
+}
+
+#mockup tr.SearchHeaderRow {
+	background-color: #000;
+}
+
+#mockup tr.SearchHeaderRow td {
+	color: #fff;
+	font-size: 1.25em;
+}
+
+#mockup .BBSearchDescriptionStyle,
+#mockup .BBListEvenRowStyle.SearchEvenRowStyle > td,
+#mockup .BBListOddRowStyle.SearchOddRowStyle > td {
+	padding: 1em !important;
+	white-space: inherit !important;
+}
+
+#mockup .BBListEvenRowStyle.SearchEvenRowStyle > td,
+#mockup .BBListOddRowStyle.SearchOddRowStyle > td {
+	padding: 1em 1em 0 1em !important;
+	white-space: inherit !important;
+}
+
+#mockup table.SearchTable tbody > tr.BBListEvenRowStyle.SearchEvenRowStyle[id*=rpResultList] > td,
+#mockup table.SearchTable tbody > tr.BBListOddRowStyle.SearchOddRowStyle[id*=rpResultList] > td {
+	padding-bottom: 1em !important;
+}
+
+#mockup #PC2237_lblTxtSearch {
+	margin: 0 !important;
+}
+
+#mockup .BBFormTitle.SearchFormTitle {
+	padding: 0.25em 0.5em !important;
+}
+
+#mockup .BBFormDescription.SearchFormDescription {
+	text-align: center;
 }
 
 body,
@@ -123,8 +178,11 @@ body,
 	font-family: "Open Sans", sans-serif !important;
 }
 
-#mockup span.skew-fix {
-	font-family: "Open Sans", sans-serif !important;
+#mockup h1 span.skew-fix,
+#mockup h2 span.skew-fix,
+#mockup h3 span.skew-fix {
+	font-family: 'Saira Condensed', sans-serif !important;
+    letter-spacing: 0.5px;
 }
 
 #mockup a {
@@ -168,9 +226,11 @@ body.no-scroll {
 #mockup .thumbnail h3,
 #mockup .tabs__tab,
 #mockup .radio label,
-
+#mockup input[type=button],
 #mockup #areasToSuppportRadioGroup .radio-list>label,
-#mockup .tt-suggestion {
+#mockup .tt-suggestion,
+#mockup [class*="Button"],
+#mockup table td {
 	border-radius: 0;
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
@@ -189,12 +249,20 @@ body.no-scroll {
 	border-radius: 4px !important;
 }
 
+#mockup .parallelogram {
+	border-radius: 0 !important;
+}
+
 #mockup .button-primary,
 #mockup .PaymentPart_RemoveAllLink,
 #mockup .BBFormSubmitbutton.PaymentPartSubmitButton {
 	color: #fff;
 	background-color: #e00122 !important;
 	border-color: #e00122 !important;
+}
+
+#mockup input[id*=_txtSearch] {
+	width: 95% !important;
 }
 
 #mockup .wrapButtons {
@@ -643,6 +711,7 @@ pre .key {
 
 #mockup .container {
 	max-width: 1024px;
+	margin: 0 auto;
 }
 
 #mockup section.fullHeight {
@@ -850,7 +919,7 @@ pre .key {
 
 @media screen and (max-width: 1030px) {
 	#mockup header.reduced {
-		padding: 0.5em 0 !important;
+		padding: 0.75em 0 !important;
 	}
 
 	#mockup header .nav>li:hover ul li {
@@ -932,6 +1001,58 @@ pre .key {
 /* SEARCH styles */
 #mockup {
 	position: relative;
+}
+
+#mockup .BBFormTable.SearchFormTable input[type='text'], 
+#mockup .BBFormTable.SearchFormTable textarea, 
+#mockup .BBFormTable.SearchFormTable select {
+    margin: 0;
+}
+
+#mockup .BBFormTable.SearchFormTable {
+	border: 1px solid #000;
+}
+
+#mockup .BBFormTable.SearchFormTable tr > td.wsNowrap.w100p {
+	padding: 0px !important;
+}
+
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3)  {
+    text-align: center;
+    transform: skew(-30deg);
+    background-color: #e00122;
+	padding: 0 !important;
+    margin: 0 20px !important;
+	
+}
+
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3):hover {
+    background-color: rgba(224,1,34,.6) !important;
+}
+
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3) > input  {
+    transform: skew(0deg);
+    width: 100%;
+	height:  44px;
+    margin: 0;
+	padding: 0 !important;
+	border: none !important;
+}
+
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable>tbody>tr:nth-child(3) table {
+	width: 95% !important;
+	margin: 0 auto !important;
+}
+
+#mockup .BBFormSubmitButton.SearchButton {
+	color: #fff;	
+	border-radius: 0 !important;
+	background-color: transparent !important;
+}
+
+#mockup .BBFormSubmitButton.SearchButton:hover {
+	color: #fff;	
+	background-color: #fff;
 }
 
 #mockup .search-container {
@@ -1099,6 +1220,8 @@ pre .key {
 #mockup section.hero .trianglePattern {
 	position: absolute;
 	top: 0;
+	bottom: 0;
+	margin: auto;
 	right: -30%;
 	width: 80%;
 }
@@ -1165,6 +1288,7 @@ pre .key {
 #mockup .icon-container-hero .ti-arrow-circle-down:before {
 	font-size: 2.75em;
 	color: #fff;
+	background-color: #e00122;
 	border-radius: 50% !important;
 }
 
@@ -1174,8 +1298,8 @@ pre .key {
 }
 
 #mockup .icon-container-hero .ti-arrow-circle-down:hover:before {
-	color: #fff;
-	background-color: #e00122;
+	color: #e00122;
+	background-color: #fff;
 }
 
 
@@ -1188,7 +1312,7 @@ pre .key {
 #mockup section.section-content-container {
 	background-image: url(/image/_2019-redesign/minifesto-bg.png);
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: 105%;
 	background-position: center;
 }
 
@@ -1211,7 +1335,7 @@ pre .key {
 
 /* #mockup section.manifesto h3,
 #mockup section.manifesto h2 {
-	font-family: "rift", sans-serif !important;
+	font-family: 'Saira Condensed', sans-serif !important;
 	font-style: italic;
 } */
 
@@ -1745,7 +1869,7 @@ TYPEAHEAD styles */
 
 #mockup .BBFormRequiredFieldMarker {
 	position: absolute;
-	top: 10px;
+	top: 5px;
 	left: 5px;
 }
 
@@ -1946,8 +2070,13 @@ a.ui-button:active,
 }
 
 #mockup .errors.help-block,
-#mockup .error-message {
+#mockup .error-message,
+#mockup .BBFormValidatorSummary.DonationValidationSummary {
 	color: #a94442 !important;
+}
+
+#mockup .BBFormValidatorSummary.DonationValidationSummary ul {
+	list-style: circle inside !important;
 }
 
 #mockup #giftListEmpty {
@@ -2136,7 +2265,7 @@ left: 5px;  */
 #mockup .fund {
 	margin-bottom: 0;
 	padding-bottom: 0;
-/* border-bottom: 1px solid #eee; */
+	border-bottom: 1px solid #eee;
 }
 
 #mockup .fund .fund-name {
@@ -2585,7 +2714,7 @@ left: 5px;  */
 	height: 35px;
 	margin: 0;
 	position: fixed;
-	top: 1em;
+	top: 1em !important;
 	right: 20px;
 	width: 35px;
 	z-index: 9999;
@@ -2782,7 +2911,7 @@ left: 5px;  */
 		transition: all 0.4s ease-in-out; */
 	}
 
-	#mockup .navbar-nav>li.button-primary>a:hover {
+	#mockup .navbar-nav>li.button-primary:not(.parallelogram)>a:hover {
 		color: #e00122 !important;
 	}
 
@@ -2913,7 +3042,7 @@ left: 5px;  */
 
 	#mockup .hamburger {
 		display: block !important;
-		top: 2.5em;
+		top: 1em !important;
 	}
 
 	#mockup .hamburger.reduced {
@@ -3015,7 +3144,7 @@ left: 5px;  */
 
 	#mockup .nav.navbar-nav.navbar-right li a {
 		/* color: #dddddd; */
-		color: #000;
+		color: #000 !important;
 		display: block;
 		padding: 15px;
 		text-decoration: none;
@@ -3091,7 +3220,7 @@ left: 5px;  */
 	}
 
 	#mockup header {
-		padding: 0.5em 0;
+		padding: 0.75em 0;
 	}
 
 	#mockup .parent:before {
@@ -3201,7 +3330,7 @@ left: 5px;  */
 
 @media (max-width: 768px) {
 	#mockup.internal header {
-		padding: 0.5em 0 !important;
+		padding: 0.75em 0 !important;
 	}
 
 	#mockup .hero .btn-container a {
@@ -3490,7 +3619,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	font-weight: bold;
 	font-style: italic;
 	margin: 0;
-	font-family: rift;
+	font-family: 'Saira Condensed', sans-serif !important;
 }
 
 /* ACCORDION styles 
@@ -4681,7 +4810,7 @@ a.not-active {
 
 @media (max-width: 768px) {
 	#mockup.give-to-uc header {
-		padding: 0.5em 0;
+		padding: 0.75em 0;
 	}
 
 	#mockup.give-to-uc div#adfOtherLabel {
@@ -4798,6 +4927,83 @@ a.not-active {
 	#mockup .validation-icon-container .one-third {
 		text-align: center !important;
 	}
+}
+
+#mockup #advancedDonationForm #recurringAmount > ul,
+#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList > ul,
+#mockup #advancedDonationForm ul.designationButtonWrapper {
+	display: flex;
+  	align-items: flex-start;
+ 	flex-wrap: nowrap;
+	width: 100%
+}
+
+
+#mockup #advancedDonationForm #recurringAmount > ul > li,
+#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList > ul > li,
+#mockup #advancedDonationForm ul.designationButtonWrapper > li {
+	width: 40%;
+}
+
+#mockup #advancedDonationForm #adfOtherLabel, #mockup #advancedDonationForm #txtAmount {
+	margin: 0 !important;
+min-height: 50px !important;
+}
+
+#mockup #advancedDonationForm .adfInnerToggle {
+    clear: both;
+    max-width: 100%;
+	width: 100%;
+}
+
+@media only screen and (min-width: 51em) {
+	#mockup .DonationFormTable>tbody>tr, 
+	#mockup .DonationFormTable > tbody > tr > td{
+    	display: block;
+	}
+	
+	#mockup table.DonationFormTable > tr > td, #mockup table.DonationFormTable td.BBFieldCaption {
+    	border: none;
+    	padding: 3px 5px !important;
+    	float: none;
+    	clear: both;
+		width: 100% !important;
+    	min-width: 100% !important;
+	}
+
+	#mockup table > .donationInfo > tr  {
+		display: inline-block !important;
+		padding-right: 1em;
+	}
+
+	#mockup table > .donationInfo > tr > td:first-child  {
+		padding-right: 0 !important;
+	}
+
+	#mockup table > .donationInfo > tr > td:last-child  {
+		padding-left: 0 !important;
+	}
+}
+
+#mockup .DonationFormTable .DonationFormTable_DonationPanel.donationInfo > tr {
+	position: relative;
+}
+
+
+#mockup label#PC3661_lblAmountCaption {
+	padding-left: 1em !important;
+}
+
+#mockup .BBFormTable.DonationFormTable .BBListingHeading.DonationListingHeading {
+	margin-top: 0.5em !important;
+}
+
+#mockup .BBFormTable.DonationFormTable input[type=button] {
+	margin-bottom: 1em !important;
+}
+
+#mockup .BBFormRequiredFieldMarker.DonationRequiredFieldMarker {
+	visibility: visibile !important;
 }
 
 /* ADMIN VIEW styles 
