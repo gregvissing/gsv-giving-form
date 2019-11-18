@@ -144,6 +144,28 @@ Table of Contents
 	white-space: inherit !important;
 }
 
+#mockup .BBListEvenRowStyle.SearchEvenRowStyle > td,
+#mockup .BBListOddRowStyle.SearchOddRowStyle > td {
+	padding: 1em 1em 0 1em !important;
+	white-space: inherit !important;
+}
+
+#mockup table.SearchTable tbody > tr.BBListEvenRowStyle.SearchEvenRowStyle[id*=rpResultList] > td,
+#mockup table.SearchTable tbody > tr.BBListOddRowStyle.SearchOddRowStyle[id*=rpResultList] > td {
+	padding-bottom: 1em !important;
+}
+
+#mockup #PC2237_lblTxtSearch {
+	margin: 0 !important;
+}
+
+#mockup .BBFormTitle.SearchFormTitle {
+	padding: 0.25em 0.5em !important;
+}
+
+#mockup .BBFormDescription.SearchFormDescription {
+	text-align: center;
+}
 
 body,
 #mockup p,
@@ -207,7 +229,8 @@ body.no-scroll {
 #mockup input[type=button],
 #mockup #areasToSuppportRadioGroup .radio-list>label,
 #mockup .tt-suggestion,
-#mockup [class*="Button"] {
+#mockup [class*="Button"],
+#mockup table td {
 	border-radius: 0;
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
@@ -236,6 +259,10 @@ body.no-scroll {
 	color: #fff;
 	background-color: #e00122 !important;
 	border-color: #e00122 !important;
+}
+
+#mockup #PC2237_txtSearch {
+	width: 95% !important;
 }
 
 #mockup .wrapButtons {
@@ -990,13 +1017,41 @@ pre .key {
 	padding: 0px !important;
 }
 
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3)  {
+    text-align: center;
+    transform: skew(-30deg);
+    background-color: #e00122;
+	padding: 0 !important;
+    margin: 0 20px !important;
+	
+}
+
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3):hover {
+    background-color: rgba(224,1,34,.6) !important;
+}
+
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3) > input  {
+    transform: skew(0deg);
+    width: 100%;
+	height:  44px;
+    margin: 0;
+	padding: 0 !important;
+	border: none !important;
+}
+
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable>tbody>tr:nth-child(3) table {
+	width: 95% !important;
+	margin: 0 auto !important;
+}
+
 #mockup .BBFormSubmitButton.SearchButton {
 	color: #fff;	
-	background-color: #e00122;
+	border-radius: 0 !important;
+	background-color: transparent !important;
 }
 
 #mockup .BBFormSubmitButton.SearchButton:hover {
-	color: #e00122;	
+	color: #fff;	
 	background-color: #fff;
 }
 
@@ -2856,7 +2911,7 @@ left: 5px;  */
 		transition: all 0.4s ease-in-out; */
 	}
 
-	#mockup .navbar-nav>li.button-primary>a:hover {
+#mockup .navbar-nav>li.button-primary:not(.parallelogram)>a:hover {
 		color: #e00122 !important;
 	}
 
