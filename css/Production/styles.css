@@ -5012,3 +5012,7 @@ min-height: 50px !important;
 #pagecntnt_tmpltcntnt_DesignerFrame header {
 	position: relative;
 }
+
+.bb_menu {
+	z-index: 5000 !important;
+}
