@@ -1,3 +1,78 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:    University of Cincinnati Foundation website redesign
+Version:    1.1
+Last change:    11/26/19 [added table of contents]
+Assigned to:    Greg Vissing
+Primary use:    Website
+-------------------------------------------------------------------*/
+
+/*
+IMPORTS
+*/
+
+@import "/file/redesign/css/animate.min.css";
+@import "/file/redesign/css/normalize.css";
+@import "/file/redesign/css/skeleton.min.css";
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Body
+2. Header / #header
+3. Navigation / #navbar
+4. Content / #content
+5. Left column / #leftcolumn
+6. Right column / #rightcolumn
+7. Sidebar / #sidebar
+8. RSS / #rss
+9. Search / #search
+10. Boxes / .box
+11. Sideblog / #sideblog
+12. Advertisements / .ads
+13. Footer / #footer
+-------------------------------------------------------------------*/
+
+/* 
+
+CSS Standards
+
+COLOR
+Red: 	#e00122  
+hex: rgb(224,1,34)
+
+TYPOGRAPHY
+BODY:	Open Sans
+HEADINGS: Saira Condensed
+
+Table of Contents
+
+1. BASE styles
+2. BUTTON styles
+3. UTILITY styles
+4. NAVIGATION styles
+5. SEARCH styles 
+6. HERO styles
+7. SECTION CONTENT styles
+8. STORIES styles
+9. NEXT NOW styles
+10. FOOTER styles
+11. ANIMATIONS
+12. TYPEAHEAD styles
+13. GENERAL FORM styles 
+14. GIVING FORM styles
+15. MODAL styles
+16. MOBILE MENU styles
+17. MEDIA QUERIES
+18. ADMIN styles
+19. INTERNAL styles
+20. ACCORDION styles
+21. VIDEO styles
+22. TAB styles
+23. Give To UC - Donation Form
+
+*/
+
 /* 
 
 CSS Standards
@@ -45,6 +120,14 @@ Table of Contents
 	--color-white: #fff;
 }
 
+body {
+	font-family: "Open Sans";
+}
+
+#mockup.home main#main {
+	margin-top: 0px;
+}
+
 #mockup .red {
 	color: #e00122 !important;
 }
@@ -62,8 +145,20 @@ Table of Contents
 #mockup h3,
 #mockup h4,
 #mockup h5,
-#mockup h6 {
+#mockup h6,
+#mockup legend {
 	font-family: 'Saira Condensed', sans-serif !important;
+}
+
+#mockup.internal section .container h4 {
+	margin-botton: 0 !important;
+}
+
+#mockup .form legend {
+	font-weight: bold;
+	font-style: italic;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
 }
 
 #mockup section {
@@ -108,8 +203,12 @@ Table of Contents
 	background-color: #E8E8E8;
 }
 
+#mockup.home ul.nav li.fa.fa-search {
+	display: none;
+}
+
 #mockup .container table.SearchTable tbody:not(.donationInfo) tr:nth-child(even) {
-    background-color: #fff !important;
+	background-color: #fff !important;
 }
 
 #mockup .container table .donationInfo tr:nth-child(even) {
@@ -138,20 +237,20 @@ Table of Contents
 }
 
 #mockup .BBSearchDescriptionStyle,
-#mockup .BBListEvenRowStyle.SearchEvenRowStyle > td,
-#mockup .BBListOddRowStyle.SearchOddRowStyle > td {
+#mockup .BBListEvenRowStyle.SearchEvenRowStyle>td,
+#mockup .BBListOddRowStyle.SearchOddRowStyle>td {
 	padding: 1em !important;
 	white-space: inherit !important;
 }
 
-#mockup .BBListEvenRowStyle.SearchEvenRowStyle > td,
-#mockup .BBListOddRowStyle.SearchOddRowStyle > td {
+#mockup .BBListEvenRowStyle.SearchEvenRowStyle>td,
+#mockup .BBListOddRowStyle.SearchOddRowStyle>td {
 	padding: 1em 1em 0 1em !important;
 	white-space: inherit !important;
 }
 
-#mockup table.SearchTable tbody > tr.BBListEvenRowStyle.SearchEvenRowStyle[id*=rpResultList] > td,
-#mockup table.SearchTable tbody > tr.BBListOddRowStyle.SearchOddRowStyle[id*=rpResultList] > td {
+#mockup table.SearchTable tbody>tr.BBListEvenRowStyle.SearchEvenRowStyle[id*=rpResultList]>td,
+#mockup table.SearchTable tbody>tr.BBListOddRowStyle.SearchOddRowStyle[id*=rpResultList]>td {
 	padding-bottom: 1em !important;
 }
 
@@ -178,11 +277,23 @@ body,
 	font-family: "Open Sans", sans-serif !important;
 }
 
+a[class*=ti-]:before {
+	font-family: themify !important;
+}
+
+#mockup .form legend {
+	font-size: 1.25em !important;
+}
+
+#mockup .fa>span {
+	color: #222;
+}
+
 #mockup h1 span.skew-fix,
 #mockup h2 span.skew-fix,
 #mockup h3 span.skew-fix {
 	font-family: 'Saira Condensed', sans-serif !important;
-    letter-spacing: 0.5px;
+	letter-spacing: 0.5px;
 }
 
 #mockup a {
@@ -228,6 +339,7 @@ body.no-scroll {
 #mockup .radio label,
 #mockup input[type=button],
 #mockup #areasToSuppportRadioGroup .radio-list>label,
+#mockup ul>li>label,
 #mockup .tt-suggestion,
 #mockup [class*="Button"],
 #mockup table td {
@@ -249,6 +361,10 @@ body.no-scroll {
 	border-radius: 4px !important;
 }
 
+#mockup button {
+	padding: .75em !important;
+}
+
 #mockup .parallelogram {
 	border-radius: 0 !important;
 }
@@ -266,7 +382,7 @@ body.no-scroll {
 }
 
 #mockup .wrapButtons {
-    right: 0px !important;
+	right: 0px !important;
 }
 
 #mockup .PaymentPart_RemoveAllLink {
@@ -367,6 +483,7 @@ pre .key {
 }
 
 #mockup hr {
+	-webkit-transform: skew(-30deg);
 	transform: skew(-30deg);
 	border-top: 5px solid #e00122;
 	margin-bottom: 1em !important;
@@ -377,6 +494,10 @@ pre .key {
 #mockup button,
 #mockup .button {
 	border-color: transparent !important;
+}
+
+#mockup .result .button {
+	border-color: #000 !important;
 }
 
 #mockup button,
@@ -402,6 +523,23 @@ pre .key {
 #mockup .button-primary:not(:disabled):hover {
 	background-color: rgba(224, 1, 34, 0.6) !important;
 	color: #ffffff !important;
+}
+
+#mockup .button-primary.white-bg {
+	background-color: #fff !important;
+	color: #e00122 !important;
+}
+
+#mockup .button-primary.white-bg span {
+	color: #e00122 !important;
+}
+
+#mockup .button-primary.white-bg:hover {
+	color: #fff !important;
+}
+
+#mockup .button-primary.white-bg:hover span {
+	color: #fff !important;
 }
 
 #mockup .ti-close {
@@ -464,7 +602,23 @@ pre .key {
 	box-shadow: none;
 }
 
+#mockup input[id*=_btnQuickSearch] {
+	border-radius: 0 !important;
+}
+
 /* UTILITY styles */
+
+#mockup .vh-50 {
+	height: 50vh;
+}
+
+#mockup .vh-75 {
+	height: 75vh;
+}
+
+#mockup .vh-100 {
+	height: 100vh;
+}
 
 #mockup .mt-0 {
 	margin-top: 0;
@@ -714,6 +868,11 @@ pre .key {
 	margin: 0 auto;
 }
 
+#mockup.home .container {
+	width: 1024px;
+}
+
+
 #mockup section.fullHeight {
 	height: 100vh;
 }
@@ -779,6 +938,7 @@ pre .key {
 
 /* NAVIGATION styles */
 
+
 #mockup header {
 	background-color: #fff;
 	position: fixed;
@@ -786,6 +946,15 @@ pre .key {
 	right: 0;
 	left: 0;
 	z-index: 1030;
+}
+
+#mockup.home header {
+	top: 0px !important;
+	position: sticky;
+}
+
+#mockup .navbar-nav>li>a>span {
+	display: none;
 }
 
 #mockup header .container>div {
@@ -814,6 +983,11 @@ pre .key {
 	padding: 0.5em 0 0;
 }
 
+#mockup.home header.reduced {
+	padding: 0.5em 0;
+}
+
+
 #mockup.give-to-uc header.reduced {
 	padding: 0.5em 0;
 }
@@ -837,7 +1011,7 @@ pre .key {
 	font-family: "Open Sans", sans-serif !important;
 	font-weight: bold;
 	font-size: 1.25em !important;
-    padding: 15px 20px 15px 25px;
+	padding: 15px 20px 15px 25px;
 }
 
 #mockup header {
@@ -888,8 +1062,10 @@ pre .key {
 }
 
 /* sub-nav */
+
 #mockup header .nav .nccUlMenuSub1 {
 	display: inline-block;
+	-webkit-transform: skew(30deg);
 	transform: skew(30deg);
 	position: absolute;
 	left: -1em;
@@ -917,12 +1093,16 @@ pre .key {
 	/* border-bottom: 1px solid #000; */
 }
 
+#mockup header ul.nav li.parent a span {
+	display: none;
+}
+
 @media screen and (max-width: 1030px) {
 	#mockup header.reduced {
 		padding: 0.75em 0 !important;
 	}
 
-	#mockup header .nav>li:hover ul li {
+	#mockup header .nav>li ul.nccUlMenuSub1 li {
 		height: 40px;
 		border-bottom: 1px solid #000;
 	}
@@ -941,6 +1121,14 @@ pre .key {
 	#mockup .navbar-nav>li.fa-home a {
 		color: #fff !important;
 	}
+
+	#mockup header ul.nav li.parent a span {
+		display: inline;
+	}
+
+	#mockup header ul.nav li.parent a.selected {
+		border: 1px solid #fff;
+	}
 }
 
 #mockup header .nav>li>ul li a:hover {
@@ -955,7 +1143,7 @@ pre .key {
 
 #mockup .parent.selected,
 #mockup .nccUlMenuSub1>li.selected>a.selected {
-	background-color: #000;
+	background-color: #000 !important;
 	color: #fff !important;
 }
 
@@ -999,42 +1187,44 @@ pre .key {
 }
 
 /* SEARCH styles */
+
 #mockup {
 	position: relative;
 }
 
-#mockup .BBFormTable.SearchFormTable input[type='text'], 
-#mockup .BBFormTable.SearchFormTable textarea, 
+#mockup .BBFormTable.SearchFormTable input[type='text'],
+#mockup .BBFormTable.SearchFormTable textarea,
 #mockup .BBFormTable.SearchFormTable select {
-    margin: 0;
+	margin: 0;
 }
 
 #mockup .BBFormTable.SearchFormTable {
 	border: 1px solid #000;
 }
 
-#mockup .BBFormTable.SearchFormTable tr > td.wsNowrap.w100p {
+#mockup .BBFormTable.SearchFormTable tr>td.wsNowrap.w100p {
 	padding: 0px !important;
 }
 
-#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3)  {
-    text-align: center;
-    transform: skew(-30deg);
-    background-color: #e00122;
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable>tbody>tr:nth-child(3) table>tbody>tr>td:nth-child(3) {
+	text-align: center;
+	-webkit-transform: skew(-30deg);
+	transform: skew(-30deg);
+	background-color: #e00122;
 	padding: 0 !important;
-    margin: 0 20px !important;
-	
+	margin: 0 20px !important;
 }
 
-#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3):hover {
-    background-color: rgba(224,1,34,.6) !important;
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable>tbody>tr:nth-child(3) table>tbody>tr>td:nth-child(3):hover {
+	background-color: rgba(224, 1, 34, .6) !important;
 }
 
-#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable > tbody > tr:nth-child(3) table > tbody > tr > td:nth-child(3) > input  {
-    transform: skew(0deg);
-    width: 100%;
-	height:  44px;
-    margin: 0;
+#mockup #PC2237_tableMainAdd.BBFormTable.SearchFormTable>tbody>tr:nth-child(3) table>tbody>tr>td:nth-child(3)>input {
+	-webkit-transform: skew(0deg);
+	transform: skew(0deg);
+	width: 100%;
+	height: 44px;
+	margin: 0;
 	padding: 0 !important;
 	border: none !important;
 }
@@ -1045,13 +1235,13 @@ pre .key {
 }
 
 #mockup .BBFormSubmitButton.SearchButton {
-	color: #fff;	
+	color: #fff;
 	border-radius: 0 !important;
 	background-color: transparent !important;
 }
 
 #mockup .BBFormSubmitButton.SearchButton:hover {
-	color: #fff;	
+	color: #fff;
 	background-color: #fff;
 }
 
@@ -1062,6 +1252,13 @@ pre .key {
 	background-color: #000;
 	border-bottom: 2px solid #e00122;
 }
+
+#mockup.home .search-container {
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border: none;
+}
+
 
 #mockup .search-container:after {
 	clear: both;
@@ -1093,12 +1290,19 @@ pre .key {
 	/* display: none; */
 }
 
+#mockup.home .QuickSearchFormTable {
+	height: 39px;
+	display: block;
+	width: 50% !important;
+	margin-right: 0;
+}
+
 #mockup label[id*="_lblQuickSearch"] {
 	display: block !important;
 	visibility: visible !important;
 	position: absolute;
 	z-index: 1000;
-	width: 90% !important;
+	width: 100% !important;
 	text-align: center;
 	font-size: 1.5em;
 	margin: 0;
@@ -1109,10 +1313,21 @@ pre .key {
 	font-weight: normal;
 }
 
+#mockup.home label[id*="_lblQuickSearch"] {
+	height: 39px;
+	line-height: 39px;
+	display: inline-block !important;
+	color: transparent;
+}
+
 #mockup .QuickSearchFormTable tbody {
 	background: transparent;
 	width: 100%;
 	height: 100%;
+}
+
+#mockup.home .QuickSearchFormTable tbody {
+	height: auto;
 }
 
 #mockup .QuickSearchFormTable tr {
@@ -1123,10 +1338,23 @@ pre .key {
 	display: none;
 }
 
+#mockup.home .QuickSearchFormTable td:first-child {
+	display: table-cell;
+}
+
+#mockup.home .QuickSearchFormTable td:first-child>.BBFieldCaption QuickSearchFieldCaption {
+	width: 100% !important;
+}
+
 #mockup .QuickSearchFormTable td:nth-child(2) {
 	position: relative;
 	left: 30px;
 	width: 80%;
+}
+
+#mockup.home .QuickSearchFormTable td:nth-child(2) {
+	left: 0;
+	width: 50%;
 }
 
 #mockup .QuickSearchFormTable td:nth-child(2):before {
@@ -1139,13 +1367,22 @@ pre .key {
 	left: -30px;
 	margin: auto;
 	background-color: #fff;
+	-webkit-transform: skew(-30deg);
 	transform: skew(-30deg);
+}
+
+#mockup.home .QuickSearchFormTable td:nth-child(2):before {
+	display: none;
 }
 
 #mockup .QuickSearchFormTable td:last-child {
 	width: 200px;
 	position: relative;
 	right: 0px;
+}
+
+#mockup.home .QuickSearchFormTable td:last-child {
+	width: 55px;
 }
 
 #mockup .QuickSearchFormTable .QuickSearchTextbox {
@@ -1162,7 +1399,13 @@ pre .key {
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out; */
+	-webkit-transform: skew(-30deg);
 	transform: skew(-30deg);
+}
+
+#mockup.home .QuickSearchFormTable .BBFormSubmitButton.QuickSearchButton {
+	-webkit-transform: skew(0deg);
+	transform: skew(0deg);
 }
 
 #mockup .QuickSearchFormTable input {
@@ -1183,6 +1426,22 @@ pre .key {
 	box-sizing: border-box;
 }
 
+#mockup.home .QuickSearchFormTable input {
+	display: block;
+	width: 100%;
+	height: 39px;
+	padding: 6px 12px;
+	font-size: 18px;
+	line-height: 1.428571429;
+	color: #4b4f54;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
 #mockup [id*="_lblQuickSearch"] {
 	position: absolute;
 	left: 0;
@@ -1197,6 +1456,7 @@ pre .key {
 }
 
 #mockup .parallelogram tbody {
+	-webkit-transform: skew(30deg);
 	transform: skew(30deg);
 }
 
@@ -1204,6 +1464,12 @@ pre .key {
 	border: none;
 	padding: 3px 5px !important;
 }
+
+#mockup.home table tr td {
+	border: none;
+	padding: 0px !important;
+}
+
 
 /* HERO */
 
@@ -1248,6 +1514,7 @@ pre .key {
 	margin: 0;
 	z-index: 0;
 	width: 100%;
+	-webkit-transform: skew(-30deg);
 	transform: skew(-30deg);
 	-webkit-animation: animateLeft 1s ease-in;
 	-webkit-animation-fill-mode: forwards;
@@ -1263,6 +1530,7 @@ pre .key {
 	z-index: 5;
 	-webkit-animation: animateOpacity 1s ease-in;
 	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-delay: 0.75s;
 	animation-delay: 0.75s;
 }
 
@@ -1301,7 +1569,6 @@ pre .key {
 	color: #e00122;
 	background-color: #fff;
 }
-
 
 /* MANIFESTO */
 
@@ -1362,6 +1629,7 @@ pre .key {
 
 #mockup .section-container .story-image-container img {
 	display: block;
+	-webkit-transition: all .5s ease-out;
 	transition: all .5s ease-out;
 	transform: scale(1);
 	-webkit-transform: scale(1);
@@ -1372,6 +1640,7 @@ pre .key {
 	transform: scale(1.15);
 	-webkit-transform: scale(1.15);
 	-ms-transform: scale(1.15);
+	-webkit-transform-origin: center;
 	transform-origin: center;
 }
 
@@ -1410,10 +1679,12 @@ pre .key {
 }
 
 #mockup .section-container .secondary .one-half.column:first-child img {
+	-webkit-clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
 	clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
 }
 
 #mockup .section-container .secondary .one-half.column:last-child img {
+	-webkit-clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
 	clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
@@ -1673,6 +1944,7 @@ pre .key {
 
 #mockup .fade-enter-active,
 .fade-leave-active {
+	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 }
 
@@ -1736,6 +2008,7 @@ TYPEAHEAD styles */
 	list-style: none;
 	width: 100%;
 	border-bottom: 1px solid #394e62;
+	-webkit-transition: ease-in-out 0.5s;
 	transition: ease-in-out 0.5s;
 	position: relative;
 }
@@ -1804,7 +2077,12 @@ TYPEAHEAD styles */
 }
 
 /* GENERAL FORM styles */
+
 /* Payment Page */
+
+#mockup div[id*=CartGrid_topLinkBar] {
+	display: none;
+}
 
 #mockup #PC15250_ctl00_upPayment {
 	margin-top: 3em;
@@ -1826,16 +2104,18 @@ TYPEAHEAD styles */
 	margin: 0 auto;
 }
 
+/*
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(5),
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(4),
-#mockup #PC15250_ctl00_PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_AUIUSZip,
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(9),
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(10) {
-	max-width: 50%;
+max-width: 100%;	
+//max-width: 50%;
 	float: left;
-	width: 50%;
+	width: 100%;
 	display: inline-block;
 }
+*/
 
 .PaymentPart_PesonalInfoCheckbox>label {
 	display: inline-block;
@@ -1858,6 +2138,8 @@ TYPEAHEAD styles */
 
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer {
 	position: relative;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
 }
 
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer>label,
@@ -1866,6 +2148,30 @@ TYPEAHEAD styles */
 	margin-bottom: 0;
 }
 
+#mockup label#PC15250_ctl00_PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_lblZipUS {
+	padding-left: 0 !important;
+}
+
+#mockup div[id*=PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_AUIUSZip] {
+	float: none;
+	margin: 0 auto !important;
+	display: block;
+	clear: both;
+}
+
+#mockup .BBDivFieldContainer .DCFieldCaption {
+	width: auto;
+}
+
+#mockup .BBDivFieldContainer.one-third.column:first-chid {
+	clear: both;
+}
+
+@media (min-width: 550px) {
+	#mockup .one-third.column {
+		width: 33.333% !important;
+	}
+}
 
 #mockup .BBFormRequiredFieldMarker {
 	position: absolute;
@@ -1876,8 +2182,25 @@ TYPEAHEAD styles */
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer input,
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer textarea,
 #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer select {
-	max-width: 97% !important;
-	width: 97% !important;
+	max-width: 100% !important;
+	width: 100% !important;
+	display: inline-block;
+}
+
+#mockup div#PC15250_ctl00_PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_AUIUSZip>input {
+	max-width: 225px !important;
+}
+
+#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer.one-half.column select {
+	max-width: 100% !important;
+	width: 100% !important;
+	display: inline-block;
+}
+
+#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer select,
+#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer textarea {
+	max-width: 100% !important;
+	width: 100% !important;
 	display: inline-block;
 }
 
@@ -1911,6 +2234,19 @@ TYPEAHEAD styles */
 	color: transparent;
 }
 
+#mockup .PaymentPart_CartItemRemoveText {
+	color: #fff !important;
+}
+
+#mockup .make-onetime,
+#mockup .make-recurring {
+	padding: 0 1em;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 4px !important;
+	text-decoration: none;
+}
+
 /* END: Payment Page styles */
 
 form {
@@ -1930,6 +2266,7 @@ form {
 	font-size: 32px;
 	font-weight: 300;
 	color: gray;
+	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 	margin: 0;
 }
@@ -2277,6 +2614,89 @@ left: 5px;  */
 	line-height: 1.4em;
 }
 
+/* custom added css from index.html */
+
+#mockup .table tr.slide td.frequency {
+	width: 100px;
+	display: inline-block;
+}
+
+#mockup .table tr.slide td.fund-amount {
+	text-align: right !important;
+}
+
+#mockup a {
+	font-family: 'Open Sans' !important;
+}
+
+#mockup #givingForm li [type='radio'] {
+	position: absolute;
+	opacity: 0;
+}
+
+#mockup ul.radio-list>li.area-item {
+	position: relative;
+	width: 19%;
+	margin-bottom: 0 !important;
+}
+
+#mockup ul .amountButton {
+	margin-bottom: 0 !important;
+}
+
+#mockup ul.radio-list>li.area-item input {
+	position: absolute;
+	opacity: 0;
+	margin: 0;
+}
+
+#mockup ul.radio-list>li.area-item label {
+	margin: 0;
+}
+
+#mockup .one-half.donate-now.pledge-only {
+	text-align: center !important;
+	margin: 0 auto !important;
+	display: block !important;
+	float: none !important;
+}
+
+@media screen and (max-width: 767px) {
+	#mockup ul.radio-list>li.area-item {
+		position: relative;
+		padding: 5px 0 !important;
+		width: 50% !important;
+	}
+
+	#mockup ul.radio-list>li.area-item:last-child {
+		width: 100% !important;
+	}
+
+	#mockup ul.radio-list>li.area-item label {
+		padding: .75em;
+	}
+
+	#mockup #areasToSuppportRadioGroup .radio-list {
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+
+	#mockup #addToCart>.button-primary,
+	#mockup .donate-now>a {
+		margin: 5px auto !important;
+		display: block !important;
+		width: 200px;
+		text-align: center;
+	}
+}
+
+#mockup .checkbox-container .column:not(:last-child) {
+	margin-bottom: 1em !important;
+}
+
+/* END: custom added css from index.html */
+
 /* Totals section */
 
 #mockup .totals .totals-item {
@@ -2324,7 +2744,14 @@ left: 5px;  */
 	margin-bottom: 10px;
 }
 
+@media screen and (min-width: 1000px) {
+	.hero-image {
+		width: 100%;
+	}
+}
+
 @media screen and (max-width: 1000px) {
+
 	/* #mockup .wizard-nav.wizard-nav-pills {
 		padding-bottom: 0;
 		margin-left: 0%;
@@ -2332,10 +2759,13 @@ left: 5px;  */
 		margin: 0 auto;
 		padding-left: 3%;
 	} */
-
 	#mockup .fund-name {
 		width: 66%;
 	}
+}
+
+#pageTitle .page-title .container {
+	margin-bottom: 0 !important;
 }
 
 /* Make adjustments for tablet */
@@ -2447,6 +2877,13 @@ left: 5px;  */
 
 #mockup ::-webkit-input-placeholder,
 #mockup :-ms-input-placeholder,
+#mockup ::-webkit-input-placeholder {
+	/* Edge */
+	color: #000000 !important;
+}
+
+#mockup ::-webkit-input-placeholder,
+#mockup :-ms-input-placeholder,
 #mockup ::placeholder {
 	/* Edge */
 	color: #000000 !important;
@@ -2459,8 +2896,6 @@ left: 5px;  */
 #mockup #givingForm:before {
 	display: none !important;
 }
-
-
 
 #mockup>div>h3 {
 	width: 1024px !important;
@@ -2483,6 +2918,7 @@ left: 5px;  */
 	height: 100%;
 	background-color: rgba(0, 0, 0, .5);
 	display: table;
+	-webkit-transition: opacity .3s ease;
 	transition: opacity .3s ease;
 }
 
@@ -2498,6 +2934,7 @@ left: 5px;  */
 	background-color: #fff;
 	border-radius: 0;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
 }
 
@@ -2530,6 +2967,7 @@ left: 5px;  */
 
 #mockup .modal-default-button {
 	float: right;
+	border-radius: 0 !important;
 }
 
 /*
@@ -2564,6 +3002,7 @@ left: 5px;  */
 	height: 100%;
 	background-color: rgba(0, 0, 0, .5);
 	display: table;
+	-webkit-transition: opacity .3s ease;
 	transition: opacity .3s ease;
 }
 
@@ -2580,6 +3019,7 @@ left: 5px;  */
 	background-color: #fff;
 	border-radius: 2px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
 	position: relative;
 	overflow: hidden;
@@ -2626,7 +3066,6 @@ left: 5px;  */
 #mockup .modal-default-button:hover {
 	border: 1px solid #000;
 	background-color: #303030;
-
 }
 
 #mockup .modal-header .modal-default-button {
@@ -2648,6 +3087,12 @@ left: 5px;  */
 #mockup .modal-footer .modal-default-button {
 	float: none !important;
 	margin: 0;
+}
+
+#mockup .modal-body img.align-left {
+	float: left;
+	margin: 0 15px 15px 0;
+	width: 350px;
 }
 
 /*
@@ -2885,6 +3330,7 @@ left: 5px;  */
 		-ms-transition: all 0.4s ease-in-out;
 		-o-transition: all 0.4s ease-in-out;
 		transition: all 0.4s ease-in-out; */
+		-webkit-transform: skew(30deg);
 		transform: skew(30deg);
 	}
 
@@ -2922,6 +3368,7 @@ left: 5px;  */
 	#mockup .fa-search:before {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
+		-webkit-transform: skew(30deg);
 		transform: skew(30deg);
 		position: absolute;
 		top: 0;
@@ -2932,18 +3379,36 @@ left: 5px;  */
 		text-align: center;
 	}
 
+	#mockup .fa-search:before {
+		right: 0;
+		left: 0;
+	}
+
+	#mockup.home .fa-search {
+		padding: 0;
+		background-color: #e00122;
+	}
+
+	#mockup.home .fa-search:before {
+		-webkit-transform: skew(0deg);
+		transform: skew(0deg);
+		line-height: 39px;
+		color: #fff;
+	}
+
 	#mockup .fa-search:hover:before {
 		color: #fff;
 	}
 
-
 	#mockup .fa-home>a {
+		-webkit-transform: skew(0deg) !important;
 		transform: skew(0deg) !important;
 	}
 
 	#mockup .fa-home:before {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
+		-webkit-transform: skew(30deg);
 		transform: skew(30deg);
 		position: absolute;
 		top: 0;
@@ -2979,11 +3444,13 @@ left: 5px;  */
 }
 
 #mockup .parallelogram {
+	-webkit-transform: skew(-30deg);
 	transform: skew(-30deg);
 }
 
 #mockup .skew-fix {
 	display: inline-block;
+	-webkit-transform: skew(30deg);
 	transform: skew(30deg);
 }
 
@@ -3060,11 +3527,13 @@ left: 5px;  */
 	}
 
 	#mockup .pageTitle.parallelogram {
+		-webkit-transform: skew(-30deg);
 		transform: skew(-30deg);
 	}
 
 	#mockup .skew-fix {
 		display: inline-block;
+		-webkit-transform: skew(30deg);
 		transform: skew(30deg);
 	}
 
@@ -3117,6 +3586,7 @@ left: 5px;  */
 		border-bottom: 1px solid #ccc;
 		border-left: 0;
 		text-align: center;
+		-webkit-transform: skew(0deg);
 		transform: skew(0deg);
 		background-color: #fff;
 	}
@@ -3134,6 +3604,7 @@ left: 5px;  */
 	}
 
 	#mockup .fa-home:before {
+		-webkit-transform: skew(0deg);
 		transform: skew(0deg);
 		color: #000;
 	}
@@ -3144,11 +3615,12 @@ left: 5px;  */
 
 	#mockup .nav.navbar-nav.navbar-right li a {
 		/* color: #dddddd; */
-		color: #000 !important;
+		color: #000;
 		display: block;
 		padding: 15px;
 		text-decoration: none;
 		font-size: 1.25em;
+		-webkit-transform: skew(0deg);
 		transform: skew(0deg);
 	}
 
@@ -3191,6 +3663,7 @@ left: 5px;  */
 	#mockup .nav.navbar-nav.navbar-right li .nccUlMenuSub1 {
 		display: none;
 		position: relative;
+		-webkit-transform: skew(0deg);
 		transform: skew(0deg);
 		left: 0;
 		right: 0;
@@ -3198,7 +3671,6 @@ left: 5px;  */
 		-moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 		-webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 		box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-
 		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3, MakeShadow=true, ShadowOpacity=0.30);
 		-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
 		zoom: 1;
@@ -3219,8 +3691,9 @@ left: 5px;  */
 		max-width: 250px !important;
 	}
 
-	#mockup header {
-		padding: 0.75em 0;
+	#mockup header,
+	#mockup.internal header {
+		padding: 0.75em 0 !important;
 	}
 
 	#mockup .parent:before {
@@ -3251,7 +3724,6 @@ left: 5px;  */
 	/* #mockup .nav.navbar-nav.navbar-right {
 		height: 91vh;
 	} */
-
 	#mockup section.manifesto {
 		padding: 2em 0;
 	}
@@ -3441,7 +3913,6 @@ left: 5px;  */
 
 /* ADMIN styles */
 
-
 #mockup.admin-mode header {
 	position: relative;
 }
@@ -3527,13 +3998,16 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	color: #fff;
 }
 
-
 /* INTERNAML styles 
  */
 
-#mockup.internal .page-title .container,
-#mockup.give-to-uc .page-title .container {
+#mockup.internal .page-title .container {
 	padding: 40px 0 0;
+	width: 100% !important;
+}
+
+#mockup.give-to-uc .page-title .container {
+	padding: 22px 0 0;
 	width: 100% !important;
 }
 
@@ -3595,7 +4069,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 #mockup.give-to-uc header {
 	background-color: #e00122;
-	padding: 1.25em 0 0.5em;
+	padding: 0.75em 0;
 	-webkit-box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
 	box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
 }
@@ -3628,6 +4102,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 .accordion-enter-active,
 .accordion-leave-active {
 	will-change: height, opacity;
+	-webkit-transition: height 0.3s ease, opacity 0.3s ease;
 	transition: height 0.3s ease, opacity 0.3s ease;
 	overflow: hidden;
 }
@@ -3674,7 +4149,13 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 }
 
 #mockup .accordion__panel-title {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 	cursor: pointer;
 	padding: 10px 10px 10px 50px;
@@ -3696,18 +4177,21 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 #mockup .accordion__panel-content {
 	overflow: hidden;
+	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	padding: 1em;
 	border: 1px solid #000;
 }
 
 #mockup .accordion__panel-status-icon {
+	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	position: absolute;
 	left: 20px;
 }
 
 #mockup .accordion__panel-status-icon--active {
+	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
 
@@ -3715,10 +4199,12 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	margin-bottom: 1em !important;
 }
 
-
 /* VIDEO styles  */
 
 #mockup #videoPlayer .thumbnail {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
 	cursor: pointer;
 	margin-bottom: 15px;
@@ -3727,7 +4213,6 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 #mockup #videoPlayer .thumbnail:nth-child(even) {
 	background-color: #F0F0F0;
 }
-
 
 #mockup #videoPlayer .thumbnail-img {
 	width: 35%;
@@ -3767,6 +4252,9 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 }
 
 #mockup #videoPlayer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
 	margin: auto;
@@ -3774,15 +4262,25 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 #mockup #videoPlayer .video-container {
 	margin-right: 40px;
+	-webkit-flex-basis: 60%;
+	-ms-flex-preferred-size: 60%;
 	flex-basis: 60%;
 }
 
 #mockup #videoPlayer .video-list {
+	-webkit-flex-basis: 40%;
+	-ms-flex-preferred-size: 40%;
 	flex-basis: 40%;
 }
 
 #mockup #videoPlayer .row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
 
@@ -3805,6 +4303,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 #mockup .thumbnail .thumbnail-img img {
 	display: block;
+	-webkit-transition: all .5s ease-out;
 	transition: all .5s ease-out;
 	transform: scale(1);
 	-webkit-transform: scale(1);
@@ -3815,11 +4314,13 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	transform: scale(1.15);
 	-webkit-transform: scale(1.15);
 	-ms-transform: scale(1.15);
+	-webkit-transform-origin: center;
 	transform-origin: center;
 }
 
 /* TAB styles 
  */
+
 #mockup * {
 	box-sizing: border-box;
 }
@@ -3832,8 +4333,16 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 }
 
 #mockup .tabs__list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
 	align-items: flex-start;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
 	height: 50px;
 	/* border-bottom: solid 1px #e9e9e9; */
@@ -3842,6 +4351,9 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 #mockup .tabs__tab {
 	padding: 0 14px;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
 	align-items: center;
 	color: rgba(0, 0, 0, 0.7);
 	font-size: 2em;
@@ -3870,20 +4382,34 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	position: relative;
 	overflow: hidden;
 	will-change: height;
+	-webkit-transition: height 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 	transition: height 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 #mockup .tabs__wrapper {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
 	justify-content: flex-start;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
 	align-items: flex-start;
 	will-change: transform;
 	transition: -webkit-transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+	-webkit-transition: -webkit-transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 	transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 	transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 #mockup .tabs__content {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 100%;
+	-ms-flex: 1 0 100%;
 	flex: 1 0 100%;
 	width: 100%;
 	padding: 10px;
@@ -3891,6 +4417,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 }
 
 /* test form styles */
+
 #mockup input[type='text'],
 #mockup textarea,
 #mockup select {
@@ -3914,21 +4441,19 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	background: #f7f7f7;
 	border-radius: 6px;
 	padding: 20px;
-	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-		inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), inset 0px 0px 0px 1px rgba(255, 255, 255, 1);
 	border: 1px solid #b2b2b2;
 }
 
 #mockup .fancy-form input {
+	-webkit-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 }
 
 #mockup .fancy-form input[type="text"] {
 	outline: none;
 	border: 1px solid #cccccc;
-	box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.1),
-		inset 0px 1px 0px 0px rgba(255, 255, 255, 1),
-		inset 0px 1px 6px 0px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.1), inset 0px 1px 0px 0px rgba(255, 255, 255, 1), inset 0px 1px 6px 0px rgba(0, 0, 0, 0.05);
 	border-radius: 3px;
 	padding: 7px 10px;
 	background: #f1f1f1;
@@ -3941,9 +4466,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 }
 
 #mockup .fancy-form input[type="text"]:focus {
-	box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.1),
-		0px 1px 5px 0px rgba(0, 0, 0, 0.2),
-		inset 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 1px 5px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
 	background: #fff;
 	border-color: transparent;
 	color: #565656;
@@ -4020,8 +4543,6 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	display: none;
 }
 
-
-
 #mockup .form-nav {
 	margin-top: 0em !important;
 	margin-left: 3% !important;
@@ -4054,8 +4575,6 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 #mockup .form-nav li i {
 	font-size: 1.5em;
 }
-
-
 
 #mockup .btn-donate,
 #mockup button {
@@ -4118,7 +4637,6 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	border-color: #e00122 transparent transparent;
 }
 
-
 #mockup .button-disabled,
 #mockup button[disabled],
 #mockup :disabled {
@@ -4141,7 +4659,9 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	font-weight: 400;
 	color: #e00122;
 	padding-left: .2em;
-	font-size: 1em;
+	font-size: 1.5em;
+	line-height: 1;
+	vertical-align: text-top;
 }
 
 #advancedDonationForm {
@@ -4175,6 +4695,7 @@ a.not-active {
 }
 
 /* GIVE TO UC - DONATION FORM */
+
 #mockup i[class*="fa-times"] {
 	color: #dc3545;
 }
@@ -4188,7 +4709,6 @@ a.not-active {
 }
 
 #mockup .text-container {
-	background-color: #F5F5F5;
 	padding: 0.5em 1em;
 }
 
@@ -4233,19 +4753,19 @@ a.not-active {
 }
 
 #mockup #areasToSuppportRadioGroup .radio-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
 	text-align: center;
 }
-
-/* #mockup #areasToSuppportRadioGroup .radio-list>label {
-	-webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
-} */
 
 #mockup #areasToSuppportRadioGroup .radio-list>input,
 #mockup #areasToSuppportRadioGroup .radio-list>label {
@@ -4268,7 +4788,7 @@ a.not-active {
 #mockup .btn-donate,
 #mockup button {
 	font-size: 1em;
-	line-height: 38px;
+	/* line-height: 38px; */
 }
 
 #mockup .select {
@@ -4328,10 +4848,13 @@ a.not-active {
 
 #mockup .button-disabled,
 #mockup button[disabled],
-#mockup :disabled {
+#mockup :disabled,
+#mockup a.not-active {
+	cursor: not-allowed;
 	background-color: #888b8d;
 	border: none;
 	pointer-events: none;
+	opacity: .65;
 }
 
 #mockup #collegeUnitsSelect .select {
@@ -4343,13 +4866,13 @@ a.not-active {
 	float: right;
 }
 
-#mockup .required:after {
+/* #mockup .required:after {
 	content: "*";
 	font-weight: 400;
 	color: #e00122;
 	padding-left: .2em;
 	font-size: 1em;
-}
+} */
 
 #mockup #advancedDonationForm {
 	width: 100%;
@@ -4382,8 +4905,8 @@ a.not-active {
 
 #mockup fieldset {
 	margin-bottom: .5em;
-	padding: 1.75rem 1.5rem;
-	border: 2px solid #f4f4f4;
+	padding: .5rem 1.5rem 1.75rem !important;
+	border: none !important;
 	border-radius: 4px;
 }
 
@@ -4423,19 +4946,33 @@ a.not-active {
 	width: 30%
 }
 
-#mockup .checkbox label {
+#mockup .checkbox label:not(.required) {
 	position: relative;
 	padding: 0 0.1em 0 2em;
 }
 
-#mockup .checkbox label::before,
-#mockup .checkbox label::after {
+#mockup .checkbox .select-section label:not(.required),
+#mockup label.not-required {
+	position: relative;
+	padding: 0 0.1em 0.5em 0 !important;
+}
+
+#mockup .checkbox label:not(.required)::before,
+#mockup .checkbox label:not(.required)::after {
 	position: absolute;
 	content: '';
 	display: inline-block;
 }
 
-#mockup .checkbox label::before {
+#mockup .checkbox .select-section>label::before,
+#mockup .checkbox .select-section>label::after,
+#mockup .checkbox label.not-required::before,
+#mockup .checkbox label.not-required::after {
+	display: none;
+}
+
+
+#mockup .checkbox label:not(.required)::before {
 	height: 22px;
 	width: 22px;
 	left: 0;
@@ -4444,7 +4981,7 @@ a.not-active {
 	border: 1px solid #bbbbbb;
 }
 
-#mockup .checkbox label::after {
+#mockup .checkbox label:not(.required)::after {
 	left: 7px;
 	top: 3px;
 	width: 8px;
@@ -4492,8 +5029,16 @@ a.not-active {
 #mockup .amounts ul,
 #mockup #adfTabsMenu .menu {
 	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
 	align-items: flex-start;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
 	height: 100%;
 }
@@ -4533,11 +5078,6 @@ a.not-active {
 	padding: 3px 20px;
 	font-size: 18px;
 	line-height: 24px;
-	/* -webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out; */
 }
 
 #mockup .tt-suggestion:hover {
@@ -4582,12 +5122,18 @@ a.not-active {
 	top: 10px;
 	left: 5%;
 	display: none;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
 	/* transform: translate(10%, -50%); */
 	/* top: 50%; */
 	pointer-events: none;
 	width: 25px;
 	text-align: center;
 	font-style: normal;
+}
+
+#mockup .otherAmount>i.currency {
+	display: block;
 }
 
 #mockup .otherAmount.currency>input {
@@ -4610,6 +5156,7 @@ a.not-active {
 
 #mockup .giftDetails legend {
 	width: 100%;
+	-webkit-transform: skew(-30deg);
 	transform: skew(-30deg);
 	color: #fff;
 	background-color: #e00122;
@@ -4634,6 +5181,7 @@ a.not-active {
 	margin: 0;
 	display: inline-block;
 	float: none;
+	padding-bottom: 0 !important;
 }
 
 #mockup #adfTabsMenu .menu li.selected {
@@ -4659,7 +5207,6 @@ a.not-active {
 	line-height: 3.5em;
 	font-weight: normal;
 	text-transform: none;
-
 	font-weight: 400;
 	text-align: center;
 	white-space: nowrap;
@@ -4673,9 +5220,13 @@ a.not-active {
 	font-size: 1em;
 	line-height: 1.5;
 	border-radius: 0;
+	-webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 	background-color: #fff;
 	border-color: #ccc;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
 	flex-grow: 1;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -4761,7 +5312,7 @@ a.not-active {
 
 #mockup #adfSubmitButton {
 	font-size: 1em;
-	line-height: 38px;
+	/* line-height: 38px; */
 	padding: 1em;
 	height: 38px;
 	padding: 0 30px;
@@ -4786,14 +5337,26 @@ a.not-active {
 }
 
 #mockup .validation-icon-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: flex-start;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
 }
 
 #mockup .validation-icon-container>div {
-	width: 40%;
+	width: 20%;
+	display: inline-block;
 	padding: 0;
+	float: none !important;
+	margin: auto 0 !important;
+	text-align: center !important;
 }
 
 #mockup .validation-icon-container .validation-icon {
@@ -4826,9 +5389,9 @@ a.not-active {
 		margin: 0 0.1em 0 0;
 	}
 
-	#mockup #advancedDonationFormRedesign .radio-list label {
+	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup label {
 		display: inline-block;
-		width: 24.5%;
+		width: 95%;
 		text-align: center;
 		border: 1px solid #ccc;
 	}
@@ -4865,6 +5428,8 @@ a.not-active {
 
 	#mockup .amounts ul,
 	#mockup #adfTabsMenu .menu {
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 	}
 
@@ -4929,66 +5494,81 @@ a.not-active {
 	}
 }
 
-#mockup #advancedDonationForm #recurringAmount > ul,
-#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList > ul,
-#mockup #advancedDonationForm ul.designationButtonWrapper {
+#mockup #advancedDonationForm #recurringAmount>ul,
+#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList>ul,
+#mockup #advancedDonationForm ul.designationButtonWrapper,
+#mockup .radio-list.areaToggleGroup {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-  	align-items: flex-start;
- 	flex-wrap: nowrap;
-	width: 100%
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
 }
 
-
-#mockup #advancedDonationForm #recurringAmount > ul > li,
-#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList > ul > li,
-#mockup #advancedDonationForm ul.designationButtonWrapper > li {
+#mockup #advancedDonationForm #recurringAmount>ul>li,
+#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList>ul>li,
+#mockup #advancedDonationForm ul.designationButtonWrapper>li {
 	width: 40%;
 }
 
-#mockup #advancedDonationForm #adfOtherLabel, #mockup #advancedDonationForm #txtAmount {
+#mockup #advancedDonationForm #adfOtherLabel,
+#mockup #advancedDonationForm #txtAmount {
 	margin: 0 !important;
-min-height: 50px !important;
+	min-height: 50px !important;
 }
 
 #mockup #advancedDonationForm .adfInnerToggle {
-    clear: both;
-    max-width: 100%;
+	clear: both;
+	max-width: 100%;
 	width: 100%;
 }
 
 @media only screen and (min-width: 51em) {
-	#mockup .DonationFormTable>tbody>tr, 
-	#mockup .DonationFormTable > tbody > tr > td{
-    	display: block;
-	}
-	
-	#mockup table.DonationFormTable > tr > td, #mockup table.DonationFormTable td.BBFieldCaption {
-    	border: none;
-    	padding: 3px 5px !important;
-    	float: none;
-    	clear: both;
-		width: 100% !important;
-    	min-width: 100% !important;
+
+	#mockup .DonationFormTable>tbody>tr,
+	#mockup .DonationFormTable>tbody>tr>td {
+		display: block;
 	}
 
-	#mockup table > .donationInfo > tr  {
+	#mockup table.DonationFormTable>tr>td,
+	#mockup table.DonationFormTable td.BBFieldCaption {
+		border: none;
+		padding: 3px 5px !important;
+		float: none;
+		clear: both;
+		width: 100% !important;
+		min-width: 100% !important;
+	}
+
+	#mockup table>.donationInfo>tr {
 		display: inline-block !important;
 		padding-right: 1em;
 	}
 
-	#mockup table > .donationInfo > tr > td:first-child  {
+	#mockup table>.donationInfo>tr>td:first-child {
 		padding-right: 0 !important;
 	}
 
-	#mockup table > .donationInfo > tr > td:last-child  {
+	#mockup table>.donationInfo>tr>td:last-child {
 		padding-left: 0 !important;
 	}
 }
 
-#mockup .DonationFormTable .DonationFormTable_DonationPanel.donationInfo > tr {
+#mockup .DonationFormTable .DonationFormTable_DonationPanel.donationInfo>tr {
 	position: relative;
 }
-
 
 #mockup label#PC3661_lblAmountCaption {
 	padding-left: 1em !important;
@@ -5004,6 +5584,183 @@ min-height: 50px !important;
 
 #mockup .BBFormRequiredFieldMarker.DonationRequiredFieldMarker {
 	visibility: visibile !important;
+}
+
+@media screen and (max-width: 830px) {
+	#mockup .radio-list.areaToggleGroup label.single {
+		//line-height: 50px !important;
+	}
+
+	#mockup .radio-list.areaToggleGroup label {
+		padding: 10px !important;
+	}
+}
+
+@media screen and (max-width: 767px) {
+
+	#mockup .amounts ul,
+	#mockup #adfTabsMenu .menu {
+		-webkit-flex-wrap: wrap !important;
+		-ms-flex-wrap: wrap !important;
+		flex-wrap: wrap !important;
+	}
+
+	#mockup .amountButton {
+		width: 50%;
+		padding: 5px 0;
+	}
+
+	#mockup .amountButton a,
+	#mockup .amountButton input {
+		width: 95% !important;
+		margin: 0 auto;
+	}
+
+	#mockup .amountButton input#txtAmount {
+		margin: 0 auto !important;
+	}
+
+	#mockup #areasToSuppportRadioGroup .radio-list {
+		-webkit-flex-wrap: wrap !important;
+		-ms-flex-wrap: wrap !important;
+		flex-wrap: wrap !important;
+	}
+
+	#mockup .areaToggleGroup label {
+		width: 95%;
+		padding: 5px 0;
+	}
+
+	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup label {
+		display: block;
+		width: 95%;
+		margin: 0 auto;
+	}
+
+	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup li:last-child label {
+		width: 97.5%;
+	}
+
+	#mockup #adfTabsMenu .menu li {
+		width: 100%;
+	}
+
+	#mockup .radio-list.areaToggleGroup label.single {
+		line-height: auto !important;
+	}
+}
+
+@media screen and (max-width: 450px) {
+
+	#mockup .amounts ul,
+	#mockup #adfTabsMenu .menu {
+		-webkit-flex-wrap: wrap !important;
+		-ms-flex-wrap: wrap !important;
+		flex-wrap: wrap !important;
+	}
+
+	#mockup .amountButton {
+		width: 100%;
+		padding: 5px 0;
+	}
+
+	#mockup .amountButton a,
+	#mockup .amountButton input {
+		width: 100% !important;
+		margin: 0 auto;
+	}
+
+	#mockup .amountButton input#txtAmount {
+		margin: 0 auto !important;
+	}
+
+	#mockup #areasToSuppportRadioGroup .radio-list {
+		-webkit-flex-wrap: wrap !important;
+		-ms-flex-wrap: wrap !important;
+		flex-wrap: wrap !important;
+	}
+
+	#mockup .areaToggleGroup label {
+		width: 100%;
+		padding: 5px 0;
+	}
+
+	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup label {
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+		line-height: auto !important;
+	}
+
+	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup li:last-child label {
+		width: 100%;
+	}
+
+	#mockup ul.radio-list>li.area-item {
+		width: 100% !important;
+		padding: 5px 0 !important;
+	}
+
+	#mockup .u-text-left {
+		text-align: center !important;
+	}
+
+	#mockup .form-button-container button {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	#mockup fieldset {
+		padding: .5em !important;
+	}
+
+	#mockup .validation-icon-container {
+		margin: 0 !important;
+	}
+
+	#mockup .validation-icon-container>div {
+		width: 50%;
+	}
+
+	#mockup legend {
+		padding: 0;
+	}
+
+	#mockup .checkbox-container .column {
+		padding: 0 3px;
+	}
+}
+
+#mockup .select select {
+	color: #000 !important;
+}
+
+#mockup .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+#mockup .visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#mockup .focusable.visually-hidden:focus {
+  position: relative;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: auto;
 }
 
 /* ADMIN VIEW styles 
