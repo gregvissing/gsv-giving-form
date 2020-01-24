@@ -1072,7 +1072,7 @@ var BBI = BBI || {
 				$("#hiddenAmount").val(defaultAmount);
 
 				$(".toggleAmounts input[type=radio]").on("change", function() {
-					console.log($(this).val());
+					// console.log($(this).val());
 					var donationAmount = $(this).val();
 					if (donationAmount == "other") {
 						$(
@@ -1137,7 +1137,7 @@ var BBI = BBI || {
 				);
 
 				function checkOtherAmount(event) {
-					console.log($(this).val());
+					// console.log($(this).val());
 					var checkOtherAmountValue = $(this).val();
 					$("#hiddenAmount").val(checkOtherAmountValue);
 				}
@@ -1147,7 +1147,7 @@ var BBI = BBI || {
 				$("#hiddenType").val(defaultType);
 
 				$(".toggleGiftType input").on("change", function() {
-					console.log($(this).val());
+					// console.log($(this).val());
 					var typeSelected = $(this).val();
 
 					$("#hiddenType").val(typeSelected);
@@ -1184,7 +1184,7 @@ var BBI = BBI || {
 						var frequencyValue = $("#frequency")
 							.children("option:selected")
 							.val();
-						console.log(frequencyValue);
+						// console.log(frequencyValue);
 						$("#hiddenStartDate").val($("#startDate").val());
 						$("#hiddenFrequency").val(frequencyValue);
 					} else {
@@ -1214,7 +1214,7 @@ var BBI = BBI || {
 				$("select").prop("selectedIndex", 0); // set all Select dropdowns to default option
 
 				$(".areaSupportList input").on("change", function() {
-					console.log($(this).val());
+					// console.log($(this).val());
 					var areaSelected = $(this).val();
 
 					$("#hiddenArea").val(areaSelected);
@@ -1267,7 +1267,7 @@ var BBI = BBI || {
 
 				// COLLEGE/UNITS
 				$("#collegesUnitsDropdown").on("change", function() {
-					console.log($(this).val());
+					// console.log($(this).val());
 					$("#collegesUnitsFundsDropdown").prop("selectedIndex", 0);
 					var collegeSelected = $(this).val();
 					var trimmedCollegeOption = $.trim(
@@ -1336,7 +1336,7 @@ var BBI = BBI || {
 				}
 
 				function checkZipCode(event) {
-					console.log($(this).val());
+					// console.log($(this).val());
 					var el = $(this); // Did they type five integers?
 					if (el.val().length == 5 && is_int(el.val())) {
 						// Call Ziptastic for information
@@ -1375,7 +1375,7 @@ var BBI = BBI || {
 				$(".additionalInfoToggle input").on("keyup change", function() {
 					var ackValue = $(this).val(),
 						ackID = $(this).attr("id");
-					console.log(ackID + " " + ackValue);
+					// console.log(ackID + " " + ackValue);
 					$("#hidden" + ackID).val(ackValue);
 				});
 
@@ -1588,13 +1588,13 @@ var BBI = BBI || {
 					e.preventDefault();
 					if (BBI.Methods.validateADF()) {
 						if ($("#giftListNotEmpty").is(":visible")) {
-							console.log("not empty cart");
+							// console.log("not empty cart");
 							$(this)
 								.addClass("disabled")
 								.unbind("click");
 							BBI.Methods.submitADF();
 						} else {
-							console.log("empty cart");
+							// console.log("empty cart");
 							$(".error-message").fadeOut();
 							$(function() {
 								$(".error-message")
@@ -1608,7 +1608,7 @@ var BBI = BBI || {
 											$(item).attr("name") +
 											".error-message"
 									).fadeIn();
-									console.log($(item).attr("name"));
+									// console.log($(item).attr("name"));
 									// console.log(index);
 									indexVal++;
 									//console.log(indexVal);
@@ -1617,13 +1617,13 @@ var BBI = BBI || {
 									// console.log("don't submit " + indexVal);
 								} else {
 									if ($("#fundDonationAmount").val() != "") {
-										console.log(
-											$("#fundDonationAmount").val() +
-												" " +
-												$("#fundName").val() +
-												" " +
-												$("#fundGuid").val()
-										);
+										// console.log(
+										// 	$("#fundDonationAmount").val() +
+										// 		" " +
+										// 		$("#fundName").val() +
+										// 		" " +
+										// 		$("#fundGuid").val()
+										// );
 										$("#giftListEmpty").slideUp();
 										setTimeout(showGift);
 
@@ -1681,7 +1681,7 @@ var BBI = BBI || {
 											BBI.Methods.submitADF();
 										}
 									} else {
-										console.log("cart not empty!");
+										// console.log("cart not empty!");
 										$(this)
 											.addClass("disabled")
 											.unbind("click");
@@ -3682,7 +3682,7 @@ var BBI = BBI || {
 				}
 			}
 			if ($("#company:visible").length !== 0) {
-				console.log($("#company").val());
+				// console.log($("#company").val());
 				var company = {
 					AttributeId:
 						BBI.Defaults.customADFAttributes[
@@ -3701,7 +3701,7 @@ var BBI = BBI || {
 				customAttributes.push(spouseName);
 			}
 			if ($("#pledgeID:visible").length !== 0) {
-				console.log($("#pledgeID").val());
+				// console.log($("#pledgeID").val());
 				var pledge = {
 					AttributeId: BBI.Defaults.customADFAttributes["Pledge ID"],
 					Value: $("#pledgeID").val()
@@ -3709,7 +3709,7 @@ var BBI = BBI || {
 				customAttributes.push(pledge);
 			}
 			if ($("#frequency:visible").length !== 0) {
-				console.log($("#frequency option:selected").val());
+				// console.log($("#frequency option:selected").val());
 				var startDate = $("#startDate").datepicker("getDate"), //Date.parse();
 					DayOfWeek = startDate.getDay(),
 					DayOfMonth = startDate.getDate(),
@@ -3771,7 +3771,7 @@ var BBI = BBI || {
 					designationArray.push(gift);
 				});
 				donation.Gift.Designations = designationArray;
-				console.log(donation.Gift.Designations);
+				// console.log(donation.Gift.Designations);
 				// pledge gift
 			} else {
 				if ($(".amountButton a").hasClass("selected")) {
