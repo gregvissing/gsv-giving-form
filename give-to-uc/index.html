@@ -1,0 +1,917 @@
+<style>
+	#queryService.container {
+		width: 100% !important;
+	}
+
+	#queryService .r-pill__item label {
+		margin-bottom: 0;
+		color: #666;
+		font-weight: normal;
+	}
+
+	#queryService fieldset .r-pill__group {
+		width: 95%;
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: nowrap;
+		height: 100%;
+		margin: 0.5em auto;
+	}
+
+	#queryService fieldset>.field {
+		width: 95%;
+		margin: 0.5em auto;
+	}
+
+	#queryService .r-pill__group>span {
+		width: 40%;
+		text-align: center;
+		margin-left: 2px;
+		margin-right: 2px;
+	}
+
+	#queryService .u-full-width {
+		width: 100% !important;
+		height: 38px !important;
+		padding: 6px 10px !important;
+		background-color: #fff !important;
+		border: 1px solid #d1d1d1 !important;
+		border-radius: 4px !important;
+		box-shadow: none !important;
+		box-sizing: border-box !important;
+	}
+
+	#scrollable-dropdown-menu .tt-menu {
+		margin-top: 0 !important;
+	}
+
+	#queryService .adfInputWithPlaceholder {
+		display: none;
+	}
+
+	#queryService .typeahead-close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		font-size: 38px;
+		z-index: 100;
+	}
+
+	#queryService .field {
+		position: relative;
+	}
+
+	#mockup .r-pill__item.otherItem>input.miniInputText {
+		display: none;
+		min-height: auto !important;
+		height: 100%;
+		border-radius: 2em !important;
+		border: 2px solid #e00122;
+		text-align: center;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		width: 100% !important;
+		padding: 0px 1.25em;
+	}
+
+	#mockup .r-pill__item.otherItem .fa.fa-usd {
+		display: none;
+		position: absolute;
+		left: 0.75em;
+		top: 0;
+		bottom: 0;
+		z-index: 11;
+		color: #666;
+		line-height: 32px;
+	}
+
+	#mockup fieldset.field-wrap.toggle {
+		display: none;
+	}
+
+	#queryService fieldset>legend {
+		font-size: 1.5em !important;
+		margin-bottom: 0 !important;
+		color: #000 !important;
+		background-color: #EBEBEB !important;
+		border: 1px solid #e00122 !important;
+		width: 100%;
+	}
+
+	#queryService>fieldset {
+		padding: 0.5rem 0 1.75rem !important;
+		// border: 1px solid #e00122 !important;
+	}
+
+	#mockup legend.required:after {
+		position: absolute !important;
+		line-height: 1.5em;
+	}
+
+	#mockup #queryService .checkbox-container .toggle {
+		padding-top: 1em !important;
+		display: none;
+	}
+
+	#queryService .ack-city-state {
+		display: none;
+	}
+
+	#queryService .checkbox-container .toggle>fieldset {
+		margin-bottom: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	@media (min-width: 550px) {
+		#queryService .one-half.column {
+			width: 50%;
+		}
+	}
+
+	.asterisk {
+		color: #e00122;
+		font-size: 1.5em;
+		line-height: 1em;
+	}
+
+	legend {
+		letter-spacing: 1px;
+	}
+
+	.fa.fa-trash-o {
+		color: #e00122;
+		font-size: 1.5em;
+	}
+
+	.fund-amount span.fa.fa-usd {
+		position: absolute;
+		left: 5px;
+		top: 0;
+		bottom: 0;
+		height: 38px;
+		margin: auto;
+		line-height: 38px;
+		width: 25px;
+		text-align: center;
+		background-color: #e9ecef;
+		border: 1px solid #ced4da;
+	}
+
+	#spanCartTotalAmount:before {
+		margin-right: 10px;
+		content: "$";
+	}
+
+	.fund-amount>input {
+		text-align: center;
+	}
+
+	#mockup .fund-name,
+	#mockup .totals-item label,
+	#giftListNotEmpty tfoot tr td:first-child {
+		display: inline-block;
+		width: 65%;
+		padding: 0 10px;
+		text-align: left !important;
+	}
+
+	#giftListNotEmpty tfoot tr td.totalColumn {
+		display: inline-block;
+		width: 20%;
+		padding: 0 10px;
+		text-align: center !important;
+	}
+
+	#giftListNotEmpty table tfoot {
+		display: none;
+		border-top: 2px solid #666;
+		background-color: #D3D3D3;
+		font-size: 1.25em;
+	}
+
+	#giftListNotEmpty table tfoot label {
+		margin: 0;
+	}
+
+	#queryService a {
+		color: #e00122;
+	}
+</style>
+
+<div id="advancedDonationFormA11Y">
+	<div id="queryService" class="container">
+
+		<div class="text-container">
+			<p>
+				Thank you for supporting the University of Cincinnati. If you have
+				questions about making a gift, please call us at
+				<a href="tel:888-556-8889">888-556-8889</a>
+				(toll-free) or
+				<a href="tel:513-556-6781">513-556-6781</a>
+				M–F, 8 a.m. – 5 p.m. EST. or
+				<a href="mailto:ucfoundation@uc.edu%3C">email us</a>.
+			</p>
+			<p>
+				<i>
+					UC Faculty &amp; Staff can make a gift by payroll deduction by
+					clicking <a href="/facultystaff">here</a>.
+				</i>
+			</p>
+		</div>
+
+		<p class="text-center mb-1"><strong>All fields marked with <span class="asterisk">*</span> are required</strong>
+		</p>		
+
+		<fieldset class="r-pill">
+			<legend class="required">SELECT GIFT TYPE</legend>
+			<div class="r-pill__group toggleGiftType">
+				<span class="r-pill__item">
+					<input id="giftTypeOneTime" name="giftType" type="radio" value="OneTime" checked />
+					<label for="giftTypeOneTime">One-Time Gift</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="giftTypeMonthly" name="giftType" type="radio" value="Monthly" />
+					<label for="giftTypeMonthly">Monthly Gift</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="giftTypePledge" name="giftType" type="radio" value="Pledge" />
+					<label for="giftTypePledge">Pledge Payment</label>
+				</span>
+			</div>
+		</fieldset>
+
+		<fieldset class="r-pill mb-0 pb-0">
+			<legend>YOUR GIVING LIST FOR THIS TRANSACATION:</legend>
+			<div class="cart-body">
+				<div id="giftListEmpty">
+					<em>Your cart is empty</em>
+				</div>
+				<div id="giftListNotEmpty">
+					<table class="table">
+						<tbody></tbody>
+						<tfoot>
+							<tr>
+								<td><label>TOTAL</label></td>
+								<td id="spanCartTotalAmount" class="totalColumn"></td>
+								<td></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset class="r-pill">
+			<legend class="required">SELECT DONATION AMOUNT</legend>
+			<div class="r-pill__group toggleAmounts">
+				<span class="r-pill__item">
+					<input id="amountOneTime50" name="amount" type="radio" value="50" />
+					<label for="amountOneTime50">$50</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="amountOneTime100" name="amount" type="radio" value="100" checked />
+					<label for="amountOneTime100">$100</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="amountOneTime250" name="amount" type="radio" value="250" />
+					<label for="amountOneTime250">$250</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="amountOneTime500" name="amount" type="radio" value="500" />
+					<label for="amountOneTime500">$500</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="amountOneTime1000" name="amount" type="radio" value="1000" />
+					<label for="amountOneTime1000">$1000</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountMonthly10" name="amount" type="radio" value="10" />
+					<label for="amountMonthly10">$10</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountMonthly20" name="amount" type="radio" value="20" />
+					<label for="amountMonthly20">$20</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountMonthly30" name="amount" type="radio" value="30" />
+					<label for="amountMonthly30">$30</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountMonthl50y" name="amount" type="radio" value="50" />
+					<label for="amountMonthly50">$50</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountMonthly84" name="amount" type="radio" value="84" />
+					<label for="amountMonthly84">$84</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountPledge100" name="amount" type="radio" value="100" />
+					<label for="amountPledge100">$100</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountPledge250" name="amount" type="radio" value="250" />
+					<label for="amountPledge250">$250</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountPledge500" name="amount" type="radio" value="500" />
+					<label for="amountPledge500">$500</label>
+				</span>
+				<span class="r-pill__item hide">
+					<input id="amountPledge1000" name="amount" type="radio" value="1000" />
+					<label for="amountPledge1000">$1000</label>
+				</span>
+				<span class="r-pill__item otherItem">
+					<input id="amountOther" name="amount" type="radio" value="other" />
+					<label for="amountOther">Other Amount</label>
+					<input class="miniInputText" id="txtAmount" placeholder="Other Amount" tabindex="0" type="text" />
+					<i class="fa fa-usd" aria-hidden="true"></i>
+				</span>
+			</div>
+		</fieldset>
+
+		<!-- Pledge Payment -->
+		<fieldset id="PledgeGiftType" class="field-wrap toggle">
+			<legend class="required">Pledge Information</legend>
+			<div class="row">
+				<div class="one-half column">
+					<label for="pledgeID" class="required">Pledge ID</label>
+					<div>
+						<input type="text" id="pledgeID" class="required" name="pledgeID" placeholder="Pledge ID"
+							tabindex="0" />
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset class="r-pill mb-0 pb-0 areaToggle">
+			<legend class="required">SELECT AREA TO SUPPORT</legend>
+			<p class="mb-05">
+				<strong>Gifts to the UC Fund support our greatest need</strong>
+				, and allow us to put your philanthropy to work immediately. You can
+				designate your gift to the college or priority of your choice.
+			</p>
+			<div class="r-pill__group areaSupportList">
+				<span class="r-pill__item">
+					<input id="areaScholarships" name="areaType" type="radio" value="Scholarships" />
+					<label for="areaScholarships">Scholarships</label>
+				</span>
+				<span class="r-pill__item">
+					<input checked="selected" id="areaUCfund" name="areaType" type="radio" value="The UC Fund" />
+					<label for="areaUCfund">The UC Fund</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="areaCollegesUnits" name="areaType" type="radio" value="Colleges/Units" />
+					<label for="areaCollegesUnits">UC Colleges/Units</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="areaUChealth" name="areaType" type="radio" value="UC Health" />
+					<label for="areaUChealth">UC Health</label>
+				</span>
+				<span class="r-pill__item">
+					<input id="advancedSearch" name="areaType" type="radio" value="Advanced Search" />
+					<label for="advancedSearch">Advanced Search</label>
+				</span>
+			</div>
+			<div class="field areaSupportDD mt-4">
+				<div class="select-section">
+					<div class="select">
+						<select id="designationAreaDropdown">
+							<option disabled value="First select">
+								-- Select The UC Fund to Support --
+							</option>
+						</select>
+						<div class="select__arrow"></div>
+					</div>
+				</div>
+			</div>
+			<div class="field collegeUnitsDD mt-4 hide">
+				<div class="row">
+					<div class="one-half column">
+						<select id="collegesUnitsDropdown">
+							<option disabled value="First select">
+								-- Select College/Unit --
+							</option>
+						</select>
+					</div>
+					<div class="one-half column">
+						<select id="collegesUnitsFundsDropdown">
+							<option disabled value="First select">
+								-- Select College/Unit Fund --
+							</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div id="advancedFundSearch" class="field hide">
+				<div id="scrollable-dropdown-menu" class="mt-4">
+					<i class="fa fa-window-close typeahead-close" aria-hidden="true"></i>
+					<input id="advanced-search-fund" class="typeahead u-full-width" type="text"
+						placeholder="Start typing the name of the fund" />
+				</div>
+				<div class="otherArea mt-4">
+					<span class="adfPlacholderLabel">
+						<a href="#" class="toggleOtherFund red bold">
+							I can’t find my fund
+						</a>
+						<input class="adfInputWithPlaceholder mt-2" type="text" name="otherArea" id="otherArea"
+							placeholder="Type in the name of the fund here" />
+					</span>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- Recurrence -->
+		<fieldset id="MonthlyGiftType" class="field-wrap toggle">
+			<legend>Recurring Gift Details</legend>
+			<div class="row">
+				<div class="one-half column">
+					<div class="select-section">
+						<label class="required">Frequency</label>
+						<div class="select">
+							<select id="frequency" class="required mb-0" name="frequency">
+								<option value="2">Monthly</option>
+								<option value="3">Quarterly</option>
+							</select>
+							<div class="select__arrow"></div>
+						</div>
+					</div>
+				</div>
+				<div class="one-half column">
+					<label class="required">Start Date</label>
+					<div><input id="startDate" class="required" type="text" /></div>
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset class="field-wrap additionalInfoToggle">
+			<legend>ADDITIONAL INFORMATION</legend>
+			<div role="group" id="checkboxContainer" aria-labelledby="checkboxGroup" class="pl-1 pr-1 mt-2">
+				<div class="checkbox-container checkbox row">
+					<div class="column">
+						<input id="matchingGift" type="checkbox" name="matchingGift" />
+						<label for="matchingGift" class="pb-0">
+							Make a matching gift.
+						</label>
+						<!-- Matching Gift -->
+						<div class="toggle clearfix" id="matchingGiftDetails">
+							<fieldset class="field-wrap giftTypes">
+								<legend>Matching Gift Information</legend>
+								<div class="row">
+									<div class="column">
+										<label for="company" class="required">
+											Company Name
+										</label>
+										<div>
+											<input type="text" id="company" class="required" placeholder="Company" />
+										</div>
+										<p>
+											Visit the
+											<a href="http://foundation.uc.edu/matching-gifts">
+												matching gift directory
+											</a>
+											to find out if your or your spouse's
+											company has a matching gift policy.
+										</p>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="column clearfix">
+						<input id="anonymous" type="checkbox" name="anonymous" />
+						<label for="anonymous" class="pb-0">
+							Make my gift anonymous.
+						</label>
+					</div>
+					<div class="column clearfix">
+						<input id="tribute" type="checkbox" name="tribute" />
+						<label for="tribute">This is a tribute/memorial gift</label>
+						<!-- Tribute -->
+						<div class="toggle clearfix" id="tributeDetails">
+							<!-- Tribute Information -->
+							<div class="field-wrap">
+								<fieldset class="field-wrap giftTypes">
+									<legend class="mb-0 pb-0">
+										Tribute Information
+									</legend>
+									<div class="select-section">
+										<div class="select">
+											<select id="tributeType" name="tributeType">
+												<option value="in honor of">
+													In Honor Of
+												</option>
+												<option value="in memory of">
+													In Memory Of
+												</option>
+											</select>
+											<div class="select__arrow"></div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="one-half column">
+											<label for="honoreeFirstName" class="required">
+												First Name
+											</label>
+											<div>
+												<input type="text" id="honoreeFirstName" class="required"
+													name="honoreeFirstName" placeholder="First Name" />
+											</div>
+										</div>
+										<div class="one-half column">
+											<label for="honoreeLastName" class="required">
+												Last Name
+											</label>
+											<div>
+												<input id="honoreeLastName" class="required" name="honoreeLastName"
+													type="text" placeholder="Last Name" />
+											</div>
+										</div>
+									</div>
+									<div role="group" aria-labelledby="checkboxGroup" class="pl-1 pr-1">
+										<div class="checkbox row">
+											<input id="ackCheck" type="checkbox" name="ackCheck" />
+											<label for="ackCheck" class="pb-0">
+												Mail a letter on my behalf to:
+											</label>
+										</div>
+									</div>
+
+									<div class="toggle" id="ackCheckDetails">
+										<fieldset class="field-wrap giftTypes">
+											<legend class="mb-0 pb-0">
+												Acknowledgee Information
+											</legend>
+											<div class="row">
+												<div class="column">
+													<div class="select-section">
+														<label>Title</label>
+														<div class="select">
+															<select id="ackTitle" name="ackTitle">
+																<option value="-1">
+																	Select Title
+																</option>
+															</select>
+															<div class="select__arrow"></div>
+														</div>
+													</div>
+												</div>
+												<div class="one-half column">
+													<label for="ackFirstName" class="required">
+														First Name
+													</label>
+													<div>
+														<input type="text" name="ackFirstName" id="ackFirstName"
+															placeholder="First Name" />
+													</div>
+												</div>
+												<div class="one-half column">
+													<label for="ackLastName" class="required">
+														Last Name
+													</label>
+													<div>
+														<input id="ackLastName" name="ackLastName" type="text"
+															placeholder="Last Name" tabindex="0" />
+													</div>
+												</div>
+												<div class="one-half column">
+													<label for="ackEmail" class="text">
+														Email
+													</label>
+													<div>
+														<input type="email" name="ackEmail" id="ackEmail"
+															placeholder="Email" tabindex="0" />
+													</div>
+												</div>
+												<div class="one-half column">
+													<label for="ackPhone" class="text">
+														Phone
+													</label>
+													<div>
+														<input type="tel" id="ackPhone" placeholder="999-999-9999"
+															pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$" />
+													</div>
+												</div>
+												<div class="one-half column offset-by-three">
+													<label for="ackPostalCode" class="required">
+														Zip
+													</label>
+													<div>
+														<input type="text" name="ackPostalCode" id="ackPostalCode"
+															autocomplete="off" placeholder="Zip" />
+													</div>
+												</div>
+												<div class="one-third column ack-city-state">
+													<label for="ackCity" class="text">
+														City
+													</label>
+													<div>
+														<input type="text" name="ackCity" id="ackCity"
+															placeholder="City" readonly />
+													</div>
+												</div>
+												<div class="one-third column ack-city-state">
+													<label for="ackState" class="text">
+														State
+													</label>
+													<div>
+														<input id="ackState" name="ackState" type="text"
+															placeholder="State" readonly />
+													</div>
+												</div>
+												<div class="one-third column ack-city-state">
+													<label for="ackCountry" class="text">
+														Country
+													</label>
+													<div>
+														<input id="ackCountry" name="ackCountry" type="text"
+															placeholder="Country" readonly />
+													</div>
+												</div>
+												<div class="column ack-city-state">
+													<label for="ackAddressLines" class="text">
+														Address
+													</label>
+													<div>
+														<input id="ackAddressLines" name="ackAddressLines" type="text"
+															placeholder="Address" />
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
+		<div class="hide hiddenFields">
+			<div class="row">
+				<div class="one-half column">
+					<label>First Name:</label>
+					<input type="text" class="u-full-width" id="hiddenFirstName" value="Bobby" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-half column">
+					<label>Gift Type:</label>
+					<input type="text" class="u-full-width" id="hiddenType" />
+				</div>
+				<div class="one-half column">
+					<label>Area to Support:</label>
+					<input type="text" class="u-full-width" id="hiddenArea" />
+				</div>
+				<div class="one-half column">
+					<label>Amount:</label>
+					<input type="text" class="u-full-width" id="hiddenAmount" />
+				</div>
+				<div class="one-half column">
+					<label>Fund GUID:</label>
+					<input type="text" class="u-full-width" id="hiddenGuid" />
+				</div>
+				<div class="one-half column">
+					<label>Fund Name:</label>
+					<input type="text" class="u-full-width" id="hiddenFund" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-half column">
+					<label>Frequency:</label>
+					<input type="text" class="u-full-width" id="hiddenFrequency" />
+				</div>
+				<div class="one-half column">
+					<label>Start Date:</label>
+					<input type="text" class="u-full-width" id="hiddenStartDate" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="one-half column">
+					<label>Company Name:</label>
+					<input type="text" class="u-full-width" id="hiddencompany" />
+				</div>
+				<div class="one-half column">
+					<label>First Name:</label>
+					<input type="text" class="u-full-width" id="hiddenhonoreeFirstName" />
+				</div>
+				<div class="one-half column">
+					<label>Last Name:</label>
+					<input type="text" class="u-full-width" id="hiddenhonoreeLastName" />
+				</div>
+				<div class="one-half column">
+					<label>Ack Title:</label>
+					<input type="text" class="u-full-width" id="hiddenackTitle" />
+				</div>
+				<div class="one-half column">
+					<label>Ack First Name:</label>
+					<input type="text" class="u-full-width" id="hiddenackFirstName" />
+				</div>
+				<div class="one-half column">
+					<label>Ack Last Name:</label>
+					<input type="text" class="u-full-width" id="hiddenackLastName" />
+				</div>
+				<div class="one-half column">
+					<label>Ack Email:</label>
+					<input type="text" class="u-full-width" id="hiddenackEmail" />
+				</div>
+				<div class="one-half column">
+					<label>Ack Phone:</label>
+					<input type="text" class="u-full-width" id="hiddenackPhone" />
+				</div>
+				<div class="one-half column">
+					<label>Ack Zip Code:</label>
+					<input type="text" class="u-full-width" id="hiddenackPostalCode" />
+				</div>
+				<div class="one-half column">
+					<label>Ack City:</label>
+					<input type="text" class="u-full-width" id="hiddenackCity" />
+				</div>
+				<div class="one-half column">
+					<label>Ack State:</label>
+					<input type="text" class="u-full-width" id="hiddenackState" />
+				</div>
+				<div class="one-half column">
+					<label>Ack Country:</label>
+					<input type="text" class="u-full-width" id="hiddenackCountry" />
+				</div>
+				<div class="one-half column">
+					<label>Address:</label>
+					<input type="text" class="u-full-width" id="hiddenackAddressLines" />
+				</div>
+			</div>
+			<button type="button" id="getValues" class="button-primary">
+				Get Values
+			</button>
+		</div>
+
+		<div class="row mb-4">
+			<div class="one-half column text-right">
+				<button type="button" id="addToCart" class="button-primary">
+					ADD ANOTHER GIFT
+				</button>
+			</div>
+			<div class="one-half column text-left">
+				<button type="button" id="adfSubmitButtonQS" class="button-primary">
+					CONTINUE
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/file/config/headroom.min.js"></script>
+<script type="text/javascript" src="/file/config/cinci.namespace.js"></script>
+<script type="text/javascript" src="/file/redesign/js/typeahead.bundle.js"></script>
+
+<script type="text/javascript">
+	/*
+	  function updateAmount(field, fieldId) {
+		  var amountField = document.getElementById(fieldId);
+  
+		  var val = field.value;
+		  if (isNaN(val)) {
+			  val = val.replace(/[^0-9\.]/g, '');
+			  if (val.split('.').length > 2)
+				  val = val.replace(/\.+$/, "");
+		  }
+  
+		  var numVal = parseFloat(val).toFixed(2);
+		  field.value = numberWithCommas(val);
+		  amountField.value = (isNaN(numVal) ? "0.00" : numVal);
+  
+		  updateAmountValues();
+	  }
+	*/
+	
+
+	var getUrlParameter = function getUrlParameter(sParam) {
+		var sPageURL = window.location.search.substring(1),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+			}
+		}
+	};
+
+	var queryGiftType = getUrlParameter('technology');
+	var queryAreaToSupport = getUrlParameter('blog');
+
+	/*
+	$("#getValues").click(function (e) {
+		e.preventDefault();
+		var adfVals = [];
+
+		adfVals = {
+			"Donor": {
+				"Address": {
+					"City": "Columbia",
+					"Country": "United States",
+					"PostalCode": "29212",
+					"State": "SC",
+					"StreetAddress": "123 Main St."
+				},
+				"EmailAddress": "john.doe@blackbaud.com",
+				"FirstName": "John",
+				"LastName": "Doe",
+				"Phone": "555-555-5555",
+				"Title": "Mr."
+			},
+			"Gift": {
+				"Designations": [{
+					"Amount": 5,
+					"DesignationId": "3439a5c7-9977-4f9c-ba11-fadfb8144d35"
+				}],
+				// "FinderNumber": 0,
+				// "SourceCode": "Sample Source Code",
+				"IsAnonymous": false,
+				"PaymentMethod": 1,
+				"Comments": "Gift comments here.",
+				// "CreateGiftAidDeclaration": false,
+				"Attributes": [{
+						"AttributeId": "BD18B3FD-B382-4183-A415-8F84B1E0E411",
+						"Value": "Volunteer;Member;Alumni"
+					},
+					{
+						"AttributeId": "3607C77D-19DC-4EE0-A0CD-A352762A8EF0",
+						"Value": "1985"
+					}
+				],
+				"Recurrence": {
+					"DayOfMonth": 26,
+					"DayOfWeek": null,
+					"EndDate": null,
+					"Frequency": 2,
+					"Month": null,
+					"StartDate": "Date(1337227200000-0400)"
+				},
+				"Tribute": {
+					"Acknowledgee": {
+						"AddressLines": $("#hiddenackAddressLines").val(),
+						"City": $("#hiddenackCity").val(),
+						"Country": $("#hiddenackCountry").val(),
+						"Email": $("#hiddenackEmail").val(),
+						"FirstName": $("#hiddenackFirstName").val(),
+						"LastName": $("#hiddenackLastName").val(),
+						"Phone": $("#hiddenackPhone").val(),
+						"PostalCode": $("#hiddenackPostalCode").val(),
+						"State": $("#hiddenackState").val()
+					},
+					"TributeDefinition": {
+						"Description": $('#tributeType').val(),
+						"FirstName": $("#hiddenhonoreeFirstName").val(),
+						"LastName": $("#hiddenhonoreeLastName").val(),
+						"Type": $('#tributeType').val()
+					},
+					"TributeId": null
+				}
+			},
+			"Id": "853f96be-bf08-4828-aefa-326a06e48d31",
+			"Origin": {
+				"AppealId": "C3B20FD8-6A81-451E-BF78-D195E82B4CBF",
+				"PageId": 784,
+				"PageName": "Sample Page"
+			},
+			"TransactionStatus": 1
+		};
+
+		/* {
+			giftType: $("#hiddenType").val(),
+			amount: $("#hiddenAmount").val(),
+			area: $("#hiddenArea").val(),
+			fundGuid: $("#hiddenGuid").val(),
+			fundName: $("#hiddenFund").val()
+		}; */
+	/*
+		var donationObject = {};
+		donationObject.Donor = {
+			Address: {
+				City: $("#ADDRESS").val(),
+				Country: $("#countryDD")
+					.find("option:selected")
+					.text(), //must use description for BBSP
+				PostalCode: $("#ZIP").val(),
+				State: $("#stateDD").val(),
+				StreetAddress: $("#ADDRESS").val()
+			},
+			EmailAddress: $("#EMAIL").val(),
+			FirstName: $("#FIRST_NAME").val(),
+			LastName: $("#LAST_NAME").val(),
+			Phone: $("#PHONE").val()
+		};
+
+		console.log(adfVals);
+
+	});
+	*/
+</script>
