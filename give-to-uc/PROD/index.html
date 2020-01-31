@@ -104,7 +104,6 @@
 
 	#queryService>fieldset {
 		padding: 0.5rem 0 1.75rem !important;
-		// border: 1px solid #e00122 !important;
 	}
 
 	#mockup legend.required:after {
@@ -224,7 +223,7 @@
 		</div>
 
 		<p class="text-center mb-1"><strong>All fields marked with <span class="asterisk">*</span> are required</strong>
-		</p>		
+		</p>
 
 		<fieldset class="r-pill">
 			<legend class="required">SELECT GIFT TYPE</legend>
@@ -380,8 +379,9 @@
 				<div class="select-section">
 					<div class="select">
 						<select id="designationAreaDropdown">
-							<option disabled value="First select">
-								-- Select The UC Fund to Support --
+							<option value="First select" disabled>
+                              	... Loading Funds - Please Wait ...
+								<!-- -- Select The UC Fund to Support -- -->
 							</option>
 						</select>
 						<div class="select__arrow"></div>
@@ -787,7 +787,115 @@
 		  updateAmountValues();
 	  }
 	*/
-	
+
+	$("#giftListNotEmpty").on("click", ".remove-gift", function (e) {
+		e.preventDefault();
+		$(this).closest("tr").slideUp().remove();
+		if ($("#giftListNotEmpty table tbody").is(":empty")) {
+			$(".toggleGiftType").removeClass("giftTypeSet");
+          	console.log("Added class");
+			$("#giftListEmpty").slideDown();
+			// $(".adfTotalAmount span").text("0");
+			$("#giftListNotEmpty").slideUp();
+		} else {
+			$("#giftListEmpty").slideUp();
+		}
+		if ($("#giftListNotEmpty .otherDesignation").length !== 0) {
+			$(".otherArea").slideUp();
+		} else {
+			$(".otherArea").slideDown();
+		}
+		var sum = 0;
+		// iterate through each amount cell and add the values
+		$(".fund-amount").each(function () {
+			var value = $(this).text().replace("$", "");
+			// add only if the value is number
+			if (!isNaN(value) && value.length !== 0) {
+				sum += parseFloat(value);
+			}
+			$(".adfTotalAmount span").text(sum);
+		});
+		updateDonationTotal();
+	});
+
+	function numberWithCommas(x) {
+		var parts = x.toString().split(".");
+		parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		if (parts[1] != undefined) {
+			if (parts[1].length > 2) {
+				parts[1] = parts[1].substring(0, 2);
+			}
+		}
+		return parts.join(".");
+	}
+
+	function updateAmountValues() {
+		var amount = 0.00;
+		$("#giftListNotEmpty .fund-amount input").each(function () {
+			amount += +parseFloat(parseFloat($(this).val()).toFixed(2));
+		});
+		amount = parseFloat(amount);
+		$("#spanCartTotalAmount").text(numberWithCommas(amount.toFixed(2)));
+	}
+  
+	$("#addToCart").click(function (e) {
+		e.preventDefault();
+		setTimeout(showGift);
+		$("html, body").animate({
+			scrollTop: $("#giftListNotEmpty").offset().top - 170
+		}, 1000);
+      
+      	$(".toggleGiftType").addClass("giftTypeSet");
+        console.log("Added class");
+
+		function showGift() {
+			$("#giftListNotEmpty table tfoot").slideDown();
+			var donateAmount = $("#hiddenAmount").val(),
+				donateFundName = $("#hiddenFund").val(),
+				donateFundGuid = $("#hiddenGuid").val();
+			/*
+			$(".fund-amount input").each(function () {
+				amount += +parseFloat(parseFloat($(this).val()).toFixed(2));
+			});
+
+			amount = parseFloat(amount);
+			$(".totalColumn").text(amount.toFixed(2)); */
+			var $div = $('<tr class="slide"><td class="fund-name"> ' + donateFundName +
+				' </td><td class="fund-amount"> <span class="fa fa-usd"></span><input type="text" onkeyup="updateDonationTotal()" value="' +
+				donateAmount + '" /> </td><td class="fund-designation"> ' + donateFundGuid +
+				'</td><td class="fund-delete"> <a href="#" class="remove-gift"> <i class="fa fa-trash-o"> </i></a> </td></tr>'
+			);
+			$("#giftListNotEmpty table tbody").append($div);
+			$div.css({
+				left: "700px",
+				opacity: 0
+			});
+			$div.animate({
+				"left": 0,
+				"opacity": 1
+			}, 500);
+			if ($("#giftListNotEmpty table tbody").is(":empty")) {
+				$("#giftListEmpty").slideDown();
+				$("#giftListNotEmpty").slideUp();
+			} else {
+				$("#giftListEmpty").slideUp();
+				$("#giftListNotEmpty").slideDown();
+			}
+			$("#hiddenAmount, #hiddenFund, #hiddenGuid").val("");
+			updateDonationTotal()
+		}
+	});
+
+	function updateDonationTotal() {
+		var amount = 0.00;
+		$("#giftListNotEmpty .fund-amount input").each(function () {
+			console.log($(this).val());
+			amount += +parseFloat(parseFloat($(this).val()).toFixed(2));
+		});
+		amount = parseFloat(amount);
+		$("#spanCartTotalAmount").text(numberWithCommas(amount.toFixed(2)));
+	}
+
 
 	var getUrlParameter = function getUrlParameter(sParam) {
 		var sPageURL = window.location.search.substring(1),
