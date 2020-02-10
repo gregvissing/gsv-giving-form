@@ -112,7 +112,9 @@ Table of Contents
 
 */
 
-/* BASE styles */
+/*------------------------------------*\
+  #BASE
+\*------------------------------------*/
 
 :root {
 	--color-brand-red: #e00122;
@@ -120,7 +122,11 @@ Table of Contents
 	--color-white: #fff;
 }
 
-body {
+.red-bg {
+	background-color: #e00122;
+}
+
+body, input {
 	font-family: "Open Sans";
 }
 
@@ -140,18 +146,12 @@ body {
 	color: #fff !important;
 }
 
-#mockup h1,
-#mockup h2,
-#mockup h3,
-#mockup h4,
-#mockup h5,
-#mockup h6,
-#mockup legend {
+#mockup h1, #mockup h2, #mockup h3, #mockup h4, #mockup h5, #mockup h6, #mockup legend {
 	font-family: 'Saira Condensed', sans-serif !important;
 }
 
 #mockup.internal section .container h4 {
-	margin-botton: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 #mockup .form legend {
@@ -169,8 +169,7 @@ body {
 	background-color: #f0f0f0;
 }
 
-#mockup a.button-primary,
-#mockup a.button-secondary {
+#mockup a.button-primary, #mockup a.button-secondary {
 	text-decoration: none;
 }
 
@@ -196,10 +195,9 @@ body {
 #mockup .container table {
 	width: 100% !important;
 	margin-bottom: 1em;
-	;
 }
 
-#mockup .container table tbody:not(.donationInfo) tr:nth-child(even) {
+#mockup .BBDonationApiContainer .container table tbody:not(.donationInfo) tr:nth-child(even) {
 	background-color: #E8E8E8;
 }
 
@@ -236,26 +234,32 @@ body {
 	font-size: 1.25em;
 }
 
-#mockup .BBSearchDescriptionStyle,
-#mockup .BBListEvenRowStyle.SearchEvenRowStyle>td,
-#mockup .BBListOddRowStyle.SearchOddRowStyle>td {
+#mockup table[id*="_rdoGiftType"] tr label[for*="rdoGiftType"] {
+	margin: 0 .5em 0 0;
+	display: inline-block;
+}
+
+#mockup .BBSearchDescriptionStyle, #mockup .BBListEvenRowStyle.SearchEvenRowStyle>td, #mockup .BBListOddRowStyle.SearchOddRowStyle>td {
 	padding: 1em !important;
 	white-space: inherit !important;
 }
 
-#mockup .BBListEvenRowStyle.SearchEvenRowStyle>td,
-#mockup .BBListOddRowStyle.SearchOddRowStyle>td {
+#mockup .BBListEvenRowStyle.SearchEvenRowStyle>td, #mockup .BBListOddRowStyle.SearchOddRowStyle>td {
 	padding: 1em 1em 0 1em !important;
 	white-space: inherit !important;
 }
 
-#mockup table.SearchTable tbody>tr.BBListEvenRowStyle.SearchEvenRowStyle[id*=rpResultList]>td,
-#mockup table.SearchTable tbody>tr.BBListOddRowStyle.SearchOddRowStyle[id*=rpResultList]>td {
+#mockup table.SearchTable tbody>tr.BBListEvenRowStyle.SearchEvenRowStyle[id*=rpResultList]>td, #mockup table.SearchTable tbody>tr.BBListOddRowStyle.SearchOddRowStyle[id*=rpResultList]>td {
 	padding-bottom: 1em !important;
 }
 
 #mockup #PC2237_lblTxtSearch {
 	margin: 0 !important;
+}
+
+#mockup label.fa.fa-search:before {
+	display: inline-block;
+	color: #fff !important;
 }
 
 #mockup .BBFormTitle.SearchFormTitle {
@@ -266,12 +270,33 @@ body {
 	text-align: center;
 }
 
-body,
-#mockup p,
-#mockup span:not(.fa),
-#mockup span:not(.ti-trash:before),
-#mockup a,
-#mockup label {
+#mockup .BBFormTable.SearchFormTable {
+	border: none !important;
+}
+
+#mockup .BBFormTable.SearchFormTable tbody tr td table tbody tr {
+	display: flex;
+	justify-content: center;
+}
+
+#mockup .BBFormTable.SearchFormTable tbody tr td table tbody tr td:nth-child(2) {
+	width: 60%;
+}
+
+#mockup .BBFormTable.SearchFormTable tbody tr td table tbody tr td:last-child {
+	width: 15%;
+}
+
+#mockup #PC15775_tableMainAdd .BBFormSubmitButton.SearchButton {
+	width: 100%;
+	margin: 0;
+}
+
+#mockup #PC15775_txtSearch {
+	width: 100% !important;
+}
+
+body, #mockup p, #mockup span:not(.fa), #mockup span:not(.ti-trash:before), #mockup a, #mockup label, #mockup .additionalInfo span {
 	/* margin: 0; */
 	font-size: 1em;
 	font-family: "Open Sans", sans-serif !important;
@@ -289,9 +314,7 @@ a[class*=ti-]:before {
 	color: #222;
 }
 
-#mockup h1 span.skew-fix,
-#mockup h2 span.skew-fix,
-#mockup h3 span.skew-fix {
+#mockup h1 span.skew-fix, #mockup h2 span.skew-fix, #mockup h3 span.skew-fix {
 	font-family: 'Saira Condensed', sans-serif !important;
 	letter-spacing: 0.5px;
 }
@@ -309,40 +332,7 @@ body.no-scroll {
 	height: 100%;
 }
 
-#mockup a,
-#mockup button,
-#mockup .button,
-#mockup .button-primary,
-#mockup .button-secondary,
-#mockup li:before,
-#mockup .BBFormSubmitbutton.PaymentPartSubmitButton,
-#mockup .scrollToTop,
-#mockup header,
-#mockup .QuickSearchFormTable .BBFormSubmitButton.QuickSearchButton,
-#mockup .section-container button span,
-#mockup .section-container button,
-#mockup .Results li,
-#mockup .hamburger,
-#mockup .radio label,
-#mockup .modal-default-button,
-#mockup .navbar-nav>li,
-#mockup .navbar-nav>li>a,
-#mockup .navbar-nav>li.button-primary>a,
-#mockup .nav.navbar-nav.navbar-right li a,
-#mockup header .nav>li>ul li a,
-#mockup .nav.navbar-nav.navbar-right,
-#mockup header .nav .nccUlMenuSub1,
-#mockup .icon-container-hero .ti-arrow-circle-down:before,
-#mockup .thumbnail,
-#mockup .thumbnail h3,
-#mockup .tabs__tab,
-#mockup .radio label,
-#mockup input[type=button],
-#mockup #areasToSuppportRadioGroup .radio-list>label,
-#mockup ul>li>label,
-#mockup .tt-suggestion,
-#mockup [class*="Button"],
-#mockup table td {
+#mockup a, #mockup button, #mockup .button, #mockup .button-primary, #mockup .button-primary span, #mockup .button-secondary, #mockup .button-secondary span, #mockup li:before, #mockup .BBFormSubmitbutton.PaymentPartSubmitButton, #mockup .scrollToTop, #mockup header, #mockup .QuickSearchFormTable .BBFormSubmitButton.QuickSearchButton, #mockup.home label[id*="_lblQuickSearch"], #mockup.home label[id*="_lblQuickSearch"]:before, #mockup .section-container button span, #mockup .section-container button, #mockup .Results li, #mockup .hamburger, #mockup .radio label, #mockup .modal-default-button, #mockup .navbar-nav>li, #mockup .navbar-nav>li>a, #mockup .navbar-nav>li.button-primary>a, #mockup .nav.navbar-nav.navbar-right li a, #mockup header .nav>li>ul li a, #mockup .nav.navbar-nav.navbar-right, #mockup header .nav .nccUlMenuSub1, #mockup .icon-container-hero .ti-arrow-circle-down:before, #mockup .thumbnail, #mockup .thumbnail h3, #mockup .tabs__tab, #mockup .radio label, #mockup input[type=button], #mockup #areasToSuppportRadioGroup .radio-list>label, #mockup ul>li>label, #mockup .tt-suggestion, #mockup [class*="Button"], #mockup table td {
 	border-radius: 0;
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
@@ -351,13 +341,7 @@ body.no-scroll {
 	transition: all 0.4s ease-in-out;
 }
 
-#mockup button,
-#mockup .button,
-#mockup .button-primary,
-#mockup .button-secondary,
-#mockup [class*="Button"],
-#mockup [class*="button"],
-#mockup .PaymentPart_CartItemRemoveText {
+#mockup button, #mockup .button, #mockup .button-primary, #mockup .button-secondary, #mockup [class*="Button"], #mockup [class*="button"], #mockup .PaymentPart_CartItemRemoveText {
 	border-radius: 4px !important;
 }
 
@@ -369,9 +353,7 @@ body.no-scroll {
 	border-radius: 0 !important;
 }
 
-#mockup .button-primary,
-#mockup .PaymentPart_RemoveAllLink,
-#mockup .BBFormSubmitbutton.PaymentPartSubmitButton {
+#mockup .button-primary, #mockup .PaymentPart_RemoveAllLink, #mockup .BBFormSubmitbutton.PaymentPartSubmitButton {
 	color: #fff;
 	background-color: #e00122 !important;
 	border-color: #e00122 !important;
@@ -403,6 +385,10 @@ body.no-scroll {
 	max-width: auto;
 }
 
+[id*=_ctl00_divPersonalInfo] .BBDivFieldContainer {
+	width: 100%;
+}
+
 #mockup a:hover {
 	color: #e00122;
 }
@@ -422,8 +408,7 @@ body.no-scroll {
 	border: 1px dashed blue;
 }
 
-#mockup ul,
-#mockup ol {
+#mockup ul, #mockup ol {
 	padding: 0;
 }
 
@@ -489,10 +474,11 @@ pre .key {
 	margin-bottom: 1em !important;
 }
 
-/* BUTTON styles */
+/*------------------------------------*\
+  #BUTTON
+\*------------------------------------*/
 
-#mockup button,
-#mockup .button {
+#mockup button, #mockup .button {
 	border-color: transparent !important;
 }
 
@@ -500,9 +486,7 @@ pre .key {
 	border-color: #000 !important;
 }
 
-#mockup button,
-#mockup .button,
-#mockup input {
+#mockup button, #mockup .button, #mockup input {
 	font-size: 1em !important;
 }
 
@@ -606,7 +590,14 @@ pre .key {
 	border-radius: 0 !important;
 }
 
-/* UTILITY styles */
+#mockup .BBFormSubmitButton {
+	background-color: #000;
+	color: #fff;
+}
+
+/*------------------------------------*\
+  #UTILITY
+\*------------------------------------*/
 
 #mockup .vh-50 {
 	height: 50vh;
@@ -872,32 +863,26 @@ pre .key {
 	width: 1024px;
 }
 
-
 #mockup section.fullHeight {
 	height: 100vh;
 }
 
-#mockup ol,
-#mockup ul {
+#mockup ol, #mockup ul {
 	margin: 0;
 	list-style: none;
 }
 
-#mockup.internal ul.rqList *,
-#mockup.internal ul.sdList * {
+#mockup.internal ul.rqList *, #mockup.internal ul.sdList * {
 	margin: 0 0 0 2em;
 	font-size: 1em;
 	list-style: disc !important;
 }
 
-#mockup.internal ul.rqList li ul *,
-#mockup.internal ul.sdList li ul * {
+#mockup.internal ul.rqList li ul *, #mockup.internal ul.sdList li ul * {
 	list-style: circle !important;
 }
 
-#mockup .container:after,
-#mockup .row:after,
-#mockup .u-cf {
+#mockup .container:after, #mockup .row:after, #mockup .u-cf {
 	content: "";
 	display: table;
 	clear: both;
@@ -936,8 +921,9 @@ pre .key {
 	display: block;
 }
 
-/* NAVIGATION styles */
-
+/*------------------------------------*\
+  #NAVIGATION
+\*------------------------------------*/
 
 #mockup header {
 	background-color: #fff;
@@ -957,7 +943,7 @@ pre .key {
 	display: none;
 }
 
-#mockup header .container>div {
+#mockup header .container>nav>div {
 	display: inline-block;
 }
 
@@ -987,16 +973,11 @@ pre .key {
 	padding: 0.5em 0;
 }
 
-
 #mockup.give-to-uc header.reduced {
 	padding: 0.5em 0;
 }
 
-#mockup header .img-responsive,
-#mockup .thumbnail>img,
-#mockup .thumbnail a>img,
-#mockup .carousel-inner>.item>img,
-#mockup .carousel-inner>.item>a>img {
+#mockup header .img-responsive, #mockup .thumbnail>img, #mockup .thumbnail a>img, #mockup .carousel-inner>.item>img, #mockup .carousel-inner>.item>a>img {
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -1009,8 +990,6 @@ pre .key {
 
 #mockup .navbar-nav>li.search>a {
 	font-family: "Open Sans", sans-serif !important;
-	font-weight: bold;
-	font-size: 1.25em !important;
 	padding: 15px 20px 15px 25px;
 }
 
@@ -1061,7 +1040,13 @@ pre .key {
 	font-weight: bold;
 }
 
-/* sub-nav */
+#mockup header>div.container>div[id*=_Content] {
+	display: inline-block !important;
+}
+
+/*------------------------------------*\
+  #SUB-NAV
+\*------------------------------------*/
 
 #mockup header .nav .nccUlMenuSub1 {
 	display: inline-block;
@@ -1098,15 +1083,16 @@ pre .key {
 }
 
 @media screen and (max-width: 1030px) {
+	#mockup {
+		overflow: hidden !important;
+	}
 	#mockup header.reduced {
 		padding: 0.75em 0 !important;
 	}
-
 	#mockup header .nav>li ul.nccUlMenuSub1 li {
 		height: 40px;
 		border-bottom: 1px solid #000;
 	}
-
 	#mockup .navbar-nav>li.fa-home:before {
 		z-index: 5;
 		color: #000;
@@ -1117,15 +1103,12 @@ pre .key {
 		right: 0;
 		margin: auto;
 	}
-
 	#mockup .navbar-nav>li.fa-home a {
 		color: #fff !important;
 	}
-
 	#mockup header ul.nav li.parent a span {
 		display: inline;
 	}
-
 	#mockup header ul.nav li.parent a.selected {
 		border: 1px solid #fff;
 	}
@@ -1141,15 +1124,12 @@ pre .key {
 	transition: all 0.4s ease-in-out; */
 }
 
-#mockup .parent.selected,
-#mockup .nccUlMenuSub1>li.selected>a.selected {
+#mockup .parent.selected, #mockup .nccUlMenuSub1>li.selected>a.selected {
 	background-color: #000 !important;
 	color: #fff !important;
 }
 
-#mockup .parent.selected>a,
-#mockup .nccUlMenuSub1 .parent.selected>a,
-#mockyp .nccUlMenuSub1 li.selected a.selected {
+#mockup .parent.selected>a, #mockup .nccUlMenuSub1 .parent.selected>a, #mockyp .nccUlMenuSub1 li.selected a.selected {
 	color: #fff !important;
 }
 
@@ -1186,20 +1166,24 @@ pre .key {
 	display: none;
 }
 
-/* SEARCH styles */
+/*------------------------------------*\
+  #SEARCH
+\*------------------------------------*/
 
 #mockup {
 	position: relative;
 }
 
-#mockup .BBFormTable.SearchFormTable input[type='text'],
-#mockup .BBFormTable.SearchFormTable textarea,
-#mockup .BBFormTable.SearchFormTable select {
+#mockup .BBFormTable.SearchFormTable input[type='text'], #mockup .BBFormTable.SearchFormTable textarea, #mockup .BBFormTable.SearchFormTable select {
 	margin: 0;
 }
 
 #mockup .BBFormTable.SearchFormTable {
-	border: 1px solid #000;
+	border: none;
+}
+
+#mockup .BBFormTable.SearchFormTable tbody tr td table tbody>tr>td:first-child {
+	display: none;
 }
 
 #mockup .BBFormTable.SearchFormTable tr>td.wsNowrap.w100p {
@@ -1237,13 +1221,13 @@ pre .key {
 #mockup .BBFormSubmitButton.SearchButton {
 	color: #fff;
 	border-radius: 0 !important;
-	background-color: transparent !important;
+	background-color: #e00122 !important;
 }
 
-#mockup .BBFormSubmitButton.SearchButton:hover {
+/* #mockup .BBFormSubmitButton.SearchButton:hover {
 	color: #fff;
-	background-color: #fff;
-}
+	background-color: ;
+} */
 
 #mockup .search-container {
 	height: 100%;
@@ -1258,7 +1242,6 @@ pre .key {
 	padding-bottom: 1px;
 	border: none;
 }
-
 
 #mockup .search-container:after {
 	clear: both;
@@ -1301,6 +1284,7 @@ pre .key {
 	display: block !important;
 	visibility: visible !important;
 	position: absolute;
+	top: 3px;
 	z-index: 1000;
 	width: 100% !important;
 	text-align: center;
@@ -1311,6 +1295,7 @@ pre .key {
 	color: #fff;
 	z-index: 1000;
 	font-weight: normal;
+	background-color: transparent;
 }
 
 #mockup.home label[id*="_lblQuickSearch"] {
@@ -1318,6 +1303,17 @@ pre .key {
 	line-height: 39px;
 	display: inline-block !important;
 	color: transparent;
+	background-color: #e00122;
+	border: 1px solid #e00122;
+}
+
+#mockup.home label[id*="_lblQuickSearch"]:hover {
+	color: transparent;
+	background-color: #fff;
+}
+
+#mockup.home label[id*="_lblQuickSearch"]:hover:before {
+	color: #e00122 !important;
 }
 
 #mockup .QuickSearchFormTable tbody {
@@ -1346,6 +1342,10 @@ pre .key {
 	width: 100% !important;
 }
 
+#mockup .BBFieldCaption.SearchFieldCaption {
+	color: #fff;
+}
+
 #mockup .QuickSearchFormTable td:nth-child(2) {
 	position: relative;
 	left: 30px;
@@ -1357,7 +1357,7 @@ pre .key {
 	width: 50%;
 }
 
-#mockup .QuickSearchFormTable td:nth-child(2):before {
+/* #mockup .QuickSearchFormTable td:nth-child(2):before {
 	content: "";
 	width: 100px;
 	height: 50px;
@@ -1369,7 +1369,7 @@ pre .key {
 	background-color: #fff;
 	-webkit-transform: skew(-30deg);
 	transform: skew(-30deg);
-}
+} */
 
 #mockup.home .QuickSearchFormTable td:nth-child(2):before {
 	display: none;
@@ -1379,14 +1379,22 @@ pre .key {
 	width: 200px;
 	position: relative;
 	right: 0px;
+	top: 0;
+	text-align: center;
+	padding-left: 0 !important;
 }
 
 #mockup.home .QuickSearchFormTable td:last-child {
-	width: 55px;
+	width: 44px;
 }
 
 #mockup .QuickSearchFormTable .QuickSearchTextbox {
-	width: 100%;
+	width: 60%;
+	float: right;
+}
+
+#mockup .QuickSearchFormTable .QuickSearchTextbox:focus {
+	box-shadow: none;
 }
 
 #mockup .QuickSearchFormTable .BBFormSubmitButton.QuickSearchButton {
@@ -1394,13 +1402,7 @@ pre .key {
 	position: relative;
 	color: #e00122;
 	background-color: #e00122;
-	/* -webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out; */
-	-webkit-transform: skew(-30deg);
-	transform: skew(-30deg);
+	width: 100% !important;
 }
 
 #mockup.home .QuickSearchFormTable .BBFormSubmitButton.QuickSearchButton {
@@ -1470,17 +1472,18 @@ pre .key {
 	padding: 0px !important;
 }
 
-
-/* HERO */
+/*------------------------------------*\
+  #HERO
+\*------------------------------------*/
 
 #mockup section.hero {
-	background-image: url("/image/_2019-redesign/hero-1024x500-group.png");
+	/* background-image: url("/image/_2019-redesign/hero-1024x500-group.png");
 	background-position: top;
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
 	position: relative;
 	overflow: hidden;
-	height: 500px;
+	max-height: 500px;
 }
 
 #mockup section.hero .trianglePattern {
@@ -1539,9 +1542,16 @@ pre .key {
 	font-size: 1.5em;
 }
 
-#mockup section.hero a.button-secondary,
-#mockup section.hero a.button-secondary span {
-	background-color: #404040 !important;
+#mockup section.hero a.button-secondary, #mockup section.hero a.button-secondary span {
+	background-color: rgba(64, 64, 64, 1) !important;
+}
+
+#mockup section.hero a.button-secondary:hover {
+	background-color: rgba(64, 64, 64, 0.6) !important;
+}
+
+#mockup section.hero a.button-secondary:hover span {
+	background-color: transparent !important;
 }
 
 #mockup .icon-container-hero {
@@ -1560,8 +1570,7 @@ pre .key {
 	border-radius: 50% !important;
 }
 
-#mockup .icon-container-hero .ti-arrow-circle-down,
-#mockup .icon-container-hero .ti-arrow-circle-down:hover {
+#mockup .icon-container-hero .ti-arrow-circle-down, #mockup .icon-container-hero .ti-arrow-circle-down:hover {
 	text-decoration: none;
 }
 
@@ -1570,7 +1579,9 @@ pre .key {
 	background-color: #fff;
 }
 
-/* MANIFESTO */
+/*------------------------------------*\
+  #MANIFESTO
+\*------------------------------------*/
 
 #mockup section.section-content-container {
 	padding: 4em 0;
@@ -1606,7 +1617,9 @@ pre .key {
 	font-style: italic;
 } */
 
-/* STORIES */
+/*------------------------------------*\
+  #STORIES
+\*------------------------------------*/
 
 #mockup .section-container {
 	overflow: hidden;
@@ -1753,7 +1766,9 @@ pre .key {
 	margin-bottom: 0;
 }
 
-/* NEXT NOW */
+/*------------------------------------*\
+  #NEXT-NOW
+\*------------------------------------*/
 
 /* #mockup section.next-now h4,
 #mockup section.next-now h4 a {
@@ -1802,12 +1817,10 @@ pre .key {
 	#mockup section#nextNowSection .mobile-bg {
 		display: inline-block;
 	}
-
 	#mockup section#nextNowSection .absolute-center {
 		width: 400px;
 		height: 275px;
 	}
-
 	#mockup section#nextNowSection .bg {
 		display: none;
 	}
@@ -1827,10 +1840,11 @@ pre .key {
 	z-index: 5;
 }
 
-/* Footer */
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
 
-#mockup footer a,
-#mockup footer p {
+#mockup footer a, #mockup footer p {
 	font-size: 0.9em;
 }
 
@@ -1859,7 +1873,7 @@ pre .key {
 	/* background-color: #000000; */
 	border-top: 5px solid var(--color-brand-red);
 	/* padding-bottom: 10px; */
-	background-image: url('/image/_2019-redesign/sketch.png');
+	background-image: url('/image/_2019-redesign/sketch-bg.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
@@ -1920,13 +1934,14 @@ pre .key {
 	margin-bottom: 0;
 }
 
-/* Animations */
+/*------------------------------------*\
+  #ANIMATIONS
+\*------------------------------------*/
 
 @-webkit-keyframes animateLeft {
 	0% {
 		left: 150%;
 	}
-
 	100% {
 		left: 25%;
 	}
@@ -1936,25 +1951,23 @@ pre .key {
 	0% {
 		opacity: 0;
 	}
-
 	100% {
 		opacity: 1;
 	}
 }
 
-#mockup .fade-enter-active,
-.fade-leave-active {
+#mockup .fade-enter-active, .fade-leave-active {
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 }
 
-#mockup .fade-enter,
-#mockup .fade-leave-to {
+#mockup .fade-enter, #mockup .fade-leave-to {
 	opacity: 0;
 }
 
-/* 
-TYPEAHEAD styles */
+/*------------------------------------*\
+  #TYPEAHEAD
+\*------------------------------------*/
 
 #mockup .SearchInput {
 	display: inline-block;
@@ -2076,15 +2089,17 @@ TYPEAHEAD styles */
 	line-height: 40px;
 }
 
-/* GENERAL FORM styles */
+/*------------------------------------*\
+  #GENERAL FORM
+\*------------------------------------*/
 
-/* Payment Page */
+/* --------- Payment Page ---------- */
 
 #mockup div[id*=CartGrid_topLinkBar] {
 	display: none;
 }
 
-#mockup #PC15250_ctl00_upPayment {
+#mockup [id*=_ctl00_upPayment] {
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
@@ -2093,14 +2108,13 @@ TYPEAHEAD styles */
 	padding: 3px !important;
 }
 
-#mockup #PC15250_ctl00_upPayment a.PaymentPart_CartItemLink {
+#mockup [id*=_ctl00_upPayment] a.PaymentPart_CartItemLink {
 	color: #e00122;
 }
 
-#mockup .PaymentPart_PersonalInfoContainer,
-#mockup .PaymentPart_CartSummary {
-	max-width: 95%;
-	width: 95%;
+#mockup .PaymentPart_PersonalInfoContainer, #mockup .PaymentPart_CartSummary {
+	max-width: 100%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -2121,9 +2135,7 @@ max-width: 100%;
 	display: inline-block;
 }
 
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(6),
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(10),
-#mockup .PaymentPart_UseAsBillingContainer {
+#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(6), #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer:nth-child(10), #mockup .PaymentPart_UseAsBillingContainer {
 	clear: both;
 }
 
@@ -2142,21 +2154,30 @@ max-width: 100%;
 	padding-left: 0.5em;
 }
 
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer>label,
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer>span.DCFieldCaption {
+#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer>label, #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer>span.DCFieldCaption {
 	padding-left: 15px;
 	margin-bottom: 0;
 }
 
-#mockup label#PC15250_ctl00_PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_lblZipUS {
+#mockup .PaymentPart_PersonalInfoContainer label[id*=PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_lblZipUS] {
 	padding-left: 0 !important;
+	display: inline-block;
 }
 
-#mockup div[id*=PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_AUIUSZip] {
+#mockup .PaymentPart_PersonalInfoContainer input[id*=PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_tb_zipUS] {
+	display: block !important;
+	margin: 0 auto;
+}
+
+#mockup .PaymentPart_PersonalInfoContainer div[id*=PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_AUIUSZip] {
 	float: none;
 	margin: 0 auto !important;
 	display: block;
 	clear: both;
+}
+
+#mockup .PaymentPart_PersonalInfoContainer span[id*=PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_lblreq_zipUS] {
+	left: 44%;
 }
 
 #mockup .BBDivFieldContainer .DCFieldCaption {
@@ -2179,15 +2200,13 @@ max-width: 100%;
 	left: 5px;
 }
 
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer input,
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer textarea,
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer select {
+#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer input, #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer textarea, #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer select {
 	max-width: 100% !important;
 	width: 100% !important;
 	display: inline-block;
 }
 
-#mockup div#PC15250_ctl00_PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_AUIUSZip>input {
+#mockup div[id*=PersonalInfoShippingAddress_MultipleAddressControl_AddressUIEditor_AUIUSZip]>input {
 	max-width: 225px !important;
 }
 
@@ -2197,26 +2216,18 @@ max-width: 100%;
 	display: inline-block;
 }
 
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer select,
-#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer textarea {
+#mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer select, #mockup .PaymentPart_PersonalInfoContainer .BBDivFieldContainer textarea {
 	max-width: 100% !important;
 	width: 100% !important;
 	display: inline-block;
 }
 
-#mockup .BBDivFieldContainer .BBFormSelectList,
-#mockup .BBDivFieldContainer .BBFormTextbox,
-#mockup .BBDivFieldContainer .BBFormTextArea,
-#mockup .BBDivFieldContainer input[type="text"],
-#mockup .BBDivFieldContainer input[type="password"],
-#mockup .BBDivFieldContainer textarea,
-#mockup .BBDivFieldContainer select,
-#mockup .BBDivFieldContainer .SpellSuggestionList {
+#mockup .BBDivFieldContainer .BBFormSelectList, #mockup .BBDivFieldContainer .BBFormTextbox, #mockup .BBDivFieldContainer .BBFormTextArea, #mockup .BBDivFieldContainer input[type="text"], #mockup .BBDivFieldContainer input[type="password"], #mockup .BBDivFieldContainer textarea, #mockup .BBDivFieldContainer select, #mockup .BBDivFieldContainer .SpellSuggestionList {
 	max-width: 99%;
 	margin-bottom: 0;
 }
 
-#mockup #PC15250_ctl00_divPersonalInfo .BBDivFieldContainer:first-child {
+#mockup [id*=_ctl00_divPersonalInfo] .BBDivFieldContainer:first-child {
 	width: 15%;
 }
 
@@ -2229,8 +2240,7 @@ max-width: 100%;
 	margin: 0px auto;
 }
 
-#mockup .PaymentPart_CartHeaderCell.PaymentPart_CartHeaderQuantityCell,
-#mockup td[id*="tdCartQuantityCell"] {
+#mockup .PaymentPart_CartHeaderCell.PaymentPart_CartHeaderQuantityCell, #mockup td[id*="tdCartQuantityCell"] {
 	color: transparent;
 }
 
@@ -2238,8 +2248,7 @@ max-width: 100%;
 	color: #fff !important;
 }
 
-#mockup .make-onetime,
-#mockup .make-recurring {
+#mockup .make-onetime, #mockup .make-recurring {
 	padding: 0 1em;
 	height: 35px;
 	line-height: 35px;
@@ -2253,9 +2262,7 @@ form {
 	margin-bottom: 0 !important;
 }
 
-#mockup input,
-#mockup select,
-#mockup button {
+#mockup input, #mockup select, #mockup button {
 	border-radius: 0 !important;
 }
 
@@ -2287,8 +2294,7 @@ form {
 	padding: 0 !important;
 }
 
-#mockup .form-group.field-input input,
-#mockup .form-group.field-select select {
+#mockup .form-group.field-input input, #mockup .form-group.field-select select {
 	margin-bottom: 0;
 }
 
@@ -2298,19 +2304,20 @@ form {
 	margin: 0 auto;
 }
 
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active,
-a.ui-button:active,
-.ui-button:active,
-.ui-button.ui-state-active:hover {
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
 	border: 1px solid #e00122;
 	background: #e00122 !important;
 	font-weight: normal;
 	color: #fff;
 }
 
-/* GIVING FORM styles */
+/*------------------------------------*\
+  #GENERAL-FORM
+\*------------------------------------*/
+
+/*------------------------------------*\
+  #GIVING-FORM
+\*------------------------------------*/
 
 #mockup #givingForm {
 	margin-top: 0em !important;
@@ -2330,15 +2337,13 @@ a.ui-button:active,
 	margin-left: 0 !important;
 }
 
-#mockup .column:not(.offset-by-three),
-#mockup .columns:not(.offset-by-three) {
+#mockup .column:not(.offset-by-three), #mockup .columns:not(.offset-by-three) {
 	/*padding: 0 5px !important; */
 	margin-left: 0;
 	margin-bottom: 0;
 }
 
-#mockup .field-checkbox label,
-#mockup .field-checkbox .field-wrap {
+#mockup .field-checkbox label, #mockup .field-checkbox .field-wrap {
 	display: inline-block;
 	margin: 0;
 }
@@ -2357,8 +2362,7 @@ a.ui-button:active,
 	margin-left: 3%;
 }
 
-#mockup div[id^='Giftdetails'],
-#mockup div[id^='Giftdetails'] fieldset {
+#mockup div[id^='Giftdetails'], #mockup div[id^='Giftdetails'] fieldset {
 	margin-bottom: 0;
 }
 
@@ -2406,9 +2410,7 @@ a.ui-button:active,
 	font-size: 1em;
 }
 
-#mockup .errors.help-block,
-#mockup .error-message,
-#mockup .BBFormValidatorSummary.DonationValidationSummary {
+#mockup .errors.help-block, #mockup .error-message, #mockup .BBFormValidatorSummary.DonationValidationSummary {
 	color: #a94442 !important;
 }
 
@@ -2447,8 +2449,7 @@ a.ui-button:active,
 	border-collapse: collapse;
 }
 
-#mockup th,
-#mockup td {
+#mockup th, #mockup td {
 	text-align: left;
 	padding: 8px;
 }
@@ -2469,12 +2470,13 @@ I wanted to go with a mobile first approach, but it actually lead to more verbos
 Side note: I know that this style of nesting in SASS doesn't result in the most performance efficient CSS code... but on the OCD/organizational side, I like it. So for CodePen purposes, CSS selector performance be damned.
 */
 
-/* Global settings */
+/*------------------------------------*\
+  #GLOBAL-SETTINGS
+\*------------------------------------*/
 
 /* Global "table" column settings */
 
-#mockup .fund-name,
-#mockup .totals-item label {
+#mockup .fund-name, #mockup .totals-item label {
 	display: inline-block;
 	width: 65%;
 	padding: 0 10px;
@@ -2529,33 +2531,16 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
 
 /* This is used as the traditional .clearfix class */
 
-#mockup .group:before,
-#mockup .shopping-cart:before,
-#mockup .column-labels:before,
-#mockup .fund:before,
-#mockup .totals-item:before,
-#mockup .group:after,
-#mockup .shopping-cart:after,
-#mockup .column-labels:after,
-#mockup .fund:after,
-#mockup .totals-item:after {
+#mockup .group:before, #mockup .shopping-cart:before, #mockup .column-labels:before, #mockup .fund:before, #mockup .totals-item:before, #mockup .group:after, #mockup .shopping-cart:after, #mockup .column-labels:after, #mockup .fund:after, #mockup .totals-item:after {
 	content: '';
 	display: table;
 }
 
-#mockup .group:after,
-#mockup .shopping-cart:after,
-#mockup .column-labels:after,
-#mockup .fund:after,
-#mockup .totals-item:after {
+#mockup .group:after, #mockup .shopping-cart:after, #mockup .column-labels:after, #mockup .fund:after, #mockup .totals-item:after {
 	clear: both;
 }
 
-#mockup .group,
-#mockup .shopping-cart,
-#mockup .column-labels,
-#mockup .fund,
-#mockup .totals-item {
+#mockup .group, #mockup .shopping-cart, #mockup .column-labels, #mockup .fund, #mockup .totals-item {
 	zoom: 1;
 }
 
@@ -2563,8 +2548,7 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
 
 /* Apply dollar signs */
 
-#mockup .fund .fund-line-amount:before,
-#mockup .totals-value:before {
+#mockup .fund .fund-line-amount:before, #mockup .totals-value:before {
 	content: '$';
 }
 
@@ -2590,9 +2574,7 @@ left: 5px;  */
 	font-weight: bold;
 }
 
-#mockup .column-labels .fund-name,
-#mockup .column-labels .fund-details,
-#mockup .column-labels .fund-removal {
+#mockup .column-labels .fund-name, #mockup .column-labels .fund-details, #mockup .column-labels .fund-removal {
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
@@ -2640,17 +2622,25 @@ left: 5px;  */
 	margin-bottom: 0 !important;
 }
 
+/*
+#mockup ul.radio-list>li.giftType-item {
+	position: relative;
+	width: 30%;
+	margin-bottom: 0 !important;
+}
+*/
+
 #mockup ul .amountButton {
 	margin-bottom: 0 !important;
 }
 
-#mockup ul.radio-list>li.area-item input {
+#mockup ul.radio-list>li.area-item input, #mockup ul.radio-list>li.giftType-item input {
 	position: absolute;
 	opacity: 0;
 	margin: 0;
 }
 
-#mockup ul.radio-list>li.area-item label {
+#mockup ul.radio-list>li.area-item label, #mockup ul.radio-list>li.giftType-item label {
 	margin: 0;
 }
 
@@ -2662,28 +2652,38 @@ left: 5px;  */
 }
 
 @media screen and (max-width: 767px) {
+	#mockup.home .QuickSearchFormTable td:nth-child(2) {
+		width: 356px;
+	}
+	#mockup.home .QuickSearchFormTable td:first-child {
+		display: none;
+	}
+	#mockup #hero .btn-container {
+		bottom: 0;
+	}
+	#mockup #hero .btn-container a {
+		margin: 3px auto;
+	}
+	#mockup #hero .icon-container-hero {
+		display: none;
+	}
 	#mockup ul.radio-list>li.area-item {
 		position: relative;
 		padding: 5px 0 !important;
 		width: 50% !important;
 	}
-
 	#mockup ul.radio-list>li.area-item:last-child {
 		width: 100% !important;
 	}
-
 	#mockup ul.radio-list>li.area-item label {
 		padding: .75em;
 	}
-
 	#mockup #areasToSuppportRadioGroup .radio-list {
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 	}
-
-	#mockup #addToCart>.button-primary,
-	#mockup .donate-now>a {
+	#mockup #addToCart>.button-primary, #mockup .donate-now>a {
 		margin: 5px auto !important;
 		display: block !important;
 		width: 200px;
@@ -2751,7 +2751,6 @@ left: 5px;  */
 }
 
 @media screen and (max-width: 1000px) {
-
 	/* #mockup .wizard-nav.wizard-nav-pills {
 		padding-bottom: 0;
 		margin-left: 0%;
@@ -2776,40 +2775,32 @@ left: 5px;  */
 		padding-top: 20px;
 		border-top: 1px solid #eee;
 	}
-
 	#mockup .column-labels {
 		display: none;
 	}
-
 	#mockup .fund-name {
 		display: inline-block;
 		width: auto;
 	}
-
 	#mockup .fund-details {
 		float: none;
 		margin-bottom: 10px;
 		width: auto;
 	}
-
 	#mockup .fund-amount {
 		clear: both;
 		width: 70px;
 	}
-
 	#mockup .fund-removal {
 		width: auto;
 	}
-
 	#mockup .fund-line-amount {
 		float: right;
 		width: 70px;
 	}
-
 	#mockup a.scrollToTop {
 		right: 10px !important;
 	}
-
 	#mockup #pageTitle h1.pageTitle {
 		font-size: 3.5rem !important;
 	}
@@ -2821,22 +2812,18 @@ left: 5px;  */
 	#mockup .fund-removal {
 		display: inline-block;
 	}
-
 	#mockup .fund-line-amount {
 		display: inline-block;
 		clear: left;
 		width: auto;
 		margin-top: 10px;
 	}
-
 	#mockup .fund .fund-line-amount:before {
 		content: 'Item Total: $';
 	}
-
 	#mockup .totals .totals-item label {
 		width: 60%;
 	}
-
 	#mockup .totals .totals-item .totals-value {
 		width: 40%;
 	}
@@ -2875,16 +2862,12 @@ left: 5px;  */
 	border: 1px solid #ccc;
 }
 
-#mockup ::-webkit-input-placeholder,
-#mockup :-ms-input-placeholder,
-#mockup ::-webkit-input-placeholder {
+#mockup ::-webkit-input-placeholder, #mockup :-ms-input-placeholder, #mockup ::-webkit-input-placeholder {
 	/* Edge */
 	color: #000000 !important;
 }
 
-#mockup ::-webkit-input-placeholder,
-#mockup :-ms-input-placeholder,
-#mockup ::placeholder {
+#mockup ::-webkit-input-placeholder, #mockup :-ms-input-placeholder, #mockup ::placeholder {
 	/* Edge */
 	color: #000000 !important;
 }
@@ -2902,7 +2885,9 @@ left: 5px;  */
 	margin: 0 auto;
 }
 
-/* MODAL styles */
+/*------------------------------------*\
+  #MODAL
+\*------------------------------------*/
 
 #mockup .modal-mask hr {
 	margin-top: 1.5rem;
@@ -2987,8 +2972,7 @@ left: 5px;  */
 	opacity: 0;
 }
 
-#mockup .modal-enter .modal-container,
-#mockup .modal-leave-active .modal-container {
+#mockup .modal-enter .modal-container, #mockup .modal-leave-active .modal-container {
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
@@ -3112,13 +3096,14 @@ left: 5px;  */
 	opacity: 0;
 }
 
-#mockup .modal-enter .modal-container,
-#mockup .modal-leave-active .modal-container {
+#mockup .modal-enter .modal-container, #mockup .modal-leave-active .modal-container {
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
 
-/* MOBILE MENU styles */
+/*------------------------------------*\
+  #MOBILE-MENU
+\*------------------------------------*/
 
 #mockup .hide.mobile-nav {
 	background-color: transparent;
@@ -3158,7 +3143,7 @@ left: 5px;  */
 	display: none;
 	height: 35px;
 	margin: 0;
-	position: fixed;
+	position: absolute;
 	top: 1em !important;
 	right: 20px;
 	width: 35px;
@@ -3225,12 +3210,7 @@ left: 5px;  */
 	bottom: 5px;
 }
 
-#mockup .hamburger.is-closed .hamb-top,
-#mockup .hamburger.is-closed .hamb-middle,
-#mockup .hamburger.is-closed .hamb-bottom,
-#mockup .hamburger.is-open .hamb-top,
-#mockup .hamburger.is-open .hamb-middle,
-#mockup .hamburger.is-open .hamb-bottom {
+#mockup .hamburger.is-closed .hamb-top, #mockup .hamburger.is-closed .hamb-middle, #mockup .hamburger.is-closed .hamb-bottom, #mockup .hamburger.is-open .hamb-top, #mockup .hamburger.is-open .hamb-middle, #mockup .hamburger.is-open .hamb-bottom {
 	height: 4px;
 	right: 0;
 	position: absolute;
@@ -3282,14 +3262,14 @@ left: 5px;  */
 	opacity: 1;
 }
 
-/* Media Queries
- */
+/*------------------------------------*\
+  #MEDIA-QUERIES
+\*------------------------------------*/
 
 @media (min-width: 1330px) {
 	#mockup .mainLogo {
 		max-width: 380px;
 	}
-
 	#mockup .mainLogo {
 		max-width: 250px;
 	}
@@ -3300,7 +3280,6 @@ left: 5px;  */
 		float: right !important;
 		margin-right: 10px;
 	}
-
 	#mockup .navbar-nav>li {
 		float: left;
 		margin-bottom: 0;
@@ -3311,7 +3290,6 @@ left: 5px;  */
 		-o-transition: all 0.4s ease-in-out;
 		transition: all 0.4s ease-in-out; */
 	}
-
 	#mockup .navbar-nav>li>a {
 		position: relative;
 		padding: 15px;
@@ -3333,20 +3311,16 @@ left: 5px;  */
 		-webkit-transform: skew(30deg);
 		transform: skew(30deg);
 	}
-
 	#mockup .navbar-nav>li:hover {
 		background-color: #000000;
 	}
-
 	#mockup .navbar-nav>li>a {
 		text-decoration: none !important;
 	}
-
 	#mockup .navbar-nav>li>a:hover {
 		color: #ffffff !important;
 		text-decoration: none !important;
 	}
-
 	#mockup .navbar-nav>li.button-primary>a {
 		padding: 15px 25px;
 		color: #ffffff !important;
@@ -3356,15 +3330,12 @@ left: 5px;  */
 		-o-transition: all 0.4s ease-in-out;
 		transition: all 0.4s ease-in-out; */
 	}
-
 	#mockup .navbar-nav>li.button-primary:not(.parallelogram)>a:hover {
 		color: #e00122 !important;
 	}
-
 	#mockup .navbar-nav>li.search {
 		padding-left: 10px;
 	}
-
 	#mockup .fa-search:before {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
@@ -3378,66 +3349,37 @@ left: 5px;  */
 		left: 15px;
 		text-align: center;
 	}
-
-	#mockup .fa-search:before {
+	#mockup.home .fa-search:before {
 		right: 0;
 		left: 0;
 	}
-
 	#mockup.home .fa-search {
 		padding: 0;
 		background-color: #e00122;
 	}
-
 	#mockup.home .fa-search:before {
 		-webkit-transform: skew(0deg);
 		transform: skew(0deg);
 		line-height: 39px;
 		color: #fff;
 	}
-
 	#mockup .fa-search:hover:before {
 		color: #fff;
 	}
-
 	#mockup .fa-home>a {
 		-webkit-transform: skew(0deg) !important;
 		transform: skew(0deg) !important;
 	}
-
-	#mockup .fa-home:before {
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-		-webkit-transform: skew(30deg);
-		transform: skew(30deg);
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		line-height: 50px;
-		left: 0;
-		right: 0;
-		font-size: 2em;
-		text-align: center;
-		cursor: pointer;
-	}
-
 	#mockup .fa-home:hover:before {
 		color: #fff;
 	}
-
 	#mockup .navbar-header {
 		float: left;
 	}
-
-	#mockup .container>.navbar-header,
-	#mockup .container-fluid>.navbar-header,
-	#mockup .container>.navbar-collapse,
-	#mockup .container-fluid>.navbar-collapse {
+	#mockup .container>.navbar-header, #mockup .container-fluid>.navbar-header, #mockup .container>.navbar-collapse, #mockup .container-fluid>.navbar-collapse {
 		margin-right: 0;
 		margin-left: 0;
 	}
-
 	#mockup .pull-left {
 		float: left !important;
 	}
@@ -3471,18 +3413,15 @@ left: 5px;  */
 		height: 36px !important;
 		border-bottom: 1px solid #000;
 	}
-
 	ul.nav>li:hover ul li:last-child {
 		border-bottom: 1px solid #000;
 	}
-
 	.nav>li>ul {
 		position: absolute;
 		left: 0;
 		top: 36px;
 		z-index: 1;
 	}
-
 	.nav li>ul>li {
 		overflow: hidden;
 		height: 0;
@@ -3497,65 +3436,52 @@ left: 5px;  */
 	#mockup.internal header {
 		padding: 2em 0 0.5em !important;
 	}
-
 	/* #mockup.internal>section#pageTitle .page-title */
 	#mockup.give-to-uc>section#pageTitle .page-title {
 		padding-top: 65px !important;
 	}
-
 	#mockup.internal>section#pageTitle .page-title {
 		padding-top: 0.5em !important;
 	}
-
 	#mockup .hamburger {
 		display: block !important;
 		top: 1em !important;
 	}
-
 	#mockup .hamburger.reduced {
 		top: 1em;
 	}
-
 	#mockup.internal header.reduced {
 		padding: 0.5em 0 !important;
 	}
-
 	#mockup .container.navContainer {
 		width: 100%;
 		max-width: 100%;
 		margin-bottom: 0 !important;
 	}
-
 	#mockup .pageTitle.parallelogram {
 		-webkit-transform: skew(-30deg);
 		transform: skew(-30deg);
 	}
-
 	#mockup .skew-fix {
 		display: inline-block;
 		-webkit-transform: skew(30deg);
 		transform: skew(30deg);
 	}
-
 	#mockup header .container>div {
 		margin-left: 20px;
 	}
-
 	#mockup .mobile-nav.hide {
 		display: block !important;
-		margin-top: 0.5em;
+		margin-top: 0.75em;
 		position: absolute;
 		width: 100%;
 	}
-
 	#mockup header {
 		background-color: #fff;
 	}
-
 	#mockup header a {
 		margin: 0 auto;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right {
 		position: absolute;
 		background-color: #000000;
@@ -3570,13 +3496,11 @@ left: 5px;  */
 		-o-transition: all 0.4s ease-in-out;
 		transition: all 0.4s ease-in-out; */
 	}
-
 	#mockup .nav.navbar-nav.navbar-right.slideOut {
 		border-top: 1px solid #000;
 		left: 0;
 		right: 0;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li {
 		display: inline-block;
 		line-height: 20px;
@@ -3590,32 +3514,25 @@ left: 5px;  */
 		transform: skew(0deg);
 		background-color: #fff;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li a:hover {
 		background-color: #000;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li.selected {
 		background-color: #000;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li.selected a {
 		color: #fff;
 	}
-
 	#mockup .fa-home:before {
 		-webkit-transform: skew(0deg);
 		transform: skew(0deg);
-		color: #000;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li.search {
 		display: none;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li a {
 		/* color: #dddddd; */
-		color: #000;
+		color: #000 !important;
 		display: block;
 		padding: 15px;
 		text-decoration: none;
@@ -3623,11 +3540,12 @@ left: 5px;  */
 		-webkit-transform: skew(0deg);
 		transform: skew(0deg);
 	}
-
+	#mockup .nav.navbar-nav.navbar-right li a.open {
+		color: #fff !important;
+	}
 	#mockup .nav.navbar-nav.navbar-right li.button-primary a {
 		color: #fff !important;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li a>span {
 		width: 50px;
 		height: 50px;
@@ -3638,12 +3556,10 @@ left: 5px;  */
 		cursor: pointer;
 		z-index: 50;
 	}
-
 	#mockup .fa-chevron-up:before {
 		font-family: "FontAwesome";
 		color: #fff;
 	}
-
 	#mockup span>i.fa.fa-chevron-up {
 		position: absolute;
 		top: 0;
@@ -3659,7 +3575,6 @@ left: 5px;  */
 		-webkit-transition: all 0.4s linear;
 		transition: all 0.4s linear;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li .nccUlMenuSub1 {
 		display: none;
 		position: relative;
@@ -3675,27 +3590,21 @@ left: 5px;  */
 		-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
 		zoom: 1;
 	}
-
 	#mockup .nav.navbar-nav.navbar-right li .nccUlMenuSub1 li {
 		background-color: #DCDCDC;
 		vertical-align: top;
 	}
-
 	#mockup header .nav .nccUlMenuSub1 a {
 		line-height: 40px;
 		height: 40px;
 		padding: 0 10px !important;
 	}
-
 	#mockup header a>img {
 		max-width: 250px !important;
 	}
-
-	#mockup header,
-	#mockup.internal header {
+	#mockup header, #mockup.internal header {
 		padding: 0.75em 0 !important;
 	}
-
 	#mockup .parent:before {
 		font-size: 18px;
 		float: right;
@@ -3710,40 +3619,35 @@ left: 5px;  */
 		text-align: center;
 		cursor: pointer;
 	}
-
 	#mockup ul.nav ul {
 		padding: 0;
 		display: none;
 	}
-
 	#mockup .container {
 		width: 100%;
 		margin-bottom: 0.5em;
 	}
-
+	#mockup .search-container>.container {
+		width: 100%;
+		margin-bottom: 0;
+	}
 	/* #mockup .nav.navbar-nav.navbar-right {
 		height: 91vh;
 	} */
 	#mockup section.manifesto {
 		padding: 2em 0;
 	}
-
 	#mockup section.manifesto p {
 		font-size: 1.5em;
 		margin: 0;
 	}
-
 	#mockup section.manifesto h2 {
 		padding: 0;
 	}
-
-	#mockup.internal .page-title .container,
-	#mockup.give-to-uc .page-title .container {
+	#mockup.internal .page-title .container, #mockup.give-to-uc .page-title .container {
 		padding: 20px 0 0 !important;
 	}
-
-	#mockup.internal section .container,
-	#mockup.give-to-uc>section>.container {
+	#mockup.internal section .container, #mockup.give-to-uc>section>.container {
 		padding: 1em 0 !important;
 	}
 }
@@ -3752,50 +3656,32 @@ left: 5px;  */
 	#mockup header .container>div {
 		margin-left: 0;
 	}
-
 	#mockup .hide.mobile-nav li a {
 		padding: 0.25em !important;
 	}
-
 	#mockup .hamburger {
 		top: .5em;
 	}
-
-	#mockup .hamburger.is-closed .hamb-top,
-	#mockup .hamburger.is-closed .hamb-middle,
-	#mockup .hamburger.is-closed .hamb-bottom,
-	#mockup .hamburger.is-open .hamb-top,
-	#mockup .hamburger.is-open .hamb-middle,
-	#mockup .hamburger.is-open .hamb-bottom {
+	#mockup .hamburger.is-closed .hamb-top, #mockup .hamburger.is-closed .hamb-middle, #mockup .hamburger.is-closed .hamb-bottom, #mockup .hamburger.is-open .hamb-top, #mockup .hamburger.is-open .hamb-middle, #mockup .hamburger.is-open .hamb-bottom {
 		width: 70%;
 	}
-
 	#mockup header a>img {
 		max-width: 190px !important;
 	}
-
-	#mockup.internal section .container,
-	#mockup.give-to-uc>section>.container {
+	#mockup.internal section .container, #mockup.give-to-uc>section>.container {
 		padding: 0.5em 0 !important;
 	}
-
 	#mockup.give-to-uc>section#pageTitle .page-title {
 		padding-top: 60px !important;
 	}
-
-	#mockup.internal .page-title>.container:before,
-	#mockup.give-to-uc .page-title>.container:before {
+	#mockup.internal .page-title>.container:before, #mockup.give-to-uc .page-title>.container:before {
 		height: 48px !important;
 		bottom: 3px !important;
 	}
-
-	#mockup.internal #pageTitle .page-title,
-	#mockup.give-to-uc #pageTitle .page-title {
+	#mockup.internal #pageTitle .page-title, #mockup.give-to-uc #pageTitle .page-title {
 		font-size: 3.0rem;
 	}
-
-	#mockup.internal .page-title .container,
-	#mockup.give-to-uc .page-title .container {
+	#mockup.internal .page-title .container, #mockup.give-to-uc .page-title .container {
 		margin-bottom: 0 !important;
 	}
 }
@@ -3804,67 +3690,57 @@ left: 5px;  */
 	#mockup.internal header {
 		padding: 0.75em 0 !important;
 	}
-
 	#mockup .hero .btn-container a {
 		width: 60%;
 		margin: 10px auto;
 	}
-
 	#mockup section.hero .btn-container:after {
 		background-color: transparent !important;
 	}
-
 	#mockup a.scrollToTop {
 		height: 40px !important;
 		width: 40px !important;
 		right: 20px;
 		bottom: 20px;
 	}
-
 	#mockup a.scrollToTop span {
 		border-left: 15px solid transparent;
 		border-right: 15px solid transparent;
 		border-bottom: 25px solid #fff;
 	}
-
 	#mockup section.section-content-container {
 		padding: 2em 0;
 	}
-
 	#mockup footer {
 		padding: 2em 0 3em !important;
 	}
-
 	#mockup footer img {
 		display: block;
 		margin: 0 auto;
 	}
-
 	#mockup footer ul {
 		padding-left: 0 !important;
 		padding-bottom: 0.5em;
 		padding-top: 0.5em;
 	}
-
 	#mockup footer .column {
 		padding: 0 !important;
 	}
-
 	#mockup footer p {
 		color: #ffffff;
 	}
-
 	#mockup footer h5 {
 		text-transform: uppercase;
 		padding-bottom: 0;
 	}
-
 	#mockup footer ul li {
 		margin-bottom: 0.25em;
 	}
-
 	#mockup footer a {
 		text-decoration: underline;
+	}
+	#mockup .BBFormTable.SearchFormTable tbody tr td table tbody tr td:last-child {
+		width: 30%;
 	}
 }
 
@@ -3878,22 +3754,18 @@ left: 5px;  */
 	#mockup section>.container {
 		width: 100%;
 	}
-
 	#mockup .section-container .one-half.column {
 		width: 100% !important;
 		padding: 0 !important;
 	}
-
 	#mockup .section-container .container {
 		padding: 0;
 	}
-
 	#mockup section#nextNowSection .next-now-logo {
 		width: 65%;
 		display: block;
 		margin: 0 auto;
 	}
-
 	#mockup section#nextNowSection .absolute-center {
 		width: 100%;
 		height: auto;
@@ -3904,14 +3776,15 @@ left: 5px;  */
 	#mockup .modal-container {
 		width: 100% !important;
 	}
-
 	#mockup .container {
 		width: 95%;
 		max-width: 95%;
 	}
 }
 
-/* ADMIN styles */
+/*------------------------------------*\
+  #ADMIN
+\*------------------------------------*/
 
 #mockup.admin-mode header {
 	position: relative;
@@ -3934,13 +3807,11 @@ div[id*="_designPaneCloak"] {
 	left: 0px !important;
 }
 
-div[id*="_DesignPanePanel"] .container,
-footer>div[id*="_updContentPanel"] {
+div[id*="_DesignPanePanel"] .container, footer>div[id*="_updContentPanel"] {
 	width: 100% !important;
 }
 
-iframe #mainHeader.sticky,
-#tinymce header {
+iframe #mainHeader.sticky, #tinymce header {
 	overflow: visible !important;
 	position: relative !important;
 }
@@ -3998,8 +3869,9 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	color: #fff;
 }
 
-/* INTERNAML styles 
- */
+/*------------------------------------*\
+  #INTERNAL
+\*------------------------------------*/
 
 #mockup.internal .page-title .container {
 	padding: 40px 0 0;
@@ -4011,15 +3883,13 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	width: 100% !important;
 }
 
-#mockup.internal .page-title,
-#mockup.give-to-uc .page-title {
+#mockup.internal .page-title, #mockup.give-to-uc .page-title {
 	position: relative;
 	overflow: hidden;
 	background-color: #000;
 }
 
-#mockup.internal h1.pageTitle:before,
-#mockup.give-to-uc h1.pageTitle:before {
+#mockup.internal h1.pageTitle:before, #mockup.give-to-uc h1.pageTitle:before {
 	position: absolute;
 	-ms-transform: translate(-50%, 0);
 	/* IE 9 */
@@ -4049,8 +3919,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	padding-top: 0px;
 }
 
-#mockup.internal section .container,
-#mockup.give-to-uc>section>.container {
+#mockup.internal section .container, #mockup.give-to-uc>section>.container {
 	padding: 2em 0;
 }
 
@@ -4074,8 +3943,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
 }
 
-#mockup.internal section .page-title:before,
-#mockup.give-to-uc section .page-title:before {
+#mockup.internal section .page-title:before, #mockup.give-to-uc section .page-title:before {
 	position: absolute;
 	z-index: 1;
 	width: 60%;
@@ -4096,44 +3964,43 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	font-family: 'Saira Condensed', sans-serif !important;
 }
 
-/* ACCORDION styles 
- */
+/*------------------------------------*\
+  #ACCORDION
+\*------------------------------------*/
 
-.accordion-enter-active,
-.accordion-leave-active {
+.accordion-enter-active, .accordion-leave-active {
 	will-change: height, opacity;
 	-webkit-transition: height 0.3s ease, opacity 0.3s ease;
 	transition: height 0.3s ease, opacity 0.3s ease;
 	overflow: hidden;
 }
 
-.accordion-enter,
-.accordion-leave-to {
+.accordion-enter, .accordion-leave-to {
 	height: 0 !important;
 	opacity: 0;
 }
 
-.accordion__item {
+#mockup .accordion__item {
 	margin-bottom: 15px;
 	;
 }
 
-.accordion__item:last-child .accordion__content {
+#mockup .accordion__item:last-child .accordion__content {
 	border-bottom: solid 1px #e9e9e9;
 }
 
-.accordion__trigger {
+#mockup .accordion__trigger {
 	padding: 10px 20px;
 	background: #000;
 	color: #fff;
 	cursor: pointer;
 }
 
-.accordion__trigger_active {
+#mockup .accordion__trigger_active {
 	background: #e00122;
 }
 
-.accordion__content {
+#mockup .accordion__content {
 	padding: 15px 10px;
 	border-left: solid 1px #e9e9e9;
 	border-right: solid 1px #e9e9e9;
@@ -4170,8 +4037,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	transition: all 0.4s ease-in-out;
 }
 
-#mockup .accordion__panel-title:hover,
-#mockup .accordion__panel-title.open {
+#mockup .accordion__panel-title:hover, #mockup .accordion__panel-title.open {
 	background: #e00122;
 }
 
@@ -4199,7 +4065,156 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	margin-bottom: 1em !important;
 }
 
-/* VIDEO styles  */
+/**
+* Accordion container element
+*/
+
+.accordion {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.accordion>li {
+	margin: 0;
+}
+
+/**
+* Add zero-width space. needed to ensure Safari + VO respect list semantics.
+* Set the before content to position absolute to negate any visible space
+* the before content could add to the document.
+*/
+
+.accordion>li:before {
+	content: "\200B";
+	position: absolute;
+}
+
+/**
+* Accordion Heading
+*/
+
+.accordion__heading {
+	border: 1px solid #000;
+	/* #4464c2; */
+	font-size: inherit;
+	margin: -1px 0 0;
+}
+
+.accordion__trigger {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	color: #000;
+	/* #4464c2; */
+	cursor: pointer;
+	display: block;
+	font-size: inherit;
+	margin: 0;
+	padding: .5em 2em .5em 1em;
+	position: relative;
+	text-align: left;
+	width: 100%;
+	z-index: 2;
+}
+
+.accordion__trigger:after {
+	border-left: .4em solid transparent;
+	border-right: .4em solid transparent;
+	border-top: .5em solid #222;
+	bottom: 0;
+	content: '';
+	height: 0;
+	margin: auto;
+	position: absolute;
+	right: 1em;
+	top: 0;
+	transition: transform .2s ease-in-out;
+	transform-origin: center center;
+	transform: rotate(0deg);
+	width: 0;
+}
+
+.accordion__trigger:hover:after, .accordion__trigger:focus:after, .accordion__trigger[aria-expanded="true"]:after {
+	border-top-color: #fff;
+}
+
+.accordion__trigger[aria-expanded="true"]:after {
+	transform: rotate(180deg);
+}
+
+/**
+* This is needed to allow a double tap iOS 11
+* Safari + VO to function correctly, if there
+* are multiple elements (wrapper spans) to layout
+* text nodes within the accordion button.
+	-- This is not needed if a button only contains text
+	and no other child nodes wrapping the text --
+.accordion__trigger > * {
+	pointer-events: none;
+}
+*/
+
+.accordion__trigger:hover, .accordion__trigger:focus {
+	background-color: #000;
+	/* #0e3b5e; */
+	color: #fff;
+	outline: none;
+}
+
+.accordion__trigger:focus {
+	box-shadow: inset 0 0 0 2px #1e82d1;
+}
+
+.accordion__trigger[aria-disabled="true"]:hover {
+	background-color: #000;
+	/* #1b75bc; */
+	color: #fff;
+	cursor: not-allowed;
+}
+
+.accordion__trigger[aria-disabled="true"]:focus {
+	background-color: #0a2a42;
+}
+
+.accordion__panel {
+	background-color: inherit;
+	max-height: 0vh;
+	overflow: hidden;
+	padding: 0.001em 1.25em;
+	position: relative;
+	visibility: hidden;
+	z-index: 1;
+}
+
+.accordion__panel--transition {
+	transition: max-height .2s ease-in-out, padding-top .2s ease-in-out, padding-bottom .2s ease-in-out;
+}
+
+.accordion__panel> :last-child {
+	margin-bottom: 0;
+}
+
+.accordion__panel[aria-hidden="false"] {
+	max-height: 100vh;
+	overflow: auto;
+	padding: 1.25em;
+	visibility: visible;
+	border: 1px solid #e00122;
+	margin-bottom: 0.5em;
+}
+
+.accordion__trigger[aria-expanded="true"] {
+	background: #000;
+	/* #1b75bc; */
+	color: #fff;
+}
+
+/*------------------------------------*\
+  #VIDEO
+\*------------------------------------*/
 
 #mockup #videoPlayer .thumbnail {
 	display: -webkit-box;
@@ -4232,8 +4247,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	font-size: 16px;
 }
 
-#mockup #videoPlayer h3,
-#mockup #videoPlayer p {
+#mockup #videoPlayer h3, #mockup #videoPlayer p {
 	margin: 0;
 	padding: 0;
 }
@@ -4291,13 +4305,11 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	margin: 0 10px !important;
 }
 
-#mockup #videoPlayer .thumbnail:hover,
-#mockup #videoPlayer .thumbnail.active {
+#mockup #videoPlayer .thumbnail:hover, #mockup #videoPlayer .thumbnail.active {
 	background-color: #000;
 }
 
-#mockup #videoPlayer .thumbnail:hover h3,
-#mockup #videoPlayer .thumbnail.active h3 {
+#mockup #videoPlayer .thumbnail:hover h3, #mockup #videoPlayer .thumbnail.active h3 {
 	color: #fff;
 }
 
@@ -4318,8 +4330,9 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	transform-origin: center;
 }
 
-/* TAB styles 
- */
+/*------------------------------------*\
+  #TAB
+\*------------------------------------*/
 
 #mockup * {
 	box-sizing: border-box;
@@ -4418,9 +4431,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 
 /* test form styles */
 
-#mockup input[type='text'],
-#mockup textarea,
-#mockup select {
+#mockup input[type='text'], #mockup textarea, #mockup select {
 	width: 100%;
 }
 
@@ -4576,8 +4587,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	font-size: 1.5em;
 }
 
-#mockup .btn-donate,
-#mockup button {
+#mockup .btn-donate, #mockup button {
 	font-size: 1em;
 	line-height: 1em;
 }
@@ -4605,8 +4615,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	border-radius: 4px;
 }
 
-.select select:hover,
-.select select:focus {
+.select select:hover, .select select:focus {
 	color: #464646;
 	background: #f4f4f4;
 }
@@ -4616,8 +4625,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	pointer-events: none;
 }
 
-.select select:hover~.select__arrow,
-.select select:focus~.select__arrow {
+.select select:hover~.select__arrow, .select select:focus~.select__arrow {
 	border-top-color: #464646;
 }
 
@@ -4637,9 +4645,7 @@ div[title^="1:"].DesignerPanePanelEmpty:after {
 	border-color: #e00122 transparent transparent;
 }
 
-#mockup .button-disabled,
-#mockup button[disabled],
-#mockup :disabled {
+#mockup .button-disabled, #mockup button[disabled], #mockup :disabled {
 	background-color: #888b8d;
 	border: 3px solid #888b8d;
 	pointer-events: none;
@@ -4694,7 +4700,9 @@ a.not-active {
 	margin: 0;
 }
 
-/* GIVE TO UC - DONATION FORM */
+/*------------------------------------*\
+  #GIVE-TO-UC--DONATION-FORM
+\*------------------------------------*/
 
 #mockup i[class*="fa-times"] {
 	color: #dc3545;
@@ -4767,8 +4775,7 @@ a.not-active {
 	text-align: center;
 }
 
-#mockup #areasToSuppportRadioGroup .radio-list>input,
-#mockup #areasToSuppportRadioGroup .radio-list>label {
+#mockup #areasToSuppportRadioGroup .radio-list>input, #mockup #areasToSuppportRadioGroup .radio-list>label {
 	width: 24%;
 }
 
@@ -4779,14 +4786,12 @@ a.not-active {
 	border: 1px solid #ccc;
 }
 
-#mockup input[type="radio"]:checked+label:not(.otherAmountLabel),
-#mockup .radio-list label:hover {
+#mockup .BBDonationApiContainer input[type="radio"]:checked+label:not(.otherAmountLabel), #mockup .BBDonationApiContainer .radio-list label:hover {
 	background-color: #e00122;
 	color: #fff;
 }
 
-#mockup .btn-donate,
-#mockup button {
+#mockup .btn-donate, #mockup button {
 	font-size: 1em;
 	/* line-height: 38px; */
 }
@@ -4814,8 +4819,7 @@ a.not-active {
 	border-radius: 4px;
 }
 
-#mockup .select select:hover,
-#mockup .select select:focus {
+#mockup .select select:hover, #mockup .select select:focus {
 	color: #464646;
 	background: #f4f4f4;
 }
@@ -4825,8 +4829,7 @@ a.not-active {
 	pointer-events: none;
 }
 
-#mockup .select select:hover~.select__arrow,
-#mockup .select select:focus~.select__arrow {
+#mockup .select select:hover~.select__arrow, #mockup .select select:focus~.select__arrow {
 	border-top-color: #464646;
 }
 
@@ -4846,10 +4849,7 @@ a.not-active {
 	border-color: #e00122 transparent transparent;
 }
 
-#mockup .button-disabled,
-#mockup button[disabled],
-#mockup :disabled,
-#mockup a.not-active {
+#mockup .button-disabled, #mockup button[disabled], #mockup :disabled, #mockup a.not-active {
 	cursor: not-allowed;
 	background-color: #888b8d;
 	border: none;
@@ -4893,8 +4893,7 @@ a.not-active {
 	opacity: .65;
 }
 
-#mockup #adfTabsMenu.giftTypeSet li,
-#mockup #adfTabsMenu.giftTypeSet li a {
+#mockup #adfTabsMenu.giftTypeSet li, #mockup #adfTabsMenu.giftTypeSet li a, #mockup .giftTypeSet span.r-pill__item {
 	pointer-events: none;
 	cursor: default;
 }
@@ -4910,8 +4909,7 @@ a.not-active {
 	border-radius: 4px;
 }
 
-#mockup [type='checkbox'],
-#mockup [type='radio'] {
+#mockup [type='checkbox'], #mockup [type='radio'] {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	/* 1 */
@@ -4946,33 +4944,27 @@ a.not-active {
 	width: 30%
 }
 
-#mockup .checkbox label:not(.required) {
+#mockup .checkbox label:not(.text):not(.required) {
 	position: relative;
 	padding: 0 0.1em 0 2em;
 }
 
-#mockup .checkbox .select-section label:not(.required),
-#mockup label.not-required {
+#mockup .BBDonationApiContainer .checkbox .select-section label:not(.required), #mockup .BBDonationApiContainer label.not-required {
 	position: relative;
 	padding: 0 0.1em 0.5em 0 !important;
 }
 
-#mockup .checkbox label:not(.required)::before,
-#mockup .checkbox label:not(.required)::after {
+#mockup .BBDonationApiContainer .checkbox label:not(.required)::before, #mockup .BBDonationApiContainer .checkbox label:not(.required)::after {
 	position: absolute;
 	content: '';
 	display: inline-block;
 }
 
-#mockup .checkbox .select-section>label::before,
-#mockup .checkbox .select-section>label::after,
-#mockup .checkbox label.not-required::before,
-#mockup .checkbox label.not-required::after {
+#mockup .BBDonationApiContainer .checkbox .select-section>label::before, #mockup .BBDonationApiContainer .checkbox .select-section>label::after, #mockup .BBDonationApiContainer .checkbox label.not-required::before, #mockup .BBDonationApiContainer .checkbox label.not-required::after {
 	display: none;
 }
 
-
-#mockup .checkbox label:not(.required)::before {
+#mockup .BBDonationApiContainer .checkbox label:not(.text):not(.required)::before {
 	height: 22px;
 	width: 22px;
 	left: 0;
@@ -4981,7 +4973,7 @@ a.not-active {
 	border: 1px solid #bbbbbb;
 }
 
-#mockup .checkbox label:not(.required)::after {
+#mockup .BBDonationApiContainer .checkbox label:not(.text):not(.required)::after {
 	left: 7px;
 	top: 3px;
 	width: 8px;
@@ -4993,19 +4985,19 @@ a.not-active {
 	transform: rotate(45deg);
 }
 
-#mockup .checkbox input[type='checkbox']+label::after {
+#mockup .BBDonationApiContainer .checkbox input[type='checkbox']+label::after {
 	content: none;
 }
 
-#mockup .checkbox input[type='checkbox']:checked+label::after {
+#mockup .BBDonationApiContainer .checkbox input[type='checkbox']:checked+label::after {
 	content: '';
 }
 
-#mockup .checkbox input[type='checkbox']:checked+label::before {
+#mockup .BBDonationApiContainer .checkbox input[type='checkbox']:checked+label::before {
 	background: #e00000;
 }
 
-#mockup .checkbox input[type='checkbox']:focus+label::before {
+#mockup .BBDonationApiContainer .checkbox input[type='checkbox']:focus+label::before {
 	outline: auto 2px Highlight;
 	outline: auto 5px -webkit-focus-ring-color;
 }
@@ -5014,20 +5006,17 @@ a.not-active {
 	width: 40%;
 }
 
-#mockup .amountButton a,
-#mockup .amountButton input {
+#mockup .amountButton a, #mockup .amountButton input {
 	width: 90%;
 	margin: 0 auto;
 	float: none;
 }
 
-#mockup .amountButton a,
-#mockup #adfOtherLabel {
+#mockup .amountButton a, #mockup #adfOtherLabel {
 	border-color: #ccc;
 }
 
-#mockup .amounts ul,
-#mockup #adfTabsMenu .menu {
+#mockup .amounts ul, #mockup #adfTabsMenu .menu {
 	text-align: center;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -5058,8 +5047,7 @@ a.not-active {
 	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
-#mockup .tt-menu,
-#mockup .gist {
+#mockup .tt-menu, #mockup .gist {
 	text-align: left;
 }
 
@@ -5166,8 +5154,7 @@ a.not-active {
 	margin-bottom: 0.5em;
 }
 
-#mockup #adfTabsMenu,
-#mockup #adfTabsMenu .menu {
+#mockup #adfTabsMenu, #mockup #adfTabsMenu .menu {
 	width: 100%;
 	text-align: center;
 }
@@ -5294,8 +5281,7 @@ a.not-active {
 	text-align: center;
 }
 
-#mockup .adfButtonList a.selected,
-#mockup .adfButtonList a:hover {
+#mockup .adfButtonList a.selected, #mockup .adfButtonList a:hover {
 	color: #fff !important;
 }
 
@@ -5375,33 +5361,26 @@ a.not-active {
 	#mockup.give-to-uc header {
 		padding: 0.75em 0;
 	}
-
 	#mockup.give-to-uc div#adfOtherLabel {
 		min-width: 123px;
 		margin: 0;
 	}
-
 	#mockup .adfButtonList a {
 		margin: 0 0.4em 0 0;
 	}
-
 	#mockup .adfButtonList li:last-child a {
 		margin: 0 0.1em 0 0;
 	}
-
 	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup label {
 		display: inline-block;
 		width: 95%;
 		text-align: center;
 		border: 1px solid #ccc;
 	}
-
 	#mockup .checkbox-container.checkbox.row>label {
 		width: 33%;
 	}
-
-	#mockup .amountButton a,
-	#mockup .amountButton input {
+	#mockup .amountButton a, #mockup .amountButton input {
 		width: 95% !important;
 	}
 }
@@ -5410,94 +5389,66 @@ a.not-active {
 	#mockup fieldset {
 		padding: 1rem 1.5rem;
 	}
-
-	#mockup input,
-	#mockup textarea,
-	#mockup select,
-	#mockup fieldset {
+	#mockup input, #mockup textarea, #mockup select, #mockup fieldset {
 		margin-bottom: .5rem;
 	}
-
-	#mockup .button,
-	#mockup button,
-	#mockup input[type="submit"],
-	#mockup input[type="reset"],
-	#mockup input[type="button"] {
+	#mockup .button, #mockup button, #mockup input[type="submit"], #mockup input[type="reset"], #mockup input[type="button"] {
 		padding: 0 15px;
 	}
-
-	#mockup .amounts ul,
-	#mockup #adfTabsMenu .menu {
+	#mockup .amounts ul, #mockup #adfTabsMenu .menu {
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 	}
-
 	#mockup .text-container {
 		padding: 0.5em;
 	}
-
 	#mockup #adfTabsMenu .menu li {
 		width: 100%;
 		margin: 0 0 5px 0;
 		display: block;
 	}
-
 	#mockup #adfTabsMenu .menu li:last-child {
 		margin: 0;
 	}
-
 	#mockup #adfTabsMenu .menu li a {
 		margin: 0;
 	}
-
 	#mockup .amountButton {
 		width: 50%;
 	}
-
 	#mockup .amounts ul li:nth-child(even) * {
 		float: right;
 		margin-right: 0;
 	}
-
 	#mockup .adfButtonList {
 		margin: 0;
 	}
-
-	#mockup .amountButton a,
-	#mockup .amountButton input {
+	#mockup .amountButton a, #mockup .amountButton input {
 		width: 95% !important;
 	}
-
 	#mockup #advancedDonationFormRedesign .radio-list label {
 		display: block;
 		width: 100%;
 	}
-
 	#mockup .checkbox-container.checkbox.row>label {
 		width: 100%;
 		margin-bottom: 5px;
 	}
-
 	#mockup .checkbox input[type='checkbox'] {
 		opacity: 0;
 		position: absolute;
 		left: 0;
 	}
-
 	#mockup #ackCheckDetails .one-third {
 		width: 100% !important;
 	}
-
 	#mockup .validation-icon-container .one-third {
 		text-align: center !important;
 	}
 }
 
-#mockup #advancedDonationForm #recurringAmount>ul,
-#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList>ul,
-#mockup #advancedDonationForm ul.designationButtonWrapper,
-#mockup .radio-list.areaToggleGroup {
+#mockup #advancedDonationForm #recurringAmount>ul, #mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList>ul, #mockup #advancedDonationForm ul.designationButtonWrapper, #mockup .radio-list.areaToggleGroup {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -5517,14 +5468,11 @@ a.not-active {
 	height: 100%;
 }
 
-#mockup #advancedDonationForm #recurringAmount>ul>li,
-#mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList>ul>li,
-#mockup #advancedDonationForm ul.designationButtonWrapper>li {
+#mockup #advancedDonationForm #recurringAmount>ul>li, #mockup #advancedDonationForm .adfItemWrapperInner.adfButtonList>ul>li, #mockup #advancedDonationForm ul.designationButtonWrapper>li {
 	width: 40%;
 }
 
-#mockup #advancedDonationForm #adfOtherLabel,
-#mockup #advancedDonationForm #txtAmount {
+#mockup #advancedDonationForm #adfOtherLabel, #mockup #advancedDonationForm #txtAmount {
 	margin: 0 !important;
 	min-height: 50px !important;
 }
@@ -5536,14 +5484,10 @@ a.not-active {
 }
 
 @media only screen and (min-width: 51em) {
-
-	#mockup .DonationFormTable>tbody>tr,
-	#mockup .DonationFormTable>tbody>tr>td {
+	#mockup .DonationFormTable>tbody>tr, #mockup .DonationFormTable>tbody>tr>td {
 		display: block;
 	}
-
-	#mockup table.DonationFormTable>tr>td,
-	#mockup table.DonationFormTable td.BBFieldCaption {
+	#mockup table.DonationFormTable>tr>td, #mockup table.DonationFormTable td.BBFieldCaption {
 		border: none;
 		padding: 3px 5px !important;
 		float: none;
@@ -5551,16 +5495,13 @@ a.not-active {
 		width: 100% !important;
 		min-width: 100% !important;
 	}
-
 	#mockup table>.donationInfo>tr {
 		display: inline-block !important;
 		padding-right: 1em;
 	}
-
 	#mockup table>.donationInfo>tr>td:first-child {
 		padding-right: 0 !important;
 	}
-
 	#mockup table>.donationInfo>tr>td:last-child {
 		padding-left: 0 !important;
 	}
@@ -5587,145 +5528,114 @@ a.not-active {
 }
 
 @media screen and (max-width: 830px) {
-	#mockup .radio-list.areaToggleGroup label.single {
-		//line-height: 50px !important;
-	}
-
+	/* #mockup .radio-list.areaToggleGroup label.single {
+		line-height: 50px !important;
+	} */
 	#mockup .radio-list.areaToggleGroup label {
 		padding: 10px !important;
 	}
 }
 
 @media screen and (max-width: 767px) {
-
-	#mockup .amounts ul,
-	#mockup #adfTabsMenu .menu {
+	#mockup .amounts ul, #mockup #adfTabsMenu .menu {
 		-webkit-flex-wrap: wrap !important;
 		-ms-flex-wrap: wrap !important;
 		flex-wrap: wrap !important;
 	}
-
 	#mockup .amountButton {
 		width: 50%;
 		padding: 5px 0;
 	}
-
-	#mockup .amountButton a,
-	#mockup .amountButton input {
+	#mockup .amountButton a, #mockup .amountButton input {
 		width: 95% !important;
 		margin: 0 auto;
 	}
-
 	#mockup .amountButton input#txtAmount {
 		margin: 0 auto !important;
 	}
-
 	#mockup #areasToSuppportRadioGroup .radio-list {
 		-webkit-flex-wrap: wrap !important;
 		-ms-flex-wrap: wrap !important;
 		flex-wrap: wrap !important;
 	}
-
 	#mockup .areaToggleGroup label {
 		width: 95%;
 		padding: 5px 0;
 	}
-
 	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup label {
 		display: block;
 		width: 95%;
 		margin: 0 auto;
 	}
-
 	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup li:last-child label {
 		width: 97.5%;
 	}
-
 	#mockup #adfTabsMenu .menu li {
 		width: 100%;
 	}
-
 	#mockup .radio-list.areaToggleGroup label.single {
 		line-height: auto !important;
 	}
 }
 
 @media screen and (max-width: 450px) {
-
-	#mockup .amounts ul,
-	#mockup #adfTabsMenu .menu {
+	#mockup .amounts ul, #mockup #adfTabsMenu .menu {
 		-webkit-flex-wrap: wrap !important;
 		-ms-flex-wrap: wrap !important;
 		flex-wrap: wrap !important;
 	}
-
 	#mockup .amountButton {
 		width: 100%;
 		padding: 5px 0;
 	}
-
-	#mockup .amountButton a,
-	#mockup .amountButton input {
+	#mockup .amountButton a, #mockup .amountButton input {
 		width: 100% !important;
 		margin: 0 auto;
 	}
-
 	#mockup .amountButton input#txtAmount {
 		margin: 0 auto !important;
 	}
-
 	#mockup #areasToSuppportRadioGroup .radio-list {
 		-webkit-flex-wrap: wrap !important;
 		-ms-flex-wrap: wrap !important;
 		flex-wrap: wrap !important;
 	}
-
 	#mockup .areaToggleGroup label {
 		width: 100%;
 		padding: 5px 0;
 	}
-
 	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup label {
 		display: block;
 		width: 100%;
 		margin: 0 auto;
 		line-height: auto !important;
 	}
-
 	#mockup #advancedDonationFormRedesign .radio-list.areaToggleGroup li:last-child label {
 		width: 100%;
 	}
-
 	#mockup ul.radio-list>li.area-item {
 		width: 100% !important;
 		padding: 5px 0 !important;
 	}
-
 	#mockup .u-text-left {
 		text-align: center !important;
 	}
-
 	#mockup .form-button-container button {
 		margin-top: 5px;
 		margin-bottom: 5px;
 	}
-
 	#mockup fieldset {
 		padding: .5em !important;
 	}
-
 	#mockup .validation-icon-container {
 		margin: 0 !important;
 	}
-
 	#mockup .validation-icon-container>div {
 		width: 50%;
 	}
-
 	#mockup legend {
 		padding: 0;
 	}
-
 	#mockup .checkbox-container .column {
 		padding: 0 3px;
 	}
@@ -5736,35 +5646,60 @@ a.not-active {
 }
 
 #mockup .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }
 
 #mockup .visually-hidden {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 
 #mockup .focusable.visually-hidden:focus {
-  position: relative;
-  left: 0;
-  width: auto;
-  height: auto;
-  overflow: auto;
+	position: relative;
+	left: 0;
+	width: auto;
+	height: auto;
+	overflow: auto;
 }
 
-/* ADMIN VIEW styles 
- */
+div[id*=_pnlDonationForm] td.BBFormRequiredFieldMarker.DonationCaptureRequiredFieldMarker {
+	display: inline !important;
+	position: absolute !important;
+	top: 0;
+}
+
+#mockup table.DonationFormTable td.BBFieldCaption {
+	padding-left: 20px !important;
+}
+
+table tbody[id*=_DonationCapture1_] tr {
+	position: relative;
+}
+
+#mockup tbody.BBFormTable.DonationCaptureFormTable.billingInfo tr {
+	position: relative;
+}
+
+#mockup label[id*=DonationCapture1_lblTxtYear] {
+	width: auto !important;
+	display: inline !important;
+	margin: 0 !important
+}
+
+/*------------------------------------*\
+  #ADMIN-VIEW
+\*------------------------------------*/
 
 #pagecntnt_tmpltcntnt_DesignerFrame header {
 	position: relative;
@@ -5772,4 +5707,14 @@ a.not-active {
 
 .bb_menu {
 	z-index: 5000 !important;
+}
+
+#mockup .BBFormTable.EventTable>tbody>tr:last-child>td>table[id*=_Wizard1]>tbody>tr:last-child>td>table>tbody>tr>td {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+#mockup .BBFormTable.EventTable>tbody>tr:last-child>td>table[id*=_Wizard1]>tbody>tr:last-child>td>table>tbody>tr>td>input {
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
