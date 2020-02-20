@@ -13,12 +13,11 @@
 ====================================================================
  07/23/2015  Nick Fogle - Updated Alumni site root path for API calls
  07/29/2015  Nick Fogle - Refactored Plugin Functions
- 11/08/2019  Greg Vissing - Launched website with new design
- 11/27/2019  Greg Vissing - Launched redesign giving page (Methods added: populateAreasToSupportFields)
- 12/16/2019  Greg Vissing - 
+ 11/08/2019 Greg Vissing - Launched website with new design
+ 11/27/2019 Greg Vissing - Launched redesign giving page(Methods added: populateAreasToSupportFields)
+ 01/28/2020 Greg Vissing - Separate Advanced Custom Fields methods from rest of site
 ====================================================================
 */
-
 /*
 ===================================================
  PLUGINS
@@ -27,7 +26,6 @@
  Design Team > Javascript > Plugins
 ---------------------------------------------------
 */
-
 // Insert plugins here...
 (function ($) {
 	$.fn.rssfeed = function (url, options, fn) {
@@ -45,29 +43,23 @@
 			snippetlimit: 120,
 			linktarget: "_self"
 		};
-
 		// extend options
-		options = $.extend(defaults, options);
-
+		var options = $.extend(defaults, options);
 		// return functions
 		return this.each(function (i, e) {
 			var s = "";
-
 			// Check for SSL protocol
 			if (options.ssl) {
 				s = "s";
 			}
-
 			// add class to container
 			if (!$(e).hasClass("rssFeed")) {
 				$(e).addClass("rssFeed");
 			}
-
 			// check for valid url
 			if (url === null) {
 				return false;
 			}
-
 			// create yql query
 			var query =
 				"http" +
@@ -80,42 +72,35 @@
 				query += " limit " + options.limit;
 			}
 			query += "&format=json";
-
 			// send request
 			$.getJSON(query, function (data, status, errorThrown) {
 				// if successful... *
 				if (status === "success") {
 					// * run function to create html result
 					process(e, data, options);
-
 					// * optional callback function
 					if ($.isFunction(fn)) {
 						fn.call(this, $(e));
 					}
-
 					// if there's an error... *
 				} else if (status === "error" || status === "parsererror") {
 					// if showerror option is true... *
 					if (options.showerror) {
 						// variable scoping (error)
 						var msg;
-
 						// if errormsg option is not empty... *
 						if (options.errormsg !== "") {
 							// * assign custom error message
 							msg = options.errormsg;
-
 							// if errormsg option is empty... *
 						} else {
 							// * assign default error message
 							msg = errorThrown;
 						}
-
 						// * display error message
 						$(e).html(
 							'<div class="rssError"><p>' + msg + "</p></div>"
 						);
-
 						// if showerror option is false... *
 					} else {
 						// * abort
@@ -125,7 +110,6 @@
 			});
 		});
 	};
-
 	// create html result
 	var process = function (e, data, options) {
 		// Get JSON feed data
@@ -134,11 +118,9 @@
 		if (!entries) {
 			return false;
 		}
-
 		// html variables
 		var html = "";
 		var htmlObject;
-
 		// for each entry... *
 		$.each(entries, function (i) {
 			// * assign entry variable
@@ -166,12 +148,10 @@
 				.replace(/ &amp; /g, " ")
 				.replace(/ /g, "-")
 				.replace(/,/g, " ");
-
 			// if date option is true... *
 			if (entry.pubDate) {
 				// * create date object
 				var entryDate = new Date(entry.pubDate);
-
 				// * select date format
 				if (options.dateformat === "default") {
 					pubDate =
@@ -196,7 +176,6 @@
 						entryDate.toLocaleTimeString();
 				}
 			}
-
 			// * build entry
 			html +=
 				'<div class="storyTileOuterWrapper"><div class="storyTileInnerWrapper" data-tag="' +
@@ -217,7 +196,6 @@
 			if (options.date && pubDate) {
 				html += '<div class="storyTileDate">' + pubDate + "</div>";
 			}
-
 			// if content option is true... *
 			if (options.content) {
 				var content = entry.description;
@@ -226,7 +204,6 @@
 			}
 			html += "</div>";
 		});
-
 		// provisional html result
 		htmlObject = $(html);
 		htmlObject.find(".storyTileInnerWrapper").each(function () {
@@ -240,12 +217,10 @@
 				);
 		});
 		$(e).append(htmlObject);
-
 		// Apply target to links
 		$("a", e).attr("target", options.linktarget);
 	};
 })(jQuery);
-
 var BBI = BBI || {
 	Config: {
 		version: 1.0,
@@ -253,7 +228,6 @@ var BBI = BBI || {
 		isEditView: !!window.location.href.match("pagedesign"),
 		slideshowRan: false
 	},
-
 	Defaults: {
 		// we have to remove alumni from rootpath, otherwise it won't hit the API Endpoint
 		rootpath: (function () {
@@ -380,19 +354,13 @@ var BBI = BBI || {
 		],
 		titleTable: "456ffd4c-0fbf-49db-a503-0726f86e2a39"
 	},
-
 	Methods: {
 		pageInit: function () {
 			//All functions which should run instantly
 			BBI.Methods.menuToggles();
-
 			// Check to see if ADF
-			if ($('.BBDonationApiContainer').length !== 0) {
+			if ($(".BBDonationApiContainer").length !== 0) {
 				BBI.Methods.initADF();
-				BBI.Methods.donationAmount();
-				BBI.Methods.initMobileHeader();
-				BBI.Methods.mobileSubMenu();
-				BBI.Methods.datePicker();
 			}
 
 			//Style fixes in admin view
@@ -400,6 +368,10 @@ var BBI = BBI || {
 				BBI.Methods.adminStyleFixes();
 			} else {
 				// BBI.Methods.initADF();
+				BBI.Methods.searchScripts();
+				BBI.Methods.mobileScripts();
+				BBI.Methods.footerScripts();
+
 				BBI.Methods.foundationbgFix();
 				BBI.Methods.buildSocialButtons();
 				BBI.Methods.createMenuSVG();
@@ -420,7 +392,6 @@ var BBI = BBI || {
 				BBI.Methods.customSingleDonationForm.stepOneGivingDetails.fundDesignationOption();
 				BBI.Methods.customSingleDonationForm.stepOneGivingDetails.clickHiddenAmount();
 				BBI.Methods.customSingleDonationForm.stepOneGivingDetails.donationAmount();
-
 				BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingTitleList();
 				BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingName();
 				BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingAddress();
@@ -430,7 +401,6 @@ var BBI = BBI || {
 				BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingZip();
 				BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingPhone();
 				BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingEmail();
-
 				BBI.Methods.customSingleDonationForm.stepThreePaymentInfo.autoFillExtraction();
 				BBI.Methods.customSingleDonationForm.stepThreePaymentInfo.hiddenDataPersistence();
 				BBI.Methods.customSingleDonationForm.stepThreePaymentInfo.cardholder();
@@ -456,13 +426,11 @@ var BBI = BBI || {
 				BBI.Methods.pageLoad();
 			});
 		},
-
 		pageRefresh: function () {
 			// Runs on partial page refresh
 			BBI.Methods.coerStyles();
 			BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingCountryList();
 			BBI.Methods.customSingleDonationForm.stepTwoDonorInfo.billingStateList();
-
 			// Keep Sidebar open for Postbacks on Mobile
 			if (
 				$(".mobileCanvas.show-for-small:visible").length &&
@@ -487,7 +455,6 @@ var BBI = BBI || {
 				$(".mobileCanvas .offcanvasReg").hide();
 			}
 		},
-
 		pageLoad: function () {
 			// Runs on full page load
 			if (!BBI.Config.isEditView) {
@@ -510,7 +477,6 @@ var BBI = BBI || {
 					.unwrap()
 					.wrap("<span></span>");
 				//$(".PaymentPart_CartItemDetails:has('div')").prevAll().hide();
-
 				// change "Other" designation text
 				if (
 					$('.wrapButtons a:contains("Make Another Gift")').length ===
@@ -525,7 +491,6 @@ var BBI = BBI || {
 				}
 			}
 		},
-
 		createMenuSVG: function () {
 			$(".alumni #mainMenu .mainMenu .nccUlMenuSub2").each(function () {
 				var height = $(this).height();
@@ -549,7 +514,6 @@ var BBI = BBI || {
 				);
 			});
 		},
-
 		initAccordions: function () {
 			if ($("table.accordionTable").length > 0) {
 				$("table.accordionTable").each(function () {
@@ -581,7 +545,6 @@ var BBI = BBI || {
 				});
 			}
 		},
-
 		coerStyles: function () {
 			if ($("#status-table").length !== 0) {
 				$("#status-table").addClass("clearfix");
@@ -602,7 +565,6 @@ var BBI = BBI || {
 				}
 			}
 		},
-
 		donationAmount: function () {
 			var amountValue = BLACKBAUD.api.querystring.getQueryStringValue(
 				"amount"
@@ -627,12 +589,10 @@ var BBI = BBI || {
 				//$('.adfTotalAmount span').text(amountValue);
 			}
 		},
-
 		foundationMediaOverlay: function () {
 			// set the backgroundimage to show,
 			// since the following code will hide if need be
 			//$('.wrapBreadcrumbs p img').show();
-
 			if ($("#internalPage .mediaBoxOverlay").length !== 0) {
 				var parentDiv = $(".mediaBoxOverlay").closest(".container");
 				if ($(window).width() > 768) {
@@ -666,14 +626,12 @@ var BBI = BBI || {
 				});
 				backgroundImage.closest("p").hide();
 			}
-
 			if ($(".utilityMenus .offcanvasReg").length !== 0) {
 				if ($('.utilityMenus a[id*="lbtnRegisterUser"]').length !== 0) {
 					$('.utilityMenus a[id*="lbtnRegisterUser"]').after(
 						$(".utilityMenus .offcanvasReg")
 					);
 				}
-
 				$('.utilityMenus table[id*="tbl"]').wrap(
 					'<div class="animatedReveal">'
 				);
@@ -694,7 +652,6 @@ var BBI = BBI || {
 				});
 			}
 		},
-
 		replaceBoxgridTables: function () {
 			// Replace HTML tables with DIVs - landing page box grid elements
 			if ($(".boxGridTable").length > 0) {
@@ -715,7 +672,6 @@ var BBI = BBI || {
 					'<div class="gutter clearfix" />'
 				);
 			}
-
 			if ($(".boxGrid").length !== 0) {
 				$(".boxGrid").hover(
 					function () {
@@ -765,7 +721,6 @@ var BBI = BBI || {
 				);
 			}
 		},
-
 		menuToggles: function () {
 			$(".leftCanvas .menuToggle").on("click", function (e) {
 				e.preventDefault();
@@ -794,7 +749,6 @@ var BBI = BBI || {
 				);
 			});
 		},
-
 		designationSearchFormat: function () {
 			if ($("span.designationInfoBoxOuter").length !== 0) {
 				var desingationItems = $("span.designationInfoBoxOuter");
@@ -805,7 +759,6 @@ var BBI = BBI || {
 				}
 			}
 		},
-
 		newsAndCalendarFeed: function () {
 			if ($(".eventTileOuterWrapper").length !== 0) {
 				$(".eventTileOuterWrapper").each(function () {
@@ -848,7 +801,6 @@ var BBI = BBI || {
 							.hide();
 					}
 				});
-
 				if ($(".internalLanding").length !== 0) {
 					$(".eventTileOuterWrapper")
 						.first()
@@ -862,7 +814,6 @@ var BBI = BBI || {
 						});
 				}
 			}
-
 			if ($(".landingPage .newsTileOuterWrapper").length !== 0) {
 				$(".newsTileOuterWrapper")
 					.html("")
@@ -874,7 +825,6 @@ var BBI = BBI || {
 						header: false
 					});
 			}
-
 			if ($("#homePage").not(".foundation").length !== 0) {
 				$("#mainContentWrapper .primaryContent").rssfeed(
 					BBI.Defaults.newsFeedUrl, {
@@ -886,7 +836,6 @@ var BBI = BBI || {
 					}
 				);
 			}
-
 			if ($(".contentPaneHeader .allEventsButton").length !== 0) {
 				$(".allEventsButton[data-control]").on("click", function (e) {
 					var controlSet = $(this).attr("data-control");
@@ -894,7 +843,6 @@ var BBI = BBI || {
 					var eventItems = $(".eventTileOuterWrapper");
 					var button = $(this).not("selected");
 					e.preventDefault();
-
 					if (button.length !== 0) {
 						$(".contentPaneHeader .selected").removeClass(
 							"selected"
@@ -915,7 +863,6 @@ var BBI = BBI || {
 					}
 				});
 			}
-
 			if ($(".eventSlider").length !== 0) {
 				$(".sliderContent").each(function () {
 					var lineItem = $("<li>");
@@ -930,7 +877,6 @@ var BBI = BBI || {
 					lineItem.append($(this));
 					$(".eventSlider").append(lineItem);
 				});
-
 				$(document).ready(function () {
 					if ($(window).width() <= 768) {
 						$(".eventSlider").bxSlider({
@@ -951,7 +897,6 @@ var BBI = BBI || {
 					}
 				});
 			}
-
 			$(document).ready(function () {
 				if ($(".storySlider").length !== 0) {
 					if ($(window).width() <= 768) {
@@ -971,7 +916,6 @@ var BBI = BBI || {
 					}
 				}
 			});
-
 			if (
 				$(
 					".BBDesignationSearchResultContainer .foundationCalendarGridItem"
@@ -993,7 +937,6 @@ var BBI = BBI || {
 				);
 			}
 		},
-
 		getImagesFromFolder: function (folderPath, callback) {
 			var jsonPath =
 				BLACKBAUD.api.pageInformation.rootPath +
@@ -1003,7 +946,6 @@ var BBI = BBI || {
 				callback(data);
 			});
 		},
-
 		foundationGridImages: function (imageArray) {
 			var imagePos = 0;
 			var targets = $(".foundationCalendarGridImage:visible img");
@@ -1012,7 +954,6 @@ var BBI = BBI || {
 				imagePos++;
 			});
 		},
-
 		initEventWrapper: function () {
 			if ($(".eventWrapper").length !== 0) {
 				var monthNames = [
@@ -1067,7 +1008,6 @@ var BBI = BBI || {
 				});
 			}
 		},
-
 		designationSearchBoxes: function () {
 			if ($(".designationInfoBox").length != 0) {
 				$(".designationInfoBox").each(function () {
@@ -1077,11 +1017,9 @@ var BBI = BBI || {
 					var systemID = $(this)
 						.find("hiddenData")
 						.text();
-
 					$(this)
 						.closest(".BBDesignationSearchResult")
 						.addClass("designationInfoBoxOuter");
-
 					$(this)
 						.find(".designationInfoBoxGiveButton")
 						.attr("href", donationLink);
@@ -1091,34 +1029,41 @@ var BBI = BBI || {
 				});
 			}
 		},
-
 		initADF: function () {
-
 			if ($("#customDonation").length !== 0) {
 				console.log("customDonation form!");
-
 				$("#adfSubmitButtonCustom").on("click", function (e) {
 					e.preventDefault();
-
 					BBI.Methods.submitCustomADF();
 				});
 			}
-
 			if ($("#guidForm").length !== 0) {
 				console.log("guid form!");
 				BBI.Methods.populateGUID();
 			}
-
 			if ($("#a11yGivingForm").length !== 0) {
 				console.log("a11y giving form!");
 				BBI.Methods.populateSelectAreaDropdowns();
 			}
-
 			if ($("#linkGeneratorForm").length !== 0) {
 				console.log("link generator!");
 				BBI.Methods.populateTypeaheadField();
 			}
+			if ($("#queryService").length !== 0) {
+				BBI.Methods.populateQueryServiceFunds();
+				BBI.Methods.populateTitle();
+				BBI.Methods.initAmountMethod();
+				BBI.Methods.initGiftTypeMethod();
+				BBI.Methods.initAddlInfoMethod();
+				BBI.Methods.initReccurrenceMethod();
+				BBI.Methods.initAreaToSupporteMethod();
+				// BBI.Methods.initCartMethod();
 
+				$("#adfSubmitButtonQS").on("click", function (e) {
+					e.preventDefault();
+					BBI.Methods.submitQueryADF();
+				});
+			}
 			if ($("#advancedDonationFormRedesign").length !== 0) {
 				//console.log("get ready for redesign!");
 				// setTimeout(function () {
@@ -1135,29 +1080,24 @@ var BBI = BBI || {
 				// 		}
 				// 	});
 				// }, 300);
-
 				//init the tabs
 				BBI.Methods.initAdfTabs();
-
 				// INITIALIZE FORM
 				$(
 					"button.pledge, .city-state, .ack-city-state, div.toggle, .adfInputWithPlaceholder, .giftDetails, #shoppingCart, div#recurringAmount, div#pledgeAmount, .error-message"
 				).hide();
-
 				//date pickers
 				//$('#startDate').datepicker();
 				$("#endDate").datepicker({
 					changeMonth: true,
 					changeYear: true
 				});
-
 				//enter default 'greatest need' designation
 				$("#designationId").val(BBI.Defaults.greatestNeedFund);
 				$(".designationButton")
 					.first()
 					.find("a")
 					.attr("rel", BBI.Defaults.greatestNeedFund);
-
 				//highlight clicked amounts
 				$(".amountButton a").on("click", function () {
 					//highlight clicked amounts
@@ -1176,12 +1116,9 @@ var BBI = BBI || {
 					$("#txtAmount").attr("placeholder", "Other Amount");
 					$("#adfOtherLabel").show();
 					$(".giftAmountError").remove();
-
 					$("#addToCart a.defaultButton").removeClass("not-active");
-
 					//update display
 					var amount = $(".amountButton a.selected").attr("rel");
-
 					// Recurring Gift elements
 					var recurringDDown = document.getElementById("frequency");
 					var frequencyRate = $("#frequency option:selected").val();
@@ -1201,7 +1138,6 @@ var BBI = BBI || {
 						} else {}
 						$(".recurringSummary .amount").html(amountRecurring);
 						//summaryAmount.innerHTML = amountRecurring;
-
 						//$('#recurringTotal span').html(amount); // Est. Annual Contribution
 						$(".adfTotalAmount span").html(amountRecurring); // Total Gift Commitment
 					} else {
@@ -1209,7 +1145,6 @@ var BBI = BBI || {
 						$(".adfTotalAmount span").html(amount); // Total Gift Commitment
 					}
 				});
-
 				$("#txtAmount").on("blur keyup", function () {
 					//update display
 					var textAmt = $(".miniInputText.currency").val();
@@ -1226,7 +1161,6 @@ var BBI = BBI || {
 						$("#recurringTotal span").html(0);
 					}
 				});
-
 				//reset when manually entering an amount
 				$("#adfOtherLabel").on("click", function () {
 					$(".amountButton .selected").removeClass("selected");
@@ -1237,7 +1171,6 @@ var BBI = BBI || {
 						.focus();
 					$(".giftAmountError").remove();
 				});
-
 				//$('#designationAreaDropdown').on('change', function() {
 				//    if ($(this).val() !== '-1') {
 				//        $('.adfOtherDesignationSubSection').show('blind','slow');
@@ -1245,7 +1178,6 @@ var BBI = BBI || {
 				//        $('.adfOtherDesignationSubSection').hide('blind','slow');
 				//    }
 				//});
-
 				//progressive display toggles
 				// $('.checkboxToggle').on('change', function () {
 				// 	var targetString = $(this).attr('data-controler');
@@ -1256,29 +1188,24 @@ var BBI = BBI || {
 				// 		targetContent.hide('blind', 'slow');
 				// 	}
 				// });
-
 				$(".checkboxToggle").on("change", function () {
 					var targetString = $(this).attr("data-controler");
 					var targetContent = $("#" + targetString);
-
 					if ($(this).prop("checked")) {
 						targetContent.show("blind", "slow");
 					} else {
 						targetContent.hide("blind", "slow");
 					}
 				});
-
 				//populate dynamic dropdowns
 				BBI.Methods.populateCountryDropdowns();
 				BBI.Methods.populateTitle();
 				BBI.Methods.populateDesignationIds();
 				BBI.Methods.populateCascadingFields();
-
 				//other area text entry.
 				$(".otherArea").on("click", function () {
 					$("#otherArea").focus();
 				});
-
 				$("#otherArea")
 					.on("blur", function () {
 						$("#designationId").val(
@@ -1294,18 +1221,17 @@ var BBI = BBI || {
 							.val("0")
 							.hide();
 					});
-
 				$("#adfSubmitButton").on("click", function (e) {
 					e.preventDefault();
 					if (BBI.Methods.validateADF()) {
 						if ($("#giftListNotEmpty").is(":visible")) {
-							console.log("not empty cart");
+							// console.log("not empty cart");
 							$(this)
 								.addClass("disabled")
 								.unbind("click");
 							BBI.Methods.submitADF();
 						} else {
-							console.log("empty cart");
+							// console.log("empty cart");
 							$(".error-message").fadeOut();
 							$(function () {
 								$(".error-message")
@@ -1319,7 +1245,7 @@ var BBI = BBI || {
 										$(item).attr("name") +
 										".error-message"
 									).fadeIn();
-									console.log($(item).attr("name"));
+									// console.log($(item).attr("name"));
 									// console.log(index);
 									indexVal++;
 									//console.log(indexVal);
@@ -1328,15 +1254,14 @@ var BBI = BBI || {
 									// console.log("don't submit " + indexVal);
 								} else {
 									if ($("#fundDonationAmount").val() != "") {
-										console.log(
-											$("#fundDonationAmount").val() +
-											" " +
-											$("#fundName").val() +
-											" " +
-											$("#fundGuid").val()
-										);
+										// console.log(
+										// 	$("#fundDonationAmount").val() +
+										// 		" " +
+										// 		$("#fundName").val() +
+										// 		" " +
+										// 		$("#fundGuid").val()
+										// );
 										$("#giftListEmpty").slideUp();
-
 										setTimeout(showGift);
 
 										function showGift() {
@@ -1355,7 +1280,6 @@ var BBI = BBI || {
 												otherFundGuid =
 												BBI.Defaults.pledgeFund,
 												otherDesignationClass = "";
-
 											if (otherFundName !== "") {
 												otherDesignationClass =
 													"otherDesignation";
@@ -1363,7 +1287,6 @@ var BBI = BBI || {
 											} else {
 												otherDesignationClass = "";
 											}
-
 											var $div = $(
 												'<tr class="' +
 												otherDesignationClass +
@@ -1388,14 +1311,13 @@ var BBI = BBI || {
 												},
 												500
 											);
-
 											$(this)
 												.addClass("disabled")
 												.unbind("click");
 											BBI.Methods.submitADF();
 										}
 									} else {
-										console.log("cart not empty!");
+										// console.log("cart not empty!");
 										$(this)
 											.addClass("disabled")
 											.unbind("click");
@@ -1407,13 +1329,11 @@ var BBI = BBI || {
 								}
 							});
 						}
-
 						// $(this).addClass('disabled').unbind('click');
 						// BBI.Methods.submitADF();
 					}
 				});
 			}
-
 			if ($("#advancedDonationForm").length !== 0) {
 				setTimeout(function () {
 					//highlight query param amount
@@ -1431,24 +1351,20 @@ var BBI = BBI || {
 						}
 					});
 				}, 300);
-
 				//init the tabs
 				BBI.Methods.initAdfTabs();
-
 				//date pickers
 				//$('#startDate').datepicker();
 				$("#endDate").datepicker({
 					changeMonth: true,
 					changeYear: true
 				});
-
 				//enter default 'greatest need' designation
 				$("#designationId").val(BBI.Defaults.greatestNeedFund);
 				$(".designationButton")
 					.first()
 					.find("a")
 					.attr("rel", BBI.Defaults.greatestNeedFund);
-
 				//highlight clicked amounts
 				$(".amountButton a").on("click", function () {
 					//highlight clicked amounts
@@ -1460,12 +1376,9 @@ var BBI = BBI || {
 					$("#txtAmount").hide();
 					$("#adfOtherLabel").show();
 					$(".giftAmountError").remove();
-
 					$("#addToCart a.defaultButton").removeClass("not-active");
-
 					//update display
 					var amount = $(".amountButton a.selected").attr("rel");
-
 					// Recurring Gift elements
 					var recurringDDown = document.getElementById("frequency");
 					var frequencyRate = $("#frequency option:selected").val();
@@ -1485,7 +1398,6 @@ var BBI = BBI || {
 						} else {}
 						$(".recurringSummary .amount").html(amountRecurring);
 						//summaryAmount.innerHTML = amountRecurring;
-
 						//$('#recurringTotal span').html(amount); // Est. Annual Contribution
 						$(".adfTotalAmount span").html(amountRecurring); // Total Gift Commitment
 					} else {
@@ -1493,7 +1405,6 @@ var BBI = BBI || {
 						$(".adfTotalAmount span").html(amount); // Total Gift Commitment
 					}
 				});
-
 				$("#txtAmount").on("blur keyup", function () {
 					//update display
 					var textAmt = $("#txtAmount").val();
@@ -1504,7 +1415,6 @@ var BBI = BBI || {
 						$("#recurringTotal span").html(0);
 					}
 				});
-
 				//reset when manually entering an amount
 				$("#adfOtherLabel").on("click", function () {
 					$(".amountButton .selected").removeClass("selected");
@@ -1515,7 +1425,6 @@ var BBI = BBI || {
 						.focus();
 					$(".giftAmountError").remove();
 				});
-
 				//$('#designationAreaDropdown').on('change', function() {
 				//    if ($(this).val() !== '-1') {
 				//        $('.adfOtherDesignationSubSection').show('blind','slow');
@@ -1523,32 +1432,25 @@ var BBI = BBI || {
 				//        $('.adfOtherDesignationSubSection').hide('blind','slow');
 				//    }
 				//});
-
 				//progressive display toggles
 				$(".checkboxToggle").on("change", function () {
 					var targetString = $(this).attr("data-controler");
 					var targetContent = $("#" + targetString);
-					console.log(targetString);
 					if ($(this).prop("checked")) {
-						console.log("checked");
 						targetContent.show("blind", "slow");
 					} else {
-						console.log("not checked");
 						targetContent.hide("blind", "slow");
 					}
 				});
-
 				//populate dynamic dropdowns
 				BBI.Methods.populateCountryDropdowns();
 				BBI.Methods.populateTitle();
 				BBI.Methods.populateDesignationIds();
 				BBI.Methods.populateCascadingFields();
-
 				//other area text entry.
 				$(".otherArea").on("click", function () {
 					$("#otherArea").focus();
 				});
-
 				$("#otherArea")
 					.on("blur", function () {
 						$("#designationId").val(
@@ -1564,7 +1466,6 @@ var BBI = BBI || {
 							.val("0")
 							.hide();
 					});
-
 				$("#adfSubmitButton").on("click", function (e) {
 					e.preventDefault();
 					if (BBI.Methods.validateADF()) {
@@ -1576,87 +1477,300 @@ var BBI = BBI || {
 				});
 			}
 		},
+		initGiftTypeMethod: function () {
+			// GIFT TYPE
+			var defaultType = $(".toggleGiftType input:checked").val();
+			$("#hiddenType").val(defaultType);
+			$(".toggleGiftType input").on("change", function () {
+				// console.log($(this).val());
+				var typeSelected = $(this).val();
+				$("#hiddenType").val(typeSelected);
+				$(
+						".toggleAmounts .r-pill__item:not(.otherItem) input[type='radio']"
+					)
+					.parent()
+					.addClass("hide");
+				$(
+					".toggleAmounts .r-pill__item:not(.otherItem) input[type='radio'][id*=" +
+					typeSelected +
+					"]"
+				).each(function () {
+					$(this)
+						.parent()
+						.removeClass("hide");
+				});
+				if (typeSelected == "Pledge") {
+					$(
+						"fieldset.areaToggle, fieldset.additionalInfoToggle"
+					).fadeOut();
+					$("#amountPledge100").prop("checked", true);
+					$("hiddenAmount").val("100");
+				} else {
+					$(
+						"fieldset.areaToggle, fieldset.additionalInfoToggle"
+					).fadeIn();
+				}
+				if (typeSelected == "Monthly") {
+					$("#amountMonthly10").prop("checked", true);
+					$("hiddenAmount").val("10");
+					var frequencyValue = $("#frequency")
+						.children("option:selected")
+						.val();
+					// console.log(frequencyValue);
+					$("#hiddenStartDate").val($("#startDate").val());
+					$("#hiddenFrequency").val(frequencyValue);
+				} else {
+					$("#hiddenStartDate").val("");
+					$("#hiddenFrequency").val("");
+				}
+				$("fieldset.toggle").each(function () {
+					if ($(this).attr("id") === typeSelected + "GiftType") {
+						$("#" + typeSelected + "GiftType").show();
+					} else {
+						$(this).hide();
+					}
+				});
+			});
+		},
+		initAmountMethod: function () {
+			// AMOUNT
+			var defaultAmount = $(".toggleAmounts input:checked").val();
+			$("#hiddenAmount").val(defaultAmount);
+			$(".toggleAmounts input[type=radio]").on("change", function () {
+				// console.log($(this).val());
+				var donationAmount = $(this).val();
+				if (donationAmount == "other") {
+					$(
+							".r-pill__item.otherItem > input.miniInputText, .r-pill__item.otherItem .fa.fa-usd"
+						)
+						.fadeIn()
+						.focus();
+					$("#hiddenAmount").val("");
+				} else {
+					$("input.miniInputText").val("");
+					$(
+						".r-pill__item.otherItem > input.miniInputText, .r-pill__item.otherItem .fa.fa-usd"
+					).hide();
+					$("#hiddenAmount").val(donationAmount);
+				}
+			});
 
-		populateSelectAreaDropdowns: function () {
-			var $window = $(window),
-				$html = $("ul > li.parent > a"),
-				$dropdown = $(".r-pill ul.dropdown");
-
-			/*
-			$header.append(
-				"<button type='button' class='hamburger is-closed animated fadeInRight hide' data-toggle='offcanvas'><span class='hamb-top'></span><span class='hamb-middle'></span><span class='hamb-bottom'></span></button>"
+			function setInputFilter(textbox, inputFilter) {
+				[
+					"input",
+					"keydown",
+					"keyup",
+					"mousedown",
+					"mouseup",
+					"select",
+					"contextmenu",
+					"drop"
+				].forEach(function (event) {
+					textbox.addEventListener(event, function () {
+						if (inputFilter(this.value)) {
+							this.oldValue = this.value;
+							this.oldSelectionStart = this.selectionStart;
+							this.oldSelectionEnd = this.selectionEnd;
+						} else if (this.hasOwnProperty("oldValue")) {
+							this.value = this.oldValue;
+							this.setSelectionRange(
+								this.oldSelectionStart,
+								this.oldSelectionEnd
+							);
+						}
+					});
+				});
+			}
+			setInputFilter(document.getElementById("txtAmount"), function (
+				value
+			) {
+				return /^-?\d*[.,]?\d{0,2}$/.test(value);
+			});
+			document.addEventListener(
+				"DOMContentLoaded",
+				function () {
+					document.querySelector(
+						".miniInputText"
+					).onkeyup = checkOtherAmount;
+				},
+				false
 			);
 
-			$html.append(
-				'<span><i class="fa fa-chevron-up" aria-hidden="true"></i></span>'
-			);*/
+			function checkOtherAmount(event) {
+				// console.log($(this).val());
+				var checkOtherAmountValue = $(this).val();
+				$("#hiddenAmount").val(checkOtherAmountValue);
+			}
+		},
+		initAddlInfoMethod: function () {
+			function is_int(value) {
+				if (parseFloat(value) == parseInt(value) && !isNaN(value)) {
+					return true;
+				} else {
+					return false;
+				}
+			}
 
-			var ucFundDesignation = $("select#ucFundSelect"),
-				ucHealthDesignation = $("select#ucHealthSelect"),
-				scholarshipsDesignation = $("select#scholarshipsSelect"),
-				collegeUnitDesignation = $("select#collegeUnitsSelect"),
-				collegeUnitFundDesignation = $("select#collegUnitsFundSelect");
-
-			var queryService = new BLACKBAUD.api.QueryService();
-			queryService.getResults(
-				BBI.Defaults.advancedDonationFormFundsQueryId,
-				function (data) {
-					// fund data
-					var allFunds = data.Rows,
-						fundMaster = [],
-						topLevelAll = [],
-						typeaheadArr = [],
-						fundNameArr = [],
-						ucFundArr = [],
-						scholarshipsArr = [],
-						ucHealthArr = [];
-
-					// console.log(allFunds);
-					// remove all options in main drop-down except the first
-					$(
-							ucFundDesignation,
-							scholarshipsDesignation,
-							collegeUnitDesignation
-						)
-						.find("option")
-						.not("option:first")
-						.remove();
-					// get drop-down hierarchy and clean arrays
-					$.each(allFunds, function () {
-						// define values
-						var values = this.Values;
-						var target = values[0]; // Fund name [0]
-						var splitter = target.split("\\");
-						// remove first item in array
-						if (splitter.length > 1) {
-							splitter.shift();
+			function checkZipCode(event) {
+				// console.log($(this).val());
+				var el = $(this); // Did they type five integers?
+				if (el.val().length == 5 && is_int(el.val())) {
+					// Call Ziptastic for information
+					$.ajax({
+						url: "https://zip.getziptastic.com/v2/US/" + el.val(),
+						cache: false,
+						dataType: "json",
+						type: "GET",
+						success: function (result, success) {
+							// $(".zip-error, .instructions").slideUp(200);
+							// console.log(el.val)
+							$("#ackCity, #hiddenackCity").val(result.city);
+							$("#ackState, #hiddenackState").val(result.state);
+							$("#ackCountry, #hiddenackCountry").val(
+								result.country
+							);
+							$(".ack-city-state").slideDown();
+							$("#ackPostalCode").blur();
+							$("#ackAddressLines")
+								.show()
+								.focus();
+						},
+						error: function (result, success) {
+							$(".zip-error").slideDown(300);
 						}
-						// push values to array
-						splitter.push(values[4]); // Description [1]
-						splitter.push(values[6]); // Designation GUID [2]
-						splitter.push(values[9]); // College [3]
-						splitter.push(values[8]); // The UC Fund/Scholarships/Colleges/Unit [4]
-						fundMaster.push(splitter);
-						if (values[8] == "Colleges/Units") {
-							topLevelAll.push(values[9]);
-						} else if (values[8] == "The UC Fund") {
-							ucFundArr.push(values[9]);
-						} else if (values[8] == "Scholarships") {
-							scholarshipsArr.push(values[9]);
-						} else if (values[8] == "UC Health") {
-							ucHealthArr.push(values[9]);
-						} else {
-							// do nothing
-						}
-						fundNameArr = values[0];
-						var fundGuidArr = values[6];
-						typeaheadArr.push(fundNameArr);
 					});
-
-					console.log(fundNameArr);
-					console.log(ucFundArr);
-					console.log(scholarshipsArr);
-					console.log(ucHealthArr);
+				} else if (el.val().length < 5) {
+					$(".zip-error").slideUp(200);
+				}
+			}
+			document.addEventListener(
+				"DOMContentLoaded",
+				function () {
+					document.querySelector(
+						"#ackPostalCode"
+					).onkeyup = checkZipCode;
+				},
+				false
+			);
+			// ADDITIONAL INFO
+			$(".checkbox input[type='checkbox']").change(function () {
+				// console.log(this.id);
+				if (this.id == this.id && this.checked) {
+					$("#" + this.id + "Details").slideDown();
+				} else if (this.id == this.id) {
+					$("#" + this.id + "Details").slideUp();
+					$("#" + this.id + "Details")
+						.find("input:text")
+						.val("");
+					$("#" + this.id + "Details")
+						.find("input:checkbox")
+						.prop("checked", false);
+					$("#" + this.id + "Details").find(
+						"select"
+					)[0].selectedIndex = 0;
+				} else {}
+			});
+			$(".additionalInfoToggle input").on("keyup change", function () {
+				var ackValue = $(this).val(),
+					ackID = $(this).attr("id");
+				// console.log(ackID + " " + ackValue);
+				$("#hidden" + ackID).val(ackValue);
+			});
+		},
+		initReccurrenceMethod: function () {
+			// RECURRENCE
+			$("#frequency").on("change", function () {
+				var frequencySelected = $(this).val();
+				$("#hiddenFrequency").val(frequencySelected);
+			});
+		},
+		initAreaToSupporteMethod: function () {
+			// AREA TO SUPPORT
+			var defaultArea = $(".areaSupportList input:checked").val();
+			$("#hiddenArea").val(defaultArea);
+			$("select").prop("selectedIndex", 0); // set all Select dropdowns to default option
+			$(".areaSupportList input").on("change", function () {
+				// console.log($(this).val());
+				var areaSelected = $(this).val();
+				$("#hiddenArea").val(areaSelected);
+				if (areaSelected == "Colleges/Units") {
+					$(
+						"#collegesUnitsDropdown, #collegesUnitsFundsDropdown"
+					).prop("selectedIndex", 0);
+					$(
+						"#collegesUnitsFundsDropdown option:not(:first)"
+					).addClass("hide");
+					$("#collegesUnitsFundsDropdown option:first").text(
+						"-- Select College/Unit Fund --"
+					);
+					$(".areaSupportDD").addClass("hide");
+					$(".collegeUnitsDD").removeClass("hide");
+				} else if (areaSelected == "Advanced Search") {
+					$(".areaSupportDD, .collegeUnitsDD").addClass("hide");
+					$("#advancedFundSearch").removeClass("hide");
+				} else {
+					$("#designationAreaDropdown").prop("selectedIndex", 0);
+					$(".areaSupportDD").removeClass("hide");
+					$(".collegeUnitsDD").addClass("hide");
+					$("#designationAreaDropdown option:first").text(
+						"-- Select " + areaSelected + " to Support --"
+					);
+					$("#designationAreaDropdown option").each(function () {
+						var areaData = $(this).data("area");
+						if (areaSelected == areaData) {
+							$(this).removeClass("hide");
+						} else {
+							$(this).addClass("hide");
+						}
+					});
+				}
+			});
+			$(".adfInputWithPlaceholder").on("change keyup", function () {
+				var typedFund = $(this).val();
+				if (typedFund != "") {
+					$("#hiddenFund").val(typedFund);
+					$("#hiddenGuid").val(
+						"6f0e4d60-1df1-495a-9e01-82b3e9d91aff"
+					);
+				} else {
+					$("#hiddenFund").val("");
+					$("#hiddenGuid").val("");
+				}
+			});
+			// COLLEGE/UNITS
+			$("#collegesUnitsDropdown").on("change", function () {
+				// console.log($(this).val());
+				$("#collegesUnitsFundsDropdown").prop("selectedIndex", 0);
+				var collegeSelected = $(this).val();
+				var trimmedCollegeOption = $.trim(
+					collegeSelected.split("-")[1]
+				);
+				$("#collegesUnitsFundsDropdown option:first").text(
+					"-- Select " + trimmedCollegeOption + " Fund --"
+				);
+				$("#collegesUnitsFundsDropdown option").each(function () {
+					var collegeData = $(this).data("college");
+					if (collegeSelected == collegeData) {
+						$(this).removeClass("hide");
+					} else {
+						$(this).addClass("hide");
+					}
+				});
+			});
+			$(".toggleOtherFund").click(function (e) {
+				e.preventDefault();
+				$("#advanced-search-fund").val("");
+				$(this)
+					.next()
+					.slideDown();
+			});
+			$("#designationAreaDropdown, #collegesUnitsFundsDropdown").on(
+				"change",
+				function () {
+					var optionsText = this.options[this.selectedIndex].text,
+						optionsGuid = this.options[this.selectedIndex].value;
+					$("#hiddenFund").val(optionsText);
+					$("#hiddenGuid").val(optionsGuid);
 				}
 			);
 		},
@@ -1664,18 +1778,16 @@ var BBI = BBI || {
 		populateGUID: function () {
 			// get designations for drop-down (cascading)
 			// note: must be attached to a query that returns Public Name and System Record ID
-
 			// var ucFundDesignation = $("select#ucFundSelect");
 			// var ucHealthDesignation = $("select#ucHealthSelect");
 			// var scholarshipsDesignation = $("select#scholarshipsSelect");
 			// var collegeUnitDesignation = $("select#collegeUnitsSelect");
 			// var collegeUnitFundDesignation = $("select#collegUnitsFundSelect");
-
 			var queryService = new BLACKBAUD.api.QueryService();
 			queryService.getResults(
 				BBI.Defaults.guidQueryID,
 				[{
-					"BBIS Fund Category - Multi AttributeValue": "Scholarships"
+					"BBIS Fund Category - Multi Attribute\\Value": "Scholarships"
 				}],
 				function (data) {
 					// fund data
@@ -1686,7 +1798,6 @@ var BBI = BBI || {
 						ucFundArr = [],
 						scholarshipsArr = [],
 						ucHealthArr = [];
-
 					// console.log(allFunds);
 					// remove all options in main drop-down except the first
 					// $(
@@ -1697,19 +1808,16 @@ var BBI = BBI || {
 					// 	.find("option")
 					// 	.not("option:first")
 					// 	.remove();
-
 					// get drop-down hierarchy and clean arrays
 					$.each(allFunds, function () {
 						// define values
 						var values = this.Values;
 						var target = values[1]; // Fund name [0]
 						var splitter = target.split("\\");
-
 						// remove first item in array
 						if (splitter.length > 1) {
 							splitter.shift();
 						}
-
 						// push values to array
 						splitter.push(values[4]); // Description 		subFund[1]
 						splitter.push(values[6]); // Designation GUID 	subFund[2]
@@ -1728,14 +1836,12 @@ var BBI = BBI || {
 						} else {}
 						var fundNameArr = values[1];
 						var fundGuidArr = values[6];
-
 						typeaheadArr.push(fundNameArr);
 					});
 					var sortedFundMaster = fundMaster.sort();
 					console.table(sortedFundMaster);
 					// console.log(scholarshipsArr.sort((a, b) => a[5].localeCompare(b[5])));
 					// console.log(ucHealthArr);
-
 					// console.log(typeaheadArr);
 					// const arrayColumn = (arr, n) => arr.map(x => x[n]);
 					// console.log(arrayColumn(typeaheadArr, 0));
@@ -1743,6 +1849,195 @@ var BBI = BBI || {
 			);
 		},
 
+		populateQueryServiceFunds: function () {
+			/* *************************************** */
+			// QUERY FUNDS
+			/* *************************************** */
+			var queryService = new BLACKBAUD.api.QueryService();
+			queryService.getResults(
+				BBI.Defaults.advancedDonationFormFundsQueryId,
+				function (data) {
+					var fields = data.Fields, // Column headers
+						rows = data.Rows, // Designation values
+						fieldArray = [],
+						fundMaster = [],
+						typeaheadArr = [], // Typeahead array
+						collegesUnitsList = []; // New array to store key value pairs for Field Data
+					// Loop through headers to create key value index
+					$.each(fields, function (key, value) {
+						fieldArray[value.Name] = key;
+					});
+					$.each(rows, function () {
+						var values = this.Values,
+							path = values[fieldArray["Path"]],
+							designationID =
+							values[fieldArray["System record ID"]],
+							designationName = values[fieldArray["Public name"]],
+							fundCategory =
+							values[
+								fieldArray[
+									"BBIS Fund Category - Multi Attribute\\Value"
+								]
+							],
+							collegeUnitFundName =
+							values[fieldArray["Unit Attribute\\Value"]],
+							toggleHide = "";
+						var target = values[1]; // Fund name [0]
+						var splitter = target.split("\\");
+						// remove first item in array
+						if (splitter.length > 1) {
+							splitter.shift();
+						}
+						// push values to array
+						splitter.push(values[4]); // Description 		subFund[1]
+						splitter.push(values[6]); // Designation GUID 	subFund[2]
+						splitter.push(values[9]); // College 			subFund[3]
+						splitter.push(values[8]); // Areas dropdowns 	subFund[4]
+						splitter.push(parseInt(values[7])); // Priority  subFund[5]
+						splitter.push(values[0]);
+						fundMaster.push(splitter);
+						if (fundCategory == "Colleges/Units") {
+							collegesUnitsList.push(collegeUnitFundName);
+							// append Colleges/Units to dropdown
+							// $('#collegesUnitsDropdown').append('<option value="' + designationID + '">' + collegeUnitFundName + '</option>');
+							// append Colleges/Units funds to dropdown
+							$("#collegesUnitsFundsDropdown").append(
+								'<option class="hide" data-college="' +
+								collegeUnitFundName +
+								'" value="' +
+								designationID +
+								'">' +
+								designationName +
+								"</option>"
+							);
+						} else if (
+							fundCategory == "Scholarships" ||
+							fundCategory == "The UC Fund" ||
+							fundCategory == "UC Health"
+						) {
+							if (fundCategory != "The UC Fund") {
+								toggleHide = "hide";
+							}
+							$("#designationAreaDropdown").append(
+								'<option data-area="' +
+								fundCategory +
+								'" class="' +
+								toggleHide +
+								'" value="' +
+								designationID +
+								'">' +
+								designationName +
+								"</option>"
+							);
+						}
+						typeaheadArr.push(path);
+					});
+
+					$("#designationAreaDropdown option:first").text(
+						"-- Select The UC Fund to Support --"
+					);
+
+					var sortedFundMaster = fundMaster;
+					var sortedCollegesUnits = collegesUnitsList.sort();
+
+					function onlyUnique(value, index, self) {
+						return self.indexOf(value) === index;
+					}
+					var uniqueCollegesUnits = sortedCollegesUnits.filter(
+						onlyUnique
+					);
+
+					function multiDimensionalUnique(arr) {
+						var uniques = [];
+						var itemsFound = {};
+						for (var i = 0, l = arr.length; i < l; i++) {
+							var stringified = JSON.stringify(arr[i]);
+							if (itemsFound[stringified]) {
+								continue;
+							}
+							uniques.push(arr[i]);
+							itemsFound[stringified] = true;
+						}
+						return uniques;
+					}
+					var fundsUnique = multiDimensionalUnique(sortedFundMaster);
+					var trimmedCollegesUnits = [];
+					$.each(uniqueCollegesUnits, function (key, value) {
+						var trimmedCollege = $.trim(value.split("-")[1]);
+						trimmedCollegesUnits.push(trimmedCollege);
+						$("#collegesUnitsDropdown").append(
+							$("<option></option>")
+							.val(value)
+							.text(trimmedCollege)
+						);
+					});
+
+					function Ascending_sort(a, b) {
+						return $(b)
+							.text()
+							.toUpperCase() <
+							$(a)
+							.text()
+							.toUpperCase() ?
+							1 :
+							-1;
+					}
+					$("#collegesUnitsDropdown option:not(:first)")
+						.sort(Ascending_sort)
+						.appendTo("select#collegesUnitsDropdown");
+					var typeaheadArrUnique = typeaheadArr
+						.filter(onlyUnique)
+						.sort();
+					// console.table(typeaheadArrUnique);
+					var substringMatcher = function (strs) {
+						return function findMatches(q, cb) {
+							var matches, substringRegex;
+							// an array that will be populated with substring matches
+							matches = [];
+							// regex used to determine if a string contains the substring `q`
+							substrRegex = new RegExp(q, "i");
+							// iterate through the pool of strings and for any string that
+							// contains the substring `q`, add it to the `matches` array
+							$.each(strs, function (i, str) {
+								if (substrRegex.test(str)) {
+									matches.push(str);
+								}
+							});
+							cb(matches);
+						};
+					};
+					// $(".toggleOtherFund").click(function(e) {
+					// 	e.preventDefault();
+					// 	$("#advanced-search-fund").val("");
+					// 	$(this)
+					// 		.next()
+					// 		.slideDown();
+					// });
+					$("#scrollable-dropdown-menu .typeahead").typeahead({
+						hint: true,
+						highlight: true,
+						minLength: 1
+					}, {
+						name: "typeaheadArr",
+						limit: 100,
+						source: substringMatcher(typeaheadArrUnique)
+					});
+					$(".typeahead").bind("typeahead:select", function (
+						ev,
+						suggestion
+					) {
+						$("#hiddenFund").val(suggestion);
+						console.log(suggestion);
+						$.each(fundsUnique, function (x, subFund) {
+							// append GUID if terminal
+							if (subFund[6] === suggestion) {
+								$("#hiddenGuid").val(subFund[2]);
+							}
+						});
+					});
+				}
+			);
+		},
 		populateAreasToSupportFields: function () {
 			// get designations for drop-down (cascading)
 			// note: must be attached to a query that returns Public Name and System Record ID
@@ -1751,7 +2046,6 @@ var BBI = BBI || {
 			var scholarshipsDesignation = $("select#scholarshipsSelect");
 			var collegeUnitDesignation = $("select#collegeUnitsSelect");
 			var collegeUnitFundDesignation = $("select#collegUnitsFundSelect");
-
 			// if ($(mainDesignation).length !== 0) {
 			var queryService = new BLACKBAUD.api.QueryService();
 			queryService.getResults(
@@ -1765,7 +2059,6 @@ var BBI = BBI || {
 						ucFundArr = [],
 						scholarshipsArr = [],
 						ucHealthArr = [];
-
 					// console.log(allFunds);
 					// remove all options in main drop-down except the first
 					$(
@@ -1776,19 +2069,16 @@ var BBI = BBI || {
 						.find("option")
 						.not("option:first")
 						.remove();
-
 					// get drop-down hierarchy and clean arrays
 					$.each(allFunds, function () {
 						// define values
 						var values = this.Values;
 						var target = values[1]; // Fund name [0]
 						var splitter = target.split("\\");
-
 						// remove first item in array
 						if (splitter.length > 1) {
 							splitter.shift();
 						}
-
 						// push values to array
 						splitter.push(values[4]); // Description 		subFund[1]
 						splitter.push(values[6]); // Designation GUID 	subFund[2]
@@ -1807,14 +2097,12 @@ var BBI = BBI || {
 						} else {}
 						var fundNameArr = values[1];
 						var fundGuidArr = values[6];
-
 						typeaheadArr.push(fundNameArr);
 					});
-					var sortedFundMaster = fundMaster.sort();
+					var sortedFundMaster = fundMaster;
 					// console.table(sortedFundMaster);
 					// console.log(scholarshipsArr.sort((a, b) => a[5].localeCompare(b[5])));
 					// console.log(ucHealthArr);
-
 					// console.log(typeaheadArr);
 					// const arrayColumn = (arr, n) => arr.map(x => x[n]);
 					// console.log(arrayColumn(typeaheadArr, 0));
@@ -1832,13 +2120,11 @@ var BBI = BBI || {
 						return uniques;
 					}
 					var fundsUnique = multiDimensionalUnique(sortedFundMaster);
-
 					// filter unique values
 					function onlyUnique(value, index, self) {
 						return self.indexOf(value) === index;
 					}
 					var topLevelUnique = topLevelAll.filter(onlyUnique);
-
 					var collegeUnitsDropdown = topLevelUnique.sort();
 					$.each(collegeUnitsDropdown, function (key, value) {
 						var trimmedCollege = $.trim(value.split("-")[1]);
@@ -1849,17 +2135,27 @@ var BBI = BBI || {
 						);
 					});
 
+					function Ascending_sort(a, b) {
+						return $(b)
+							.text()
+							.toUpperCase() <
+							$(a)
+							.text()
+							.toUpperCase() ?
+							1 :
+							-1;
+					}
+					$("select#collegeUnitsSelect option:not(:first)")
+						.sort(Ascending_sort)
+						.appendTo("select#collegeUnitsSelect");
 					// .sort((a, b) => Number(a.price) - Number(b.price));
-					ucFundArr = ucFundArr.sort();
-					scholarshipsArr = scholarshipsArr.sort();
-					ucHealthArr = ucHealthArr.sort();
-
-					scholarshipsArr.sort(function (a, b) {
-						return a.value - b.value;
+					// ucFundArr = ucFundArr.sort();
+					// scholarshipsArr = scholarshipsArr.sort();
+					// ucHealthArr = ucHealthArr.sort();
+					fundsUnique.sort(function (a, b) {
+						return a[5] - b[5];
 					});
-
-					console.table(scholarshipsArr);
-
+					// console.table(fundsUnique);
 					$.each(fundsUnique, function (x, subFund) {
 						// append GUID if terminal
 						if (subFund[4] == "The UC Fund") {
@@ -1884,12 +2180,10 @@ var BBI = BBI || {
 							return;
 						}
 					});
-
 					$("#areasToSuppportRadioGroup select").prop(
 						"disabled",
 						false
 					);
-
 					var ucFundOptionValues = [];
 					$("#ucFundSelect option").each(function () {
 						if ($.inArray(this.value, ucFundOptionValues) > -1) {
@@ -1908,6 +2202,10 @@ var BBI = BBI || {
 							scholarshipOptionValues.push(this.value);
 						}
 					});
+					var typeaheadArrUnique = typeaheadArr
+						.filter(onlyUnique)
+						.sort();
+					// console.table(typeaheadArrUnique.sort());
 					var substringMatcher = function (strs) {
 						return function findMatches(q, cb) {
 							var matches, substringRegex;
@@ -1940,7 +2238,7 @@ var BBI = BBI || {
 					}, {
 						name: "typeaheadArr",
 						limit: 100,
-						source: substringMatcher(typeaheadArr)
+						source: substringMatcher(typeaheadArrUnique)
 					});
 					$(".typeahead").bind("typeahead:select", function (
 						ev,
@@ -1997,7 +2295,6 @@ var BBI = BBI || {
 			);
 			// }
 		},
-
 		populateTypeaheadField: function () {
 			// get designations for drop-down (cascading)
 			// note: must be attached to a query that returns Public Name and System Record ID
@@ -2082,7 +2379,6 @@ var BBI = BBI || {
 							.text(trimmedCollege)
 						);
 					});
-
 					var substringMatcher = function (strs) {
 						return function findMatches(q, cb) {
 							var matches, substringRegex;
@@ -2100,7 +2396,6 @@ var BBI = BBI || {
 							cb(matches);
 						};
 					};
-
 					// $(".toggleOtherFund").click(function(e) {
 					// 	e.preventDefault();
 					// 	toggleAreaValid(false);
@@ -2109,7 +2404,6 @@ var BBI = BBI || {
 					// 		.next()
 					// 		.slideDown();
 					// });
-
 					$("#scrollable-dropdown-menu .typeahead").typeahead({
 						hint: false,
 						highlight: true,
@@ -2124,7 +2418,6 @@ var BBI = BBI || {
 						suggestion
 					) {
 						$("#fundName").val(suggestion);
-
 						//console.log(suggestion);
 						$.each(fundsUnique, function (x, subFund) {
 							// append GUID if terminal
@@ -2138,7 +2431,6 @@ var BBI = BBI || {
 							}
 						});
 					});
-
 					$("#copyButton").click(function (e) {
 						e.preventDefault();
 						var copyText = document.getElementById("fundGuid");
@@ -2154,13 +2446,11 @@ var BBI = BBI || {
 			);
 			// }
 		},
-
 		populateCountryDropdowns: function () {
 			var countryService = new BLACKBAUD.api.CountryService({
 				url: BBI.Defaults.rootpath,
 				crossDomain: false
 			});
-
 			countryService.getCountries(function (country) {
 				$.each(country, function () {
 					$("#ackCountry").append(
@@ -2185,7 +2475,6 @@ var BBI = BBI || {
 					});
 			});
 		},
-
 		populateStateDropdowns: function (countryID) {
 			var countryService = new BLACKBAUD.api.CountryService({
 				url: BBI.Defaults.rootpath,
@@ -2202,11 +2491,9 @@ var BBI = BBI || {
 				});
 			});
 		},
-
 		// get title table
 		populateTitle: function () {
 			var selectAckTitle = $("#ackTitle");
-
 			$.get(
 				BLACKBAUD.api.pageInformation.rootPath +
 				"webapi/CodeTable/" +
@@ -2226,10 +2513,8 @@ var BBI = BBI || {
 				selectAckTitle.val("-1").change();
 			});
 		},
-
 		populateDesignationIds: function () {
 			var queryService = new BLACKBAUD.api.QueryService();
-
 			queryService.getResults(
 				BBI.Defaults.highlightedFundsQueryId,
 				function (data) {
@@ -2266,13 +2551,11 @@ var BBI = BBI || {
 				}
 			);
 		},
-
 		populateCascadingFields: function () {
 			// get designations for drop-down (cascading)
 			// note: must be attached to a query that returns Public Name and System Record ID
 			var mainDesignation = $("#fundDesignation1");
 			var subDesignation = $("#fundDesignation2");
-
 			if ($(mainDesignation).length !== 0) {
 				var queryService = new BLACKBAUD.api.QueryService();
 				queryService.getResults(
@@ -2282,26 +2565,22 @@ var BBI = BBI || {
 						var allFunds = data.Rows;
 						var fundMaster = [];
 						var topLevelAll = [];
-
 						// console.log(allFunds);
 						// remove all options in main drop-down except the first
 						$(mainDesignation)
 							.find("option")
 							.not("option:first")
 							.remove();
-
 						// get drop-down hierarchy and clean arrays
 						$.each(allFunds, function () {
 							// define values
 							var values = this.Values;
 							var target = values[3];
 							var splitter = target.split("\\");
-
 							// remove first item in array
 							if (splitter.length > 1) {
 								splitter.shift();
 							}
-
 							// push values to array
 							splitter.push(values[5]); // update key to match designation GUID
 							splitter.push(values[2]);
@@ -2309,14 +2588,11 @@ var BBI = BBI || {
 							topLevelAll.push(splitter[0]);
 							// console.log(fundMaster);
 						});
-
 						// filter unique values
 						function onlyUnique(value, index, self) {
 							return self.indexOf(value) === index;
 						}
-
 						var topLevelUnique = topLevelAll.filter(onlyUnique);
-
 						$.each(topLevelUnique, function (key, value) {
 							$(mainDesignation).append(
 								$("<option></option>")
@@ -2324,23 +2600,19 @@ var BBI = BBI || {
 								.text(value)
 							);
 						});
-
 						// category drop-down
 						$(mainDesignation).on("change", function () {
 							// remove selected class from designation buttons
 							$(".designationButton .selected").removeClass(
 								"selected"
 							);
-
 							// define designation selection
 							var selection = $(this).val();
-
 							// remove all options in sub drop-down except the first
 							$(subDesignation)
 								.find("option")
 								.not("option:first")
 								.remove();
-
 							// loop through funds
 							$.each(fundMaster, function (x, subFund) {
 								// append GUID if terminal
@@ -2352,7 +2624,6 @@ var BBI = BBI || {
 									);
 								}
 							});
-
 							// toggle designation drop-down
 							if ($(this).val() === "0") {
 								$(subDesignation).hide();
@@ -2364,12 +2635,10 @@ var BBI = BBI || {
 				);
 			}
 		},
-
 		initAdfTabs: function () {
 			//default state
 			$("#adfTributToggle").show();
 			$("#adfFrequency").hide();
-
 			$("#adfTabsMenu a").on("click", function () {
 				var tabReference = $(this).attr("id");
 				$("#adfTabsMenu .selected").removeClass("selected");
@@ -2392,7 +2661,6 @@ var BBI = BBI || {
 				}
 			});
 		},
-
 		validateADF: function () {
 			var ValidationMessage = [];
 			var isValid = true;
@@ -2425,7 +2693,283 @@ var BBI = BBI || {
 			});
 			return isValid;
 		},
-
+		submitQueryADF: function () {
+			var partId = $(".BBDonationApiContainer").attr("data-partid"),
+				donationService = new BLACKBAUD.api.DonationService(partId, {
+					url: BBI.Defaults.rootpath,
+					crossDomain: false
+				}),
+				giftAmount = $(".miniInputTex").val(),
+				designationID = $("#designationId").val(),
+				customAttributes = [],
+				designationArray = [];
+			var donation = {
+				Gift: {
+					Designations: [],
+					IsAnonymous: false,
+					MerchantAccountId: BBI.Defaults.MerchantAccountId
+				}
+			};
+			if ($("#anonymous:checked").length !== 0) {
+				donation.Gift.IsAnonymous = true;
+			}
+			//other area free text entry
+			// if ($("#giftListNotEmpty .otherDesignation").length !== 0) {
+			// 	donation.Gift.Comments =
+			// 		"Area of support: " +
+			// 		$("#giftListNotEmpty .otherDesignation .fund-name").text();
+			// }
+			// if ($("#fundDesignation2 option:selected").val() !== "0") {
+			// 	designationID = $("#fundDesignation2 option:selected").val();
+			// }
+			// tribute (honoree) attributes
+			if ($("input#tribute:checked").length !== 0) {
+				if ($("#tributeType:visible").length !== 0) {
+					var tributeType = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Tribute Gift Type"
+						],
+						Value: $("#tributeType").val()
+					};
+					customAttributes.push(tributeType);
+				}
+				if (
+					$("#honoreeFirstName").length !== 0 &&
+					$("#honoreeLastName").length !== 0
+				) {
+					var honoreeName = {
+						AttributeId: BBI.Defaults.customADFAttributes["Honoree Name"],
+						Value: $("#honoreeFirstName").val() +
+							" " +
+							$("#honoreeLastName").val()
+					};
+					customAttributes.push(honoreeName);
+				}
+			}
+			// acknowledgee attributes
+			if ($("input#ackCheck:checked").length !== 0) {
+				if (
+					$("#ackTitle").length !== 0 &&
+					$("#ackTitle").val() !== "-1"
+				) {
+					var ackTitle = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee Title"
+						],
+						Value: $("#ackTitle option:selected").text()
+					};
+					customAttributes.push(ackTitle);
+				}
+				if ($("#ackFirstName").length !== 0) {
+					var ackFirstName = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee First Name"
+						],
+						Value: $("#ackFirstName").val()
+					};
+					customAttributes.push(ackFirstName);
+				}
+				if ($("#ackLastName").length !== 0) {
+					var ackLastName = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee Last Name"
+						],
+						Value: $("#ackLastName").val()
+					};
+					customAttributes.push(ackLastName);
+				}
+				if ($("#ackAddressLines").length !== 0) {
+					var ackAddress = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee Address"
+						],
+						Value: $("#ackAddressLines").val()
+					};
+					customAttributes.push(ackAddress);
+				}
+				if ($("#ackCity").length !== 0) {
+					var ackCity = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee City"
+						],
+						Value: $("#ackCity").val()
+					};
+					customAttributes.push(ackCity);
+				}
+				if ($("#ackState").length !== 0) {
+					var ackState = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee State"
+						],
+						Value: $("#ackState").val()
+					};
+					customAttributes.push(ackState);
+				}
+				if ($("#ackPostalCode").length !== 0) {
+					var ackZip = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee Zip"
+						],
+						Value: $("#ackPostalCode").val()
+					};
+					customAttributes.push(ackZip);
+				}
+				if ($("#ackCountry").length !== 0) {
+					var ackCountry = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee Country"
+						],
+						Value: $("#ackCountry").val()
+					};
+					customAttributes.push(ackCountry);
+				}
+				if (
+					$("#ackPhone").length !== 0 &&
+					$("#ackPhone").val() !== ""
+				) {
+					var ackPhone = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee Phone"
+						],
+						Value: $("#ackPhone").val()
+					};
+					customAttributes.push(ackPhone);
+				}
+				if (
+					$("#ackEmail").length !== 0 &&
+					$("#ackEmail").val() !== ""
+				) {
+					var ackEmail = {
+						AttributeId: BBI.Defaults.customADFAttributes[
+							"Acknowledgee Email"
+						],
+						Value: $("#ackEmail").val()
+					};
+					customAttributes.push(ackEmail);
+				}
+			}
+			if ($("#company:visible").length !== 0) {
+				console.log($("#company").val());
+				var company = {
+					AttributeId: BBI.Defaults.customADFAttributes[
+						"Matching Gift Company"
+					],
+					Value: $("#company").val()
+				};
+				customAttributes.push(company);
+			}
+			if ($("#spouseName:visible").length !== 0) {
+				var spouseName = {
+					AttributeId: BBI.Defaults.customADFAttributes["Joint Spouse Name"],
+					Value: $("#spouseName").val()
+				};
+				customAttributes.push(spouseName);
+			}
+			if ($("#pledgeID:visible").length !== 0) {
+				console.log($("#pledgeID").val());
+				var pledge = {
+					AttributeId: BBI.Defaults.customADFAttributes["Pledge ID"],
+					Value: $("#pledgeID").val()
+				};
+				customAttributes.push(pledge);
+			}
+			if ($("#frequency:visible").length !== 0) {
+				console.log($("#frequency option:selected").val());
+				var startDate = $("#startDate").datepicker("getDate"), //Date.parse();
+					DayOfWeek = startDate.getDay(),
+					DayOfMonth = startDate.getDate(),
+					StartMonth = startDate.getMonth(),
+					frequency = $("#frequency").val();
+				// var endDate = $("#endDate").val().length !== 0 ? $("#endDate").val() : null;
+				if (frequency == 1) {
+					donation.Gift["Recurrence"] = {
+						DayOfWeek: DayOfWeek,
+						Frequency: frequency,
+						StartDate: startDate
+						// EndDate: endDate
+					};
+				} else if (frequency == 2) {
+					donation.Gift["Recurrence"] = {
+						DayOfMonth: DayOfMonth,
+						Frequency: frequency,
+						StartDate: startDate
+						// EndDate: endDate
+					};
+				} else {
+					donation.Gift["Recurrence"] = {
+						DayOfMonth: DayOfMonth,
+						Frequency: frequency,
+						StartDate: startDate
+						// EndDate: endDate
+					};
+				}
+			}
+			if (
+				$("#otherArea:visible").length !== 0 &&
+				$("#otherArea:visible").val().length > 0
+			) {
+				var otherArea = {
+					Value: $("#otherArea").val()
+				};
+				donation.Gift.Comments.push(otherArea);
+			}
+			donation.Gift.Attributes = customAttributes;
+			// one-time gift
+			var getGiftType = $(".toggleGiftType input:checked").val();
+			if (getGiftType == "OneTime" || getGiftType == "Monthly") {
+				var giftRow = $("#giftListNotEmpty > table > tbody > tr");
+				$.each(giftRow, function () {
+					var fundAmount = $(this)
+						.find(".fund-amount input")
+						.val()
+						.replace("$", "")
+						.trim();
+					var fundDesignation = $(this)
+						.find(".fund-designation")
+						.text()
+						.trim();
+					var gift = {
+						Amount: fundAmount,
+						DesignationId: fundDesignation
+					};
+					designationArray.push(gift);
+				});
+				donation.Gift.Designations = designationArray;
+				// console.log(donation.Gift.Designations);
+				// pledge gift
+			} else {
+				donation.Gift.Designations = [{
+					Amount: $("#hiddenAmount").val(),
+					DesignationId: BBI.Defaults.pledgeFund
+				}];
+			}
+			donationSuccess = function (data) {
+				// no action, automatically forwards to payment part
+				// console.log(data);
+			};
+			donationFail = function (d) {
+				$(".BBFormValidatorSummary").html(
+					"<p>" + BBI.Methods.convertErrorsToHtml(d) + "</p>"
+				);
+				$("#adfSubmitButtonQS")
+					.on("click", function (e) {
+						e.preventDefault();
+						if (BBI.Methods.validateADF()) {
+							$(this)
+								.addClass("disabled")
+								.unbind("click");
+							BBI.Methods.submitADF();
+						}
+					})
+					.removeClass("disabled");
+			};
+			// console.log(donation);
+			donationService.createDonation(
+				donation,
+				donationSuccess,
+				donationFail
+			);
+		},
 		submitCustomADF: function () {
 			var partId = $(".BBDonationApiContainer").attr("data-partid"),
 				donationService = new BLACKBAUD.api.DonationService(partId, {
@@ -2498,25 +3042,18 @@ var BBI = BBI || {
 						2
 					);
 				});
-
 			if ($("#anonymous:checked").length !== 0) {
 				donation.Gift.IsAnonymous = true;
 			}
-
 			donation.Gift.Attributes = customAttributes;
-
 			var fundAmount = $("#customAmount[type=radio]").val();
-
 			var fundDesignation = $("#hiddenGuid").val();
-
 			var gift = {
 				Amount: fundAmount,
 				DesignationId: fundDesignation
 			};
 			designationArray.push(gift);
-
 			donation.Gift.Designations = designationArray;
-
 			donationSuccess = function (data) {
 				// no action, automatically forwards to payment part
 				// console.log(data);
@@ -2543,9 +3080,7 @@ var BBI = BBI || {
 				donationSuccess,
 				donationFail
 			);
-
 		},
-
 		submitADF: function () {
 			var partId = $(".BBDonationApiContainer").attr("data-partid"),
 				donationService = new BLACKBAUD.api.DonationService(partId, {
@@ -2556,7 +3091,6 @@ var BBI = BBI || {
 				designationID = $("#designationId").val(),
 				customAttributes = [],
 				designationArray = [];
-
 			var donation = {
 				Gift: {
 					Designations: [],
@@ -2570,25 +3104,20 @@ var BBI = BBI || {
 					url.split("?")[1] :
 					window.location.search.slice(1);
 				var obj = {};
-
 				if (queryString) {
 					queryString = queryString.split("#")[0];
 					var arr = queryString.split("&");
-
 					for (var i = 0; i < arr.length; i++) {
 						var a = arr[i].split("=");
 						var paramName = a[0];
 						var paramValue =
 							typeof a[1] === "undefined" ? true : a[1];
-
 						paramName = paramName.toLowerCase();
 						if (typeof paramValue === "string")
 							paramValue = paramValue.toLowerCase();
-
 						if (paramName.match(/\[(\d+)?\]$/)) {
 							var key = paramName.replace(/\[(\d+)?\]/, "");
 							if (!obj[key]) obj[key] = [];
-
 							if (paramName.match(/\[\d+\]$/)) {
 								var index = /\[(\d+)\]/.exec(paramName)[1];
 								obj[key][index] = paramValue;
@@ -2610,13 +3139,10 @@ var BBI = BBI || {
 						}
 					}
 				}
-
 				return obj;
 			}
-
 			var params = document.getElementById("params");
 			var results = document.getElementById("results");
-
 			document
 				.querySelector("input")
 				.addEventListener("keyup", function () {
@@ -2627,17 +3153,14 @@ var BBI = BBI || {
 						2
 					);
 				});
-
 			if (window.location.href.indexOf("giving-page") > -1) {
 				var origin = {
 					AppealId: "6740fcbf-aa98-44bf-87d2-a69ba1f8d216",
 					PageId: BLACKBAUD.api.pageInformation.pageId
 					//, "PageName": "Advanced Donation Form"
 				};
-
 				donation.Origin = origin;
 			}
-
 			// if the path contains "/givetoday",
 			// this is an appeal, so let's add the ID
 			if (
@@ -2648,10 +3171,8 @@ var BBI = BBI || {
 					PageId: BLACKBAUD.api.pageInformation.pageId
 					//, "PageName": "Advanced Donation Form"
 				};
-
 				donation.Origin = origin;
 			}
-
 			// if the path contains "/impact2016"
 			// Appeal: FY17 Faculty & Staff Campaign CYE2016
 			// this is an appeal, so let's add the ID
@@ -2663,10 +3184,8 @@ var BBI = BBI || {
 					PageId: BLACKBAUD.api.pageInformation.pageId
 					//, "PageName": "Advanced Donation Form"
 				};
-
 				donation.Origin = origin;
 			}
-
 			// if the path contains "/impact16"
 			// Appeal: FY17 Faculty & Staff Campaign CYE16
 			// this is an appeal, so let's add the ID
@@ -2678,25 +3197,20 @@ var BBI = BBI || {
 					PageId: BLACKBAUD.api.pageInformation.pageId
 					//, "PageName": "Advanced Donation Form"
 				};
-
 				donation.Origin = origin;
 			}
-
 			if ($("#anonymous:checked").length !== 0) {
 				donation.Gift.IsAnonymous = true;
 			}
-
 			//other area free text entry
 			if ($("#giftListNotEmpty .otherDesignation").length !== 0) {
 				donation.Gift.Comments =
 					"Area of support: " +
 					$("#giftListNotEmpty .otherDesignation .fund-name").text();
 			}
-
 			if ($("#fundDesignation2 option:selected").val() !== "0") {
 				designationID = $("#fundDesignation2 option:selected").val();
 			}
-
 			/*if ($('#adfTributToggle > label > input:checked').length !== 0) {
 			    var Tribute = {};
 			    if ($('#isTributeNotification:checked').length !== 0) {
@@ -2720,7 +3234,6 @@ var BBI = BBI || {
 			    };
 			    donation.Gift.Tribute = Tribute;
 			}*/
-
 			// tribute (honoree) attributes
 			if ($("input#tribute:checked").length !== 0) {
 				if ($("#tributeType:visible").length !== 0) {
@@ -2732,7 +3245,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(tributeType);
 				}
-
 				if (
 					$("#honoreeFirstName").length !== 0 &&
 					$("#honoreeLastName").length !== 0
@@ -2746,7 +3258,6 @@ var BBI = BBI || {
 					customAttributes.push(honoreeName);
 				}
 			}
-
 			// acknowledgee attributes
 			if ($("input#ackCheck:checked").length !== 0) {
 				if (
@@ -2761,7 +3272,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackTitle);
 				}
-
 				if ($("#ackFirstName").length !== 0) {
 					var ackFirstName = {
 						AttributeId: BBI.Defaults.customADFAttributes[
@@ -2771,7 +3281,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackFirstName);
 				}
-
 				if ($("#ackLastName").length !== 0) {
 					var ackLastName = {
 						AttributeId: BBI.Defaults.customADFAttributes[
@@ -2781,7 +3290,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackLastName);
 				}
-
 				if ($("#ackAddressLines").length !== 0) {
 					var ackAddress = {
 						AttributeId: BBI.Defaults.customADFAttributes[
@@ -2791,7 +3299,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackAddress);
 				}
-
 				if ($("#ackCity").length !== 0) {
 					var ackCity = {
 						AttributeId: BBI.Defaults.customADFAttributes[
@@ -2801,7 +3308,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackCity);
 				}
-
 				if ($("#ackState").length !== 0) {
 					var ackState = {
 						AttributeId: BBI.Defaults.customADFAttributes[
@@ -2811,7 +3317,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackState);
 				}
-
 				if ($("#ackPostalCode").length !== 0) {
 					var ackZip = {
 						AttributeId: BBI.Defaults.customADFAttributes[
@@ -2821,7 +3326,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackZip);
 				}
-
 				if ($("#ackCountry").length !== 0) {
 					var ackCountry = {
 						AttributeId: BBI.Defaults.customADFAttributes[
@@ -2831,7 +3335,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackCountry);
 				}
-
 				if (
 					$("#ackPhone").length !== 0 &&
 					$("#ackPhone").val() !== ""
@@ -2844,7 +3347,6 @@ var BBI = BBI || {
 					};
 					customAttributes.push(ackPhone);
 				}
-
 				if (
 					$("#ackEmail").length !== 0 &&
 					$("#ackEmail").val() !== ""
@@ -2858,9 +3360,8 @@ var BBI = BBI || {
 					customAttributes.push(ackEmail);
 				}
 			}
-
 			if ($("#company:visible").length !== 0) {
-				console.log($("#company").val());
+				// console.log($("#company").val());
 				var company = {
 					AttributeId: BBI.Defaults.customADFAttributes[
 						"Matching Gift Company"
@@ -2869,7 +3370,6 @@ var BBI = BBI || {
 				};
 				customAttributes.push(company);
 			}
-
 			if ($("#spouseName:visible").length !== 0) {
 				var spouseName = {
 					AttributeId: BBI.Defaults.customADFAttributes["Joint Spouse Name"],
@@ -2877,25 +3377,22 @@ var BBI = BBI || {
 				};
 				customAttributes.push(spouseName);
 			}
-
 			if ($("#pledgeID:visible").length !== 0) {
-				console.log($("#pledgeID").val());
+				// console.log($("#pledgeID").val());
 				var pledge = {
 					AttributeId: BBI.Defaults.customADFAttributes["Pledge ID"],
 					Value: $("#pledgeID").val()
 				};
 				customAttributes.push(pledge);
 			}
-
 			if ($("#frequency:visible").length !== 0) {
-				console.log($("#frequency option:selected").val());
+				// console.log($("#frequency option:selected").val());
 				var startDate = $("#startDate").datepicker("getDate"), //Date.parse();
 					DayOfWeek = startDate.getDay(),
 					DayOfMonth = startDate.getDate(),
 					StartMonth = startDate.getMonth(),
 					frequency = $("#frequency").val();
 				// var endDate = $("#endDate").val().length !== 0 ? $("#endDate").val() : null;
-
 				if (frequency == 1) {
 					donation.Gift["Recurrence"] = {
 						DayOfWeek: DayOfWeek,
@@ -2919,7 +3416,6 @@ var BBI = BBI || {
 					};
 				}
 			}
-
 			if (
 				$("#otherArea:visible").length !== 0 &&
 				$("#otherArea:visible").val().length > 0
@@ -2929,9 +3425,7 @@ var BBI = BBI || {
 				};
 				donation.Gift.Comments.push(otherArea);
 			}
-
 			donation.Gift.Attributes = customAttributes;
-
 			// one-time gift
 			if (
 				$("#tabOneTime, #tabRecurring")
@@ -2953,7 +3447,6 @@ var BBI = BBI || {
 					};
 					designationArray.push(gift);
 				});
-
 				donation.Gift.Designations = designationArray;
 				// console.log(designationArray);
 				// pledge gift
@@ -2973,12 +3466,10 @@ var BBI = BBI || {
 					}];
 				}
 			}
-
 			donationSuccess = function (data) {
 				// no action, automatically forwards to payment part
 				// console.log(data);
 			};
-
 			donationFail = function (d) {
 				$(".BBFormValidatorSummary").html(
 					"<p>" + BBI.Methods.convertErrorsToHtml(d) + "</p>"
@@ -3001,6 +3492,136 @@ var BBI = BBI || {
 				donationSuccess,
 				donationFail
 			);
+		},
+		searchScripts: function () {
+			$("input[id*=_txtQuickSearch]").attr("aria-label", "Search");
+			$("input[id*='txtQuickSearch']").attr("placeholder", "Search");
+
+			$(".search.closed a").on("click", function (e) {
+				e.preventDefault();
+				$(this)
+					.parent()
+					.removeClass("closed")
+					.addClass("open");
+				$("#mockup .search-container")
+					.delay(100)
+					.animate({
+						"padding-top": "80px"
+					});
+				$(".QuickSearchTextbox").focus();
+				//$('.QuickSearchFormTable').toggle('slow');
+			});
+
+			$(".search.open a").on("click", function (e) {
+				e.preventDefault();
+				$(this)
+					.parent()
+					.removeClass("open")
+					.addClass("closed");
+
+				$("#mockup .search-container")
+					.delay(100)
+					.animate({
+						"padding-top": "0px"
+					});
+			});
+		},
+
+		mobileScripts: function () {
+			var $window = $(window),
+				$html = $("ul > li.parent > a"),
+				$header = $("header");
+
+			$header.append(
+				"<button type='button' class='hamburger is-closed animated fadeInRight hide' data-toggle='offcanvas'><span class='hamb-top'></span><span class='hamb-middle'></span><span class='hamb-bottom'></span></button>"
+			);
+
+			$html.append(
+				"<span><i class='fa fa-chevron-up' aria-hidden='true'></i></span>"
+			);
+
+			var trigger = $(".hamburger"),
+				overlay = $(".overlay"),
+				nav = $("ul.nav.navbar-nav"),
+				expandToggle = $("ul.nav > li > a > span"),
+				isClosed = false;
+
+			trigger.click(function () {
+				hamburger_cross();
+			});
+
+			expandToggle.click(function (event) {
+				event.preventDefault();
+				$(this)
+					.find("i")
+					.toggleClass("rotate");
+				$(this)
+					.parent()
+					.toggleClass("open");
+				$(this)
+					.parent("a")
+					.next(".nccUlMenuSub1")
+					.slideToggle();
+			});
+
+			function hamburger_cross() {
+				if (isClosed == true) {
+					overlay.hide();
+					trigger.removeClass("is-open");
+					trigger.addClass("is-closed");
+					isClosed = false;
+					nav.removeClass("slideOut");
+					$("body").toggleClass("no-scroll");
+				} else {
+					overlay.show();
+					trigger.removeClass("is-closed");
+					trigger.addClass("is-open");
+					isClosed = true;
+					nav.addClass("slideOut");
+					$("body").toggleClass("no-scroll");
+				}
+			}
+
+			$("[data-toggle='offcanvas']").click(function () {
+				$("#wrapper").toggleClass("toggled");
+			});
+		},
+
+		footerScripts: function () {
+			new Vue({
+				el: "#copyright"
+			});
+
+			if ($(document).scrollTop() > 300) {
+				$("header").addClass("reduced");
+				$(".scrollToTop").fadeIn();
+			}
+
+			$(document).on("scroll", function () {
+				if ($(document).scrollTop() > 400) {
+					$(".scrollToTop").fadeIn("slow");
+				} else {
+					$(".scrollToTop").fadeOut("slow");
+				}
+
+				if ($(document).scrollTop() > 200) {
+					$("header").addClass("reduced");
+					$("button.hamburger").addClass("reduced");
+				} else {
+					$("header").removeClass("reduced");
+					$("button.hamburger").removeClass("reduced");
+				}
+			});
+
+			$(".scrollToTop").click(function (e) {
+				e.preventDefault();
+				$("html, body").animate({
+						scrollTop: 0
+					},
+					300
+				);
+				return false;
+			});
 		},
 
 		foundationbgFix: function () {
@@ -3026,7 +3647,6 @@ var BBI = BBI || {
 				}
 			}
 		},
-
 		buildSocialButtons: function () {
 			if ($(".socialButtonTable").length > 0) {
 				function popUp(url) {
@@ -3048,7 +3668,6 @@ var BBI = BBI || {
 						.find(".socialButtonContent")
 						.text();
 					var url = "";
-
 					if (buttonType.match("Facebook")) {
 						//buttonClass="btn-facebook";url = "http://www.facebook.com/sharer/sharer.php?s=100&p[url]=www.CLIENTURL.org&p[title]=CLIENTNAME&p[summary]=";
 						buttonClass = "btn-facebook";
@@ -3077,7 +3696,6 @@ var BBI = BBI || {
 					);
 					$(this).hide();
 				});
-
 				$(".btn-social").each(function () {
 					$(this).click(function (e) {
 						e.preventDefault();
@@ -3091,7 +3709,6 @@ var BBI = BBI || {
 				});
 			}
 		},
-
 		convertErrorToString: function (error) {
 			if (error) {
 				if (error.Message) return error.Message;
@@ -3111,7 +3728,6 @@ var BBI = BBI || {
 				}
 			}
 		},
-
 		convertErrorsToHtml: function (errors) {
 			var i,
 				message = "Unknown error.<br/>";
@@ -3126,7 +3742,6 @@ var BBI = BBI || {
 			}
 			return message;
 		},
-
 		adminStyleFixes: function () {
 			$(
 				'[class*="show-for-"], [class*="hide-for-"], .fullWidthBackgroundImage, .fullWidthBackgroundImageInner'
@@ -3136,7 +3751,6 @@ var BBI = BBI || {
 				.css("position", "static");
 			$(".fullWidthBackgroundImageInner").show();
 		},
-
 		getUrlVars: function () {
 			// Gets variables and values from URL
 			var vars = {};
@@ -3148,11 +3762,9 @@ var BBI = BBI || {
 			);
 			return vars;
 		},
-
 		returnQueryValueByName: function (name) {
 			return BLACKBAUD.api.querystring.getQueryStringValue(name);
 		},
-
 		fixPositioning: function () {
 			// Fix positioning:
 			$('div[id *= "_panelPopup"]').appendTo("body");
@@ -3162,7 +3774,6 @@ var BBI = BBI || {
 			});
 			$(".DesignPane").css("position", "relative");
 		},
-
 		setCookie: function (c_name, value, exdays) {
 			var exdate = new Date();
 			//allows for reading cookies across subdomains
@@ -3176,7 +3787,6 @@ var BBI = BBI || {
 			document.cookie =
 				c_name + "=" + c_value + "; domain=" + cd + "; path=/";
 		},
-
 		readCookie: function (name) {
 			var nameEQ = name + "=";
 			var ca = document.cookie.split(";");
@@ -3188,13 +3798,11 @@ var BBI = BBI || {
 			}
 			return null;
 		},
-
 		initMobileHeader: function () {
 			$("#mobileLogo").headroom({
 				offset: 80
 			});
 		},
-
 		mobileSubMenu: function () {
 			$(".mobileCanvas.rightCanvas ul.menu li.parent > a").click(function (
 				event
@@ -3216,7 +3824,6 @@ var BBI = BBI || {
 				}
 			});
 		},
-
 		jobOpportunities: function () {
 			$(".job-title").click(function (event) {
 				$(this)
@@ -3232,43 +3839,40 @@ var BBI = BBI || {
 					.removeClass("open");
 			});
 		},
-
 		datePicker: function () {
-			var d = new Date(),
-				day = d.getDate();
+			if ($("#startDate").length !== 0) {
+				var d = new Date(),
+					day = d.getDate();
 
-			function getMinDate() {
-				var date = new Date();
-
-				if (day > 15) {
-					console.log("over 15th!");
-					date.setMonth(date.getMonth() + 1, 1);
-				} else if ((day = 1)) {
-					// set to current date
-				} else {
-					date.setDate(15);
+				function getMinDate() {
+					var date = new Date();
+					if (day > 15) {
+						console.log("over 15th!");
+						date.setMonth(date.getMonth() + 1, 1);
+					} else if (day == 1) {
+						// set to current date
+					} else {
+						date.setDate(15);
+					}
+					return date;
 				}
+				$("#startDate").datepicker({
+					beforeShowDay: function (dt) {
+						return [
+							dt.getDate() == 1 || dt.getDate() == 15 ? true : false
+						];
+					},
+					minDate: getMinDate()
+				});
+				$("#startDate").datepicker("setDate", getMinDate());
+			} else {
 
-				return date;
 			}
-
-			$("#startDate").datepicker({
-				beforeShowDay: function (dt) {
-					return [
-						dt.getDate() == 1 || dt.getDate() == 15 ? true : false
-					];
-				},
-				minDate: getMinDate()
-			});
-
-			$("#startDate").datepicker("setDate", getMinDate());
 		},
-
 		/**********************************************
 		CUSTOM DONATION FORM
 		   Broken Down into 3 Objects by Step
 		***********************************************/
-
 		customSingleDonationForm: {
 			// Add Classes to parent Tbody of each section of the hidden form
 			tbodyClasses: function () {
@@ -3284,26 +3888,18 @@ var BBI = BBI || {
 				donationInfo = $('[id*="txtAmount"]')
 					.parents("tbody")
 					.addClass("donationInfo");
-
-				console.log(donationInfo);
 				// Additional Information
 				additionalInfo = $('[id*="trDesignation"]')
 					.parents("tbody")
 					.addClass("additionalInfo");
-
-				console.log(additionalInfo);
 				// Billing Information
 				billingInfo = $('[id*="DonationCapture1_txtFirstName"]')
 					.parents("tbody")
 					.addClass("billingInfo");
-
-				console.log(billingInfo);
 				// Tribute Information
 				tributeInfo = $('[id*="lblTributeHeading"]')
 					.parents("tbody")
 					.addClass("tributeInfo");
-
-				console.log(tributeInfo);
 				// Tribute Name
 				//tributeNameInput = '.tributeInfo [id*="trTributeName"] input[id*="txtTribute"]';
 				// Tribute Type Select List
@@ -3313,11 +3909,9 @@ var BBI = BBI || {
 				// Payment Information
 				//paymentInfo = $('[id*="DonationCapture1_lblCardHoldersName"]').parents('tbody').addClass('paymentInfo');
 			},
-
 			/**********************************************
 			Step 1 - Get Designation ID and Gift Amount
 			***********************************************/
-
 			stepOneGivingDetails: {
 				fundDesignationOption: function () {
 					var shownFundList, hiddenFundDesgList;
@@ -3344,7 +3938,6 @@ var BBI = BBI || {
 						);
 						$(this).attr("checked", "true");
 					});
-
 					// Match Selected Fund to Hidden Fund
 					$(shownFundList).on("change", function () {
 						var shownFundListSelected = $(
@@ -3361,7 +3954,6 @@ var BBI = BBI || {
 							.attr("selected", true);
 					});
 				},
-
 				clickHiddenAmount: function () {
 					$('input[value="rdoOther"]').click(); // auto-select "Other" amount option in hidden form (on page load)
 					var checkedRadio = $(
@@ -3371,7 +3963,6 @@ var BBI = BBI || {
 						checkedRadio
 					);
 				},
-
 				// Donation Amount
 				donationAmount: function () {
 					$("#addToCart a").on("click", function (e) {
@@ -3411,11 +4002,9 @@ var BBI = BBI || {
 					});*/
 				}
 			},
-
 			/**********************************************
 			Step 2 - GET DONOR NAME AND BILLING INFO
 			***********************************************/
-
 			stepTwoDonorInfo: {
 				// STEP 2A: GET BILLING NAME
 				billingName: function () {
@@ -3442,7 +4031,6 @@ var BBI = BBI || {
 						}
 					});
 				},
-
 				// STEP 2B: GET BILLING ADDRESS
 				billingAddress: function () {
 					var billingAddress, hiddenBillingAddress;
@@ -3514,7 +4102,6 @@ var BBI = BBI || {
 						.children()
 						.clone();
 					shownCountryList = "select#billingCountry";
-
 					if ($("select#billingCountry option").length === 0) {
 						$(hiddenCountryList).prependTo(shownCountryList);
 					}
@@ -3528,7 +4115,6 @@ var BBI = BBI || {
 
 					          });
 					*/
-
 					// Match Selected Fund to Hidden Fund
 					$("select#billingCountry option").click(function () {
 						var shownCountryListSelected = $(
@@ -3626,11 +4212,9 @@ var BBI = BBI || {
 					});
 				}
 			},
-
 			/**********************************************
 			Step 3 - PAYMENT INFO HANDLER
 			***********************************************/
-
 			stepThreePaymentInfo: {
 				// PART 3A:
 				// GET CARDHOLDER NAME AND VALIDATE ON KEYUP
@@ -3646,7 +4230,6 @@ var BBI = BBI || {
 						}
 					});
 				},
-
 				// PART 3B:
 				// GET CARD NUMBER, VALIDATE, AND UPDATE CLASS
 				cardNumber: function () {
@@ -3673,7 +4256,6 @@ var BBI = BBI || {
 					cardTypeInvalid = new RegExp(/^(0|1|2|7|8|9)$/); // Dynamic text of card type selected
 					cardType = ".cardTypeEnt";
 					cardTypeEnt = $(cardType).text(); // Get Card Number entered
-
 					// Match Number to CardType on Keyup
 					$(cardNumber).keyup(function () {
 						// console.log("cardNumber keyup");
@@ -3746,7 +4328,6 @@ var BBI = BBI || {
 						}
 					});
 					$(".cardTypeEnt").text(cardTypeEnt); // Get Card Type Based on Card Number
-
 					// Grab Credit Card value
 					$(cardNumber).keyup(function () {
 						var cardNumEnt = $(cardNumber).val();
@@ -3767,7 +4348,6 @@ var BBI = BBI || {
 								.addClass("invalid");
 						}
 					});
-
 					// Validate and Update Class
 					$(cardNumber).blur(function () {
 						var cardNumEnt = $(cardNumber).val();
@@ -3789,7 +4369,6 @@ var BBI = BBI || {
 						}
 					});
 				},
-
 				// PART 3C:
 				// CARD EXPIRATION HANDLER
 				cardExp: function () {
@@ -3817,7 +4396,6 @@ var BBI = BBI || {
 						);
 						$("select#cardExpMonth option:eq(0)").text("Month");
 					}
-
 					// Grab Card Exp Month
 					$(cardExpMonth).change(function () {
 						var cardExpMonthSelected = $(
@@ -3831,13 +4409,11 @@ var BBI = BBI || {
 							)
 							.attr("selected", "selected");
 					});
-
 					// Grab Hidden Values and Append to this Dropdown
 					if ($("select#cardExpYr option").length === 0) {
 						$(hiddenCardExpYearClone).appendTo("select#cardExpYr");
 						$("select#cardExpYr option:eq(0)").text("Year");
 					}
-
 					// Grab Card Exp Year
 					$(cardExpYear).change(function () {
 						var cardExpYearSelected = $(
@@ -3851,7 +4427,6 @@ var BBI = BBI || {
 						// console.log('Year selected');
 					});
 				},
-
 				// PART 3D:
 				// EXTRACT ALL CSC VALUES
 				cardCSC: function () {
@@ -3860,7 +4435,6 @@ var BBI = BBI || {
 					cscValidator = new RegExp(/^\d{3,4}$/); // CSC Validation RegEx Pattern
 					hiddenCardSecurityCode =
 						'table.DonationFormTable input[id*="txtCSC"]'; // Hidden/Old Form Vars
-
 					// Validate CSC Field and Update Class
 					$(cardSecCode).blur(function () {
 						var cscEnt = $(cardSecCode).val();
@@ -3880,7 +4454,6 @@ var BBI = BBI || {
 						}
 					});
 				},
-
 				// PART 6: STORE HIDDEN DATA AND UPDATE IF NEEDED
 				hiddenDataPersistence: function () {
 					var error = $("div[id$=ValidationSummary1]");
@@ -3921,7 +4494,6 @@ var BBI = BBI || {
 						$(billingEmail).val(hiddenEmailEnt);
 					}
 				},
-
 				autoFillExtraction: function () {
 					// CHECK IF DESIGNATION PRESENT
 					var designationCheck = $(
@@ -3932,7 +4504,6 @@ var BBI = BBI || {
 							value: designationCheck
 						}).text(designationCheck)
 					);
-
 					// PART 7: EXTRACT ALL VALUES
 					$("input#cscCode").blur(function () {
 						var billingFirstName =
@@ -3977,7 +4548,6 @@ var BBI = BBI || {
 					).prependTo(".submitButton");
 				}
 			}, // END STEP 3 PAYMENT INFO
-
 			/* Animate Step Here */
 			stepOneToggleAnimations: function () {
 				$(".donateAmount h3").addClass("complete");
@@ -3989,7 +4559,6 @@ var BBI = BBI || {
 					.removeClass();
 				$("#billingFirstName").focus();
 			},
-
 			stepToggles: function () {
 				$(
 					'#wrapSingleGivingForm .givingAmountOptions .rdoAmount input[type="radio"]'
@@ -4061,7 +4630,6 @@ var BBI = BBI || {
 					});
 				}
 			},
-
 			hiddenFormValidation: function () {
 				// Form Error(s) Text
 				$(
@@ -4076,7 +4644,6 @@ var BBI = BBI || {
 				}
 			}
 		}, // END CUSTOM SINGLE DONATION
-
 		resetBackgrounds: function () {
 			$(".wrapBreadcrumbs p img").show();
 			$(
@@ -4086,19 +4653,15 @@ var BBI = BBI || {
 		}
 	}
 };
-
 // Run global scripts...
 BBI.Methods.pageInit();
-
 // reset the backgrounds when the screen width changes
 var $window = $(window);
 var lastWindowWidth = $window.width();
-
 $window.resize(function () {
 	/* Do not calculate the new window width twice.
 	 * Do it just once and store it in a variable. */
 	var windowWidth = $window.width();
-
 	/* Use !== operator instead of !=. */
 	if (lastWindowWidth !== windowWidth) {
 		// EXECUTE YOUR CODE HERE
@@ -4106,9 +4669,7 @@ $window.resize(function () {
 		lastWindowWidth = windowWidth;
 	}
 });
-
 // document.write('<scr'+'ipt src="/file/web-dev/jquery.bxslider.min.js"></scr'+'ipt>');
-
 // Case insensitive version of ':contains()'
 jQuery.expr[":"].Contains = function (a, i, m) {
 	return (
@@ -4118,7 +4679,6 @@ jQuery.expr[":"].Contains = function (a, i, m) {
 		.indexOf(m[3].toUpperCase()) >= 0
 	);
 };
-
 // Make it safe to use console.log always
 window.log = function () {
 	log.history = log.history || [];
