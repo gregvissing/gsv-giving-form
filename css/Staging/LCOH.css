@@ -1,0 +1,3751 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+}
+body {
+    background: #fff;
+    line-height: 1
+}
+ol,
+ul {
+    list-style: none
+}
+blockquote,
+q {
+    quotes: none
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none
+}
+:focus {
+    outline: 0
+}
+ins {
+    text-decoration: none
+}
+del {
+    text-decoration: line-through
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+a img {
+    border: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    clear: both
+}
+p {
+    margin-bottom: 18px
+}
+ul {
+    margin: 0 0 18px 2.5em
+}
+ol {
+    margin: 0 0 18px 2.5em
+}
+ul {
+    list-style: disc
+}
+ol {
+    list-style-type: decimal
+}
+ol ol {
+    list-style: upper-alpha
+}
+ol ol ol {
+    list-style: lower-roman
+}
+ol ol ol ol {
+    list-style: lower-alpha
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin-bottom: 0
+}
+dl {
+    margin: 0 1.5em
+}
+dt {
+    font-weight: bold
+}
+dd {
+    margin-bottom: 18px
+}
+strong {
+    font-weight: bold
+}
+cite,
+em,
+i {
+    font-style: italic
+}
+blockquote {
+    margin: 0 3em
+}
+blockquote em,
+blockquote i,
+blockquote cite {
+    font-style: normal
+}
+pre {
+    font: 11px Monaco, monospace;
+    line-height: 18px;
+    margin-bottom: 18px
+}
+code {
+    font: 11px Monaco, monospace
+}
+abbr,
+acronym {
+    border-bottom: 1px dotted #333;
+    cursor: help
+}
+ins {
+    text-decoration: none
+}
+sup,
+sub {
+    height: 0;
+    line-height: 1;
+    vertical-align: baseline;
+    position: relative
+}
+sup {
+    bottom: 1ex
+}
+sub {
+    top: .5ex
+}
+blockquote.left {
+    float: left;
+    margin-left: 0;
+    margin-right: 20px;
+    text-align: right;
+    width: 33%
+}
+blockquote.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+    text-align: left;
+    width: 33%
+}
+body {
+    min-width: 960px
+}
+#header {
+    position: relative
+}
+#branding {
+    width: 960px;
+    margin: 0 auto
+}
+#access {
+    position: relative;
+    overflow: hidden
+}
+.menu {
+    width: 960px;
+    margin: 0 auto
+}
+#main {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    padding-top: 40px
+}
+#container {
+    width: 940px;
+    float: left;
+    margin: 0 0 0 10px
+}
+#content {
+    margin: 0 233px 0 212px;
+    position: relative
+}
+#primary {
+    width: 170px;
+    float: left;
+    margin: 0 0 0 -948px;
+    margin-top: 12px
+}
+* html #primary {
+    left: 20px;
+    position: relative
+}
+#secondary {
+    width: 195px;
+    float: left;
+    margin: 0 0 0 -205px;
+    margin-top: 12px
+}
+#footer {
+    clear: both
+}
+#subsidiary {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden
+}
+#subsidiary .aside {
+    width: 195px;
+    float: left;
+    margin: 0 45px 0 0
+}
+#subsidiary #fourth {
+    margin: 0;
+    width: 225px;
+    float: right
+}
+#siteinfo {
+    clear: both;
+    width: 940px;
+    margin: 0 auto
+}
+.page-template-template-page-fullwidth-php #container {
+    margin: 0;
+    width: 940px
+}
+.page-template-template-page-fullwidth-php #content {
+    margin: 0 0 0 10px;
+    width: 940px
+}
+.page-template-template-page-fullwidth-php #comments {
+    width: 540px
+}
+.entry-content .wp-post-image {
+    border: 1px solid #ccc;
+    float: right;
+    margin: 0 0 20px 18px;
+    padding: 5px
+}
+.entry-content img {
+    height: auto;
+    margin: 0 0 18px 0;
+    max-width: 100%
+}
+.alignleft,
+img.alignleft {
+    float: left;
+    margin-right: 20px
+}
+.alignright,
+img.alignright {
+    display: block;
+    float: right;
+    margin-left: 20px
+}
+.aligncenter,
+img.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    clear: both
+}
+.wp-caption {
+    border: 1px solid #ccc;
+    text-align: center;
+    margin-bottom: 18px;
+    max-width: 96%;
+    padding: 9px 5px 0
+}
+.wp-caption img {
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 0
+}
+.wp-caption p.wp-caption-text {
+    margin: 0;
+    padding: 18px 5px
+}
+.gallery {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0 0 22px 0
+}
+.gallery-row {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    margin: 0
+}
+.gallery-item {
+    overflow: hidden;
+    float: left;
+    margin: 0;
+    text-align: center;
+    list-style: none
+}
+.gallery-icon {
+    margin: 0 5px
+}
+#content .gallery img {
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 6px
+}
+.gallery-item img,
+.gallery-item img.thumbnail {
+    margin: 0 auto
+}
+.gallery-caption {
+    padding: 6px 6px 0
+}
+.wp-caption-text,
+.gallery-caption {
+    color: #666;
+    font-size: 13px;
+    line-height: 18px
+}
+.wp-smiley {
+    max-height: 12px;
+    margin: 0 !important
+}
+body,
+input,
+textarea {
+    font: 15px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    line-height: 22px;
+    color: #464646
+}
+div {
+    background: none
+}
+p,
+ul,
+ol,
+dd,
+pre {
+    margin-bottom: 22px
+}
+pre,
+code {
+    font: 14px Monaco, monospace;
+    line-height: 22px
+}
+blockquote {
+    color: #666;
+    font-style: italic
+}
+
+caption {
+    text-align: left
+}
+
+hr {
+    background-color: #ccc;
+    border: 0;
+    height: 1px;
+    margin-bottom: 22px
+}
+.ie7 hr {
+    background-color: transparent;
+    color: #ccc
+}
+a:link {
+    color: #e31e26
+}
+a:visited {
+    color: #e65b61
+}
+a:active,
+a:hover {
+    color: #e31e26
+}
+#header {
+    z-index: 100
+}
+#branding {
+    padding: 88px 0 44px 0
+}
+#blog-title {
+    font-family: Arial, sans-serif;
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 40px
+}
+#blog-title a {
+    color: #000;
+    text-decoration: none
+}
+#blog-title a:active,
+#blog-title a:hover {
+    color: #e31e26
+}
+#blog-description {
+    color: #666;
+    font-size: 13px;
+    font-style: italic
+}
+.skip-link {
+    display: none
+}
+#access {
+    border-bottom: 1px solid #ccc;
+    height: 32px;
+    font-size: 13px;
+    overflow: visible;
+    z-index: 100
+}
+.sf-menu,
+.sf-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+.sf-menu {
+    line-height: 1.0
+}
+.sf-menu ul {
+    position: absolute;
+    top: -999em;
+    width: 10em
+}
+.sf-menu ul li {
+    width: 100%
+}
+.sf-menu li:hover {
+    visibility: inherit
+}
+.sf-menu li {
+    float: left;
+    position: relative
+}
+.sf-menu a {
+    display: block;
+    position: relative
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul,
+.sf-menu li.autocompleteopen ul {
+    left: 0;
+    top: 2.5em;
+    z-index: 99
+}
+.sf-menu {
+    float: left;
+    margin-left: 1px
+}
+.sf-menu a {
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    padding: 9px 13px;
+    text-decoration: none
+}
+.ie7 .sf-menu a {
+    width: 100%
+}
+.sf-menu .current-menu-item a,
+.sf-menu .current-menu-parent a,
+.sf-menu .current-menu-ancestor a,
+.sf-menu .current-post-ancestor a,
+.sf-menu .current_page_item a,
+.sf-menu .current_page_ancestor a,
+.sf-menu .current_page_parent a {
+    border-bottom-color: #fff
+}
+.sf-menu a,
+.sf-menu a:visited {
+    color: #666
+}
+.sf-menu li {
+    background: #fff
+}
+.sf-menu li li {
+    background: #fff
+}
+.sf-menu li:hover,
+.sf-menu li.sfHover,
+.sf-menu a:focus,
+.sf-menu a:hover,
+.sf-menu a:active {
+    background: #fafafa;
+    outline: 0;
+    border-bottom-color: #ccc
+}
+.sf-menu ul {
+    border-bottom: 1px solid #ccc
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul,
+.sf-menu li.autocompleteopen ul {
+    top: 46px
+}
+.sf-menu ul ul {
+    margin-top: 0
+}
+.sf-menu ul a {
+    background: #fafafa;
+    border-bottom: none
+}
+.sf-menu ul a:hover {
+    color: #e31e26
+}
+#main {
+    clear: both;
+    padding: 66px 0 22px 0
+}
+.page-title {
+    font-size: 26px;
+    line-height: 30px;
+    padding: 0 0 44px 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: normal
+}
+.attachment .page-title {
+    font-style: italic
+}
+.page-title a {
+    color: #666;
+    text-decoration: none
+}
+.page-title a:active,
+.page-title a:hover {
+    color: #e31e26
+}
+.page-title .meta-nav {
+    font-style: normal
+}
+.hentry {
+    padding: 0 0 22px 0
+}
+.single .hentry {
+    padding: 0
+}
+.home #content .sticky {
+    border: 1px solid #ccc;
+    margin: 0 0 66px 0;
+    padding: 22px 20px 0 20px
+}
+.entry-title {
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 26px;
+    padding: 0 0 7px 0;
+    color: #444
+}
+.entry-title a {
+    color: #444;
+    text-decoration: none
+}
+.entry-title a:active,
+.entry-title a:hover {
+    color: #e31e26
+}
+.entry-meta {
+    color: #666;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 18px
+}
+.entry-meta .n,
+.entry-meta .nickname {
+    font-size: 11px;
+    font-style: normal
+}
+.entry-meta a {
+    color: #666;
+    text-decoration: none
+}
+.entry-meta a:active,
+.entry-meta a:hover {
+    color: #e31e26
+}
+.entry-meta abbr {
+    border: none;
+    cursor: text;
+    font-size: 11px;
+    font-style: normal
+}
+.entry-content {
+    padding: 0
+}
+.entry-content h1,
+.entry-content h2 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 19px;
+    font-weight: normal;
+    padding: 10px 0 14px 0;
+    color: #444
+}
+.entry-content h3 {
+    font-size: 14px;
+    padding: 0 0 3px 0;
+    font-weight: bold;
+    color: #d41b23
+}
+.entry-content h4 {
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #444
+}
+.entry-content table {
+    margin-left: 1px
+}
+.entry-content embed {
+    margin: 0 0 22px 0
+}
+.entry-utility {
+    clear: both;
+    color: #666;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0 0 5px 0
+}
+.entry-utility a {
+    color: #666;
+    font-style: italic;
+    text-decoration: none
+}
+.entry-utility a:active,
+.entry-utility a:hover {
+    color: #e31e26
+}
+.page .edit-link {
+    clear: both;
+    display: block
+}
+.page-link {
+    clear: both;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 0 0 22px 0;
+    padding: 22px 0 0 0;
+    word-spacing: 0.5em
+}
+.page-link a {
+    border: 1px solid #ccc;
+    color: #666;
+    font-weight: normal;
+    padding: 0.5em 0.75em;
+    text-decoration: none
+}
+.page-link a:active,
+.page-link a:hover {
+    color: #e31e26
+}
+ul#links-page,
+ul#archives-page {
+    list-style: none;
+    margin-left: 0;
+    overflow: hidden
+}
+li.content-column {
+    float: left;
+    margin-right: 20px;
+    width: 45%
+}
+#author-info {
+    margin: 0 0 44px 0;
+    overflow: hidden
+}
+#author-info .avatar {
+    float: left;
+    margin: .3em 1em 0 0
+}
+.attachment-jpeg #container,
+.attachment-png #container {
+    width: 100%
+}
+.attachment-jpeg #content,
+.attachment-png #content {
+    width: 930px
+}
+.attachment-jpeg #comments,
+.attachment-png #comments {
+    width: 540px;
+    overflow: hidden
+}
+.attachment-jpeg .main-aside,
+.attachment-png .main-aside {
+    display: none
+}
+.navigation {
+    color: #666;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0px 0 22px 0;
+    overflow: hidden
+}
+.navigation a {
+    color: #666;
+    font-style: italic;
+    text-decoration: none
+}
+.navigation a:active,
+.navigation a:hover {
+    color: #e31e26
+}
+.navigation .meta-nav {
+    font-style: normal
+}
+.nav-previous {
+    float: left;
+    width: 50%
+}
+.nav-next {
+    float: right;
+    width: 50%;
+    text-align: right
+}
+#nav-above,
+#nav-below {
+    width: 100%
+}
+#nav-above {
+    display: none
+}
+.paged #nav-above {
+    display: block;
+    padding: 0 0 44px 0
+}
+#comments {
+    clear: both;
+    padding: 22px 0 0 0
+}
+#comments,
+#comments input,
+#comments textarea {
+    font-size: 13px;
+    line-height: 18px
+}
+#comments code {
+    font-size: 12px;
+    line-height: 18px
+}
+#comments h3 {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 22px;
+    padding: 0 0 18px 0
+}
+#comments-list {
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin: 0 0 18px
+}
+#comments-list h3 {
+    padding-bottom: 0
+}
+#comments-list,
+#comments-list ul {
+    list-style: none
+}
+#comments-list ul,
+#comments-list ol {
+    padding-bottom: 18px
+}
+#comments-list ul ul,
+#comments-list ol ol,
+#comments-list ul ul ul,
+#comments-list ol ol ol {
+    padding-bottom: 0
+}
+#comments-list .comment {
+    background: #fafafa;
+    border-bottom: 1px solid #ccc;
+    padding: 18px 1.5em 0 1.5em;
+    position: relative
+}
+#comments-list li.alt {
+    background: #fff
+}
+#comments-list li.bypostauthor {
+    background: #FFFFCC
+}
+#comments-list ul .comment {
+    border: 1px solid #ccc;
+    margin: 0 0 18px 0
+}
+#comments-list li .avatar {
+    position: absolute;
+    top: 22px;
+    left: 1.5em;
+    width: 36px;
+    height: 36px
+}
+#comments-list .comment-author {
+    font-weight: bold;
+    padding: 9px 0 0 46px
+}
+#comments-list .comment-meta {
+    color: #666;
+    font-size: 11px;
+    padding: 0 0 9px 46px
+}
+#comments-list .comment-meta a {
+    color: #666;
+    font-style: italic;
+    text-decoration: none
+}
+#comments-list .comment-meta a:active,
+#comments-list .comment-meta a:hover {
+    color: #e31e26
+}
+.comment-reply-link {
+    font-size: 11px;
+    padding: 0 0 18px 0;
+    text-align: right
+}
+.comment-reply-link a {
+    color: #666;
+    font-style: italic;
+    text-decoration: none
+}
+.comment-reply-link a:active,
+.comment-reply-link a:hover {
+    color: #e31e26
+}
+.comment-navigation {
+    font-weight: bold;
+    padding: 18px 0 24px;
+    margin-right: 0.5em
+}
+.comment-navigation a {
+    border: 1px solid #ccc;
+    color: #666;
+    font-weight: normal;
+    padding: 0.5em 0.75em;
+    text-decoration: none
+}
+.comment-navigation a:active,
+.comment-navigation a:hover {
+    color: #e31e26
+}
+.comment-navigation a,
+.comment-navigation span {
+    margin-right: 0.5em
+}
+#trackbacks-list .comment-content {
+    position: absolute;
+    left: -10000px
+}
+#respond {
+    background: #fff;
+    margin-bottom: 22px;
+    overflow: hidden;
+    padding: 18px 0 0 0;
+    position: relative
+}
+#comments-list #respond {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 18px 0;
+    padding: 18px 1.5em
+}
+#comments-list ul #respond {
+    border: 1px solid #ccc;
+    margin: 0
+}
+#cancel-comment-reply {
+    font-size: 11px;
+    position: absolute;
+    top: 18px;
+    right: 1.5em
+}
+#cancel-comment-reply a {
+    color: #666
+}
+#respond .required {
+    color: #e31e26;
+    font-weight: bold
+}
+.form-section label {
+    font-size: 11px
+}
+.form-section input {
+    margin: 0 0 18px 0;
+    width: 98%
+}
+.form-section textarea {
+    width: 99%
+}
+#form-allowed-tags p {
+    color: #666;
+    font-size: 11px;
+    margin: 0
+}
+#form-allowed-tags span {
+    font-style: italic
+}
+#form-allowed-tags code {
+    font-size: 11px;
+    line-height: normal
+}
+.form-submit {
+    padding: 18px 0 0 0;
+    text-align: right
+}
+.subscribe-to-comments {
+    color: #666;
+    float: left;
+    font-size: 11px;
+    margin: 0;
+    padding: 18px 0 0 0
+}
+.solo-subscribe-to-comments {
+    color: #666;
+    font-size: 11px;
+    padding: 18px 0 0 0
+}
+.comment_license {
+    color: #666;
+    clear: both;
+    font-size: 11px;
+    margin: 0;
+    padding: 18px 0 0 0
+}
+.aside,
+.aside input {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 6px
+}
+.aside p,
+.aside ul,
+.aside ol,
+.aside dd,
+.aside pre {
+    margin-bottom: 18px
+}
+.aside pre,
+.aside code {
+    font-size: 12px;
+    line-height: 18px
+}
+.aside .current-menu-item a,
+.aside .current_page_item a {
+    color: #e31e26
+}
+.aside .current-menu-item .menu-item a,
+.aside .current_page_item .menu-item a {
+    color: #666
+}
+.aside .current-menu-item .menu-item a:hover,
+.aside .current-menu-item .menu-item a:active,
+.aside .current_page_item .menu-item a:hover,
+.aside .current_page_item .menu-item a:active {
+    color: #e31e26
+}
+.aside {
+    color: #666
+}
+.aside a {
+    color: #666
+}
+.aside a:active,
+.aside a:hover {
+    color: #e31e26
+}
+.aside h3 {
+    font-size: 15px;
+    line-height: 22px
+}
+.aside h3 a {
+    text-decoration: none
+}
+.aside caption {
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+    font-weight: bold
+}
+.aside ul {
+    list-style: none;
+    margin-left: 0
+}
+.aside ul ul {
+    list-style: disc;
+    margin: 0 0 22px 20px
+}
+.aside ul ul li {
+    padding: 1px 0
+}
+.aside ul ul ul {
+    margin-bottom: 0
+}
+.aside form,
+.aside table {
+    margin-bottom: 22px
+}
+.aside table {
+    border: none
+}
+.aside thead {
+    border: 1px solid #ccc
+}
+.aside tbody {
+    border: 1px solid #ccc
+}
+.aside th,
+.aside td {
+    border-right: 1px solid #ccc;
+    padding: .25em .8em
+}
+.aside tfoot tr {
+    border: none
+}
+.aside tfoot td {
+    border-color: transparent
+}
+.widget_tag_cloud {
+    margin: 0 0 22px 0
+}
+.aside #searchsubmit {
+    display: none
+}
+.main-aside ul {
+    padding: 0;
+    margin-left: -5px
+}
+.main-aside ul ul {
+    padding: 0
+}
+#primary {
+    border: none;
+    background: #f2f2f2;
+    padding: 0;
+    border-left: 5px solid #aeafaf
+}
+#content .aside {
+    border: 1px solid #ccc;
+    margin: 0 0 22px 0;
+    padding: 18px 0 0 0
+}
+#content .aside ul {
+    padding: 0 20px
+}
+#content .aside h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0 0 3px 0;
+    text-transform: none
+}
+#content .aside ul ul {
+    padding: 0
+}
+#subsidiary {
+    padding: 23px 0 0 0
+}
+#footer {
+    border-top: 1px solid #ccc;
+    margin-top: 22px
+}
+#siteinfo {
+    color: #666;
+    font-size: 11px;
+    line-height: 18px;
+    padding: 22px 0 44px 0
+}
+#siteinfo a {
+    color: #666
+}
+#siteinfo a:active,
+#siteinfo a:hover {
+    color: #e31e26
+}
+.edit-comment {
+    margin-bottom: 18px
+}
+.wp-pagenavi {
+    padding: 0.5em 0
+}
+.wp-pagenavi a,
+.wp-pagenavi a:link,
+.wp-pagenavi span {
+    border: 1px solid #ccc;
+    color: #666;
+    font-style: normal;
+    margin: 0 .375em;
+    padding: 0.5em 0.5em
+}
+.wp-pagenavi a:visited {
+    border: 1px solid #ccc;
+    color: #666
+}
+.wp-pagenavi a:hover {
+    border: 1px solid #ccc;
+    color: #FF4B33
+}
+.wp-pagenavi a:active {
+    border: 1px solid #ccc;
+    color: #FF4B33
+}
+.wp-pagenavi span.pages {
+    border: none;
+    color: #666;
+    margin: 0;
+    padding: 0
+}
+.wp-pagenavi span.current {
+    color: #000
+}
+.wp-pagenavi span.extend {
+    color: #000
+}
+img#wpstats {
+    width: 0px;
+    height: 0px;
+    overflow: hidden
+}
+.entry-content iframe .gm-style .review-box {
+    display: none
+}
+body {
+    background: url(https://foundation.uc.edu/file/lcoh/bg.png) 0 125px repeat-x;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 18px
+}
+.error404 h1 {
+    display: block
+}
+.entry-title {
+    display: none
+}
+.search-results .entry-title {
+    display: block;
+    font-size: 25px;
+    line-height: 30px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal
+}
+.search-results .hentry {
+    width: 100%;
+    float: left;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 10px
+}
+
+
+.clear {
+    clear: both
+}
+p,
+ul,
+ol,
+dd,
+pre {
+    margin-bottom: 8px
+}
+a:link,
+a:visited {
+    color: #1a2574;
+    text-decoration: none
+}
+.entry-content a {
+    text-decoration: underline;
+    color: #4b4b4b
+}
+.aside ul ul {
+    list-style: none;
+    margin: 0
+}
+.aside ul ul li {
+    padding: 0
+}
+.aside ul.xoxo li.page_item a,
+.aside ul.xoxo li.page_item a:visited,
+.aside ul.xoxo li.page_item a:active,
+.aside ul.menu>li.page_item>a,
+.aside ul.menu>li.page_item>a:visited,
+.aside ul.menu>li.page_item>a:active {
+    padding: 8px 0px 8px 20px;
+    border-bottom: 1px solid #ffffff;
+    width: 175px;
+    display: block;
+    font-weight: bold;
+    color: #7b7b7b;
+    font-size: 13px
+}
+.aside ul.xoxo li.page_item a:hover,
+.aside ul.menu>li.page_item>a:hover {
+    color: #000000
+}
+.aside ul.xoxo ul.children {
+    background: #dbdbdb;
+    border-left: 5px solid #5f6265
+}
+.blogsb.aside li ul li {
+    background: transparent;
+    padding: 3px 0px
+}
+.blogsb.aside h3 {
+    font-family: "Times New Roman", Times, serif;
+    padding: 5px
+}
+.meta-sep.meta-sep-entry-date,
+.author.vcard,
+.meta-prep.meta-prep-author {
+    display: none
+}
+.aside li ul li.current_page_item a,
+.aside li ul li.current_page_parent a,
+.aside li ul li.current_page_ancestor a {
+    font-weight: bold;
+    color: #000000 !important
+}
+.aside ul.xoxo ul.children li {
+    border-left: none
+}
+.aside ul.xoxo ul.children li a:hover {
+    color: #0f206c
+}
+.aside ul.xoxo ul.children li a {
+    padding: 3px 0px 3px 25px;
+    width: 165px;
+    font-size: 10px;
+    font-weight: normal;
+    border-bottom: 1px solid #f2f2f2
+}
+.aside ul.xoxo ul.children li.current_page_item a,
+.aside ul.xoxo ul.children li.current_page_ancestor a {
+    font-weight: bold
+}
+.aside ul.xoxo ul.children li.current_page_item.page_item_has_children a,
+.aside ul.xoxo ul.children li.current_page_ancestor.page_item_has_children a {
+    border-bottom: none
+}
+.aside ul.xoxo ul.children ul.children {
+    display: none
+}
+.aside ul.xoxo ul.children ul.children li a {
+    border-bottom: none;
+    font-weight: normal;
+    padding-top: 0;
+    padding-bottom: 0
+}
+.aside ul.xoxo ul.children li.page-item-23088.current_page_item ul.children,
+.aside ul.xoxo ul.children li.page-item-23088.current_page_ancestor ul.children {
+    display: block;
+    border-bottom: 1px solid #f2f2f2;
+    width: auto;
+    border-left: none;
+    padding-bottom: 5px;
+    padding-left: 10px
+}
+.aside .clinician-container {
+    border-left: 5px solid #5f6265
+}
+.aside .clinician-container a {
+    background: #dbdbdb;
+    padding: 3px 0px 3px 25px;
+    width: 165px;
+    font-size: 10px;
+    font-weight: normal;
+    border-bottom: 1px solid #f2f2f2
+}
+.aside li ul li a,
+.aside li ul li a:visited,
+.aside li ul li a:active {
+    color: #5f6265
+}
+.aside .current-menu-item a,
+.aside .current_page_item a {
+    color: #5f6265
+}
+.aside li ul li a:hover {
+    color: #0f206c
+}
+.sb-hope-big {
+    font-size: 16px;
+    color: #1a2574;
+    font-weight: bold
+}
+.sb-hope {
+    color: #1a2574;
+    font-weight: bold
+}
+hr {
+    height: 3px;
+    margin-bottom: 15px
+}
+div.css-search {
+    padding: 10px 5px 5px 5px
+}
+div.css-search.has-advanced div.em-search-main {
+    width: 570px;
+    float: left;
+    border-bottom: none
+}
+div.css-search input.em-search-text {
+    width: 80%
+}
+div.css-search div.em-search-advanced {
+    padding: 0px;
+    width: 100px;
+    float: left
+}
+.em-search-advanced .em-search-scope.em-search-field {
+    padding: 0
+}
+div.css-search div.em-search-advanced label {
+    min-width: 50px;
+    border-bottom: none;
+    padding-top: 10px;
+    font-weight: bold;
+    color: #000000
+}
+div.css-search div.em-search-main .em-search-submit {
+    margin-top: 5px;
+    padding: 6px 7px
+}
+input[type="text"].em-date-start {
+    background: url("https://foundation.uc.edu/file/lcoh/events-calendar.png");
+    background-repeat: no-repeat;
+    width: 30px;
+    padding: 0;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    color: transparent
+}
+input[type="text"].em-date-start:hover {
+    cursor: pointer
+}
+.em-date-end {
+    display: none
+}
+span.em-search-scope.em-events-search-dates.em-date-range {
+    color: #ffffff
+}
+#events-sidebar,
+#sibcy-sidebar {
+    border: none;
+    background: #f2f2f2;
+    padding: 0;
+    border-left: 5px solid #aeafaf;
+    width: 190px;
+    float: left;
+    margin: 0 0 0 -948px;
+    margin-top: 12px
+}
+#events-sidebar li,
+#sibcy-sidebar li {
+    list-style: none;
+    margin-bottom: 20px
+}
+#text-7 {
+    padding-left: 10px
+}
+#text-7 h3 {
+    font-family: "Times New Roman", Times, serif;
+    padding: 0 0 10px 0;
+    font-size: 15px;
+    line-height: 22px
+}
+#primary {
+    width: 190px;
+    margin: 0;
+    float: left;
+    bottom: 20px;
+    top: 14px
+}
+#primary li {
+    list-style: none
+}
+#primary .widget_text {
+    margin-bottom: 20px
+}
+#primary #text-3,
+#primary #text-4 {
+    display: none
+}
+.page-id-6 #primary #text-3,
+.page-id-6 #primary #text-4 {
+    display: block
+}
+#primary .widget.spot {
+    padding: 15px;
+    border-top: 1px solid #fff
+}
+#primary .widgetcontainer.spot {
+    padding: 20px;
+    border-top: 1px solid #fff
+}
+.disorder_nav_outter {
+    border-left: 10px solid #0f206c;
+    margin-top: -20px
+}
+.disorder_nav {
+    background: #e3e6eb;
+    height: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c3c3c3
+}
+.disorder_nav li {
+    display: inline-block;
+    list-style: none;
+    border-right: 1px solid #c3c3c3;
+    float: left
+}
+.disorder_nav li a {
+    color: #7b7b7b;
+    font-weight: bold;
+    height: 20px;
+    padding: 10px 10px;
+    border-right: 1px solid #fff;
+    display: block;
+    text-decoration: none
+}
+.disorder_nav li.current_page_item {
+    background: #ffffff;
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #ffffff
+}
+.disorder_nav li a:hover {
+    color: #1a2574
+}
+.disorder_nav li ul {
+    display: inline-block
+}
+#primary li.current_page_item a {
+    color: #000000
+}
+#hp-header-text {
+    width: 305px;
+    padding-right: 20px;
+    float: left;
+    line-height: 16px
+}
+#hp-header-text iframe {
+    width: 100%;
+    height: 202px
+}
+#hp-header-text img {
+    -moz-box-shadow: 2px 2px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #ccc
+}
+#hp-header-text h1 {
+    line-height: 27px;
+    font-size: 27px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    color: #1a2574;
+    padding-bottom: 10px;
+    text-shadow: #e3e3e3 1px 1px 1px
+}
+#hp-header-text a {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    background-repeat: no-repeat;
+    padding-left: 0px;
+    font-size: 16px;
+    transition: all 0.5s ease
+}
+#hp-header-text a:hover {
+    padding-left: 10px;
+    background-repeat: no-repeat
+}
+#hp-header-slider {
+    float: right;
+    width: 635px
+}
+#hp-header-slider .metaslider .slides img {
+    -moz-box-shadow: 2px 2px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #ccc
+}
+.headersearch {
+    width: 960px;
+    position: relative;
+    z-index: 999;
+    margin: 0 auto
+}
+#searchform {
+    top: 55px;
+    z-index: 9999;
+    width: 360px;
+    margin: 0 auto;
+    text-align: right;
+    padding-top: 20px;
+    float: right
+}
+#searchform input[type="text"] {
+    width: 150px
+}
+.lcoh-sm-icons {
+    position: relative;
+    width: 960px;
+    top: 70px;
+    margin: 0 auto;
+    z-index: 999
+}
+.lcoh-sm-icons-inner {
+    position: absolute;
+    right: 0;
+    width: 300px;
+    text-align: right
+}
+.lcoh-sm-icons-inner a {
+    height: 26px;
+    width: 26px;
+    margin-left: 10px;
+    padding: 3px 13px;
+    background: url(".https://foundation.uc.edu/file/lcoh/lcoh-sm-icons.png");
+    background-repeat: no-repeat
+}
+.lcoh-sm-icons-inner a.linkedin {
+    background-position: -36px
+}
+.lcoh-sm-icons-inner a.twitter {
+    background-position: -71px
+}
+.lcoh-sm-icons-inner a.youtube {
+    background-position: -106px
+}
+.lcoh-header-menu {
+    width: 100%;
+    position: absolute;
+    font-size: 10px
+}
+.lcoh-header-menu-inner {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+    text-align: right;
+    z-index: 9999;
+    text-transform: uppercase;
+    font-weight: bold
+}
+.lcoh-header-menu-inner a {
+    color: #939393
+}
+.lcoh-header-menu ul {
+    list-style: none
+}
+.lcoh-header-menu li {
+    display: inline;
+    padding: 0px 10px;
+    border-right: 1px solid #939393
+}
+#content {
+    margin: 0;
+    float: right;
+    width: 725px
+}
+.hentry {
+    width: 480px;
+    float: left;
+    padding: 0 20px 0 0
+}
+.banner {
+    margin-bottom: 20px
+}
+.banner img {
+    max-width: 100%
+}
+.entry-content .banner p {
+    margin-bottom: 0
+}
+.entry-content .banner img {
+    padding: 0;
+    margin-bottom: 0;
+    width: 100%;
+    border: none
+}
+#right-side-content {
+    width: 200px;
+    float: right;
+    font-size: 13px;
+    line-height: 16px;
+    border-left: 1px solid #d1d1d1;
+    padding-left: 20px;
+    margin-top: 0px
+}
+#right-side-content a {
+    text-decoration: underline;
+    color: #4b4b4b;
+    display: block
+}
+#right-side-content h2 {
+    line-height: 21px;
+    font-size: 21px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    margin-bottom: 10px
+}
+#right-side-content h3 {
+    font-size: 14px;
+    color: #6A8012;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    padding-bottom: 5px
+}
+#right-side-content ul {
+    margin: 0 0 15px 30px
+}
+#right-side-content ul li {
+    margin-bottom: 15px
+}
+#right-side-content img {
+    max-width: 100%;
+    height: auto
+}
+.entry-content h1 {
+    font-size: 25px;
+    line-height: 30px;
+    font-family: "Times New Roman", Times, serif;
+    padding-top: 0
+}
+.entry-content h2 {
+    font-size: 14px;
+    color: #6A8012;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    padding-bottom: 5px
+}
+.entry-content h3,
+#right-side-content h4 {
+    color: #1a2574;
+    font-size: 14px;
+    font-weight: bold
+}
+.entry-content li {
+    margin-bottom: 5px
+}
+.page-template-page-sibcy-house-php .hentry {
+    width: 710px
+}
+.page-template-page-sibcy-house-php #right-side-content {
+    border-left: none
+}
+.page-template-page-sibcy-house-php .entry-content {
+    width: 470px;
+    float: left
+}
+.bottom-left-content {
+    width: 50%;
+    float: left
+}
+.bottom-right-content {
+    width: 50%;
+    float: right
+}
+.parent-pageid-1674 .disorder_nav,
+.parent-pageid-1674 .page-child .disorder_nav,
+.parent-pageid-1675 .disorder_nav,
+.parent-pageid-1675 .page-child .disorder_nav {
+    height: 30px
+}
+.parent-pageid-1674 .disorder_nav li a,
+.parent-pageid-1674 .page-child .disorder_nav li,
+.parent-pageid-1675 .disorder_nav li a,
+.parent-pageid-1675 .page-child .disorder_nav li {
+    padding: 5px;
+    font-size: 10px
+}
+.parent-pageid-1678 .disorder_nav li a,
+.parent-pageid-1678 .page-child .disorder_nav li,
+.parent-pageid-1679 .disorder_nav li a,
+.parent-pageid-1679 .page-child .disorder_nav li,
+.parent-pageid-1682 .disorder_nav li a,
+.parent-pageid-1682 .page-child .disorder_nav li,
+.parent-pageid-1684 .disorder_nav li a,
+.parent-pageid-1684 .page-child .disorder_nav li,
+.parent-pageid-1688 .disorder_nav li a,
+.parent-pageid-1688 .page-child .disorder_nav li,
+.parent-pageid-1685 .disorder_nav li a,
+.parent-pageid-1685 .page-child .disorder_nav li {
+    padding: 5px;
+    font-size: 10px
+}
+.parent-pageid-1678 .disorder_nav,
+.parent-pageid-1678 .page-child .disorder_nav,
+.parent-pageid-1679 .disorder_nav,
+.parent-pageid-1679 .page-child .disorder_nav,
+.parent-pageid-1682 .disorder_nav,
+.parent-pageid-1682 .page-child .disorder_nav,
+.parent-pageid-1684 .disorder_nav,
+.parent-pageid-1684 .page-child .disorder_nav,
+.parent-pageid-1688 .disorder_nav,
+.parent-pageid-1688 .page-child .disorder_nav,
+.parent-pageid-1685 .disorder_nav,
+.parent-pageid-1685 .page-child .disorder_nav {
+    height: 30px
+}
+.custom_form li {
+    list-style: none;
+    margin-bottom: 10px
+}
+.cftext label {
+    width: 100px;
+    display: inline-block
+}
+.cftext input[type="text"],
+.cftext input[type="email"] {
+    width: 250px
+}
+.cfarea textarea {
+    width: 250px;
+    margin-left: 100px
+}
+.alertgreen {
+    background: #dff0d8;
+    border: 1px solid #deedd1;
+    color: #4c844e;
+    padding: 8px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px
+}
+.alertred {
+    background: #f4cccc;
+    border: 1px solid #e8bdbd;
+    color: #990808;
+    padding: 8px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px
+}
+.category .hentry,
+.blog .hentry {
+    border-bottom: 1px solid #ebeae8;
+    padding: 10px 20px 20px 0;
+    width: 690px
+}
+.category .page-title,
+.blog .page-title {
+    padding: 0 0 20px 0
+}
+.category .entry-title {
+    display: block;
+    font-size: 14px
+}
+.single.single-lcoh_video .hentry,
+.single.single-lcoh_clinician .hentry {
+    width: 490px
+}
+.single .hentry {
+    width: 98%
+}
+.single .entry-title,
+.blog .entry-title {
+    display: block
+}
+.blog .entry-title {
+    font-size: 14px
+}
+.entry-meta {
+    margin-bottom: 15px
+}
+table.events-table {
+    width: 98%
+}
+.events-table a:link,
+.events-table a:visited {
+    color: #1a2574
+}
+.meta-sep.meta-sep-edit,
+.meta-sep.meta-sep-tag-links {
+    display: none
+}
+.float-left {
+    width: 50%;
+    float: left;
+    margin-right: 4%
+}
+.float-right {
+    width: 46%;
+    float: right
+}
+.current_page_item .children,
+.current_page_parent .children,
+.current_page_ancestor .children {
+    display: block
+}
+.children {
+    display: none
+}
+li.customside.current_page_item {
+    padding: 0
+}
+.single-lcoh_clinician .entry-title {
+    display: block
+}
+.single-lcoh_clinician .entry-meta {
+    display: none
+}
+.single-lcoh_clinician #right-side-content img {
+    width: 70px;
+    height: auto
+}
+.clinician-container {
+    overflow: hidden;
+    margin-bottom: 20px
+}
+.clinician {
+    width: 160px;
+    height: 190px;
+    float: left;
+    margin-right: 20px
+}
+.clinician a {
+    color: #4b4b4b;
+    font-weight: bold;
+    text-decoration: underline
+}
+.clinician a:hover {
+    color: #1a2574
+}
+.clinician img {
+    width: 70px;
+    height: auto;
+    margin-bottom: 5px
+}
+.cliniciansummary {
+    font-size: 11px;
+    font-style: italic
+}
+.page-id-1083 .video-container {
+    padding-left: 30px
+}
+.single-lcoh_video .entry-meta {
+    display: none
+}
+.page-template-template-page-fullwidth-php #container {
+    width: 938px
+}
+.page-template-template-page-fullwidth-php #content {
+    margin: 0;
+    width: 725px;
+    float: right
+}
+.page-template-template-page-fullwidth-php #content .hentry {
+    width: 100%;
+    padding: 0
+}
+.title {
+    height: 200px
+}
+.home #main {
+    overflow: visible
+}
+.home #container {
+    overflow: hidden
+}
+#hp-lcoh-post,
+#hp-middle-box,
+#hp-last-box {
+    font-size: 13px;
+    line-height: 15px
+}
+#hp-middle-box img,
+#hp-last-box img {
+    width: 100%;
+    height: auto
+}
+#hp-recent-posts {
+    width: 280px;
+    padding: 10px 10px;
+    float: left
+}
+#hp-middle-box {
+    width: 280px;
+    padding: 10px 10px;
+    float: left
+}
+#hp-last-box {
+    width: 280px;
+    padding: 10px 10px;
+    float: left
+}
+#hp-recent-posts h2,
+#hp-middle-box h2,
+#hp-last-box h2 {
+    font-family: "Times New Roman", Times, serif;
+    color: #1a2574;
+    font-size: 18px;
+    padding-bottom: 10px
+}
+#hp_lcoh-title {
+    font-weight: bold;
+    font-size: 10px
+}
+#hp-lcoh-post {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d1d1d1;
+    margin-bottom: 10px
+}
+#hp-lcoh-post a {
+    font-size: 11px;
+    font-weight: bold
+}
+.side-bar-hope {
+    text-align: center
+}
+.page-id-1082 .entry-content img {
+    max-height: 75px;
+    width: auto;
+    margin-bottom: 0px
+}
+#branding {
+    position: relative;
+    padding: 0;
+    height: 100px
+}
+#blog-title {
+    position: absolute;
+    left: 7px;
+    top: 30px
+}
+#blog-title a {
+    width: 378px;
+    height: 54px;
+    display: block;
+    background: url(https://foundation.uc.edu/file/lcoh/lcoh-uc-logo.gif);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: -999px
+}
+#blog-description {
+    display: none
+}
+#access {
+    height: 53px;
+    background: url(https://foundation.uc.edu/file/lcoh/nav.png) top repeat-x #888b8f;
+    font-family: Tahoma, Geneva, sans-serif;
+    border-bottom: 4px solid #e9eaee
+}
+#access>menu {
+    display: none
+}
+ul.sf-menu>li {
+    background: transparent;
+    border-bottom: 4px solid #e9eaee
+}
+ul.sf-menu>li:hover {
+    transition: all 0.3s ease;
+    border-bottom: 4px solid #1a2574
+}
+ul.sf-menu>li.current-page-ancestor,
+ul.sf-menu>li.current-page-parent,
+ul.sf-menu>li.current_page_item,
+ul.sf-menu>li.current-menu-item {
+    border-bottom: 4px solid #1a2574
+}
+ul.sf-menu>li>a,
+ul.sf-menu>li>a:visited {
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top: none;
+    border-bottom: none;
+    height: 28px;
+    padding: 15px 15px 10px 15px;
+    color: #fff;
+    text-shadow: #333 1px 1px 1px
+}
+ul.sf-menu>li:hover,
+ul.sf-menu>li.hover,
+ul.sf-menu>li.sfHover,
+ul.sf-menu>li.sfHover>a,
+ul.sf-menu>li>a:hover,
+ul.sf-menu>li>a:focus,
+ul.sf-menu>li>a:active {
+    background: transparent
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul,
+.sf-menu li.autocompleteopen ul {
+    top: 58px
+}
+.menu-disclaimer-menu-container .sub-menu {
+    display: block
+}
+.grid-container {
+    text-align: center
+}
+.grid-container .metaslider {
+    margin: 0 auto
+}
+.grid-container img {
+    margin-left: 20px;
+    margin-right: 20px
+}
+.menu-utility-container {
+    position: relative;
+    width: 960px;
+    margin: 0 auto
+}
+#menu-utility {
+    position: absolute;
+    right: 280px;
+    top: -90px;
+    width: auto
+}
+#menu-utility li {
+    list-style: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    float: left;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #333
+}
+#menu-utility li.last {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0
+}
+#menu-utility a,
+#menu-utility a:active,
+#menu-utility a:visited {
+    color: #939393;
+    text-decoration: none
+}
+#menu-utility a:hover {
+    color: #333
+}
+#menu-utility #menu-item-4914 a {
+    background: url("https://foundation.uc.edu/file/lcoh/btn-paybill.png");
+    width: 91px;
+    height: 21px;
+    text-indent: -999px;
+    display: block;
+    overflow: hidden
+}
+#menu-utility #menu-item-4914 a:hover {
+    background-position: 0 -21px
+}
+#sitesearchcontainer {
+    width: 960px;
+    margin: 0 auto;
+    position: relative
+}
+#sitesearch {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -145px;
+    width: auto
+}
+.page-template-page-uchealth-home-php #sitesearch {
+    top: -115px
+}
+#query-input {
+    width: 192px;
+    border: 1px solid #ddd;
+    background: #F7F7F7;
+    border: 1px solid #eee;
+    height: 21px;
+    padding: 4px 4px 0
+}
+.page-template-page-uchealth-home-php #query-input {
+    width: 250px
+}
+#sitesearch button {
+    background: url(https://foundation.uc.edu/file/lcoh/btn-go.png) no-repeat;
+    width: 31px;
+    height: 26px;
+    text-indent: -999px;
+    overflow: hidden;
+    display: inline-block;
+    border: none
+}
+.gsc-control-wrapper-cse .gsc-search-box,
+.gsc-control-wrapper-cse .gsc-resultsHeader {
+    display: none
+}
+.gs-result .gs-title,
+.gs-result .gs-title * {
+    color: #E31E26 !important
+}
+#adBlock {
+    padding: 20px
+}
+#results .gsc-result-info-container,
+#results .gsc-result-info {
+    padding: 0;
+    margin: 0;
+    font-style: italic
+}
+ul.sf-menu>li>ul.sub-menu {
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    background: #e9eaee;
+    border-top: none;
+    width: 200px;
+    -moz-box-shadow: 0px 1px 1px #ccc;
+    -webkit-box-shadow: 0px 1px 1px #ccc;
+    box-shadow: 0px 1px 1px #ccc
+}
+.sf-menu li li {
+    background: transparent
+}
+ul.sf-menu>li>ul>li {
+    border-bottom: 1px solid #fff
+}
+ul.sf-menu>li>ul li>a {
+    display: block;
+    padding: 7px 0;
+    background: transparent;
+    border: none
+}
+ul.sf-menu>li>ul ul.service-list li>a,
+ul.sf-menu>li>ul ul.service-list li>a:hover {
+    padding: 4px 0
+}
+ul.sf-menu>li>ul li>a:hover,
+ul.sf-menu>li>ul li:hover {
+    background: transparent;
+    color: #2a3ab1
+}
+ul.sf-menu>li>ul li:hover {
+    border-bottom: 1px solid #fff
+}
+ul.sf-menu>li>ul ul.service-list li:hover,
+ul.sf-menu>li>ul ul#menu-featured-services li:hover {
+    border-bottom: none
+}
+ul.sf-menu>li>ul>li.last,
+ul.sf-menu>li>ul>li.last:hover {
+    border-bottom: none
+}
+.sf-menu ul ul {
+    position: relative
+}
+.sf-menu ul li.services-submenu,
+.sf-menu ul li.services-submenu:hover {
+    position: relative;
+    width: 920px;
+    height: 420px;
+    background: #e9eaee;
+    border: 1px solid #fff;
+    border-top: none;
+    -moz-box-shadow: 0px 1px 1px #ccc;
+    -webkit-box-shadow: 0px 1px 1px #ccc;
+    box-shadow: 0px 1px 1px #ccc
+}
+.services-submenu .featured-services {
+    width: 145px;
+    padding: 20px
+}
+.services-submenu .more-services {
+    background: #fff;
+    padding: 20px;
+    float: right;
+    margin-top: 0;
+    width: 690px;
+    height: 380px;
+    font-size: 11px
+}
+.sf-menu li.services .services-submenu ul {
+    top: auto;
+    position: static;
+    border: none
+}
+.sf-menu li.services .services-submenu ul.service-list {
+    float: left;
+    width: 140px;
+    padding-right: 10px;
+    border-right: 1px solid #666;
+    margin-right: 15px
+}
+.sf-menu li.services .services-submenu ul.service-list.last {
+    margin-right: 0;
+    border-right: none
+}
+.services-submenu h3 {
+    clear: none;
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
+    color: #d41b23;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    padding-bottom: 3px
+}
+.services-submenu .more-services h3 {
+    border-bottom: 1px solid #ddd
+}
+.sf-menu ul li.findphysician-submenu,
+.sf-menu ul li.findphysician-submenu:hover {
+    position: relative;
+    width: 300px;
+    height: auto;
+    background: #e9eaee;
+    border: 1px solid #fff;
+    border-top: none;
+    padding: 20px 30px;
+    -moz-box-shadow: 0px 1px 1px #ccc;
+    -webkit-box-shadow: 0px 1px 1px #ccc;
+    box-shadow: 0px 1px 1px #ccc
+}
+.sf-menu>ul>li.find-physician:hover>ul,
+.sf-menu>li.find-physician.sfHover>ul,
+.sf-menu>li.find-physician.autocompleteopen>ul {
+    left: -215px
+}
+.sf-menu>li.find-physician label {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    color: #d41b23;
+    display: block;
+    margin-bottom: 4px
+}
+.sf-menu>li.find-physician label#forPhysicianSpecialty {
+    margin-top: 10px
+}
+.sf-menu>li.find-physician input.text {
+    height: 26px;
+    padding: 0 10px 0;
+    margin: 0;
+    position: relative;
+    top: -8px;
+    left: -5px;
+    width: 230px
+}
+.subsite-nav {
+    background: #e3e6eb;
+    position: relative;
+    top: -8px;
+    left: -10px;
+    width: 953px;
+    border-top: 1px solid #c2c3c4;
+    border-bottom: 1px solid #c2c3c4;
+    border-left: 5px solid #e31e26;
+    height: 54px;
+    z-index: 90
+}
+.subsite-nav ul {
+    margin: 0
+}
+.subsite-nav>ul {
+    z-index: 90
+}
+.subsite-nav ul li {
+    list-style: none;
+    float: left;
+    background: transparent
+}
+.subsite-nav ul li a,
+.subsite-nav ul li a:visited,
+.subsite-nav ul li a:active {
+    display: block;
+    padding: 16px 20px 0;
+    border-right: 1px solid #fff;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    height: 38px;
+    border-top: none;
+    border-bottom: none;
+    line-height: 16px
+}
+.subsite-nav ul li a:hover,
+.subsite-nav ul li.sfHover a {
+    background: #fff;
+    border-bottom: 1px solid #fff
+}
+.subsite-nav ul li.current_page_item a,
+.subsite-nav ul li.current-page-ancestor a {
+    background: #fff;
+    height: 39px;
+    position: relative;
+    top: -1px;
+    border-left: 1px solid #c2c3c4;
+    border-right: 1px solid #c2c3c4;
+    border-bottom: 1px solid #fff
+}
+.subsite-nav ul.sub-menu {
+    display: none;
+    border: 1px solid #c2c3c4;
+    border-top: none;
+    padding: 15px 24px 20px;
+    background: #fff;
+    width: 200px;
+    top: 55px
+}
+.subsite-nav ul.sub-menu li {
+    width: 200px;
+    float: none
+}
+.subsite-nav ul.sub-menu li a {
+    border: none;
+    padding: 7px 0;
+    height: auto
+}
+#footer {
+    background: none;
+    border-top: none;
+    margin-top: 0
+}
+#subsidiary {
+    padding: 0
+}
+#footer2 {
+    background: url(https://foundation.uc.edu/file/lcoh/footer2.png) top repeat-x #898d90;
+    border-bottom: 8px solid #6c7074
+}
+#footer2 .inner {
+    width: 960px;
+    padding: 10px 0;
+    color: #fff;
+    margin: 0 auto;
+    font-size: 11px;
+    text-shadow: #333 1px 1px 1px;
+    position: relative;
+    overflow: hidden
+}
+#footer2 .lcoh-footer-links {
+    width: 70%;
+    float: left
+}
+#footer2 .lcoh-copyright {
+    width: 30%;
+    float: right;
+    text-align: right
+}
+#footer2 .inner .menu-footer-container .menu {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: auto
+}
+#footer2 .inner .menu {
+    margin: 0;
+    width: auto
+}
+#footer2 .inner .menu li {
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+    padding-right: 15px;
+    border-right: 1px solid #eee
+}
+#footer2 .inner .menu li.first {
+    border-left: none
+}
+#footer2 .inner .menu li a {
+    color: #fff;
+    text-decoration: none
+}
+ul.debug-list {
+    width: 940px;
+    margin: 0 auto
+}
+ul.debug-list li {
+    list-style: none;
+    font-size: 11px;
+    padding: 10px 20px;
+    background: #eee;
+    border: 1px solid #ddd;
+    margin: 3px 0
+}
+#subsidiary .aside {
+    float: left;
+    margin: 0
+}
+#subsidiary #first,
+#subsidiary #third {
+    width: 50%
+}
+#subsidiary #first {
+    text-align: left;
+    margin-top: 35px
+}
+#subsidiary #third {
+    text-align: right
+}
+#subsidiary .aside img {
+    margin-right: 20px
+}
+#subsidiary .aside h3,
+#subsidiary .aside h3 a,
+#subsidiary .aside h3 a:hover {
+    color: #e31e26;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 7px;
+    text-decoration: none
+}
+#subsidiary .widget_nav_menu ul.menu {
+    margin: 0;
+    width: auto
+}
+#subsidiary .widget_nav_menu ul.menu li {
+    list-style: none;
+    border-bottom: 1px solid #fff;
+    padding: 8px 0;
+    font-size: 12px
+}
+#subsidiary .widget_nav_menu ul.menu li.first {
+    padding-top: 0
+}
+#subsidiary .widget_nav_menu ul.menu li.last {
+    border-bottom: none
+}
+#subsidiary .widget_nav_menu ul.menu li a {
+    color: #000;
+    text-decoration: none
+}
+#subsidiary .widget_nav_menu ul.menu li a:hover {
+    color: #E31E26
+}
+#subsidiary .widget_nav_menu ul.menu li#menu-item-5986 a {
+    height: 24px;
+    display: block;
+    padding-left: 35px;
+    background: url("https://foundation.uc.edu/file/lcoh/socialmedia.png") top left no-repeat
+}
+#subsidiary .widget_nav_menu ul.menu li#menu-item-5987 a {
+    height: 24px;
+    display: block;
+    padding-left: 35px;
+    background: url("https://foundation.uc.edu/file/lcoh/socialmedia.png") 0 -24px no-repeat
+}
+#subsidiary .widget_nav_menu ul.menu li#menu-item-6632 a {
+    height: 24px;
+    display: block;
+    padding-left: 35px;
+    background: url("https://foundation.uc.edu/file/lcoh/socialmedia.png") 0 -48px no-repeat
+}
+#subsite_subsidiary {
+    width: 710px
+}
+#subsite_subsidiary .aside {
+    padding: 0;
+    margin: 0;
+    width: 216px;
+    float: left;
+    border: none
+}
+#subsite_subsidiary .aside#subsite_first {
+    margin-right: 25px
+}
+#subsite_subsidiary .aside#subsite_third {
+    float: right
+}
+#subsite_subsidiary .aside>ul.xoxo {
+    padding: 0
+}
+#subsite_subsidiary .aside ul.postlist {
+    margin-left: 0
+}
+#subsite_subsidiary .aside ul.postlist li {
+    list-style: none;
+    margin-bottom: 8px
+}
+#subsite_subsidiary .aside ul.postlist li a,
+#subsite_subsidiary .aside ul.postlist li a:visited {
+    text-decoration: none;
+    color: #E31E26
+}
+#subsite_subsidiary .aside ul.postlist li a:hover {
+    text-decoration: underline
+}
+#subsite_subsidiary .aside h3.widgettitle {
+    border-bottom: 1px solid #333;
+    margin-bottom: 6px
+}
+#primary img {
+    max-width: 100%
+}
+#primary .widgetcontainer {
+    padding: 10px 6px 10px 6px
+}
+#primary .widgetcontainer a {
+    text-decoration: none
+}
+#primary .widget_uchreturnbtn {
+    padding: 0;
+    border-left: 5px solid #e31e26
+}
+#primary .widget_uchreturnbtn a {
+    display: block;
+    background: #dadada;
+    padding: 15px 20px 20px;
+    font-family: "Times New Roman", Times, serif
+}
+#primary .widgetcontainer.widget_uchsidemenu {
+    padding: 0 0 0 5px
+}
+#primary h3.widgettitle {
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 15px
+}
+#primary .widget_uchsidemenu h3.widgettitle {
+    padding: 10px 10px 5px 20px
+}
+#primary .menu {
+    width: auto;
+    margin: 0;
+    position: relative
+}
+#primary .menu li {
+    list-style: none
+}
+#primary .widget_uchsidemenu .menu li {
+    list-style: none;
+    border-bottom: 1px solid #fff;
+    position: relative
+}
+#primary .widget_uchsidemenu .menu li.hover,
+#primary .widget_uchsidemenu .menu>li.current-menu-item.hover,
+#primary .widget_uchsidemenu .menu>li.current-menu-ancestor.hover {
+    background: #DADADA
+}
+#primary .widget_uchsidemenu .menu li.hover>a,
+#primary .widget_uchsidemenu .menu li.hover>a:visited {
+    color: #E31E26
+}
+#primary .widget_uchsidemenu .menu>li.current-menu-item,
+#primary .widget_uchsidemenu .menu>li.current-menu-ancestor {
+    background: #fff
+}
+#primary .widget_uchsidemenu .menu li.last {
+    border-bottom: none
+}
+#primary .widget_uchsidemenu .menu>li>a {
+    display: block;
+    padding: 5px 10px 5px 20px
+}
+#primary .widget_uchsidemenu .menu>li.current-menu-item>a {
+    color: #333
+}
+#primary .widget_uchsidemenu .sub-menu {
+    display: none;
+    position: absolute;
+    right: -180px;
+    top: 0;
+    width: 180px;
+    background: #DADADA;
+    padding: 5px 0 5px 1px;
+    font-size: 12px;
+    line-height: 15px;
+    z-index: 50
+}
+#primary .widget_uchsidemenu .sub-menu li {
+    margin-bottom: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid #AEAFAF;
+    padding-left: 1px
+}
+#primary .widget_uchsidemenu .sub-menu a {
+    display: block;
+    padding: 2px 10px
+}
+#primary label {
+    display: block
+}
+.widget_uchsidemenu .arrow {
+    position: absolute;
+    right: 0;
+    top: 9px;
+    background: url("https://foundation.uc.edu/file/lcoh/navarrow2.png");
+    width: 7px;
+    height: 12px
+}
+.widgetcontainer .date,
+.postdate {
+    font-size: 10px;
+    padding: 0;
+    border: none;
+    display: block;
+    text-align: left
+}
+#primary.aside select {
+    width: 132px;
+    padding: 3px
+}
+#ssba_tooptip {
+    display: none
+}
+#ssba img {
+    padding-right: 0
+}
+.aside .widget_postmetawidget a {
+    color: #E31E26
+}
+#secondary.main-aside .xoxo {
+    margin: 0
+}
+#secondary.main-aside .xoxo .widgetcontainer {
+    padding: 0 10px 10px;
+    border: 1px solid #ebeae8;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #464646;
+    line-height: 18px
+}
+#secondary.main-aside .xoxo .widgetcontainer a {
+    color: #E31E26
+}
+#secondary.main-aside .xoxo h3.widgettitle {
+    background: #6d7175;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 12px;
+    margin: 0 -10px 10px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6)
+}
+#secondary.main-aside .widget_multieditwidget h3 {
+    background: #6d7175;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 12px;
+    margin: 0 -10px 10px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+    line-height: 16px
+}
+#secondary.main-aside .wp-caption {
+    padding: 0;
+    border: none
+}
+body.no-rightsidebar #secondary.aside {
+    display: none
+}
+body.no-leftsidebar #primary.aside,
+.archive.mediaroom #primary.aside,
+.mediaroom.mediaroomroot #primary.aside {
+    display: none
+}
+#content .aside ul .widget_em_widget ul {
+    margin: 0
+}
+.widget_em_widget li {
+    list-style: none;
+    clear: both;
+    margin-top: 10px
+}
+.widget_em_widget div.calendar,
+.type-event div.calendar,
+.event-list div.calendar {
+    background: #eaebef;
+    border: 1px solid #aeafb0;
+    width: 40px;
+    float: left;
+    margin: 0 10px 10px 0
+}
+.widget_em_widget div.calendar span,
+.type-event div.calendar span,
+.event-list div.calendar span {
+    display: block;
+    text-align: center;
+    color: #000;
+    font-size: 11px
+}
+.widget_em_widget div.calendar span.day,
+.type-event div.calendar span.day,
+.event-list div.calendar span.day {
+    background: #d41b23;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 3px 0
+}
+.widget_em_widget h4,
+.event-list h4 {
+    clear: none;
+    font-weight: bold
+}
+.widget_em_widget h4 a,
+.event-list h4 a {
+    text-decoration: none;
+    color: #d41b23
+}
+.widget_em_widget h4 a:hover,
+.event-list h4 a:hover {
+    text-decoration: underline
+}
+.widget_em_widget .eventdetails {
+    margin-left: 50px
+}
+.widget_em_widget .all-events-link {
+    text-transform: capitalize;
+    padding-left: 50px
+}
+.event-list {
+    margin-left: 0
+}
+.event-list li {
+    list-style: none;
+    clear: both
+}
+.aside ul .widget_uchealthnews ul,
+.aside ul .widget_uchealtheventswidget ul {
+    margin: 0 0 0 5px
+}
+#secondary.main-aside .xoxo .widgetcontainer.widget_specialtyphysicianswidget {
+    padding: 0;
+    border: none;
+    margin-bottom: 10px
+}
+#secondary.main-aside .xoxo .widgetcontainer.widget_specialtyphysicianswidget a {
+    display: block;
+    background: url(https://foundation.uc.edu/file/lcoh/btn-specialty-providers.png);
+    padding: 15px 70px 0 20px;
+    width: 102px;
+    height: 74px;
+    text-decoration: none;
+    line-height: 16px;
+    color: #464646
+}
+#secondary.main-aside .xoxo .widgetcontainer.widget_specialtyphysicianswidget a:hover {
+    background-position: 0 -89px
+}
+#secondary.main-aside .xoxo .widgetcontainer.widget_uchcontactbox {
+    background: #f2f2f2
+}
+#container {
+    width: 938px;
+    padding: 12px 10px;
+    border: 1px solid #c6c6c6;
+    margin: 0;
+    background: #fff;
+    height: auto;
+    position: relative
+}
+#main {
+    padding-top: 40px
+}
+#breadcrumbs {
+    font-size: 10px;
+    clear: both
+}
+.mediaroomroot #breadcrumbs {
+    display: none
+}
+#printlogo {
+    display: none
+}
+a.redbutton,
+a.redbutton:visited,
+a.redbutton:link,
+a.redbutton:active,
+a.redbutton:hover {
+    display: block;
+    background: url(https://foundation.uc.edu/file/lcoh/btn-red.png);
+    width: 154px;
+    height: 21px;
+    padding-top: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    margin: 0 10px 20px;
+    float: left
+}
+a.redbutton:hover {
+    background-position: 0 -21px
+}
+body.no-rightsidebar #content,
+body.location-details #content,
+body.mediaroom #content {
+    margin-right: 20px
+}
+body.no-leftsidebar #content {
+    margin-left: 30px
+}
+ul.fieldlist,
+.aside ul ul.fieldlist {
+    margin-left: 0
+}
+ul.fieldlist li {
+    list-style: none;
+    clear: both;
+    margin-top: 7px
+}
+ul.fieldlist label {
+    float: left;
+    display: block;
+    width: 150px
+}
+ul.fieldlist select {
+    width: 306px;
+    padding: 3px
+}
+#physicianSearchAdvanced input.text {
+    background: #fff;
+    font-size: 14px
+}
+.aside ul.fieldlist select {
+    width: 132px
+}
+.aside #physicianSearchAdvanced input.text {
+    width: 111px
+}
+.ln-letters a {
+    display: block;
+    float: left;
+    margin-right: 2px;
+    padding: 0 3px;
+    border: 1px solid #ddd;
+    text-decoration: none
+}
+.ln-letters a:hover {
+    text-decoration: none;
+    background: #eee
+}
+.ln-letters a.ln-selected,
+.ln-letters a.ln-selected:visited {
+    color: #333
+}
+.ln-letters a.ln-disabled {
+    color: #ccc;
+    cursor: default
+}
+.ln-letter-count {
+    display: none
+}
+#providerlist {
+    clear: both;
+    padding-top: 10px;
+    display: none
+}
+.searchresultslist {
+    margin-left: 0
+}
+.searchresultslist .searchresult {
+    list-style: none;
+    background: #fafafb;
+    border: 1px solid #ccc;
+    padding: 20px 15px 10px 150px;
+    position: relative;
+    font-size: 12px;
+    line-height: 17px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    min-height: 110px
+}
+.searchresultslist .searchresult:hover,
+.searchresultslist .searchresult.hover {
+    background: #eee;
+    border: 1px solid #e31e26
+}
+.searchresultslist .searchresult .physician-thumbnail {
+    position: absolute;
+    left: 15px;
+    top: 15px
+}
+.searchresultslist .searchresult .alphaname {
+    display: none
+}
+.searchresultslist .propertylist {
+    margin: 0
+}
+.searchresultslist .propertylist li {
+    list-style: none
+}
+.searchresultslist .propertylist .propertyname {
+    font-weight: bold
+}
+.searchresultslist .searchresult h4 a {
+    text-decoration: none;
+    font-size: 14px
+}
+.simplesearchresultstable {
+    margin-left: 0
+}
+.simplesearchresultstable li {
+    list-style: none;
+    width: 112px;
+    padding: 8px 12px;
+    float: left;
+    margin: 0 10px 15px 0;
+    text-align: center;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 2px 0px rgba(124, 124, 124, 0.25);
+    height: 170px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 18px
+}
+.simplesearchresultstable li img {
+    display: block;
+    margin-bottom: 5px
+}
+.simplesearchresultstable li a {
+    text-decoration: none
+}
+#map_canvas_wrapper {
+    width: 470px;
+    height: 230px;
+    border: 1px solid #eee;
+    position: absolute;
+    left: 0;
+    top: 0
+}
+#map_canvas {
+    width: 466px;
+    height: 226px;
+    border: 2px solid #fff
+}
+#uchealth-location .contactinfo {
+    position: relative;
+    padding-left: 500px;
+    min-height: 230px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee
+}
+#uchealth-location .contactinfo.nodescription {
+    border-bottom: none;
+    padding-bottom: 0
+}
+#uchealth-location .description {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    position: relative
+}
+#uchealth-location .description.hasphoto img.locationphoto {
+    float: left;
+    margin: 0 20px 10px 0
+}
+#uchealth-location .tripLength {
+    margin: 15px 0;
+    font-weight: normal
+}
+#uchealth-location .tripLength strong {
+    font-weight: normal
+}
+.hidden {
+    display: none
+}
+#uchealth-location #locationdirections {
+    clear: both;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding-top: 20px;
+    margin-bottom: 20px
+}
+#putDirectionsHere table {
+    width: 100%
+}
+#putDirectionsHere table strong,
+#putDirectionsHere table b {
+    font-weight: normal
+}
+.entry-content #putDirectionsHere img {
+    margin: 0;
+    padding: 0
+}
+.entry-content h3.drivingdirectionsTitle {
+    color: #333;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: "Times New Roman", Times, serif
+}
+.providerlist.threecolumns {
+    width: 200px;
+    float: left;
+    margin-left: 0;
+    margin-right: 25px
+}
+.providerlist.threecolumns li {
+    list-style: none
+}
+.physician-profile h1.entry-title {
+    position: absolute;
+    left: 230px;
+    top: 30px;
+    z-index: 1;
+    color: #e31e26
+}
+.physician-profile .topbox {
+    background: #fafafb;
+    border: 1px solid #e5e5e5;
+    padding: 55px 25px 15px 230px;
+    position: relative;
+    min-height: 180px;
+    margin-bottom: 20px
+}
+.physician-profile .topbox img {
+    position: absolute;
+    left: 15px;
+    top: 15px
+}
+.physician-profile .topbox .physician-title {
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 15px
+}
+.physician-profile .topbox p {
+    padding-left: 100px;
+    position: relative
+}
+.physician-profile .topbox p.entities {
+    padding-left: 150px
+}
+.physician-profile .topbox p span.label {
+    position: absolute;
+    font-weight: bold;
+    left: 0;
+    display: block
+}
+.entry-content ul.regionlist,
+.entry-content ul.locationlist {
+    margin-left: 0
+}
+.entry-content ul.regionlist,
+.entry-content ul.locationlist li {
+    margin-top: 8px
+}
+.entry-content ul.regionlist,
+.entry-content ul.locationlist li.first {
+    margin-top: 0
+}
+.entry-content ul.regionlist li {
+    list-style: none
+}
+.physician-profile .columnwrapper .biocolumn {
+    width: 160px;
+    float: left;
+    margin: 0 25px 0 0;
+    padding: 0 25px 0 0;
+    border-right: 1px solid #ddd;
+    padding-bottom: 20px
+}
+.physician-profile .columnwrapper .biocolumn.first {
+    margin-left: 0;
+    width: 255px
+}
+.physician-profile .columnwrapper.nobio .biocolumn.second {
+    width: 455px
+}
+.physician-profile .columnwrapper.hasvideo .biocolumn.second {
+    padding-top: 330px
+}
+.physician-profile .columnwrapper.nobio.hasvideo .biocolumn.second {
+    padding-top: 0
+}
+.physician-profile .columnwrapper .biocolumn.third {
+    margin-right: 0;
+    float: right;
+    padding-right: 0;
+    border-right: none;
+    width: 185px
+}
+.physician-profile .columnwrapper h2 {
+    font-size: 18px
+}
+.physician-profile ul.schoollist {
+    margin-left: 0
+}
+.physician-profile ul.schoollist li {
+    list-style: none;
+    margin-bottom: 10px
+}
+.physician-profile ul.schoollist li.last {
+    margin-bottom: 0
+}
+.physician-profile .video {
+    margin-bottom: 10px
+}
+.physician-profile .video iframe {
+    border-bottom: 10px solid #fff
+}
+h1.entry-title {
+    padding-top: 17px;
+    font-size: 28px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal
+}
+.entry-content {
+    font-size: 13px
+}
+.entry-content p,
+.entry-content ul,
+.entry-content ol {
+    margin-bottom: 15px
+}
+.entry-content ul.spaced,
+.entry-content ol.spaced {
+    margin-bottom: 5px
+}
+.entry-content ul.spaced li,
+.entry-content ol.spaced li {
+    margin-bottom: 10px
+}
+.entry-content img.noborder,
+.entry-content img.no-border {
+    padding: 0;
+    border: none
+}
+.entry-content .wp-caption {
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #EBEAE8
+}
+.entry-content .wp-caption img {
+    padding: 0
+}
+.entry-content .wp-caption p {
+    padding: 0;
+    font-size: 11px;
+    font-style: italic
+}
+.entry-content iframe {
+    border: 1px solid #ddd;
+    margin: 0;
+    display: block;
+    max-width: 100%
+}
+.entry-content table img {
+    margin-bottom: 0
+}
+.entry-content table tr,
+.entry-content table td {
+    vertical-align: middle
+}
+.page-id-5198 .entry-content h2,
+.page-id-5196 .entry-content h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    clear: both;
+    margin-top: 30px
+}
+.page-id-5198 .entry-content h3,
+.page-id-5196 .entry-content h3 {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+    clear: both
+}
+input[type="text"],
+input[type="email"] {
+    background: #f6f7f8;
+    width: 100px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 11px
+}
+.msie input[type="text"],
+.msie input[type="email"] {
+    padding-top: 2px
+}
+#content input[type="text"],
+#content input[type="email"] {
+    font-size: 13px
+}
+.msie #content input[type="text"],
+.msie #content input[type="email"] {
+    padding-top: 2px;
+    padding-bottom: 10px
+}
+#content textarea {
+    background: #f6f7f8;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 13px;
+    height: 100px
+}
+a#btnRefresh {
+    width: 30px;
+    height: 26px;
+    display: block;
+    text-indent: -999px;
+    overflow: hidden;
+    background: url("https://foundation.uc.edu/file/lcoh/btn-go.png");
+    float: left;
+    margin-right: 5px
+}
+#content legend {
+    font-weight: bold;
+    border-bottom: 1px dashed #ddd;
+    display: block;
+    width: 100%
+}
+#recaptcha_response_field {
+    font-size: inherit;
+    padding: auto
+}
+#content .recaptchatable #recaptcha_response_field {
+    margin: 8px 0 0 0;
+    padding: 0;
+    height: 20px
+}
+#content #recaptcha-wrapper {
+    width: 100%;
+    float: left
+}
+#content #submit {
+    clear: both;
+    display: block;
+    margin-left: 150px;
+    margin-top: 10px
+}
+ol.alphabetlist {
+    margin-left: 10px
+}
+ol.alphabetlist li {
+    list-style: none
+}
+ol.alphabetlist h3 {
+    border-bottom: 1px dashed #ddd;
+    color: #666;
+    padding-bottom: 0;
+    margin-bottom: 6px;
+    clear: both
+}
+ul.serviceslist {
+    width: 200px;
+    margin-right: 30px;
+    float: left;
+    margin-left: 0
+}
+ul.serviceslist li {
+    list-style: none;
+    line-height: 14px;
+    margin-bottom: 9px
+}
+ul.serviceslist li a {
+    text-decoration: none
+}
+ul.serviceslist li a:hover {
+    text-decoration: underline
+}
+a.all-services {
+    position: absolute;
+    display: block;
+    right: 30px;
+    top: 25px;
+    width: auto;
+    padding: 0;
+    border: none
+}
+.msie a.all-services {
+    width: 100px;
+    background: #fff
+}
+.sectionhead {
+    position: relative
+}
+.mediaroom .sectionhead {
+    height: 80px
+}
+.mediaroomheader {
+    position: absolute;
+    font-size: 16px;
+    width: 500px;
+    right: 0;
+    top: 33px
+}
+.mediaroomheader a {
+    text-decoration: none
+}
+.single-event .mediaroomheader {
+    display: none
+}
+.mediaroom #main {
+    padding-top: 0
+}
+.sectionhead .tabs {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0
+}
+.sectionhead .tabs li {
+    float: left;
+    list-style: none;
+    font-size: 12px
+}
+.sectionhead .tabs li a {
+    display: block;
+    padding: 8px 15px 6px;
+    text-decoration: none;
+    background: url(https://foundation.uc.edu/file/lcoh/media-tab-gradient.png) top repeat-x #f5f6f8;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #666
+}
+.sectionhead .tabs li.last a {
+    border-right: 1px solid #ccc
+}
+.sectionhead .tabs li a:hover {
+    background: #fff
+}
+.sectionhead .tabs li.active a,
+.sectionhead .tabs li.active a:hover {
+    background: url(https://foundation.uc.edu/file/lcoh/media-tab-gradient.png) 0 -52px repeat-x #f5f6f8;
+    color: #fff
+}
+.mediaroomroot h1.entry-title {
+    display: none
+}
+.mediaroom #secondary.aside {
+    display: none
+}
+.archive.mediaroom #content,
+.mediaroomroot #content {
+    margin: 0
+}
+.archive-wrapper {
+    border-bottom: 1px solid #aaa
+}
+.archive-wrapper.last {
+    border-bottom: none
+}
+.archive-title-col {
+    width: 180px;
+    float: left;
+    margin-right: 20px;
+    padding: 44px 0 0 10px
+}
+.archive-title-col h3,
+.archive-title-col h3 a {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 26px;
+    color: #464646;
+    font-weight: normal;
+    line-height: 30px;
+    text-decoration: none
+}
+.entry-content .archive_table h2,
+.archive .entry-title {
+    font-family: Arial, sans-serif;
+    padding-bottom: 4px
+}
+table.archive_table {
+    border: none;
+    margin-bottom: 0
+}
+table.archive_table tr {
+    border-bottom: none
+}
+table.archive_table td {
+    padding: 20px 0;
+    margin: 10px 0;
+    width: 25%;
+    vertical-align: top
+}
+table.archive_table td>div {
+    padding: 0 10px;
+    border-left: 1px solid #eee
+}
+table.archive_table h2 {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 17px
+}
+table.archive_table h2 a,
+table.archive_table h2 a:hover {
+    color: #E31E26;
+    text-decoration: none
+}
+.mediaroom .entry-content .wp-post-image {
+    float: none;
+    margin-left: 0
+}
+.entry-content h2,
+.entry-content h3,
+.entry-content h4 {
+    clear: none
+}
+.nav-below {
+    display: none
+}
+ul.postlist {
+    margin: 0 0 20px 0
+}
+ul.postlist li {
+    clear: both;
+    list-style: none;
+    margin: 0 0 10px 0
+}
+ul.postlist.thumbnails li {
+    padding-left: 130px;
+    position: relative;
+    min-height: 110px
+}
+ul.postlist li img {
+    float: left;
+    margin: 0 20px 10px 0
+}
+.entry-content ul.postlist.thumbnails li img.wp-post-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    margin: 0
+}
+.widget_uchealthnewscycle ul.postlist li {
+    display: none
+}
+ul.postlist li h4 {
+    clear: none;
+    font-size: 13px;
+    margin-bottom: 4px
+}
+ul.postlist li .thumbnail {
+    display: block;
+    text-align: center;
+    width: 100%
+}
+ul.postlist li .thumbnail img {
+    margin: 0 auto;
+    border: 1px solid #ccc
+}
+ul.postlist li h4 a,
+ul.postlist li h4 a:visited {
+    text-decoration: none
+}
+ul.postlist li h4 a:hover {
+    text-decoration: underline
+}
+.type-event .entry-title {
+    margin-bottom: 10px
+}
+.type-event div.calendar {
+    width: 55px;
+    margin: 0 0 10px
+}
+.type-event .entry-meta {
+    display: none
+}
+.em-location-map-container {
+    float: right;
+    border: 1px solid #ccc;
+    margin: 0 0 20px 20px
+}
+.type-event .meta {
+    margin-left: 70px
+}
+.type-event .meta li {
+    list-style: none;
+    margin-bottom: 8px;
+    line-height: 16px
+}
+.type-event .meta li.category {
+    font-weight: bold
+}
+.em-events-search {
+    margin-bottom: 20px
+}
+.events-table {
+    border: none
+}
+.type-event .entry-content h2,
+.type-event .entry-content h3 {
+    clear: left
+}
+.em-booking-form-details {
+    width: auto
+}
+.em-booking-form label {
+    display: block;
+    float: left;
+    width: 130px
+}
+.em-booking-form p.input-user-field {
+    clear: left
+}
+.em-booking {
+    margin-top: 0
+}
+.scrollable .items {
+    position: absolute
+}
+.scrollable .items div {
+    float: left;
+    width: 612px;
+    height: 281px
+}
+a.browse {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: block;
+    text-indent: -999px;
+    overflow: hidden
+}
+a.browse.left {
+    background: url("https://foundation.uc.edu/file/lcoh/btn-back.png") top left;
+    position: absolute;
+    left: 20px;
+    top: 270px
+}
+a.browse.right {
+    background: url("https://foundation.uc.edu/file/lcoh/btn-next.png") top left;
+    position: absolute;
+    left: 640px;
+    top: 270px
+}
+a.browse.left:hover,
+a.browse.right:hover {
+    background-position: 0 -24px
+}
+.browse.disabled {
+    display: none
+}
+.home.hospitaltemplate #content {
+    width: 365px
+}
+.home.hospitaltemplate #secondary {
+    width: 305px;
+    margin: 92px 0 0 -325px
+}
+.home.hospitaltemplate #secondary .widgetcontainer {
+    border: none;
+    padding: 0;
+    margin-bottom: 20px
+}
+.home.hospitaltemplate #secondary.main-aside .xoxo h3.widgettitle {
+    background: transparent;
+    color: #333;
+    font-size: 18px;
+    margin: 0 0 3px;
+    padding: 0;
+    text-shadow: none;
+    font-family: "Times New Roman", Times, serif
+}
+.home.hospitaltemplate #secondary.main-aside .xoxo h3.widgettitle a,
+.home.hospitaltemplate #secondary.main-aside .xoxo h3.widgettitle a:visited {
+    color: #333
+}
+.widget_thumbnailtextwidget {
+    clear: both
+}
+.widget_thumbnailtextwidget,
+.home.hospitaltemplate #secondary .widgetcontainer.widget_thumbnailtextwidget {
+    padding-left: 80px;
+    position: relative
+}
+.widget_thumbnailtextwidget .thumbnail {
+    width: 70px;
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    padding: 0
+}
+.widget_thumbnailtextwidget .thumbnail img {
+    border: 1px solid #ddd
+}
+.accommodationsmap {
+    margin-bottom: 20px
+}
+ul.accommodations-legend {
+    margin-left: 80px;
+    height: 36px
+}
+ul.accommodations-legend li {
+    list-style: none;
+    float: left;
+    border-right: 1px solid #ddd;
+    height: 32px;
+    padding: 4px 15px 0 30px;
+    margin-right: 15px;
+    background: url(https://foundation.uc.edu/file/lcoh/mapmarkers.png) no-repeat
+}
+ul.accommodations-legend li.hospital {
+    background-position: 0 -51px
+}
+ul.accommodations-legend li.other {
+    background-position: 0 -106px;
+    border-right: none
+}
+ul.accommodationslist {
+    float: left;
+    width: 320px;
+    margin-right: 20px;
+    margin-left: 0
+}
+ul.accommodationslist h4 {
+    font-size: 14px;
+    font-weight: normal
+}
+ul.accommodationslist li {
+    list-style: none;
+    clear: both
+}
+.accommodationslist img {
+    float: left;
+    margin-right: 10px;
+    border: 1px solid #ccc
+}
+.ngg-slideshow {
+    border: 1px solid #eee
+}
+.entry-content .ngg-slideshow img {
+    padding: 0;
+    border: none
+}
+.relatedcontent li.id-BEsoT16,
+.relatedcontent li.id-BEsoT17,
+.relatedcontent li.id-BEsoT15 {
+    display: none
+}
+.mejs-container.mejs-audio {
+    width: 400px;
+    margin-bottom: 30px
+}
+.single-event.postid-9203 .em-location-map-container,
+.single-event.postid-9484 .em-location-map-container,
+.single-event.postid-9483 .em-location-map-container,
+.single-event.postid-9485 .em-location-map-container,
+.single-event.postid-9488 .em-location-map-container,
+.single-event.postid-9490 .em-location-map-container,
+.single-event.postid-9492 .em-location-map-container,
+.single-event.postid-9979 .em-location-map-container,
+.single-event.postid-9981 .em-location-map-container,
+.single-event.postid-9982 .em-location-map-container {
+    display: none
+}
+.error404 .sectionhead {
+    display: none
+}
+.error404 #previouspostwidget-2 {
+    display: none
+}
+.error404 #sitesearch {
+    top: 0
+}
+.error404 #sitesearchcontainer {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 9999
+}
+.error404 #sitesearch button {
+    line-height: 26px
+}
+.error404 #menu-utility {
+    right: 5px
+}
+.fof-content h2 {
+    font-size: 22px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    padding-top: 0;
+    clear: none
+}
+li.page-item-814 {
+    display: none
+}
+#container {
+    width: 938px
+}
+#content {
+    margin: 0;
+    width: 725px;
+    float: right
+}
+#content .hentry {
+    width: 100%;
+    padding: 0
+}
+#blog-title a {
+    text-indent: 0;
+    background: none
+}
+.lcoh-sm-icons {
+    top: 65px
+}
+.lcoh-sm-icons-inner a {
+    background: none;
+    padding: 0;
+    height: auto;
+    width: auto;
+    display: inline-block
+}
+/*# sourceMappingURL=style.css.map */
+
+/*# BBIS Overrides*/
+
+
+span.button a, p.button a, input[type="submit"], input[type="button"], input.BBFormSubmitButton, button, a.BBFormDisplayLinkButton, a.PaymentPartSubmitButton, a.PaymentPart_UpdateCartLink, a.PaymentPart_CartItemRemoveText, a[id$="UpdateLink"], a[id$="btnInsert"], a[id$="InsertLink"], div[id$="pnlAddNew"] a, a.CommandButton, a[id$="ExpandCollapseLinkButton"], a[id$="NewMessageHyperlink"], div[id$="MessageView1_ActionsMenu"] a[value="16"], div[id$="PanelOnlineStatus"] + div + div + div ul li a, table.ProfilePhotoFormTable input[value="Update"], table.ProfilePhotoFormTable input[value="Remove Photo"], a[id$="LinkButtonYes"], input[id$="btnSave"].DonorGrantSubmitButton, input[id$="btnCancel"].DonorGrantSubmitButton, a.BBDocumentTabButton, a.BBDocumentEditButtonWAI, a.BBDocumentApproveButtonWAI {
+  cursor: pointer;
+  text-decoration: none !important;
+  border: 0 none;
+  background-color: #75787c;
+  color: #FFF;
+  /* $client-color-background-invert */
+  padding: 0.85em;
+  line-height: normal;
+  border-radius: .25em;
+  font-family: 'Lato', Sans-Serif !important;
+  font-weight: 700 !important;
+  font-size: .875em;
+  text-transform: uppercase !important;
+  font-style: normal !important;
+  margin: 0; }
+
+input[type="submit"]:hover, input[type="button"]:hover, input.BBFormSubmitButton:hover, button:hover, a.PaymentPart_UpdateCartLink:hover, a.PaymentPart_CartItemRemoveText:hover, a[id$="UpdateLink"]:hover, a[id$="btnInsert"]:hover, a[id$="InsertLink"]:hover, div[id$="pnlAddNew"] a:hover, a.CommandButton:hover, a[id$="ExpandCollapseLinkButton"]:hover, a[id$="NewMessageHyperlink"]:hover, div[id$="MessageView1_ActionsMenu"] a[value="16"]:hover, div[id$="PanelOnlineStatus"] + div + div + div ul li a:hover, table.ProfilePhotoFormTable input[value="Update"]:hover, table.ProfilePhotoFormTable input[value="Remove Photo"]:hover, a[id$="LinkButtonYes"]:hover, input[id$="btnSave"].DonorGrantSubmitButton:hover, input[id$="btnCancel"].DonorGrantSubmitButton:hover, a.BBDocumentTabButton:hover, a.BBDocumentEditButtonWAI:hover, a.BBDocumentApproveButtonWAI,
+p.button a:hover {
+  color: #FFF;
+  background: #75787c;
+  text-decoration: none; }
+
+  .DonationGrid .DonationGridCell input[id*="_dgCart_btnRemove"] {
+  background: #75787c;
+  padding: .25em .5em;
+  font-size: 100%; }
+
+  .BBFieldCaption {
+  white-space: normal;
+  width: 33%;
+  padding: .25em .5em .25em 0; }
+
+  td.DonationFieldControlCell table.taLeft td.DonationFieldControlCell span input {
+  display: block;
+  float: middle;
+  height: 15px;
+  margin: 0 5px;
+  padding: 0; }
+
+  span.button a, p.button a, input[type="submit"], input[type="button"], input.BBFormSubmitButton, button, a.BBFormDisplayLinkButton, a.PaymentPartSubmitButton, a.PaymentPart_UpdateCartLink, a.PaymentPart_CartItemRemoveText, a[id$="UpdateLink"], a[id$="btnInsert"], a[id$="InsertLink"], div[id$="pnlAddNew"] a, a.CommandButton, a[id$="ExpandCollapseLinkButton"], a[id$="NewMessageHyperlink"], div[id$="MessageView1_ActionsMenu"] a[value="16"], div[id$="PanelOnlineStatus"] + div + div + div ul li a, table.ProfilePhotoFormTable input[value="Update"], table.ProfilePhotoFormTable input[value="Remove Photo"], a[id$="LinkButtonYes"], input[id$="btnSave"].DonorGrantSubmitButton, input[id$="btnCancel"].DonorGrantSubmitButton, a.BBDocumentTabButton, a.BBDocumentEditButtonWAI, a.BBDocumentApproveButtonWAI {
+  cursor: pointer;
+  text-decoration: none !important;
+  border: 0 none;
+  background-color: #75787c;
+  color: #FFF;
+  /* $client-color-background-invert */
+  padding: 0.85em;
+  line-height: normal;
+  border-radius: .25em;
+  font-family: 'Lato', Sans-Serif !important;
+  font-weight: 700 !important;
+  font-size: .875em;
+  text-transform: uppercase !important;
+  font-style: normal !important;
+  margin: 0; }
+
+  #content input[type="text"], #content input[type="email"] {
+    font-size: 13px;
+    max-width: 80% !important;
+}
+
+
+.BBFormSelectList {
+    max-width: 70% !important;
+}
+
